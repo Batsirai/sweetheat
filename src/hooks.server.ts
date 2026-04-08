@@ -2,7 +2,7 @@ import type { Handle } from "@sveltejs/kit";
 import { getConvexClient } from "$lib/server/convex";
 import { api } from "../convex/_generated/api";
 
-const PUBLIC_PATHS = ["/login", "/register", "/api/health"];
+const PUBLIC_PATHS = ["/login", "/register", "/api/auth", "/api/health"];
 const AGENT_PATHS_PREFIX = "/api/";
 
 export const handle: Handle = async ({ event, resolve }) => {

@@ -125,13 +125,18 @@ export default defineSchema({
     .index("by_target", ["targetType", "targetId"]),
 
   // ── Training ────────────────────────────────────────────────────────────
-  // Brand-scoped voice/style training modules.
+  // Two-tier system: contributing docs (user ingredients) + primary doc (agent-synthesized).
+  // The agent reads primary docs for content generation. Contributing docs are source material.
   training: defineTable({
     brandId: v.id("brands"),
     layer: v.string(), // voice_general | spark_generation | platform_specific | format_specific
     scope: v.optional(v.string()), // Platform or format name
     title: v.string(),
     content: v.string(), // Training content (markdown)
+    isPrimary: v.optional(v.boolean()), // true = agent-synthesized primary doc, false/undefined = contributing doc
+    synthesizedFrom: v.optional(v.array(v.string())), // IDs of contributing docs used in synthesis
+    synthesizedAt: v.optional(v.number()), // When agent last synthesized
+    needsResynthesis: v.optional(v.boolean()), // Flag when contributing docs change
     version: v.number(),
     updatedAt: v.number(),
   })
