@@ -83,6 +83,18 @@ export const updateStatus = mutation({
   },
 });
 
+export const toggleNewsletterFlag = mutation({
+  args: { id: v.id("branches") },
+  handler: async (ctx, args) => {
+    const branch = await ctx.db.get(args.id);
+    if (!branch) throw new Error("Branch not found");
+    await ctx.db.patch(args.id, {
+      newsletterFlag: !branch.newsletterFlag,
+      updatedAt: Date.now(),
+    });
+  },
+});
+
 export const countByBrandAndStatus = query({
   args: { brandId: v.id("brands") },
   handler: async (ctx, args) => {

@@ -1,6 +1,8 @@
 <script lang="ts">
 	const sections = [
 		{ href: '/settings/brands', label: 'Brands', description: 'Manage your content brands', icon: '🏷️' },
+		{ href: '/settings/training', label: 'Training', description: 'Voice and style training per brand', icon: '📚' },
+		{ href: '/settings/learnings', label: 'Learnings', description: 'Review agent-proposed improvements', icon: '🧠' },
 		{ href: '/settings/integrations', label: 'Integrations', description: 'Connect tools and platforms', icon: '🔗' }
 	];
 </script>
