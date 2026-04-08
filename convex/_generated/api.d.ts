@@ -15,11 +15,13 @@ import type * as brands from "../brands.js";
 import type * as comments from "../comments.js";
 import type * as drafts from "../drafts.js";
 import type * as integrations from "../integrations.js";
+import type * as knowledge from "../knowledge.js";
 import type * as learnings from "../learnings.js";
 import type * as seed from "../seed.js";
 import type * as seeds from "../seeds.js";
 import type * as todos from "../todos.js";
 import type * as training from "../training.js";
+import type * as youtube from "../youtube.js";
 
 import type {
   ApiFromModules,
@@ -35,11 +37,13 @@ declare const fullApi: ApiFromModules<{
   comments: typeof comments;
   drafts: typeof drafts;
   integrations: typeof integrations;
+  knowledge: typeof knowledge;
   learnings: typeof learnings;
   seed: typeof seed;
   seeds: typeof seeds;
   todos: typeof todos;
   training: typeof training;
+  youtube: typeof youtube;
 }>;
 
 /**

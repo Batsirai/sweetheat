@@ -224,4 +224,153 @@ export default defineSchema({
     .index("by_branch", ["branchId"])
     .index("by_brand", ["brandId"])
     .index("by_brand_platform", ["brandId", "platform"]),
+
+  // ═══ KNOWLEDGE BASE (Wisdom of the Crowd) ═══════════════════════════════
+  // Signal-weighted knowledge engine. YouTube + other sources → compiled wiki → idea briefs → seeds.
+
+  // ── Knowledge Topics ────────────────────────────────────────────────────
+  // A topic is a knowledge domain for a brand (e.g., "parenting-toddlers", "senior-nutrition").
+  knowledgeTopics: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(), // Display name
+    slug: v.string(), // URL-safe
+    description: v.optional(v.string()),
+    searchTerms: v.array(v.string()), // YouTube search queries for this topic
+    isActive: v.boolean(),
+    // Stats (updated by compilation)
+    sourceCount: v.optional(v.number()),
+    pageCount: v.optional(v.number()),
+    ideaCount: v.optional(v.number()),
+    lastCompiledAt: v.optional(v.number()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_slug", ["brandId", "slug"]),
+
+  // ── Knowledge Sources ───────────────────────────────────────────────────
+  // Raw source material: YouTube transcripts, articles, notes. LLM reads but never modifies.
+  knowledgeSources: defineTable({
+    topicId: v.id("knowledgeTopics"),
+    brandId: v.id("brands"), // Denormalized
+    sourceType: v.string(), // youtube_transcript | article | note | document
+    title: v.string(),
+    url: v.optional(v.string()),
+    // YouTube-specific
+    youtubeVideoId: v.optional(v.string()),
+    youtubeChannelId: v.optional(v.string()),
+    youtubeChannelName: v.optional(v.string()),
+    viewCount: v.optional(v.number()),
+    likeCount: v.optional(v.number()),
+    commentCount: v.optional(v.number()),
+    durationSeconds: v.optional(v.number()),
+    publishedAt: v.optional(v.number()),
+    thumbnailUrl: v.optional(v.string()),
+    // Content
+    transcript: v.optional(v.string()), // Full transcript text
+    summary: v.optional(v.string()), // LLM-generated summary
+    // Signal scoring
+    resonanceScore: v.optional(v.number()), // Composite 0-100
+    // Processing state
+    status: v.string(), // pending | summarized | compiled | failed
+    contentHash: v.optional(v.string()),
+    compiledAt: v.optional(v.number()),
+    createdAt: v.number(),
+  })
+    .index("by_topic", ["topicId"])
+    .index("by_brand", ["brandId"])
+    .index("by_youtube_video", ["youtubeVideoId"])
+    .index("by_status", ["status"])
+    .index("by_resonance", ["topicId", "resonanceScore"]),
+
+  // ── Knowledge Pages (Wiki) ──────────────────────────────────────────────
+  // LLM-generated and LLM-maintained compiled articles. The persistent, compounding artifact.
+  knowledgePages: defineTable({
+    topicId: v.id("knowledgeTopics"),
+    brandId: v.id("brands"),
+    title: v.string(),
+    slug: v.string(),
+    content: v.string(), // Compiled markdown
+    // Metadata
+    sourceIds: v.array(v.string()), // Which sources contributed
+    entityTags: v.optional(v.array(v.string())), // Extracted entities/concepts
+    contradictions: v.optional(v.array(v.string())), // Flagged disagreements
+    relatedPages: v.optional(v.array(v.string())), // Cross-references
+    // State
+    version: v.number(),
+    compiledAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_topic", ["topicId"])
+    .index("by_brand", ["brandId"])
+    .index("by_topic_slug", ["topicId", "slug"]),
+
+  // ── Knowledge Catalysts ─────────────────────────────────────────────────
+  // Thematic questions generated from compiled knowledge. Content ideation fuel.
+  knowledgeCatalysts: defineTable({
+    topicId: v.id("knowledgeTopics"),
+    brandId: v.id("brands"),
+    question: v.string(),
+    sourcePageIds: v.optional(v.array(v.string())), // Wiki pages that inspired this
+    usedForIdeaBrief: v.optional(v.boolean()),
+    createdAt: v.number(),
+  })
+    .index("by_topic", ["topicId"])
+    .index("by_brand", ["brandId"]),
+
+  // ── Idea Briefs ─────────────────────────────────────────────────────────
+  // Fully formed content ideas generated from wiki knowledge. The output that feeds seeds.
+  ideaBriefs: defineTable({
+    topicId: v.id("knowledgeTopics"),
+    brandId: v.id("brands"),
+    status: v.string(), // ready | claimed | produced | archived
+    // The idea
+    title: v.string(),
+    angle: v.string(),
+    hook: v.optional(v.string()),
+    thesis: v.optional(v.string()),
+    // Substance
+    keyInsights: v.optional(v.array(v.object({
+      insight: v.string(),
+      sourceIds: v.array(v.string()),
+      resonanceScore: v.optional(v.number()),
+    }))),
+    expertPerspectives: v.optional(v.array(v.object({
+      expert: v.string(),
+      position: v.string(),
+    }))),
+    contradiction: v.optional(v.string()),
+    frameworkConnection: v.optional(v.string()), // How this connects to brand's editorial framework
+    // Editorial
+    suggestedFormats: v.optional(v.array(v.string())),
+    estimatedDepth: v.optional(v.string()), // light | medium | deep
+    // Scoring
+    compositeScore: v.optional(v.number()),
+    // Lifecycle
+    claimedBy: v.optional(v.string()),
+    claimedAt: v.optional(v.number()),
+    seedId: v.optional(v.id("seeds")), // If converted to a seed
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_topic", ["topicId"])
+    .index("by_brand", ["brandId"])
+    .index("by_brand_status", ["brandId", "status"])
+    .index("by_score", ["brandId", "compositeScore"]),
+
+  // ── YouTube Channels (Curated) ──────────────────────────────────────────
+  // Channels to monitor per brand for autonomous ingestion.
+  youtubeChannels: defineTable({
+    brandId: v.id("brands"),
+    channelId: v.string(),
+    channelName: v.string(),
+    subscriberCount: v.optional(v.number()),
+    authorityScore: v.optional(v.number()),
+    autoIngest: v.boolean(), // Auto-ingest new videos above threshold
+    ingestThreshold: v.optional(v.number()), // Min resonance score to auto-ingest
+    lastScannedAt: v.optional(v.number()),
+    createdAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_channel", ["channelId"]),
 });
