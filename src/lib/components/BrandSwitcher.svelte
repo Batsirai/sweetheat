@@ -85,6 +85,18 @@
 					</button>
 				{/each}
 			{/if}
+			<div class="border-t border-(--color-border) mt-1 pt-1">
+				<a
+					href="/settings/brands/new"
+					onclick={() => (open = false)}
+					class="w-full text-left px-4 py-2 text-sm hover:bg-(--color-surface-container) text-(--color-brand) flex items-center gap-2"
+				>
+					<svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path d="M12 4v16m-8-8h16" />
+					</svg>
+					New Brand
+				</a>
+			</div>
 		</div>
 	{/if}
 </div>

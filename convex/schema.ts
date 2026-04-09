@@ -2,14 +2,28 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
 export default defineSchema({
+  // ── Organizations ───────────────────────────────────────────────────────
+  // Top of the hierarchy: org → users → brands → content.
+  // Single-org for now (auto-created on first register), multi-tenant ready.
+  organizations: defineTable({
+    name: v.string(),
+    slug: v.string(),
+    plan: v.optional(v.string()), // free | pro | enterprise (future)
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }).index("by_slug", ["slug"]),
+
   // ── Users ───────────────────────────────────────────────────────────────
   users: defineTable({
+    organizationId: v.optional(v.id("organizations")), // Which org this user belongs to
     email: v.string(),
     passwordHash: v.string(),
     name: v.string(),
-    role: v.string(), // admin | user
+    role: v.string(), // owner | admin | editor | viewer
     createdAt: v.number(),
-  }).index("by_email", ["email"]),
+  })
+    .index("by_email", ["email"])
+    .index("by_org", ["organizationId"]),
 
   // ── Sessions ────────────────────────────────────────────────────────────
   sessions: defineTable({
@@ -22,9 +36,9 @@ export default defineSchema({
     .index("by_user", ["userId"]),
 
   // ── Brands ──────────────────────────────────────────────────────────────
-  // The organizational primitive. Everything is brand-scoped.
+  // The content identity. Belongs to an org. Everything below is brand-scoped.
   brands: defineTable({
-    organizationId: v.optional(v.string()), // Future multi-tenancy
+    organizationId: v.optional(v.id("organizations")), // Which org owns this brand
     name: v.string(),
     slug: v.string(),
     description: v.string(),
