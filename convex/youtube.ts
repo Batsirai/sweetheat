@@ -2,133 +2,147 @@ import { v } from "convex/values";
 import { action } from "./_generated/server";
 import { api } from "./_generated/api";
 
-const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3";
+const API_BASE = "https://transcriptapi.com/api/v2/youtube";
 
-// Search YouTube and return scored results
+function getApiKey(): string {
+  const key = process.env.TRANSCRIPT_API_KEY;
+  if (!key) throw new Error("TRANSCRIPT_API_KEY not set");
+  return key;
+}
+
+function authHeaders(): Record<string, string> {
+  return { Authorization: `Bearer ${getApiKey()}` };
+}
+
+// ── Search YouTube ────────────────────────────────────────────────────────
 export const search = action({
   args: {
     query: v.string(),
     maxResults: v.optional(v.number()),
   },
-  handler: async (ctx, args) => {
-    const apiKey = process.env.YOUTUBE_API_KEY;
-    if (!apiKey) throw new Error("YOUTUBE_API_KEY not set");
-
-    const maxResults = args.maxResults ?? 20;
-
-    // Step 1: Search
-    const searchUrl = `${YOUTUBE_API_BASE}/search?part=snippet&type=video&q=${encodeURIComponent(args.query)}&maxResults=${maxResults}&order=relevance&key=${apiKey}`;
-    const searchRes = await fetch(searchUrl);
-    if (!searchRes.ok) {
-      const err = await searchRes.text();
-      throw new Error(`YouTube search failed: ${err}`);
+  handler: async (_ctx, args) => {
+    const limit = args.maxResults ?? 20;
+    const res = await fetch(
+      `${API_BASE}/search?q=${encodeURIComponent(args.query)}&type=video&limit=${limit}`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`YouTube search failed (${res.status}): ${err}`);
     }
-    const searchData = await searchRes.json();
+    const data = await res.json();
 
-    if (!searchData.items?.length) return [];
-
-    // Step 2: Get video statistics for signal scoring
-    const videoIds = searchData.items.map((item: any) => item.id.videoId).join(",");
-    const statsUrl = `${YOUTUBE_API_BASE}/videos?part=statistics,contentDetails,snippet&id=${videoIds}&key=${apiKey}`;
-    const statsRes = await fetch(statsUrl);
-    const statsData = await statsRes.json();
-
-    // Step 3: Score and return
-    const results = statsData.items?.map((video: any) => {
-      const views = parseInt(video.statistics.viewCount || "0");
-      const likes = parseInt(video.statistics.likeCount || "0");
-      const comments = parseInt(video.statistics.commentCount || "0");
-
-      // Signal scoring (simplified from PRD)
-      const viewScore = Math.min(views / 100000, 40); // Up to 40 points for views
-      const engagementScore = views > 0
-        ? Math.min(((likes + comments) / views) * 500, 30) // Up to 30 points for engagement
-        : 0;
-      const recencyScore = getRecencyScore(video.snippet.publishedAt); // Up to 30 points
-
-      const resonanceScore = Math.round(viewScore + engagementScore + recencyScore);
-
-      return {
-        videoId: video.id,
-        title: video.snippet.title,
-        channelId: video.snippet.channelId,
-        channelName: video.snippet.channelTitle,
-        description: video.snippet.description,
-        publishedAt: video.snippet.publishedAt,
-        thumbnailUrl: video.snippet.thumbnails?.medium?.url ?? video.snippet.thumbnails?.default?.url,
-        viewCount: views,
-        likeCount: likes,
-        commentCount: comments,
-        duration: parseDuration(video.contentDetails.duration),
-        resonanceScore: Math.min(resonanceScore, 100),
-      };
-    }) ?? [];
-
-    // Sort by resonance score
-    results.sort((a: any, b: any) => b.resonanceScore - a.resonanceScore);
-
-    return results;
+    return (data.results ?? []).map((video: any) => ({
+      videoId: video.videoId,
+      title: video.title,
+      channelId: video.channelId ?? "",
+      channelName: video.channelTitle ?? video.author ?? "",
+      description: video.description ?? "",
+      publishedAt: video.publishedAt ?? video.published ?? "",
+      thumbnailUrl: video.thumbnail ?? "",
+      viewCount: parseCount(video.viewCount ?? video.views),
+      likeCount: 0,
+      commentCount: 0,
+      duration: parseDurationText(video.duration ?? video.lengthText ?? "0"),
+      resonanceScore: computeResonance(
+        parseCount(video.viewCount ?? video.views),
+        video.publishedAt ?? video.published ?? ""
+      ),
+    }));
   },
 });
 
-// Get transcript for a YouTube video
+// ── Get transcript for a video ────────────────────────────────────────────
 export const getTranscript = action({
   args: { videoId: v.string() },
-  handler: async (ctx, args) => {
-    // Use a public transcript API (no API key needed)
-    // Try multiple approaches
-    const urls = [
-      `https://yt.lemnoslife.com/noKey/captions?part=snippet&videoId=${args.videoId}`,
-    ];
+  handler: async (_ctx, args) => {
+    const res = await fetch(
+      `${API_BASE}/transcript?video_url=${args.videoId}&format=json&include_timestamp=false&send_metadata=true`,
+      { headers: authHeaders() }
+    );
 
-    // Approach: fetch the video page and extract captions
-    // For now, use a lightweight transcript service
-    try {
-      // Try the invidious API for transcripts
-      const res = await fetch(
-        `https://vid.puffyan.us/api/v1/captions/${args.videoId}?label=English`
-      );
-      if (res.ok) {
-        const data = await res.json();
-        if (data.captions?.length) {
-          // Get the first English caption track
-          const captionTrack = data.captions.find(
-            (c: any) => c.language_code === "en" || c.label?.includes("English")
-          );
-          if (captionTrack?.url) {
-            const captionRes = await fetch(captionTrack.url);
-            if (captionRes.ok) {
-              const text = await captionRes.text();
-              // Parse XML captions to plain text
-              return { transcript: stripXmlTags(text), source: "invidious" };
-            }
-          }
-        }
+    if (!res.ok) {
+      if (res.status === 404) {
+        return { transcript: null, metadata: null, source: "none", error: "No transcript available for this video." };
       }
-    } catch {
-      // Fall through to next approach
+      const err = await res.text();
+      return { transcript: null, metadata: null, source: "none", error: `Transcript API error (${res.status}): ${err}` };
     }
 
-    // Fallback: try another transcript service
-    try {
-      const res = await fetch(
-        `https://api.kome.ai/api/tools/youtube-transcripts?video_id=${args.videoId}&format=text`
-      );
-      if (res.ok) {
-        const data = await res.json();
-        if (data.transcript) {
-          return { transcript: data.transcript, source: "kome" };
-        }
-      }
-    } catch {
-      // Fall through
+    const data = await res.json();
+    let transcript: string;
+    if (Array.isArray(data.transcript)) {
+      transcript = data.transcript.map((s: any) => s.text ?? s).join(" ");
+    } else {
+      transcript = data.transcript ?? "";
     }
 
-    return { transcript: null, source: "none", error: "Could not retrieve transcript. You can paste it manually." };
+    return {
+      transcript: transcript || null,
+      metadata: data.metadata ?? null,
+      source: "transcriptapi",
+    };
   },
 });
 
-// Ingest: search + add to a topic
+// ── Search within a specific channel ──────────────────────────────────────
+export const channelSearch = action({
+  args: {
+    channel: v.string(), // @handle, URL, or UC... ID
+    query: v.string(),
+    limit: v.optional(v.number()),
+  },
+  handler: async (_ctx, args) => {
+    const res = await fetch(
+      `${API_BASE}/channel/search?channel=${encodeURIComponent(args.channel)}&q=${encodeURIComponent(args.query)}&limit=${args.limit ?? 30}`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Channel search failed (${res.status}): ${err}`);
+    }
+    const data = await res.json();
+    return data.results ?? [];
+  },
+});
+
+// ── Get latest videos from a channel (FREE - no credit cost) ──────────────
+export const channelLatest = action({
+  args: { channel: v.string() },
+  handler: async (_ctx, args) => {
+    const res = await fetch(
+      `${API_BASE}/channel/latest?channel=${encodeURIComponent(args.channel)}`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Channel latest failed (${res.status}): ${err}`);
+    }
+    const data = await res.json();
+    return {
+      channel: data.channel ?? null,
+      videos: data.results ?? [],
+    };
+  },
+});
+
+// ── Resolve channel handle/URL to ID (FREE) ───────────────────────────────
+export const resolveChannel = action({
+  args: { input: v.string() },
+  handler: async (_ctx, args) => {
+    const res = await fetch(
+      `${API_BASE}/channel/resolve?input=${encodeURIComponent(args.input)}`,
+      { headers: authHeaders() }
+    );
+    if (!res.ok) {
+      const err = await res.text();
+      throw new Error(`Channel resolve failed (${res.status}): ${err}`);
+    }
+    return await res.json();
+  },
+});
+
+// ── Ingest: fetch metadata + transcript, save to knowledge source ─────────
 export const ingestVideo = action({
   args: {
     topicId: v.id("knowledgeTopics"),
@@ -146,26 +160,29 @@ export const ingestVideo = action({
     resonanceScore: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
-    // Try to get transcript
+    // Fetch transcript + metadata in one call
     const transcriptResult = await ctx.runAction(api.youtube.getTranscript, {
       videoId: args.videoId,
     });
+
+    // Use metadata from transcript API if available
+    const meta = transcriptResult.metadata;
 
     const result = await ctx.runMutation(api.knowledge.addSource, {
       topicId: args.topicId,
       brandId: args.brandId,
       sourceType: "youtube_transcript",
-      title: args.title,
+      title: meta?.title ?? args.title,
       url: `https://youtube.com/watch?v=${args.videoId}`,
       youtubeVideoId: args.videoId,
       youtubeChannelId: args.channelId,
-      youtubeChannelName: args.channelName,
+      youtubeChannelName: meta?.author_name ?? args.channelName,
       viewCount: args.viewCount,
       likeCount: args.likeCount,
       commentCount: args.commentCount,
       durationSeconds: args.durationSeconds,
       publishedAt: args.publishedAt ? new Date(args.publishedAt).getTime() : undefined,
-      thumbnailUrl: args.thumbnailUrl,
+      thumbnailUrl: meta?.thumbnail_url ?? args.thumbnailUrl,
       transcript: transcriptResult.transcript ?? undefined,
       resonanceScore: args.resonanceScore,
     });
@@ -174,33 +191,46 @@ export const ingestVideo = action({
       ...result,
       hasTranscript: !!transcriptResult.transcript,
       transcriptSource: transcriptResult.source,
+      transcriptError: transcriptResult.error,
     };
   },
 });
 
 // ── Helpers ───────────────────────────────────────────────────────────────
 
+function parseCount(val: any): number {
+  if (typeof val === "number") return val;
+  if (typeof val === "string") {
+    const cleaned = val.replace(/,/g, "").replace(/\s+views?/i, "");
+    const num = parseInt(cleaned);
+    return isNaN(num) ? 0 : num;
+  }
+  return 0;
+}
+
+function computeResonance(views: number, publishedAt: string): number {
+  const viewScore = Math.min(views / 100000, 40);
+  const recencyScore = publishedAt ? getRecencyScore(publishedAt) : 10;
+  return Math.round(Math.min(viewScore + recencyScore + 20, 100)); // +20 baseline
+}
+
 function getRecencyScore(publishedAt: string): number {
   const daysAgo = (Date.now() - new Date(publishedAt).getTime()) / (1000 * 60 * 60 * 24);
+  if (isNaN(daysAgo) || daysAgo < 0) return 10;
   if (daysAgo < 7) return 30;
   if (daysAgo < 30) return 25;
   if (daysAgo < 90) return 20;
   if (daysAgo < 365) return 10;
-  return 5; // Evergreen still gets some score
+  return 5;
 }
 
-function parseDuration(isoDuration: string): number {
-  const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-  if (!match) return 0;
-  const hours = parseInt(match[1] || "0");
-  const minutes = parseInt(match[2] || "0");
-  const seconds = parseInt(match[3] || "0");
-  return hours * 3600 + minutes * 60 + seconds;
-}
-
-function stripXmlTags(xml: string): string {
-  return xml
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+function parseDurationText(text: string): number {
+  // Handle "12:34" or "1:23:45" format
+  const parts = text.split(":").map(Number);
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  // Handle ISO duration PT1H2M3S
+  const match = text.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (match) return (parseInt(match[1]||"0"))*3600 + (parseInt(match[2]||"0"))*60 + parseInt(match[3]||"0");
+  return parseInt(text) || 0;
 }
