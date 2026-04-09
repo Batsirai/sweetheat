@@ -25,9 +25,11 @@
 		"vite": "^7.3.1"
 	},
 	"dependencies": {
+		"@types/d3": "^7.4.3",
 		"bcryptjs": "^3.0.3",
 		"convex": "^1.21.0",
 		"convex-svelte": "^0.0.12",
+		"d3": "^7.9.0",
 		"mammoth": "^1.12.0"
 	}
 }

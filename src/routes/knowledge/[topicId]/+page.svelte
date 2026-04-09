@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { useQuery, useConvexClient } from 'convex-svelte';
 	import { api } from '../../../../convex/_generated/api';
+	import KnowledgeGraph from '$lib/components/KnowledgeGraph.svelte';
 
 	const client = useConvexClient();
 	const topicId = $derived(page.params.topicId);
@@ -11,7 +12,7 @@
 	const pages = useQuery(api.knowledge.listPages, () => ({ topicId: topicId as any }));
 	const catalysts = useQuery(api.knowledge.listCatalysts, () => ({ topicId: topicId as any }));
 
-	let activeTab = $state<'sources' | 'pages' | 'catalysts'>('sources');
+	let activeTab = $state<'sources' | 'pages' | 'catalysts' | 'graph'>('sources');
 
 	// YouTube search state
 	let showSearch = $state(false);
@@ -104,7 +105,7 @@
 
 	<!-- Tabs -->
 	<div class="flex gap-1 rounded-lg border border-(--color-border) overflow-hidden">
-		{#each ['sources', 'pages', 'catalysts'] as tab}
+		{#each ['sources', 'pages', 'catalysts', 'graph'] as tab}
 			<button
 				onclick={() => (activeTab = tab as any)}
 				class="flex-1 py-2 text-xs font-medium text-center transition-colors"
@@ -113,8 +114,9 @@
 				class:text-gray-500={activeTab !== tab}
 			>
 				{tab === 'sources' ? `Sources (${sources.data?.length ?? 0})` : ''}
-				{tab === 'pages' ? `Wiki Pages (${pages.data?.length ?? 0})` : ''}
+				{tab === 'pages' ? `Wiki (${pages.data?.length ?? 0})` : ''}
 				{tab === 'catalysts' ? `Catalysts (${catalysts.data?.length ?? 0})` : ''}
+				{tab === 'graph' ? 'Graph' : ''}
 			</button>
 		{/each}
 	</div>
@@ -320,5 +322,15 @@
 				</p>
 			</div>
 		{/if}
+	{/if}
+
+	<!-- ═══ GRAPH TAB ═══ -->
+	{#if activeTab === 'graph'}
+		<KnowledgeGraph
+			sources={sources.data ?? []}
+			pages={pages.data ?? []}
+			catalysts={catalysts.data ?? []}
+			topicName={topic.data?.name ?? ''}
+		/>
 	{/if}
 </div>
