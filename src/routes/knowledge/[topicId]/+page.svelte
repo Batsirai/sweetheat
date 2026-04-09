@@ -259,54 +259,62 @@
 			<!-- Existing sources -->
 			{#if sources.data && sources.data.length > 0}
 				{#each sources.data as source}
-					<div class="bg-(--color-surface) rounded-xl border border-(--color-border) p-4">
-						<div class="flex gap-3">
-							{#if source.thumbnailUrl}
-								<img
-									src={source.thumbnailUrl}
-									alt=""
-									class="w-20 h-14 rounded object-cover shrink-0"
-								/>
-							{/if}
-							<div class="flex-1 min-w-0">
-								<div class="flex items-start justify-between gap-2">
-									<div>
-										<h4 class="font-medium text-(--color-on-surface) text-sm line-clamp-1">
+					<div class="bg-(--color-surface) rounded-xl border border-(--color-border) overflow-hidden">
+						<div class="p-4">
+							<div class="flex gap-3">
+								{#if source.thumbnailUrl}
+									<a href={source.url} target="_blank" rel="noopener" class="shrink-0">
+										<img
+											src={source.thumbnailUrl}
+											alt=""
+											class="w-28 h-20 rounded object-cover"
+										/>
+									</a>
+								{/if}
+								<div class="flex-1 min-w-0">
+									<a href={source.url} target="_blank" rel="noopener" class="hover:underline">
+										<h4 class="font-medium text-(--color-on-surface) text-sm line-clamp-2">
 											{source.title}
 										</h4>
-										<div class="flex items-center gap-2 text-xs text-(--color-on-surface-muted) mt-0.5">
-											{#if source.youtubeChannelName}
-												<span>{source.youtubeChannelName}</span>
-											{/if}
-											{#if source.viewCount}
-												<span>{formatViews(source.viewCount)} views</span>
-											{/if}
-											{#if source.resonanceScore}
-												<span
-													class="px-1.5 py-0.5 rounded font-medium"
-													class:bg-green-100={source.resonanceScore >= 70}
-													class:text-green-700={source.resonanceScore >= 70}
-													class:bg-yellow-100={source.resonanceScore < 70}
-													class:text-yellow-700={source.resonanceScore < 70}
-												>
-													{source.resonanceScore}
-												</span>
-											{/if}
-										</div>
+									</a>
+									<div class="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-(--color-on-surface-muted) mt-1">
+										{#if source.youtubeChannelName}
+											<span class="font-medium">{source.youtubeChannelName}</span>
+										{/if}
+										{#if source.viewCount}
+											<span>{formatViews(source.viewCount)} views</span>
+										{/if}
+										{#if source.durationSeconds}
+											<span>{formatDuration(source.durationSeconds)}</span>
+										{/if}
+										{#if source.publishedAt}
+											<span>{new Date(source.publishedAt).toLocaleDateString()}</span>
+										{/if}
 									</div>
-									<div class="flex items-center gap-2 shrink-0">
+									<div class="flex items-center gap-2 mt-1.5">
+										{#if source.resonanceScore}
+											<span
+												class="text-xs px-1.5 py-0.5 rounded font-medium"
+												class:bg-green-100={source.resonanceScore >= 70}
+												class:text-green-700={source.resonanceScore >= 70}
+												class:bg-yellow-100={source.resonanceScore < 70}
+												class:text-yellow-700={source.resonanceScore < 70}
+											>
+												Score: {source.resonanceScore}
+											</span>
+										{/if}
 										<span
-											class="text-xs px-2 py-0.5 rounded-full"
+											class="text-xs px-1.5 py-0.5 rounded-full"
 											class:bg-green-100={source.transcript}
 											class:text-green-700={source.transcript}
-											class:bg-gray-100={!source.transcript}
-											class:text-gray-500={!source.transcript}
+											class:bg-red-100={!source.transcript}
+											class:text-red-600={!source.transcript}
 										>
-											{source.transcript ? 'Has transcript' : 'No transcript'}
+											{source.transcript ? `${Math.round(source.transcript.length / 1000)}k chars` : 'No transcript'}
 										</span>
 										<button
 											onclick={() => removeSource(source._id)}
-											class="text-xs text-red-500 hover:underline"
+											class="text-xs text-red-500 hover:underline ml-auto"
 										>
 											Remove
 										</button>
@@ -314,6 +322,18 @@
 								</div>
 							</div>
 						</div>
+
+						<!-- Expandable raw transcript -->
+						{#if source.transcript}
+							<details class="border-t border-(--color-border)">
+								<summary class="px-4 py-2 text-xs text-(--color-on-surface-muted) cursor-pointer hover:bg-(--color-surface-dim)">
+									View raw transcript
+								</summary>
+								<div class="px-4 pb-3 max-h-64 overflow-y-auto">
+									<pre class="text-xs text-(--color-on-surface-muted) whitespace-pre-wrap font-sans leading-relaxed">{source.transcript}</pre>
+								</div>
+							</details>
+						{/if}
 					</div>
 				{/each}
 			{:else}
