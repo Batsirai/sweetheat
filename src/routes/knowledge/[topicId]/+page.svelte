@@ -21,6 +21,53 @@
 	let searching = $state(false);
 	let ingesting = $state<Set<string>>(new Set());
 
+	// Paste URL ingest
+	let pasteUrl = $state('');
+	let pasteIngesting = $state(false);
+	let pasteError = $state('');
+
+	function extractVideoId(input: string): string | null {
+		const trimmed = input.trim();
+		// Direct video ID (11 chars)
+		if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+		// youtube.com/watch?v=ID
+		const watchMatch = trimmed.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+		if (watchMatch) return watchMatch[1];
+		// youtu.be/ID
+		const shortMatch = trimmed.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+		if (shortMatch) return shortMatch[1];
+		// youtube.com/shorts/ID
+		const shortsMatch = trimmed.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/);
+		if (shortsMatch) return shortsMatch[1];
+		// youtube.com/embed/ID
+		const embedMatch = trimmed.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+		if (embedMatch) return embedMatch[1];
+		return null;
+	}
+
+	async function ingestFromUrl() {
+		if (!topic.data || !pasteUrl.trim()) return;
+		pasteError = '';
+		const videoId = extractVideoId(pasteUrl);
+		if (!videoId) {
+			pasteError = 'Could not find a YouTube video ID in that URL.';
+			return;
+		}
+		pasteIngesting = true;
+		try {
+			await client.action(api.youtube.ingestVideo, {
+				topicId: topicId as any,
+				brandId: topic.data.brandId,
+				videoId,
+				title: `YouTube video ${videoId}` // Will be replaced by metadata from transcript API
+			});
+			pasteUrl = '';
+		} catch (err) {
+			pasteError = `Ingest failed: ${err}`;
+		}
+		pasteIngesting = false;
+	}
+
 	async function searchYouTube() {
 		if (!searchQuery.trim()) return;
 		searching = true;
@@ -166,6 +213,30 @@
 					</div>
 				</div>
 			{/if}
+
+			<!-- Paste YouTube URL -->
+			<div class="bg-(--color-surface) rounded-xl border border-(--color-border) p-4 space-y-2">
+				<p class="text-xs font-medium text-(--color-on-surface-muted)">Paste a YouTube link to ingest</p>
+				<div class="flex gap-2">
+					<input
+						type="text"
+						bind:value={pasteUrl}
+						placeholder="https://youtube.com/watch?v=... or youtu.be/..."
+						class="flex-1 px-3 py-2 rounded-lg border border-(--color-border) bg-(--color-surface) text-(--color-on-surface) text-sm"
+						onkeydown={(e) => { if (e.key === 'Enter') ingestFromUrl(); }}
+					/>
+					<button
+						onclick={ingestFromUrl}
+						disabled={pasteIngesting || !pasteUrl.trim()}
+						class="px-4 py-2 rounded-lg bg-(--color-brand) text-white text-sm font-medium disabled:opacity-50"
+					>
+						{pasteIngesting ? 'Ingesting...' : 'Ingest'}
+					</button>
+				</div>
+				{#if pasteError}
+					<p class="text-xs text-red-500">{pasteError}</p>
+				{/if}
+			</div>
 
 			<button
 				onclick={() => (showSearch = !showSearch)}
