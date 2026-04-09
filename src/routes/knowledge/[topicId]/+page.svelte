@@ -124,6 +124,49 @@
 	<!-- ═══ SOURCES TAB ═══ -->
 	{#if activeTab === 'sources'}
 		<div class="space-y-3">
+			<!-- Pipeline status -->
+			{#if sources.data && sources.data.length > 0}
+				{@const withTranscript = sources.data.filter((s) => s.transcript).length}
+				{@const withoutTranscript = sources.data.length - withTranscript}
+				<div class="bg-(--color-surface) rounded-xl border border-(--color-border) p-4 space-y-3">
+					<h3 class="text-xs font-semibold text-(--color-on-surface-muted) uppercase tracking-wider">Pipeline Status</h3>
+					<div class="flex gap-4 text-sm">
+						<div class="flex items-center gap-2">
+							<span class="w-2 h-2 rounded-full bg-green-500"></span>
+							<span class="text-(--color-on-surface)">{withTranscript} with transcript</span>
+						</div>
+						{#if withoutTranscript > 0}
+							<div class="flex items-center gap-2">
+								<span class="w-2 h-2 rounded-full bg-yellow-500"></span>
+								<span class="text-(--color-on-surface)">{withoutTranscript} no transcript</span>
+							</div>
+						{/if}
+						<div class="flex items-center gap-2">
+							<span class="w-2 h-2 rounded-full bg-purple-500"></span>
+							<span class="text-(--color-on-surface)">{pages.data?.length ?? 0} wiki pages compiled</span>
+						</div>
+					</div>
+					<!-- Next steps -->
+					<div class="text-xs text-(--color-on-surface-muted) bg-(--color-surface-dim) rounded-lg p-3 space-y-1">
+						<p class="font-medium text-(--color-on-surface)">What happens next:</p>
+						{#if withTranscript === 0}
+							<p>1. Ingest videos with transcripts available</p>
+							<p>2. Agent compiles transcripts into wiki articles</p>
+							<p>3. Catalysts and content idea briefs are generated</p>
+						{:else if (pages.data?.length ?? 0) === 0}
+							<p>Sources are ready. On the next agent run, the compiler will:</p>
+							<p>1. Summarize each transcript</p>
+							<p>2. Extract key concepts and entities</p>
+							<p>3. Write interconnected wiki articles</p>
+							<p>4. Generate catalysts (thematic questions for content ideas)</p>
+							<p>5. Produce content idea briefs you can plant as seeds</p>
+						{:else}
+							<p>Wiki is compiled. Check the Wiki and Catalysts tabs, or go to Knowledge to see ready idea briefs.</p>
+						{/if}
+					</div>
+				</div>
+			{/if}
+
 			<button
 				onclick={() => (showSearch = !showSearch)}
 				class="w-full py-2.5 rounded-lg border-2 border-dashed border-(--color-border) text-sm text-(--color-on-surface-muted) hover:border-(--color-brand) transition-colors"

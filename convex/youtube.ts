@@ -32,23 +32,33 @@ export const search = action({
     }
     const data = await res.json();
 
-    return (data.results ?? []).map((video: any) => ({
-      videoId: video.videoId,
-      title: video.title,
-      channelId: video.channelId ?? "",
-      channelName: video.channelTitle ?? video.author ?? "",
-      description: video.description ?? "",
-      publishedAt: video.publishedAt ?? video.published ?? "",
-      thumbnailUrl: video.thumbnail ?? "",
-      viewCount: parseCount(video.viewCount ?? video.views),
-      likeCount: 0,
-      commentCount: 0,
-      duration: parseDurationText(video.duration ?? video.lengthText ?? "0"),
-      resonanceScore: computeResonance(
-        parseCount(video.viewCount ?? video.views),
-        video.publishedAt ?? video.published ?? ""
-      ),
-    }));
+    return (data.results ?? []).map((video: any) => {
+      const videoId = video.videoId ?? video.video_id ?? "";
+      const thumbnailUrl =
+        video.thumbnail ??
+        video.thumbnailUrl ??
+        video.thumbnail_url ??
+        (video.thumbnails?.[0]?.url) ??
+        (videoId ? `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg` : "");
+
+      return {
+        videoId,
+        title: video.title ?? "",
+        channelId: video.channelId ?? video.channel_id ?? "",
+        channelName: video.channelTitle ?? video.channel_title ?? video.author ?? "",
+        description: video.description ?? video.descriptionSnippet ?? "",
+        publishedAt: video.publishedAt ?? video.published ?? video.publishedTime ?? "",
+        thumbnailUrl,
+        viewCount: parseCount(video.viewCount ?? video.views ?? video.viewCountText),
+        likeCount: 0,
+        commentCount: 0,
+        duration: parseDurationText(video.duration ?? video.lengthText ?? video.length ?? "0"),
+        resonanceScore: computeResonance(
+          parseCount(video.viewCount ?? video.views ?? video.viewCountText),
+          video.publishedAt ?? video.published ?? ""
+        ),
+      };
+    });
   },
 });
 
@@ -182,7 +192,7 @@ export const ingestVideo = action({
       commentCount: args.commentCount,
       durationSeconds: args.durationSeconds,
       publishedAt: args.publishedAt ? new Date(args.publishedAt).getTime() : undefined,
-      thumbnailUrl: meta?.thumbnail_url ?? args.thumbnailUrl,
+      thumbnailUrl: meta?.thumbnail_url ?? args.thumbnailUrl ?? `https://i.ytimg.com/vi/${args.videoId}/mqdefault.jpg`,
       transcript: transcriptResult.transcript ?? undefined,
       resonanceScore: args.resonanceScore,
     });
