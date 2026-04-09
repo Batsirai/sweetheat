@@ -175,8 +175,21 @@ export const ingestVideo = action({
       videoId: args.videoId,
     });
 
-    // Use metadata from transcript API if available
     const meta = transcriptResult.metadata;
+    const transcript = transcriptResult.transcript;
+
+    // Auto-generate abstract from transcript (first ~500 words + metadata context)
+    let abstract: string | undefined;
+    if (transcript) {
+      const channelName = meta?.author_name ?? args.channelName ?? "Unknown";
+      const title = meta?.title ?? args.title;
+      const words = transcript.split(/\s+/);
+      const preview = words.slice(0, 150).join(" ");
+      const totalWords = words.length;
+      const estMinutes = Math.round(totalWords / 150); // ~150 wpm spoken
+
+      abstract = `"${title}" by ${channelName}. ~${totalWords} words (~${estMinutes} min). ${preview}${words.length > 150 ? "..." : ""}`;
+    }
 
     const result = await ctx.runMutation(api.knowledge.addSource, {
       topicId: args.topicId,
@@ -193,13 +206,14 @@ export const ingestVideo = action({
       durationSeconds: args.durationSeconds,
       publishedAt: args.publishedAt ? new Date(args.publishedAt).getTime() : undefined,
       thumbnailUrl: meta?.thumbnail_url ?? args.thumbnailUrl ?? `https://i.ytimg.com/vi/${args.videoId}/mqdefault.jpg`,
-      transcript: transcriptResult.transcript ?? undefined,
+      transcript: transcript ?? undefined,
+      abstract,
       resonanceScore: args.resonanceScore,
     });
 
     return {
       ...result,
-      hasTranscript: !!transcriptResult.transcript,
+      hasTranscript: !!transcript,
       transcriptSource: transcriptResult.source,
       transcriptError: transcriptResult.error,
     };

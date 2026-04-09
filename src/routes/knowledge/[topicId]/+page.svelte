@@ -323,16 +323,39 @@
 							</div>
 						</div>
 
-						<!-- Expandable raw transcript -->
-						{#if source.transcript}
-							<details class="border-t border-(--color-border)">
-								<summary class="px-4 py-2 text-xs text-(--color-on-surface-muted) cursor-pointer hover:bg-(--color-surface-dim)">
-									View raw transcript
-								</summary>
-								<div class="px-4 pb-3 max-h-64 overflow-y-auto">
-									<pre class="text-xs text-(--color-on-surface-muted) whitespace-pre-wrap font-sans leading-relaxed">{source.transcript}</pre>
-								</div>
-							</details>
+						<!-- Abstract -->
+						{#if source.abstract}
+							<div class="px-4 pb-3 border-t border-(--color-border) pt-2">
+								<p class="text-xs text-(--color-on-surface-muted) leading-relaxed">{source.abstract}</p>
+							</div>
+						{/if}
+
+						<!-- Content layers (expandable) -->
+						{#if source.transcript || source.summary}
+							<div class="border-t border-(--color-border)">
+								{#if source.summary}
+									<details>
+										<summary class="px-4 py-2 text-xs text-(--color-on-surface-muted) cursor-pointer hover:bg-(--color-surface-dim) flex items-center gap-2">
+											<span class="w-1.5 h-1.5 rounded-full bg-purple-500 shrink-0"></span>
+											LLM Summary (structured extraction)
+										</summary>
+										<div class="px-4 pb-3 max-h-64 overflow-y-auto">
+											<pre class="text-xs text-(--color-on-surface-muted) whitespace-pre-wrap font-sans leading-relaxed">{source.summary}</pre>
+										</div>
+									</details>
+								{/if}
+								{#if source.transcript}
+									<details>
+										<summary class="px-4 py-2 text-xs text-(--color-on-surface-muted) cursor-pointer hover:bg-(--color-surface-dim) flex items-center gap-2">
+											<span class="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0"></span>
+											Raw Transcript ({Math.round(source.transcript.length / 1000)}k chars)
+										</summary>
+										<div class="px-4 pb-3 max-h-80 overflow-y-auto">
+											<pre class="text-xs text-(--color-on-surface-muted) whitespace-pre-wrap font-sans leading-relaxed">{source.transcript}</pre>
+										</div>
+									</details>
+								{/if}
+							</div>
 						{/if}
 					</div>
 				{/each}

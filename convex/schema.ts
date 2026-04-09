@@ -280,9 +280,10 @@ export default defineSchema({
     durationSeconds: v.optional(v.number()),
     publishedAt: v.optional(v.number()),
     thumbnailUrl: v.optional(v.string()),
-    // Content
-    transcript: v.optional(v.string()), // Full transcript text
-    summary: v.optional(v.string()), // LLM-generated summary
+    // Content — three layers: raw → abstract → summary
+    transcript: v.optional(v.string()), // Raw verbatim transcript. Never modified. Source of truth.
+    abstract: v.optional(v.string()), // Short overview: what this covers, key topics, who's speaking. Generated at ingest.
+    summary: v.optional(v.string()), // Structured LLM extraction: key insights, claims, expert positions. Generated at compile time.
     // Signal scoring
     resonanceScore: v.optional(v.number()), // Composite 0-100
     // Processing state

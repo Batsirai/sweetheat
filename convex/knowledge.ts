@@ -96,6 +96,7 @@ export const addSource = mutation({
     publishedAt: v.optional(v.number()),
     thumbnailUrl: v.optional(v.string()),
     transcript: v.optional(v.string()),
+    abstract: v.optional(v.string()),
     resonanceScore: v.optional(v.number()),
   },
   handler: async (ctx, args) => {
