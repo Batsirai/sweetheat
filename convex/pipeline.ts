@@ -1,5 +1,8 @@
 import { v } from "convex/values";
-import { mutation } from "./_generated/server";
+import { mutation, internalAction, internalMutation } from "./_generated/server";
+import { internal, api } from "./_generated/api";
+import { callClaude } from "./lib/callClaude";
+import { getFormatPrompt, type PromptInput } from "./lib/formatPrompts";
 
 const PIN_VARIATIONS = 5; // 4-5 Pinterest pins per article
 
@@ -42,9 +45,167 @@ export const approveSeed = mutation({
     }
 
     // Schedule async content writing
-    // (writeBranchContent will be implemented in Task 5)
-    // await ctx.scheduler.runAfter(0, internal.pipeline.writeBranchContent, { seedId: args.seedId, branchIds });
+    await ctx.scheduler.runAfter(0, internal.pipeline.writeBranchContent, {
+      seedId: args.seedId,
+      branchIds,
+    });
 
     return { branchIds, formatsCreated: formats };
+  },
+});
+
+// ── Internal: Write content for all branches of an approved seed ─────────────
+// Called by scheduler after seed approval. Blog is written first, then all
+// derivative formats receive the blog article as context input.
+
+export const writeBranchContent = internalAction({
+  args: {
+    seedId: v.id("seeds"),
+    branchIds: v.array(v.string()),
+  },
+  handler: async (ctx, args) => {
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
+
+    // Load seed
+    const seed = await ctx.runQuery(api.seeds.get, { id: args.seedId });
+    if (!seed) throw new Error(`Seed ${args.seedId} not found`);
+
+    // Load brand
+    const brand = await ctx.runQuery(api.brands.get, { id: seed.brandId });
+    if (!brand) throw new Error(`Brand ${seed.brandId} not found`);
+
+    // Load voice training for the brand (primary docs only — agent reads these)
+    const trainingDocs = await ctx.runQuery(api.training.listByLayer, {
+      brandId: seed.brandId,
+      layer: "voice_general",
+    });
+    const voiceTraining = trainingDocs
+      .filter((t: any) => t.isPrimary === true)
+      .map((t: any) => t.content)
+      .join("\n\n");
+
+    // Build the brand context for prompt generation
+    const brandContext: PromptInput["brand"] = {
+      name: brand.name,
+      voiceTraining: voiceTraining || brand.voiceTraining,
+      interests: brand.interests,
+      wordsToUse: brand.wordsToUse,
+      wordsToAvoid: brand.wordsToAvoid,
+    };
+
+    const seedContext: PromptInput["seed"] = {
+      title: seed.title,
+      description: seed.description,
+    };
+
+    // Load all branches
+    const branches: Array<{ _id: string; format: string }> = [];
+    for (const branchId of args.branchIds) {
+      const branch = await ctx.runQuery(api.branches.get, { id: branchId as any });
+      if (branch) {
+        branches.push({ _id: branch._id, format: branch.format });
+      }
+    }
+
+    // Separate blog branch from derivative branches
+    const blogBranch = branches.find((b) => b.format === "blog");
+    const derivativeBranches = branches.filter((b) => b.format !== "blog");
+
+    // ── STEP 1: Write blog first (primary content) ───────────────────────
+    let blogArticle: string | undefined;
+
+    if (blogBranch) {
+      try {
+        const prompt = getFormatPrompt("blog", {
+          seed: seedContext,
+          brand: brandContext,
+        });
+        blogArticle = await callClaude(apiKey, prompt.system, prompt.user, prompt.maxTokens);
+
+        await ctx.runMutation(internal.pipeline.saveDraftInternal, {
+          branchId: blogBranch._id as any,
+          body: blogArticle,
+          authoredBy: "agent",
+        });
+      } catch (err) {
+        console.error(`Failed to write blog for seed ${args.seedId}:`, err);
+        // Continue with derivatives even if blog fails — they'll use seed context as fallback
+      }
+    }
+
+    // ── STEP 2: Write all derivative formats ─────────────────────────────
+    // Track pin index for variation assignment
+    let pinIndex = 0;
+
+    for (const branch of derivativeBranches) {
+      try {
+        const promptInput: PromptInput = {
+          seed: seedContext,
+          brand: brandContext,
+          blogArticle,
+        };
+
+        // For pin branches, assign variation index (0-4)
+        if (branch.format === "pin") {
+          promptInput.variationIndex = pinIndex;
+          pinIndex++;
+        }
+
+        const prompt = getFormatPrompt(branch.format, promptInput);
+        const content = await callClaude(apiKey, prompt.system, prompt.user, prompt.maxTokens);
+
+        await ctx.runMutation(internal.pipeline.saveDraftInternal, {
+          branchId: branch._id as any,
+          body: content,
+          authoredBy: "agent",
+        });
+      } catch (err) {
+        console.error(
+          `Failed to write ${branch.format} for branch ${branch._id}:`,
+          err
+        );
+        // Continue with remaining branches
+      }
+    }
+  },
+});
+
+// ── Internal: Save a draft and update branch status ──────────────────────────
+// Called by writeBranchContent action. Creates a versioned draft, updates the
+// branch's currentDraftId, and transitions status to "in_review".
+
+export const saveDraftInternal = internalMutation({
+  args: {
+    branchId: v.id("branches"),
+    body: v.string(),
+    authoredBy: v.string(),
+  },
+  handler: async (ctx, args) => {
+    // Auto-increment version
+    const existing = await ctx.db
+      .query("drafts")
+      .withIndex("by_branch", (q) => q.eq("branchId", args.branchId))
+      .order("desc")
+      .first();
+    const version = existing ? existing.version + 1 : 1;
+
+    // Create the draft
+    const draftId = await ctx.db.insert("drafts", {
+      branchId: args.branchId,
+      version,
+      body: args.body,
+      authoredBy: args.authoredBy,
+      createdAt: Date.now(),
+    });
+
+    // Update branch: set currentDraftId and transition to in_review
+    await ctx.db.patch(args.branchId, {
+      currentDraftId: draftId,
+      status: "in_review",
+      updatedAt: Date.now(),
+    });
+
+    return draftId;
   },
 });
