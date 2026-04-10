@@ -98,9 +98,9 @@ server.tool(
       }),
     });
 
-    // Notify via Slack
+    // Notify via Slack with proper user mentions
     const purposeTag = args.purpose ? ` [${args.purpose}]` : "";
-    await notifySlack(`🌱 New seed pitched${purposeTag}: "${args.title}"\n${args.reasoning || ""}\n→ Review in Sweet Heat`);
+    await notifySlack(`🌱 New seed pitched${purposeTag}: "${args.title}"\n${args.reasoning || ""}\n<@U0A9H1R97RT> <@U0A9517L831> → http://100.65.231.55:5173/seeds`);
 
     return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
   }
