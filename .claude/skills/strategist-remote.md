@@ -51,11 +51,24 @@ For each seed, use `npx convex run seeds:create` with:
 ### 4. Notify via Slack
 Post to the #content-factory channel using the webhook. Tag both Batsirai and Aimee.
 
-Use the SLACK_WEBHOOK_URL environment variable (set in Convex). Post a message like:
+Post a rich Slack notification that makes Batsirai and Aimee WANT to open the app. Include:
+- The count of seeds pitched
+- A one-line preview of the BEST seed title (the most compelling one)
+- What kind of mix it is (e.g., "2 SEO, 1 brand, 1 engagement, 1 AEO")
+- Tag both users
+- The HTTPS link
 
-"🌱 Strategist: N new seeds pitched for BRAND. <@U0A9H1R97RT> <@U0A9517L831> — review and approve → http://100.65.231.55:5173/seeds"
+Example format:
+```
+🌱 *6 new seeds for AlreadyLoved Kids*
 
-Replace N with actual count and BRAND with brand name. Use curl with the webhook URL from the environment.
+Today's best: _"The Walmart Meltdown — What Your Child Is Really Saying"_
+Mix: 2 SEO keywords · 1 brand story · 1 engagement hook · 1 AEO answer
+
+<@U0A9H1R97RT> <@U0A9517L831> → https://mac.tailcb4df0.ts.net/seeds
+```
+
+Use curl with the SLACK_WEBHOOK_URL environment variable from Convex.
 
 ## Seed Quality Standards
 - Never pitch a duplicate of an existing seed (check titles AND descriptions)

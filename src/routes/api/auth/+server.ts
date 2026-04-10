@@ -19,7 +19,7 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
         path: "/",
         httpOnly: true,
         sameSite: "lax",
-        secure: true,
+        secure: false,
         maxAge: 30 * 24 * 60 * 60,
       });
       return json({ success: true });
@@ -31,7 +31,7 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
         path: "/",
         httpOnly: true,
         sameSite: "lax",
-        secure: true,
+        secure: false,
         maxAge: 30 * 24 * 60 * 60,
       });
       return json({ success: true });

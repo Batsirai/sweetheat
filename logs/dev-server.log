@@ -13,3 +13,5 @@ Now using node v22.22.0 (npm v10.9.4)
   ➜  Network: http://100.65.231.55:5173/
   ➜  Network: http://192.168.64.1:5173/
 Using secrets defined in .env.local
+5:06:24 PM [vite] (client) hmr update /src/app.css
+5:06:25 PM [vite] (ssr) page reload src/routes/api/auth/+server.ts

@@ -113,6 +113,24 @@ export const logout = mutation({
   },
 });
 
+export const resetPassword = action({
+  args: { email: v.string(), newPassword: v.string() },
+  handler: async (ctx, args) => {
+    const user = await ctx.runQuery(api.auth.getUserByEmail, { email: args.email });
+    if (!user) throw new Error("User not found");
+    const passwordHash = await bcrypt.hash(args.newPassword, 10);
+    await ctx.runMutation(api.auth.updatePassword, { userId: user._id, passwordHash });
+    return { success: true };
+  },
+});
+
+export const updatePassword = mutation({
+  args: { userId: v.id("users"), passwordHash: v.string() },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.userId, { passwordHash: args.passwordHash });
+  },
+});
+
 // Internal helpers
 export const getUserByEmail = query({
   args: { email: v.string() },
