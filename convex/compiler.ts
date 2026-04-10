@@ -34,46 +34,25 @@ async function callClaude(
   return data.content?.[0]?.text ?? "";
 }
 
-// ── The 3-step compiler (simplified from sage-wiki 5-pass) ────────────────
-// Pass 1: Summarize each source (extract key insights)
-// Pass 2: Compile wiki articles (synthesize across sources)
-// Pass 3: Generate catalysts + idea briefs
-
-export const compileTopic = action({
-  args: { topicId: v.id("knowledgeTopics") },
+// ── STEP 1: Summarize unsummarized sources (batch of up to 5) ─────────────
+// Call this repeatedly until all sources are summarized.
+export const summarizeSources = action({
+  args: { topicId: v.id("knowledgeTopics"), batchSize: v.optional(v.number()) },
   handler: async (ctx, args) => {
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
 
-    const topic = await ctx.runQuery(api.knowledge.getTopic, { id: args.topicId });
-    if (!topic) throw new Error("Topic not found");
-
-    const brand = await ctx.runQuery(api.brands.get, { id: topic.brandId });
-    if (!brand) throw new Error("Brand not found");
-
     const sources = await ctx.runQuery(api.knowledge.listSources, { topicId: args.topicId });
-    const sourcesWithTranscripts = sources.filter((s: any) => s.transcript);
+    const unsummarized = sources.filter((s: any) => s.transcript && !s.summary);
 
-    if (sourcesWithTranscripts.length === 0) {
-      throw new Error("No sources with transcripts to compile");
+    if (unsummarized.length === 0) {
+      return { summarized: 0, remaining: 0, done: true };
     }
 
-    // ── PASS 1: Summarize each source ────────────────────────────────────
-    const summaries: Array<{ sourceId: string; title: string; channel: string; summary: string }> = [];
+    const batch = unsummarized.slice(0, args.batchSize ?? 5);
+    let count = 0;
 
-    for (const source of sourcesWithTranscripts) {
-      // Skip if already summarized
-      if (source.summary) {
-        summaries.push({
-          sourceId: source._id,
-          title: source.title,
-          channel: source.youtubeChannelName ?? "Unknown",
-          summary: source.summary,
-        });
-        continue;
-      }
-
-      // Truncate transcript to ~8000 words to stay within context
+    for (const source of batch) {
       const words = source.transcript!.split(/\s+/);
       const truncated = words.slice(0, 8000).join(" ");
 
@@ -91,30 +70,83 @@ Source: "${source.title}" by ${source.youtubeChannelName ?? "Unknown"}
 Views: ${source.viewCount ?? "unknown"} | Published: ${source.publishedAt ? new Date(source.publishedAt).toLocaleDateString() : "unknown"}
 
 TRANSCRIPT:
-${truncated}${words.length > 8000 ? "\n\n[Transcript truncated — full version available]" : ""}`,
+${truncated}${words.length > 8000 ? "\n\n[Transcript truncated]" : ""}`,
         3000
       );
 
-      // Save summary back to source
       await ctx.runMutation(internal.compiler.updateSourceSummary, {
         sourceId: source._id,
         summary,
       });
-
-      summaries.push({
-        sourceId: source._id,
-        title: source.title,
-        channel: source.youtubeChannelName ?? "Unknown",
-        summary,
-      });
+      count++;
     }
 
-    // ── PASS 2: Compile wiki articles ────────────────────────────────────
+    return {
+      summarized: count,
+      remaining: unsummarized.length - count,
+      done: unsummarized.length - count === 0,
+    };
+  },
+});
+
+// ── STEP 2: Compile wiki articles + catalysts + idea briefs ───────────────
+// Only call this after all sources are summarized.
+export const compileTopic = action({
+  args: { topicId: v.id("knowledgeTopics") },
+  handler: async (ctx, args) => {
+    const apiKey = process.env.ANTHROPIC_API_KEY;
+    if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
+
+    const topic = await ctx.runQuery(api.knowledge.getTopic, { id: args.topicId });
+    if (!topic) throw new Error("Topic not found");
+
+    const brand = await ctx.runQuery(api.brands.get, { id: topic.brandId });
+    if (!brand) throw new Error("Brand not found");
+
+    const sources = await ctx.runQuery(api.knowledge.listSources, { topicId: args.topicId });
+
+    // Check if all sources with transcripts are summarized
+    const withTranscripts = sources.filter((s: any) => s.transcript);
+    const unsummarized = withTranscripts.filter((s: any) => !s.summary);
+
+    if (unsummarized.length > 0) {
+      // Auto-summarize first (up to 5 at a time)
+      const sumResult = await ctx.runAction(api.compiler.summarizeSources, {
+        topicId: args.topicId,
+        batchSize: 5,
+      });
+
+      if (!sumResult.done) {
+        return {
+          status: "summarizing",
+          message: `Summarized ${sumResult.summarized} sources. ${sumResult.remaining} remaining. Click Compile again to continue.`,
+          sourcesSummarized: sumResult.summarized,
+          remaining: sumResult.remaining,
+          articlesCompiled: 0,
+          catalystsGenerated: 0,
+          ideasGenerated: 0,
+        };
+      }
+    }
+
+    // Re-fetch to get updated summaries
+    const updatedSources = await ctx.runQuery(api.knowledge.listSources, { topicId: args.topicId });
+    const summaries = updatedSources
+      .filter((s: any) => s.summary)
+      .map((s: any) => ({
+        sourceId: s._id,
+        title: s.title,
+        channel: s.youtubeChannelName ?? "Unknown",
+        summary: s.summary,
+      }));
+
+    if (summaries.length === 0) {
+      throw new Error("No summarized sources to compile from");
+    }
+
+    // ── Compile wiki articles ────────────────────────────────────────────
     const sourceBlock = summaries
-      .map(
-        (s, i) =>
-          `### Source ${i + 1}: "${s.title}" (${s.channel})\n${s.summary}`
-      )
+      .map((s: any, i: number) => `### Source ${i + 1}: "${s.title}" (${s.channel})\n${s.summary}`)
       .join("\n\n---\n\n");
 
     const wikiContent = await callClaude(
@@ -122,12 +154,12 @@ ${truncated}${words.length > 8000 ? "\n\n[Transcript truncated — full version 
       `You are a knowledge wiki compiler for the brand "${brand.name}".
 ${brand.voiceTraining ? `Brand voice: ${brand.voiceTraining.slice(0, 500)}` : ""}
 
-Your job is to synthesize multiple source summaries into interconnected wiki articles. Each article should:
+Synthesize multiple source summaries into interconnected wiki articles. Each article should:
 - Synthesize insights across sources (not just repeat one source)
 - Cite sources by name: "According to [Source Title]..."
 - Flag contradictions between sources
 - Cross-reference related concepts
-- Be written in clear, informative prose (not bullet points)`,
+- Be written in clear, informative prose`,
       `Compile wiki articles for the topic "${topic.name}" from these ${summaries.length} sources.
 
 ${sourceBlock}
@@ -162,15 +194,11 @@ List key entities (people, concepts, methods, frameworks) found across all sourc
       .map((block: string) => block.trim())
       .filter(Boolean);
 
-    // Save wiki pages
     const pageIds: string[] = [];
     for (const block of articleBlocks) {
       const titleMatch = block.match(/^##\s*(.+)/m);
       const title = titleMatch ? titleMatch[1].trim() : `${topic.name} - Compiled`;
-      const slug = title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "");
+      const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
       const pageId = await ctx.runMutation(internal.compiler.upsertWikiPage, {
         topicId: args.topicId,
@@ -178,13 +206,13 @@ List key entities (people, concepts, methods, frameworks) found across all sourc
         title,
         slug,
         content: block,
-        sourceIds: summaries.map((s) => s.sourceId),
+        sourceIds: summaries.map((s: any) => s.sourceId),
         entityTags: entities.slice(0, 20),
       });
       pageIds.push(pageId);
     }
 
-    // ── PASS 3: Generate catalysts + idea briefs ─────────────────────────
+    // ── Generate catalysts + idea briefs ──────────────────────────────────
     const catalystAndIdeas = await callClaude(
       apiKey,
       `You are a content strategist for "${brand.name}". Generate content ideas from compiled knowledge.`,
@@ -230,6 +258,7 @@ SCORE: [1-100 composite quality score]
     // Parse idea briefs
     const ideaSection = catalystAndIdeas.split("---CATALYSTS_END---")[1] ?? "";
     const ideaBlocks = ideaSection.split("---IDEA_END---").filter((b: string) => b.includes("TITLE:"));
+    let ideasCreated = 0;
 
     for (const ideaBlock of ideaBlocks) {
       const get = (key: string) => {
@@ -237,10 +266,7 @@ SCORE: [1-100 composite quality score]
         return match ? match[1].trim() : "";
       };
 
-      const formats = get("FORMATS")
-        .split(",")
-        .map((f: string) => f.trim())
-        .filter(Boolean);
+      const formats = get("FORMATS").split(",").map((f: string) => f.trim()).filter(Boolean);
       const score = parseInt(get("SCORE")) || 70;
 
       if (get("TITLE")) {
@@ -254,6 +280,7 @@ SCORE: [1-100 composite quality score]
           suggestedFormats: formats,
           compositeScore: score,
         });
+        ideasCreated++;
       }
     }
 
@@ -261,27 +288,26 @@ SCORE: [1-100 composite quality score]
     await ctx.runMutation(internal.compiler.updateTopicStats, {
       topicId: args.topicId,
       pageCount: pageIds.length,
-      ideaCount: ideaBlocks.length,
+      ideaCount: ideasCreated,
     });
 
     return {
+      status: "compiled",
       sourcesSummarized: summaries.length,
       articlesCompiled: pageIds.length,
       catalystsGenerated: catalystQuestions.length,
-      ideasGenerated: ideaBlocks.length,
+      ideasGenerated: ideasCreated,
+      remaining: 0,
     };
   },
 });
 
-// ── Internal mutations (called by the compiler action) ────────────────────
+// ── Internal mutations ────────────────────────────────────────────────────
 
 export const updateSourceSummary = internalMutation({
   args: { sourceId: v.id("knowledgeSources"), summary: v.string() },
   handler: async (ctx, args) => {
-    await ctx.db.patch(args.sourceId, {
-      summary: args.summary,
-      status: "summarized",
-    });
+    await ctx.db.patch(args.sourceId, { summary: args.summary, status: "summarized" });
   },
 });
 
@@ -296,16 +322,12 @@ export const upsertWikiPage = internalMutation({
     entityTags: v.array(v.string()),
   },
   handler: async (ctx, args) => {
-    // Check if page with this slug exists
     const existing = await ctx.db
       .query("knowledgePages")
-      .withIndex("by_topic_slug", (q) =>
-        q.eq("topicId", args.topicId).eq("slug", args.slug)
-      )
+      .withIndex("by_topic_slug", (q) => q.eq("topicId", args.topicId).eq("slug", args.slug))
       .first();
 
     const now = Date.now();
-
     if (existing) {
       await ctx.db.patch(existing._id, {
         content: args.content,
@@ -381,11 +403,7 @@ export const addIdeaBrief = internalMutation({
 });
 
 export const updateTopicStats = internalMutation({
-  args: {
-    topicId: v.id("knowledgeTopics"),
-    pageCount: v.number(),
-    ideaCount: v.number(),
-  },
+  args: { topicId: v.id("knowledgeTopics"), pageCount: v.number(), ideaCount: v.number() },
   handler: async (ctx, args) => {
     await ctx.db.patch(args.topicId, {
       pageCount: args.pageCount,

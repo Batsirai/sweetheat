@@ -133,6 +133,12 @@
 				topicId: topicId as any
 			});
 			compileResult = result;
+
+			// If still summarizing, auto-continue after a short pause
+			if (result.status === 'summarizing' && result.remaining > 0) {
+				setTimeout(() => compileTopic(), 1000);
+				return; // Keep compiling=true
+			}
 		} catch (err: any) {
 			compileError = err.message ?? 'Compilation failed';
 		}
@@ -195,15 +201,30 @@
 
 	<!-- Compile result -->
 	{#if compileResult}
-		<div class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-xl p-4 text-sm space-y-1">
-			<p class="font-medium text-green-800 dark:text-green-200">Compilation complete!</p>
-			<div class="flex flex-wrap gap-3 text-green-700 dark:text-green-300 text-xs">
-				<span>{compileResult.sourcesSummarized} sources summarized</span>
-				<span>{compileResult.articlesCompiled} articles compiled</span>
-				<span>{compileResult.catalystsGenerated} catalysts generated</span>
-				<span>{compileResult.ideasGenerated} idea briefs created</span>
+		{#if compileResult.status === 'summarizing'}
+			<div class="bg-blue-50 dark:bg-blue-950 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-sm space-y-2">
+				<p class="font-medium text-blue-800 dark:text-blue-200">
+					Summarizing sources... ({compileResult.remaining} remaining)
+				</p>
+				<div class="w-full bg-blue-200 dark:bg-blue-800 rounded-full h-2">
+					<div
+						class="bg-blue-600 h-2 rounded-full transition-all"
+						style="width: {Math.round((1 - compileResult.remaining / (compileResult.remaining + compileResult.sourcesSummarized)) * 100)}%"
+					></div>
+				</div>
+				<p class="text-xs text-blue-600 dark:text-blue-300">{compileResult.message}</p>
 			</div>
-		</div>
+		{:else}
+			<div class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-xl p-4 text-sm space-y-1">
+				<p class="font-medium text-green-800 dark:text-green-200">Compilation complete!</p>
+				<div class="flex flex-wrap gap-3 text-green-700 dark:text-green-300 text-xs">
+					<span>{compileResult.sourcesSummarized} sources summarized</span>
+					<span>{compileResult.articlesCompiled} articles compiled</span>
+					<span>{compileResult.catalystsGenerated} catalysts generated</span>
+					<span>{compileResult.ideasGenerated} idea briefs created</span>
+				</div>
+			</div>
+		{/if}
 	{/if}
 	{#if compileError}
 		<div class="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-xl p-4 text-sm">
