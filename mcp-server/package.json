@@ -1,0 +1,14 @@
+{
+  "name": "sweet-heat-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Sweet Heat content factory — bridges Claude agents to Convex",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  }
+}
