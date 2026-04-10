@@ -355,10 +355,12 @@ export const addIdeaBrief = internalMutation({
   },
   handler: async (ctx, args) => {
     const now = Date.now();
-    await ctx.db.insert("ideaBriefs", {
+
+    // Create the idea brief (for knowledge base tracking)
+    const briefId = await ctx.db.insert("ideaBriefs", {
       topicId: args.topicId,
       brandId: args.brandId,
-      status: "ready",
+      status: "produced",
       title: args.title,
       angle: args.angle,
       hook: args.hook || undefined,
@@ -368,6 +370,27 @@ export const addIdeaBrief = internalMutation({
       createdAt: now,
       updatedAt: now,
     });
+
+    // Automatically create a seed from the idea brief — seeds are the pipeline entry point
+    const description = [args.angle, args.hook, args.thesis]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const seedId = await ctx.db.insert("seeds", {
+      brandId: args.brandId,
+      title: args.title,
+      description: description || args.angle,
+      source: "knowledge_base",
+      sourceRef: briefId,
+      pitchedBy: "agent",
+      targetFormats: args.suggestedFormats,
+      status: "pitched",
+      createdAt: now,
+      updatedAt: now,
+    });
+
+    // Link the brief back to the seed
+    await ctx.db.patch(briefId, { seedId });
   },
 });
 

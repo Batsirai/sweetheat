@@ -10,6 +10,7 @@
 
 import type * as agentRuns from "../agentRuns.js";
 import type * as auth from "../auth.js";
+import type * as backfill from "../backfill.js";
 import type * as branches from "../branches.js";
 import type * as brands from "../brands.js";
 import type * as buffer from "../buffer.js";
@@ -37,6 +38,7 @@ import type {
 declare const fullApi: ApiFromModules<{
   agentRuns: typeof agentRuns;
   auth: typeof auth;
+  backfill: typeof backfill;
   branches: typeof branches;
   brands: typeof brands;
   buffer: typeof buffer;
