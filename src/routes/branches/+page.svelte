@@ -152,10 +152,10 @@
 							{#if branch.status === 'in_review' || branch.status === 'draft'}
 								<div class="flex flex-wrap gap-2">
 									<button
-										onclick={() => updateStatus(branch._id, 'approved')}
+										onclick={() => client.mutation(api.pipeline.approveBranch, { branchId: branch._id })}
 										class="px-3 py-1.5 rounded-lg bg-green-600 text-white text-xs font-medium hover:bg-green-700"
 									>
-										Approve
+										Approve & Publish
 									</button>
 									<button
 										onclick={() => updateStatus(branch._id, 'revision_requested')}
@@ -186,13 +186,18 @@
 								</div>
 							{/if}
 
-							{#if branch.status === 'approved'}
-								<button
-									onclick={() => updateStatus(branch._id, 'scheduled')}
-									class="px-3 py-1.5 rounded-lg bg-purple-600 text-white text-xs font-medium hover:bg-purple-700"
-								>
-									Schedule
-								</button>
+							{#if branch.status === 'scheduled'}
+								<div class="flex items-center gap-2">
+									<span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 font-medium">
+										<span class="w-1.5 h-1.5 rounded-full bg-green-500 inline-block"></span>
+										Scheduled
+									</span>
+									{#if branch.externalPostId}
+										<span class="text-xs text-(--color-on-surface-muted)">
+											Buffer: {branch.externalPostId}
+										</span>
+									{/if}
+								</div>
 							{/if}
 
 							<!-- Newsletter flag toggle -->

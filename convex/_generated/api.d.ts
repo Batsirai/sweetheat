@@ -12,6 +12,7 @@ import type * as agentRuns from "../agentRuns.js";
 import type * as auth from "../auth.js";
 import type * as branches from "../branches.js";
 import type * as brands from "../brands.js";
+import type * as buffer from "../buffer.js";
 import type * as comments from "../comments.js";
 import type * as compiler from "../compiler.js";
 import type * as drafts from "../drafts.js";
@@ -38,6 +39,7 @@ declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   branches: typeof branches;
   brands: typeof brands;
+  buffer: typeof buffer;
   comments: typeof comments;
   compiler: typeof compiler;
   drafts: typeof drafts;

@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { mutation, internalAction, internalMutation } from "./_generated/server";
+import { mutation, internalAction, internalMutation, query } from "./_generated/server";
 import { internal, api } from "./_generated/api";
 import { callClaude } from "./lib/callClaude";
 import { getFormatPrompt, type PromptInput } from "./lib/formatPrompts";
@@ -207,5 +207,33 @@ export const saveDraftInternal = internalMutation({
     });
 
     return draftId;
+  },
+});
+
+// ── Approve a branch and schedule Buffer publishing ────────────────────────
+// Called from the UI. Approves the branch and kicks off Buffer distribution.
+
+export const approveBranch = mutation({
+  args: { branchId: v.id("branches") },
+  handler: async (ctx, args) => {
+    const branch = await ctx.db.get(args.branchId);
+    if (!branch) throw new Error("Branch not found");
+
+    // Get the latest draft
+    const draft = branch.currentDraftId ? await ctx.db.get(branch.currentDraftId) : null;
+    if (!draft) throw new Error("No draft to publish");
+
+    // Update status to approved
+    await ctx.db.patch(args.branchId, { status: "approved", updatedAt: Date.now() });
+
+    // Schedule Buffer publishing
+    await ctx.scheduler.runAfter(0, internal.buffer.publishBranch, {
+      branchId: args.branchId,
+      draftBody: draft.body,
+      format: branch.format,
+      brandId: branch.brandId,
+    });
+
+    return { approved: true };
   },
 });

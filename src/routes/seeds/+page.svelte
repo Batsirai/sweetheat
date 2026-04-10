@@ -221,12 +221,12 @@
 					<div class="flex gap-2 pt-2 border-t border-(--color-border)">
 						<button
 							onclick={() => {
-								updateSeedStatus(currentCard._id, 'approved');
+								client.mutation(api.pipeline.approveSeed, { seedId: currentCard._id });
 								nextCard();
 							}}
 							class="flex-1 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700"
 						>
-							Develop
+							Approve
 						</button>
 						<button
 							onclick={() => {
@@ -332,10 +332,10 @@
 						{#if seed.status === 'pitched' || seed.status === 'under_review'}
 							<div class="flex gap-2 mt-3 pt-3 border-t border-(--color-border)">
 								<button
-									onclick={() => updateSeedStatus(seed._id, 'approved')}
+									onclick={() => client.mutation(api.pipeline.approveSeed, { seedId: seed._id })}
 									class="px-3 py-1.5 rounded-lg bg-green-600 text-white text-xs font-medium hover:bg-green-700"
 								>
-									Develop
+									Approve
 								</button>
 								<button
 									onclick={() => updateSeedStatus(seed._id, 'rejected')}
