@@ -49,11 +49,13 @@ For each seed, use `npx convex run seeds:create` with:
 - **targetFormats**: Always include "blog" plus relevant social formats
 
 ### 4. Notify via Slack
-After creating seeds, send a Slack notification using the Slack MCP connector. The message should:
-- Tag both Batsirai and Aimee using their Slack user IDs: <@U0A9H1R97RT> and <@U0A9517L831>
-- Include the count of seeds pitched
-- Include the direct link: http://100.65.231.55:5173/seeds
-- Example: "🌱 Strategist: 6 new seeds pitched for AlreadyLoved Kids. <@U0A9H1R97RT> <@U0A9517L831> — review and approve → http://100.65.231.55:5173/seeds"
+Post to the #content-factory channel using the webhook. Tag both Batsirai and Aimee.
+
+Use the SLACK_WEBHOOK_URL environment variable (set in Convex). Post a message like:
+
+"🌱 Strategist: N new seeds pitched for BRAND. <@U0A9H1R97RT> <@U0A9517L831> — review and approve → http://100.65.231.55:5173/seeds"
+
+Replace N with actual count and BRAND with brand name. Use curl with the webhook URL from the environment.
 
 ## Seed Quality Standards
 - Never pitch a duplicate of an existing seed (check titles AND descriptions)
