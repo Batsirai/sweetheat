@@ -13,6 +13,7 @@ import type * as auth from "../auth.js";
 import type * as branches from "../branches.js";
 import type * as brands from "../brands.js";
 import type * as comments from "../comments.js";
+import type * as compiler from "../compiler.js";
 import type * as drafts from "../drafts.js";
 import type * as integrations from "../integrations.js";
 import type * as knowledge from "../knowledge.js";
@@ -35,6 +36,7 @@ declare const fullApi: ApiFromModules<{
   branches: typeof branches;
   brands: typeof brands;
   comments: typeof comments;
+  compiler: typeof compiler;
   drafts: typeof drafts;
   integrations: typeof integrations;
   knowledge: typeof knowledge;

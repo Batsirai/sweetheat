@@ -119,6 +119,26 @@
 		await client.mutation(api.knowledge.removeSource, { id: id as any });
 	}
 
+	// Compiler
+	let compiling = $state(false);
+	let compileResult = $state<any>(null);
+	let compileError = $state('');
+
+	async function compileTopic() {
+		compiling = true;
+		compileResult = null;
+		compileError = '';
+		try {
+			const result = await client.action(api.compiler.compileTopic, {
+				topicId: topicId as any
+			});
+			compileResult = result;
+		} catch (err: any) {
+			compileError = err.message ?? 'Compilation failed';
+		}
+		compiling = false;
+	}
+
 	function formatDuration(seconds: number): string {
 		const m = Math.floor(seconds / 60);
 		const s = seconds % 60;
@@ -140,15 +160,56 @@
 </script>
 
 <div class="space-y-4">
-	<div>
-		<a href="/knowledge" class="text-sm text-(--color-brand) hover:underline">&larr; Knowledge</a>
-		<h2 class="text-xl font-bold text-(--color-on-surface) mt-2">
-			{topic.data?.name ?? 'Loading...'}
-		</h2>
-		{#if topic.data?.description}
-			<p class="text-sm text-(--color-on-surface-muted)">{topic.data.description}</p>
-		{/if}
+	<div class="flex items-start justify-between gap-3">
+		<div>
+			<a href="/knowledge" class="text-sm text-(--color-brand) hover:underline">&larr; Knowledge</a>
+			<h2 class="text-xl font-bold text-(--color-on-surface) mt-2">
+				{topic.data?.name ?? 'Loading...'}
+			</h2>
+			{#if topic.data?.description}
+				<p class="text-sm text-(--color-on-surface-muted)">{topic.data.description}</p>
+			{/if}
+		</div>
+		<button
+			onclick={compileTopic}
+			disabled={compiling}
+			class="shrink-0 mt-6 px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
+			class:bg-purple-600={!compiling}
+			class:text-white={!compiling}
+			class:bg-purple-100={compiling}
+			class:text-purple-700={compiling}
+		>
+			{#if compiling}
+				<span class="flex items-center gap-2">
+					<svg class="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+						<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" class="opacity-25" />
+						<path d="M4 12a8 8 0 018-8" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+					</svg>
+					Compiling...
+				</span>
+			{:else}
+				Compile Wiki
+			{/if}
+		</button>
 	</div>
+
+	<!-- Compile result -->
+	{#if compileResult}
+		<div class="bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-xl p-4 text-sm space-y-1">
+			<p class="font-medium text-green-800 dark:text-green-200">Compilation complete!</p>
+			<div class="flex flex-wrap gap-3 text-green-700 dark:text-green-300 text-xs">
+				<span>{compileResult.sourcesSummarized} sources summarized</span>
+				<span>{compileResult.articlesCompiled} articles compiled</span>
+				<span>{compileResult.catalystsGenerated} catalysts generated</span>
+				<span>{compileResult.ideasGenerated} idea briefs created</span>
+			</div>
+		</div>
+	{/if}
+	{#if compileError}
+		<div class="bg-red-50 dark:bg-red-950 border border-red-200 dark:border-red-800 rounded-xl p-4 text-sm">
+			<p class="text-red-700 dark:text-red-300">{compileError}</p>
+		</div>
+	{/if}
 
 	<!-- Tabs -->
 	<div class="flex gap-1 rounded-lg border border-(--color-border) overflow-hidden">
