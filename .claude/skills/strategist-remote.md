@@ -49,7 +49,7 @@ For each seed, use `npx convex run seeds:create` with:
 - **targetFormats**: Always include "blog" plus relevant social formats
 
 ### 4. Notify via Slack
-After creating seeds, send a Slack notification using the SLACK_WEBHOOK_URL environment variable or the Slack MCP connector. Message: "🌱 Strategist: [N] new seeds pitched for [brand]. Review in Sweet Heat."
+After creating seeds, send a Slack notification using the SLACK_WEBHOOK_URL environment variable or the Slack MCP connector. Message: "🌱 Strategist: [N] new seeds pitched for [brand]. Review in Sweet Heat → http://100.65.231.55:5173/seeds"
 
 ## Seed Quality Standards
 - Never pitch a duplicate of an existing seed (check titles AND descriptions)
