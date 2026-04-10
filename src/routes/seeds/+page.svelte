@@ -213,9 +213,37 @@
 						<p class="text-sm text-(--color-on-surface-muted) mt-2">{currentCard.description}</p>
 					</div>
 
-					<div class="text-xs text-(--color-on-surface-muted)">
-						{currentCard.source} &middot; by {currentCard.pitchedBy}
+					<div class="flex flex-wrap items-center gap-2 text-xs text-(--color-on-surface-muted)">
+						<span>{currentCard.source.replace(/_/g, ' ')}</span>
+						<span>by {currentCard.pitchedBy}</span>
+						{#if currentCard.purpose}
+							<span class="px-1.5 py-0.5 rounded font-medium"
+								class:bg-blue-100={currentCard.purpose === 'seo'}
+								class:text-blue-700={currentCard.purpose === 'seo'}
+								class:bg-purple-100={currentCard.purpose === 'aeo'}
+								class:text-purple-700={currentCard.purpose === 'aeo'}
+								class:bg-amber-100={currentCard.purpose === 'brand_building'}
+								class:text-amber-700={currentCard.purpose === 'brand_building'}
+								class:bg-green-100={currentCard.purpose === 'table_stakes'}
+								class:text-green-700={currentCard.purpose === 'table_stakes'}
+								class:bg-gray-100={!['seo','aeo','brand_building','table_stakes'].includes(currentCard.purpose)}
+								class:text-gray-700={!['seo','aeo','brand_building','table_stakes'].includes(currentCard.purpose)}
+							>{currentCard.purpose.replace(/_/g, ' ')}</span>
+						{/if}
+						{#if currentCard.contentPillar}
+							<span class="px-1.5 py-0.5 rounded bg-(--color-surface-container)">{currentCard.contentPillar}</span>
+						{/if}
 					</div>
+					{#if currentCard.reasoning}
+						<p class="text-xs text-(--color-on-surface-muted) italic">{currentCard.reasoning}</p>
+					{/if}
+					{#if currentCard.targetKeywords?.length}
+						<div class="flex flex-wrap gap-1">
+							{#each currentCard.targetKeywords as kw}
+								<span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-300">{kw}</span>
+							{/each}
+						</div>
+					{/if}
 
 					<!-- Action buttons -->
 					<div class="flex gap-2 pt-2 border-t border-(--color-border)">
@@ -323,10 +351,43 @@
 							</span>
 						</div>
 
-						<div class="flex items-center gap-3 mt-3 text-xs text-(--color-on-surface-muted)">
-							<span>{seed.source}</span>
+						<div class="flex flex-wrap items-center gap-2 mt-3 text-xs text-(--color-on-surface-muted)">
+							<span>{seed.source.replace(/_/g, ' ')}</span>
 							<span>by {seed.pitchedBy}</span>
+							{#if seed.purpose}
+								<span class="px-1.5 py-0.5 rounded text-xs font-medium"
+									class:bg-blue-100={seed.purpose === 'seo'}
+									class:text-blue-700={seed.purpose === 'seo'}
+									class:bg-purple-100={seed.purpose === 'aeo'}
+									class:text-purple-700={seed.purpose === 'aeo'}
+									class:bg-amber-100={seed.purpose === 'brand_building'}
+									class:text-amber-700={seed.purpose === 'brand_building'}
+									class:bg-pink-100={seed.purpose === 'engagement'}
+									class:text-pink-700={seed.purpose === 'engagement'}
+									class:bg-green-100={seed.purpose === 'table_stakes'}
+									class:text-green-700={seed.purpose === 'table_stakes'}
+									class:bg-gray-100={!['seo','aeo','brand_building','engagement','table_stakes'].includes(seed.purpose)}
+									class:text-gray-700={!['seo','aeo','brand_building','engagement','table_stakes'].includes(seed.purpose)}
+								>{seed.purpose.replace(/_/g, ' ')}</span>
+							{/if}
+							{#if seed.contentPillar}
+								<span class="px-1.5 py-0.5 rounded bg-(--color-surface-container) text-(--color-on-surface-muted)">
+									{seed.contentPillar}
+								</span>
+							{/if}
 						</div>
+						{#if seed.reasoning}
+							<p class="text-xs text-(--color-on-surface-muted) mt-1 italic">
+								{seed.reasoning}
+							</p>
+						{/if}
+						{#if seed.targetKeywords?.length}
+							<div class="flex flex-wrap gap-1 mt-1">
+								{#each seed.targetKeywords as kw}
+									<span class="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-950 dark:text-blue-300">{kw}</span>
+								{/each}
+							</div>
+						{/if}
 
 						<!-- Actions for pitched/under_review seeds -->
 						{#if seed.status === 'pitched' || seed.status === 'under_review'}

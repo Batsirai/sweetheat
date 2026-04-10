@@ -67,11 +67,16 @@ export default defineSchema({
     brandId: v.id("brands"),
     title: v.string(),
     description: v.string(),
-    source: v.string(), // audience_question | remix | interview | industry_radar | work_insight | manual | webhook | import | folder_watch | agent_research
+    source: v.string(), // knowledge_base | audience_question | remix | interview | industry_radar | work_insight | manual | webhook | import | folder_watch | agent_research | social | blog_existing
     sourceRef: v.optional(v.string()),
     status: v.string(), // pitched | under_review | approved | rejected | archived
     pitchedBy: v.string(), // agent | user
     targetFormats: v.optional(v.array(v.string())),
+    // Strategic content planning
+    purpose: v.optional(v.string()), // seo | aeo | brand_building | engagement | audience_growth | table_stakes
+    contentPillar: v.optional(v.string()), // Brand-defined content pillar/theme
+    targetKeywords: v.optional(v.array(v.string())), // SEO/AEO target keywords
+    reasoning: v.optional(v.string()), // Agent's reasoning for pitching this seed
     // Attachments (file uploads, etc.)
     attachments: v.optional(v.array(v.object({
       name: v.string(),
