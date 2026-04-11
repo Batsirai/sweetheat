@@ -4,20 +4,33 @@ import { api } from "../convex/_generated/api";
 
 const PUBLIC_PATHS = ["/login", "/register", "/api/auth", "/api/health"];
 const AGENT_PATHS_PREFIX = "/api/";
+const AGENT_KEY = "sc_agent_2026_kX9mPqR7vN3jL5wT8yF1";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
 
 export const handle: Handle = async ({ event, resolve }) => {
   const path = event.url.pathname;
 
+  // Handle CORS preflight for API routes
+  if (event.request.method === "OPTIONS" && path.startsWith(AGENT_PATHS_PREFIX)) {
+    return new Response(null, { status: 204, headers: corsHeaders });
+  }
+
   // Agent API routes: validate API key
   if (path.startsWith(AGENT_PATHS_PREFIX) && !path.startsWith("/api/auth")) {
     const authHeader = event.request.headers.get("authorization");
-    // Check against known agent key (hardcoded for dev, env var for prod)
-    const agentKey = "sc_agent_2026_kX9mPqR7vN3jL5wT8yF1";
 
-    if (authHeader === `Bearer ${agentKey}`) {
+    if (authHeader === `Bearer ${AGENT_KEY}`) {
       event.locals.user = null;
       event.locals.sessionToken = null;
-      return resolve(event);
+      const response = await resolve(event);
+      // Add CORS headers to agent API responses
+      Object.entries(corsHeaders).forEach(([k, v]) => response.headers.set(k, v));
+      return response;
     }
   }
 
