@@ -10,115 +10,31 @@
       color: #f1f5f9;
       padding: 16px;
     }
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-    .header h1 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #22c55e;
-    }
-    .header span {
-      font-size: 11px;
-      color: #64748b;
-    }
-    .page-info {
-      background: #1e293b;
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 12px;
-    }
-    .page-title {
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.3;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .page-url {
-      font-size: 10px;
-      color: #64748b;
-      margin-top: 4px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-    .platform-badge {
-      display: inline-block;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background: #334155;
-      color: #94a3b8;
-      margin-top: 6px;
-    }
-    textarea {
-      width: 100%;
-      background: #1e293b;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      color: #f1f5f9;
-      padding: 8px;
-      font-size: 12px;
-      resize: none;
-      margin-bottom: 8px;
-      font-family: inherit;
-    }
+    .header { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .header h1 { font-size: 16px; font-weight: 700; color: #22c55e; }
+    .header span { font-size: 11px; color: #64748b; }
+    .page-info { background: #1e293b; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+    .page-title { font-size: 13px; font-weight: 600; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .page-url { font-size: 10px; color: #64748b; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .meta-row { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+    .badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; background: #334155; color: #94a3b8; }
+    .badge.ok { background: #052e16; color: #4ade80; }
+    .badge.warn { background: #422006; color: #fbbf24; }
+    select { width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #f1f5f9; padding: 8px; font-size: 12px; margin-bottom: 8px; font-family: inherit; }
+    textarea { width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #f1f5f9; padding: 8px; font-size: 12px; resize: none; font-family: inherit; }
     textarea:focus { outline: none; border-color: #22c55e; }
     textarea::placeholder { color: #475569; }
-    .actions {
-      display: flex;
-      gap: 8px;
-    }
-    button {
-      flex: 1;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: opacity 0.15s;
-    }
+    .actions { display: flex; gap: 8px; margin-top: 8px; }
+    button { flex: 1; padding: 10px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.15s; }
     button:hover { opacity: 0.9; }
     button:disabled { opacity: 0.4; cursor: not-allowed; }
-    .btn-send {
-      background: #16a34a;
-      color: white;
-    }
-    .btn-seed {
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #94a3b8;
-    }
-    .status {
-      text-align: center;
-      font-size: 12px;
-      margin-top: 8px;
-      min-height: 18px;
-    }
+    .btn-knowledge { background: #7c3aed; color: white; }
+    .btn-seed { background: #16a34a; color: white; }
+    .status { text-align: center; font-size: 12px; margin-top: 8px; min-height: 18px; }
     .status.ok { color: #22c55e; }
     .status.err { color: #ef4444; }
-    .open-link {
-      display: block;
-      text-align: center;
-      font-size: 11px;
-      color: #22c55e;
-      text-decoration: none;
-      margin-top: 10px;
-      padding: 6px;
-      border-radius: 6px;
-      background: #1e293b;
-    }
+    .open-link { display: block; text-align: center; font-size: 11px; color: #22c55e; text-decoration: none; margin-top: 10px; padding: 6px; border-radius: 6px; background: #1e293b; }
     .open-link:hover { background: #334155; }
-    .content-status { background: #1e293b; color: #64748b; }
-    .content-status.ok { background: #052e16; color: #4ade80; }
-    .content-status.warn { background: #422006; color: #fbbf24; }
   </style>
 </head>
 <body>
@@ -130,31 +46,39 @@
   <div class="page-info">
     <div class="page-title" id="pageTitle">Loading...</div>
     <div class="page-url" id="pageUrl"></div>
-    <span class="platform-badge" id="platform"></span>
+    <div class="meta-row">
+      <span class="badge" id="platform"></span>
+      <span class="badge" id="contentStatus">Extracting...</span>
+    </div>
   </div>
 
-  <!-- Content extraction status -->
-  <div id="contentStatus" class="content-status" style="font-size:11px;padding:6px 8px;border-radius:6px;margin-bottom:8px;">Extracting content...</div>
-
-  <select id="brandSelect" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:8px;font-size:12px;margin-bottom:8px;font-family:inherit;">
-    <option value="">No brand (general)</option>
+  <!-- Brand -->
+  <select id="brandSelect">
+    <option value="">Select brand...</option>
   </select>
 
-  <textarea id="notes" rows="2" placeholder="Add a note (optional)..."></textarea>
+  <!-- Topic (loads when brand is selected) -->
+  <select id="topicSelect" style="display:none;">
+    <option value="">Auto (default topic)</option>
+  </select>
 
-  <!-- Manual paste fallback for pages where extraction fails -->
-  <details style="margin-bottom:8px;">
+  <!-- Quick note -->
+  <textarea id="notes" rows="2" placeholder="Add a note (optional)..." style="margin-bottom:4px;"></textarea>
+
+  <!-- Manual paste fallback -->
+  <details style="margin-bottom:4px;">
     <summary style="font-size:11px;color:#64748b;cursor:pointer;">Paste content manually</summary>
-    <textarea id="manualContent" rows="4" placeholder="Paste the article text here if extraction failed..." style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:8px;font-size:11px;margin-top:4px;resize:vertical;font-family:inherit;"></textarea>
+    <textarea id="manualContent" rows="4" placeholder="Paste article text here..." style="margin-top:4px;font-size:11px;resize:vertical;"></textarea>
   </details>
 
-  <label style="display:flex;align-items:center;gap:6px;font-size:11px;color:#94a3b8;margin-bottom:8px;cursor:pointer;">
-    <input type="checkbox" id="knowledgeOnly" style="accent-color:#22c55e;" />
-    Knowledge only (don't create seeds — just learn from this)
-  </label>
-
+  <!-- Two actions: Knowledge (learn) or Seed (create content from this) -->
   <div class="actions">
-    <button class="btn-send" id="sendBtn">Send to Inbox</button>
+    <button class="btn-knowledge" id="knowledgeBtn" title="Add to knowledge base for learning">
+      Learn
+    </button>
+    <button class="btn-seed" id="seedBtn" title="Create a content seed from this">
+      Seed
+    </button>
   </div>
 
   <div class="status" id="status"></div>

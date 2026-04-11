@@ -18,7 +18,6 @@ function detectPlatform(url) {
   if (url.includes("linkedin.com")) return "linkedin";
   if (url.includes("youtube.com") || url.includes("youtu.be")) return "youtube";
   if (url.includes("perplexity.ai")) return "perplexity";
-  if (url.includes("news.google.com")) return "google_alert";
   if (url.includes("tiktok.com")) return "tiktok";
   return "web";
 }
@@ -31,60 +30,42 @@ async function init() {
   document.getElementById("pageUrl").textContent = tab.url;
   document.getElementById("platform").textContent = detectPlatform(tab.url);
 
-  // Try to extract content from the page
-  // Method 1: Ask the content script (already injected on X.com)
-  // Method 2: Fall back to executeScript (works on all other sites)
+  // Extract content
   try {
-    let result = null;
-
-    // Try content script first (already running on X.com pages)
+    let response = null;
     try {
-      const response = await chrome.tabs.sendMessage(tab.id, { action: "extractContent" });
-      if (response?.content && response.content.length > 50) {
-        result = { result: response };
-      }
-    } catch {
-      // Content script not available — use executeScript
-    }
+      response = await chrome.tabs.sendMessage(tab.id, { action: "extractContent" });
+    } catch {}
 
-    // Fall back to executeScript for non-X.com pages or if content script failed
-    if (!result) {
-      const [execResult] = await chrome.scripting.executeScript({
+    if (!response || !response.content || response.content.length < 50) {
+      const [result] = await chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: () => {
-          const el = document.querySelector("article")
-            || document.querySelector('[role="main"]')
-            || document.querySelector("main")
-            || document.body;
-          return {
-            content: el?.innerText?.slice(0, 50000) || "",
-            title: document.title,
-            platform: "web"
-          };
+          const el = document.querySelector("article") || document.querySelector('[role="main"]') || document.querySelector("main") || document.body;
+          return { content: el?.innerText?.slice(0, 50000) || "", title: document.title };
         }
       });
-      result = execResult;
+      response = result?.result;
     }
 
-    if (result?.result?.content && result.result.content.length > 50) {
-      extractedContent = result.result.content;
-      document.getElementById("contentStatus").textContent = `Extracted ${Math.round(extractedContent.length / 1000)}k chars`;
-      document.getElementById("contentStatus").className = "content-status ok";
-      if (result.result.title) {
-        document.getElementById("pageTitle").textContent = result.result.title;
-      }
+    if (response?.content && response.content.length > 50) {
+      extractedContent = response.content;
+      const statusEl = document.getElementById("contentStatus");
+      statusEl.textContent = `${Math.round(extractedContent.length / 1000)}k chars`;
+      statusEl.className = "badge ok";
+      if (response.title) document.getElementById("pageTitle").textContent = response.title;
     } else {
-      document.getElementById("contentStatus").textContent = "Could not extract content. Paste manually below.";
-      document.getElementById("contentStatus").className = "content-status warn";
+      document.getElementById("contentStatus").textContent = "No content";
+      document.getElementById("contentStatus").className = "badge warn";
     }
-  } catch (err) {
-    document.getElementById("contentStatus").textContent = "Cannot access page content. Paste manually below.";
-    document.getElementById("contentStatus").className = "content-status warn";
+  } catch {
+    document.getElementById("contentStatus").textContent = "Extract failed";
+    document.getElementById("contentStatus").className = "badge warn";
   }
 
   // Load brands
+  const config = await getConfig();
   try {
-    const config = await getConfig();
     const res = await fetch(`${config.apiUrl}/brands`, {
       headers: { Authorization: `Bearer ${config.apiKey}` },
     });
@@ -98,69 +79,106 @@ async function init() {
         select.appendChild(opt);
       });
       const saved = await chrome.storage.sync.get(["lastBrandId"]);
-      if (saved.lastBrandId) select.value = saved.lastBrandId;
+      if (saved.lastBrandId) {
+        select.value = saved.lastBrandId;
+        loadTopics(saved.lastBrandId);
+      }
     }
   } catch {}
 }
 
-// Send to inbox
-document.getElementById("sendBtn").addEventListener("click", async () => {
-  const btn = document.getElementById("sendBtn");
-  const status = document.getElementById("status");
-  btn.disabled = true;
-  btn.textContent = "Sending...";
+document.getElementById("brandSelect").addEventListener("change", (e) => {
+  const brandId = e.target.value;
+  if (brandId) {
+    chrome.storage.sync.set({ lastBrandId: brandId });
+    loadTopics(brandId);
+  }
+});
 
-  const notes = document.getElementById("notes").value;
+async function loadTopics(brandId) {
+  const config = await getConfig();
+  const topicSelect = document.getElementById("topicSelect");
+  topicSelect.innerHTML = '<option value="">Auto (default topic)</option>';
+  try {
+    const res = await fetch(`${config.apiUrl}/ingest?brandId=${brandId}`, {
+      headers: { Authorization: `Bearer ${config.apiKey}` },
+    });
+    if (res.ok) {
+      const topics = await res.json();
+      if (topics.length > 0) {
+        topicSelect.style.display = "";
+        topics.forEach((t) => {
+          const opt = document.createElement("option");
+          opt.value = t._id;
+          opt.textContent = t.name;
+          topicSelect.appendChild(opt);
+        });
+        const saved = await chrome.storage.sync.get(["lastTopicId"]);
+        if (saved.lastTopicId) topicSelect.value = saved.lastTopicId;
+      }
+    }
+  } catch {}
+}
+
+document.getElementById("knowledgeBtn").addEventListener("click", () => send(false));
+document.getElementById("seedBtn").addEventListener("click", () => send(true));
+
+async function send(asSeed) {
+  const knowledgeBtn = document.getElementById("knowledgeBtn");
+  const seedBtn = document.getElementById("seedBtn");
+  const status = document.getElementById("status");
+  knowledgeBtn.disabled = true;
+  seedBtn.disabled = true;
+
   const brandId = document.getElementById("brandSelect").value;
-  const knowledgeOnly = document.getElementById("knowledgeOnly")?.checked || false;
+  const topicId = document.getElementById("topicSelect").value;
+  const notes = document.getElementById("notes").value;
   const manualContent = document.getElementById("manualContent")?.value || "";
 
-  if (brandId) chrome.storage.sync.set({ lastBrandId: brandId });
-
-  // Use: manual paste > extracted content > notes
-  const finalContent = manualContent || extractedContent || notes || "";
-
-  if (!finalContent && !currentTab.url) {
+  if (!brandId) {
     status.className = "status err";
-    status.textContent = "No content to send";
-    btn.disabled = false;
-    btn.textContent = "Send to Inbox";
+    status.textContent = "Pick a brand first";
+    knowledgeBtn.disabled = false;
+    seedBtn.disabled = false;
     return;
   }
 
+  if (topicId) chrome.storage.sync.set({ lastTopicId: topicId });
+
+  const finalContent = manualContent || extractedContent || notes || "";
+
   try {
     const config = await getConfig();
-    const res = await fetch(`${config.apiUrl}/inbox`, {
+    const res = await fetch(`${config.apiUrl}/ingest`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${config.apiKey}`,
       },
       body: JSON.stringify({
-        type: "url",
+        brandId,
+        topicId: topicId || undefined,
         url: currentTab.url,
         title: document.getElementById("pageTitle").textContent,
         content: finalContent,
-        brandId: brandId || undefined,
         sourcePlatform: detectPlatform(currentTab.url),
-        knowledgeOnly: knowledgeOnly || undefined,
+        asSeed: asSeed,
       }),
     });
 
     if (res.ok) {
       status.className = "status ok";
-      status.textContent = `Sent! (${Math.round(finalContent.length / 1000)}k chars)`;
-      btn.textContent = "Sent!";
-      setTimeout(() => window.close(), 1500);
+      status.textContent = asSeed ? "Seed created!" : "Ingested!";
+      setTimeout(() => window.close(), 1200);
     } else {
       throw new Error(`${res.status}`);
     }
   } catch (err) {
     status.className = "status err";
     status.textContent = `Failed: ${err.message}`;
-    btn.disabled = false;
-    btn.textContent = "Retry";
+    knowledgeBtn.disabled = false;
+    seedBtn.disabled = false;
   }
-});
+}
 
 init();
