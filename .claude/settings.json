@@ -1,18 +1,35 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "mcpServers": {
-    "sweet-heat": {
-      "command": "node",
-      "args": ["/Users/batsirai/SweetContent/mcp-server/index.js"],
-      "env": {
-        "SWEET_HEAT_URL": "http://localhost:5173",
-        "SWEET_HEAT_API_KEY": "${SWEET_HEAT_API_KEY}",
-        "SLACK_WEBHOOK_URL": "${SLACK_WEBHOOK_URL}"
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": ".claude/hooks/enzyme-petri.sh",
+            "type": "command"
+          }
+        ]
       }
-    },
+    ]
+  },
+  "mcpServers": {
     "mempalace": {
-      "command": "/usr/local/bin/python3.11",
-      "args": ["-m", "mempalace.mcp_server"]
+      "args": [
+        "-m",
+        "mempalace.mcp_server"
+      ],
+      "command": "/usr/local/bin/python3.11"
+    },
+    "sweet-heat": {
+      "args": [
+        "/Users/batsirai/SweetContent/mcp-server/index.js"
+      ],
+      "command": "node",
+      "env": {
+        "SLACK_WEBHOOK_URL": "${SLACK_WEBHOOK_URL}",
+        "SWEET_HEAT_API_KEY": "${SWEET_HEAT_API_KEY}",
+        "SWEET_HEAT_URL": "http://localhost:5173"
+      }
     }
   }
 }
