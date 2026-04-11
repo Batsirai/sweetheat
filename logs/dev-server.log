@@ -86,3 +86,5 @@ Using secrets defined in .env.local
 4:00:20 PM [vite] (ssr) page reload .svelte-kit/generated/root.js
 4:00:20 PM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
 4:00:28 PM [vite] (client) page reload .svelte-kit/cloudflare/404.html
+4:16:29 PM [vite] (client) page reload chrome-extension/popup.html
+4:17:13 PM [vite] (client) page reload chrome-extension/popup.html
