@@ -37,6 +37,23 @@ export const POST: RequestHandler = async ({ request, cookies }) => {
       return json({ success: true });
     }
 
+    if (action === "change-password") {
+      // Verify current password first by attempting login
+      const sessionToken = cookies.get("session");
+      if (!sessionToken) return json({ error: "Not logged in" }, { status: 401 });
+
+      const user = await client.query(api.auth.validateSession, { token: sessionToken });
+      if (!user) return json({ error: "Invalid session" }, { status: 401 });
+
+      // Verify current password
+      await client.action(api.auth.login, { email: user.email, password: body.currentPassword });
+
+      // Set new password
+      await client.action(api.auth.resetPassword, { email: user.email, newPassword: body.newPassword });
+
+      return json({ success: true });
+    }
+
     if (action === "logout") {
       const sessionToken = cookies.get("session");
       if (sessionToken) {
