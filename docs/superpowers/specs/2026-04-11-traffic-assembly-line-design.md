@@ -964,3 +964,131 @@ The MCP tool sends `purpose`, `contentPillar`, `targetKeywords`, `reasoning` but
 - `outreachMessages`: add `by_brand` index on `["brandId"]`
 - `emailMessages`: add `by_brand` index on `["brandId"]`
 - `adCreatives`: add `by_status` index on `["status"]`
+
+---
+
+## Acceleration: 1,000 Books/Month in 3 Months
+
+### The Math
+1,000 books × ~$25 = $25K/month. At 2% conversion = 50,000 visitors/month = ~1,670/day.
+
+### Hourly Cadence (Not Daily)
+The factory runs in 2-hour cycles, 24/7:
+```
+Every 2 hours:
+  1. Researcher scans for new signals
+  2. Strategist creates seeds from signals + performance data
+  3. Writer produces content from approved/auto-approved seeds
+  4. Publisher distributes across account network
+  5. Analytics ingests latest data
+  6. Learning loop updates strategy
+
+= 12 cycles/day = 50-100+ content pieces published daily
+```
+
+Platform rate limits enforced per cycle. The system knows the rules and stays within them.
+
+### Multi-Account Network Strategy
+Each brand operates a themed account network. Different angles, same destination URL:
+
+```
+AlreadyLoved Kids (brand)
+├── @AlreadyLovedKids (main — all platforms)
+├── @BedtimeBookMom (Pinterest + IG — bedtime/routine niche)
+├── @FaithFilledReads (TikTok + IG — Christian parenting niche)
+├── @PersonalizedKidsBooks (YouTube + SEO — product discovery)
+├── @ChristianMomTips (IG + Facebook — parenting advice niche)
+└── @ToddlerIdentity (Pinterest — identity/affirmation niche)
+```
+
+Each account: distinct voice, distinct content angle, 3-5 posts/day per platform.
+Total network output: 20-40 posts/day → all funneling to alreadylovedkids.com.
+
+### Schema Support for Account Networks
+
+```typescript
+// ── Platform Accounts ────────────────────────────────────
+// Multiple accounts per brand per platform
+platformAccounts: defineTable({
+  brandId: v.id("brands"),
+  platform: v.string(),               // pinterest | instagram | tiktok | twitter | youtube | facebook
+  accountName: v.string(),            // @BedtimeBookMom
+  accountId: v.optional(v.string()),  // Platform's internal ID
+  niche: v.string(),                  // The thematic angle this account covers
+  voiceNotes: v.optional(v.string()), // How this account differs from main brand voice
+  // Buffer/API connection
+  bufferChannelId: v.optional(v.string()),
+  directApiCredentials: v.optional(v.any()), // For platforms not on Buffer
+  // Rate limiting
+  postsPerDay: v.number(),            // Max posts per day for this account
+  postsToday: v.optional(v.number()), // Track against limit
+  lastPostedAt: v.optional(v.number()),
+  // State
+  isActive: v.boolean(),
+  createdAt: v.number(),
+  updatedAt: v.number(),
+})
+  .index("by_brand", ["brandId"])
+  .index("by_brand_platform", ["brandId", "platform"]),
+```
+
+Branch publishing routes to the correct account based on content angle and platform rate limits:
+```
+Branch (format: pin, seed hookAngle: BEDTIME)
+  → Route to @BedtimeBookMom Pinterest account
+  → Check: postsToday < postsPerDay?
+  → If yes: publish. If no: queue for next cycle.
+```
+
+### Platform Limits (The Actual Physics)
+
+| Platform | Safe daily limit per account | Strategy |
+|---|---|---|
+| Pinterest | 15-25 pins/day | 2-3 accounts × 15 = 30-75 pins/day |
+| Instagram | 1-3 feed posts, 5-10 stories/day | 2-3 accounts × 3 = 6-9 posts/day |
+| TikTok | 1-3 posts/day | 2-3 accounts × 3 = 6-9 videos/day |
+| Twitter/X | 10-25 tweets/day | 2-3 accounts × 15 = 30-75 tweets/day |
+| YouTube | 1-2 videos/day | 1-2 accounts, focus on quality |
+| Facebook | 1-3 posts/day | 2 accounts, groups more valuable |
+| LinkedIn | 1-2 posts/day | 1 account (personal brand) |
+| Blog | No limit | 1-2 SEO articles/day |
+| Email | 1/day max to same list | Segment lists for more touchpoints |
+
+Network total: **100-200 touchpoints per day** across all accounts and platforms.
+
+### The Three Traffic Engines (Running Simultaneously)
+
+**Engine 1: Organic Content (compounds over months)**
+- Blog articles for SEO (takes 3-6 months to rank, but starts compounding)
+- Pinterest pins (fastest organic social traffic for e-commerce)
+- Social posts across account network
+- YouTube (evergreen discovery)
+- Output: 50-100 pieces/day across network
+
+**Engine 2: Outreach (immediate but labor-intensive)**
+- 500+ cold emails to pastors/month → bulk book orders, church libraries
+- 50+ podcast pitch emails/month → guest appearances → audience exposure
+- Dream 100 relationship building → collaborations, shout-outs
+- Output: 20-30 outreach touches/day
+
+**Engine 3: Paid Ads (fastest to scale, requires working funnel)**
+- Meta ads targeting Dream 100 audiences
+- Pinterest promoted pins (highest e-commerce intent)
+- Google Shopping ads
+- Retargeting everyone who visited but didn't buy
+- Budget: start $100/day, scale to $500/day when CPA < cart value
+- Output: 10,000-50,000 impressions/day
+
+### What Would Actually Get to 1,000 Books in 3 Months
+
+| Month | Visitors | Conversion | Books | Revenue |
+|---|---|---|---|---|
+| Month 1 | 5,000 | 1% (cold traffic) | 50 | $1,250 |
+| Month 2 | 15,000 | 1.5% (learning kicks in) | 225 | $5,625 |
+| Month 3 | 50,000 | 2% (optimized) | 1,000 | $25,000 |
+
+**Month 1 levers:** All three engines start simultaneously. Paid ads for immediate traffic. Outreach for bulk pastor orders. Content for compounding.
+**Month 2 levers:** Learning loop has 30 days of data. Content mix optimized. Retargeting pools filled. Email list growing.
+**Month 3 levers:** SEO starting to rank. Organic compounding. Ad spend scaled on proven winners. Pastor network generating referrals.
+
+The hardest constraint isn't content volume — the agents handle that. The hardest constraint is **funnel conversion rate**. If the website doesn't convert at 2%+, no amount of traffic helps. The attribution system tells you WHERE the funnel breaks.
