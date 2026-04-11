@@ -116,6 +116,9 @@
       background: #1e293b;
     }
     .open-link:hover { background: #334155; }
+    .content-status { background: #1e293b; color: #64748b; }
+    .content-status.ok { background: #052e16; color: #4ade80; }
+    .content-status.warn { background: #422006; color: #fbbf24; }
   </style>
 </head>
 <body>
@@ -130,11 +133,20 @@
     <span class="platform-badge" id="platform"></span>
   </div>
 
-  <select id="brandSelect" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:8px;font-size:12px;margin-bottom:8px;font-family:inherit;appearance:none;">
+  <!-- Content extraction status -->
+  <div id="contentStatus" class="content-status" style="font-size:11px;padding:6px 8px;border-radius:6px;margin-bottom:8px;">Extracting content...</div>
+
+  <select id="brandSelect" style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:8px;font-size:12px;margin-bottom:8px;font-family:inherit;">
     <option value="">No brand (general)</option>
   </select>
 
   <textarea id="notes" rows="2" placeholder="Add a note (optional)..."></textarea>
+
+  <!-- Manual paste fallback for pages where extraction fails -->
+  <details style="margin-bottom:8px;">
+    <summary style="font-size:11px;color:#64748b;cursor:pointer;">Paste content manually</summary>
+    <textarea id="manualContent" rows="4" placeholder="Paste the article text here if extraction failed..." style="width:100%;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#f1f5f9;padding:8px;font-size:11px;margin-top:4px;resize:vertical;font-family:inherit;"></textarea>
+  </details>
 
   <label style="display:flex;align-items:center;gap:6px;font-size:11px;color:#94a3b8;margin-bottom:8px;cursor:pointer;">
     <input type="checkbox" id="knowledgeOnly" style="accent-color:#22c55e;" />

@@ -175,10 +175,15 @@ export const processToSource = mutation({
     id: v.id("inbox"),
     topicId: v.id("knowledgeTopics"),
     brandId: v.id("brands"),
+    content: v.optional(v.string()), // Allow passing content directly (from re-extraction)
   },
   handler: async (ctx, args) => {
     const item = await ctx.db.get(args.id);
     if (!item) throw new Error("Inbox item not found");
+
+    // Use provided content, item content, or mark as needing fetch
+    const content = args.content || item.content || "";
+    const hasContent = content.length > 50;
 
     // Create knowledge source
     const sourceId = await ctx.db.insert("knowledgeSources", {
@@ -187,9 +192,11 @@ export const processToSource = mutation({
       sourceType: item.type === "url" ? "article" : "note",
       title: item.title,
       url: item.sourceUrl,
-      transcript: item.content,
-      abstract: `${item.type} from ${item.sourcePlatform ?? "unknown"}: ${item.title}`,
-      status: "pending",
+      transcript: hasContent ? content : undefined,
+      abstract: hasContent
+        ? `${item.sourcePlatform ?? item.type}: ${item.title}. ${content.slice(0, 200)}...`
+        : `${item.sourcePlatform ?? item.type}: ${item.title} (content pending extraction)`,
+      status: hasContent ? "pending" : "pending",
       resonanceScore: item.relevanceScore,
       createdAt: Date.now(),
     });
