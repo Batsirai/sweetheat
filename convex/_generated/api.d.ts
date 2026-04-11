@@ -18,6 +18,7 @@ import type * as comments from "../comments.js";
 import type * as compiler from "../compiler.js";
 import type * as drafts from "../drafts.js";
 import type * as feedbackSynthesis from "../feedbackSynthesis.js";
+import type * as inbox from "../inbox.js";
 import type * as integrations from "../integrations.js";
 import type * as knowledge from "../knowledge.js";
 import type * as learnings from "../learnings.js";
@@ -47,6 +48,7 @@ declare const fullApi: ApiFromModules<{
   compiler: typeof compiler;
   drafts: typeof drafts;
   feedbackSynthesis: typeof feedbackSynthesis;
+  inbox: typeof inbox;
   integrations: typeof integrations;
   knowledge: typeof knowledge;
   learnings: typeof learnings;

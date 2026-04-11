@@ -197,6 +197,38 @@ server.tool(
   }
 );
 
+// ═══ INBOX ════════════════════════════════════════════════════════════════
+
+server.tool(
+  "inbox_add",
+  "Add an item to the inbox — a URL to fetch, a note, or a signal from scouting. Everything in the inbox feeds the content factory.",
+  {
+    type: z.enum(["url", "note", "email"]).describe("Item type"),
+    url: z.string().optional().describe("URL to fetch and ingest (for type=url)"),
+    title: z.string().optional().describe("Title or subject"),
+    content: z.string().optional().describe("Content body (for notes/emails)"),
+    brandId: z.string().optional().describe("Brand ID to associate with"),
+    sourcePlatform: z.string().optional().describe("Where this came from: reddit | twitter | linkedin | perplexity | google_alert | newsletter | web"),
+  },
+  async (args) => {
+    const result = await api("/inbox", {
+      method: "POST",
+      body: JSON.stringify(args),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "inbox_list",
+  "List pending inbox items — signals, URLs, notes waiting to be processed",
+  { status: z.string().optional().describe("Filter by status: pending | processed | dismissed") },
+  async ({ status }) => {
+    const items = await api(`/inbox?status=${status ?? "pending"}`);
+    return { content: [{ type: "text", text: JSON.stringify(items, null, 2) }] };
+  }
+);
+
 // ═══ TASTE PROFILE (Feedback Learning Loop) ══════════════════════════════
 
 server.tool(

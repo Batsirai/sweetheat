@@ -233,6 +233,34 @@ export default defineSchema({
     .index("by_brand_type", ["brandId", "type"])
     .index("by_provider", ["provider"]),
 
+  // ── Inbox (Universal Input) ─────────────────────────────────────────────
+  // Everything flows in here: emails, URLs, notes, files, scout findings.
+  // Processed items become knowledge sources that feed seed generation.
+  inbox: defineTable({
+    brandId: v.optional(v.id("brands")), // Which brand this relates to (null = unassigned)
+    type: v.string(), // email | url | note | file | scout
+    title: v.string(),
+    content: v.string(), // Extracted text content
+    // Source metadata
+    sourceUrl: v.optional(v.string()), // Original URL
+    sourceEmail: v.optional(v.string()), // Sender email
+    sourceSubject: v.optional(v.string()), // Email subject
+    sourcePlatform: v.optional(v.string()), // reddit | twitter | newsletter | google_alert | perplexity | manual
+    // Processing
+    status: v.string(), // pending | processed | dismissed
+    topicId: v.optional(v.id("knowledgeTopics")), // Linked to knowledge topic after processing
+    sourceId: v.optional(v.string()), // Created knowledgeSource ID
+    seedId: v.optional(v.id("seeds")), // If directly converted to a seed
+    // Agent assessment
+    relevanceScore: v.optional(v.number()), // 0-100, how relevant to brand
+    suggestedAction: v.optional(v.string()), // ingest_to_topic | create_seed | dismiss | needs_review
+    agentNotes: v.optional(v.string()), // Agent's assessment of why this matters
+    createdAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_status", ["status"])
+    .index("by_type", ["type"]),
+
   // ── Analytics (Fruit Consumption Tracking) ──────────────────────────────
   // Track which content performs best.
   analytics: defineTable({
