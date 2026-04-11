@@ -856,7 +856,7 @@ Both Carson and Cowork should be able to:
 | Feedback learning loop | Exists | Connect to performanceSnapshots |
 | Content ID system | New | Schema + generation logic |
 | UTM generation | New | Integrate into publish step |
-| PostHog integration | New | SDK on site + webhook handler |
+| PostHog integration | Installed on site | Connect API for data ingestion into Sweet Heat |
 | Stripe attribution bridge | New | Metadata on checkout + webhook |
 | Dream 100 | New | Schema + MCP tools |
 | Outreach engine | New | Schema + MCP tools + email integration |
