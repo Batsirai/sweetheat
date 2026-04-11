@@ -15,3 +15,21 @@ Now using node v22.22.0 (npm v10.9.4)
 Using secrets defined in .env.local
 5:06:24 PM [vite] (client) hmr update /src/app.css
 5:06:25 PM [vite] (ssr) page reload src/routes/api/auth/+server.ts
+5:23:13 PM [vite] vite.config.ts changed, restarting server...
+5:23:14 PM [vite] server restarted.
+Using secrets defined in .env.local
+10:35:16 PM [vite] (client) hmr update /src/routes/+page.svelte, /src/app.css
+10:35:17 PM [vite] (ssr) page reload src/routes/+page.svelte
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/nodes/0.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/nodes/1.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/nodes/2.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/nodes/7.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/nodes/12.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/app.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/client/matchers.js
+10:35:32 PM [vite] (ssr) page reload .svelte-kit/generated/server/internal.js
+10:35:32 PM [vite] (client) page reload .svelte-kit/generated/root.js
+10:35:32 PM [vite] (ssr) page reload .svelte-kit/generated/root.js
+10:35:33 PM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+10:35:42 PM [vite] (client) page reload .svelte-kit/cloudflare/404.html
+10:35:42 PM [vite] (client) page reload .svelte-kit/cloudflare/404.html

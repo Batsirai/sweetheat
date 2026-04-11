@@ -81,3 +81,22 @@ Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` 
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProcessing wrangler.toml configuration:[0m
+
+    - Because you've defined a [site] configuration, we're defaulting to "workers-site" for the deprecated `site.entry-point`field.
+      Add the top level `main` field to your configuration file:
+      ```
+      main = "workers-site/index.js"
+      ```
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mProcessing wrangler.toml configuration:[0m
+
+    - Because you've defined a [site] configuration, we're defaulting to "workers-site" for the deprecated `site.entry-point`field.
+      Add the top level `main` field to your configuration file:
+      ```
+      main = "workers-site/index.js"
+      ```
+
+
