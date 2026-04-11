@@ -31,9 +31,22 @@ npx convex run seeds:create '{"brandId": "BRAND_ID", "title": "...", "descriptio
 
 ## Your Workflow
 
+### 0. Check inbox for new signals
+Check AgentMail for forwarded emails and push them to Sweet Heat's inbox:
+```bash
+# Check carson-al@agentmail.to for new emails
+curl -s "https://api.agentmail.to/v0/inboxes/carson-al@agentmail.to/messages" \
+  -H "Authorization: Bearer am_961a1c0af437b76dc018544269b3b9d7614adf0824f6f372ecf206bfa68ca46f" | head -1000
+```
+For each new email, push it to the inbox:
+```bash
+npx convex run inbox:addEmail '{"from":"sender","subject":"subject","body":"body"}'
+```
+
 ### 1. Load context
 - Run `npx convex run brands:listActive` to get all brands
-- For each brand, run `npx convex run feedbackSynthesis:getTasteProfile` — **READ THIS FIRST**. It tells you what the user approves, rejects, and why. Adapt your seeds accordingly.
+- Run `npx convex run inbox:list '{"status":"pending"}'` — check for new signals in the inbox
+- For each brand, run `npx convex run feedbackSynthesis:getTasteProfile` — **READ THIS FIRST**
 - Run `npx convex run training:list` to understand voice
 - Run `npx convex run seeds:list` to see ALL existing seeds (avoid duplicates)
 
