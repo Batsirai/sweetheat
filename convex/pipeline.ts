@@ -7,7 +7,11 @@ import { getFormatPrompt, type PromptInput } from "./lib/formatPrompts";
 const PIN_VARIATIONS = 5; // 4-5 Pinterest pins per article
 
 export const approveSeed = mutation({
-  args: { seedId: v.id("seeds") },
+  args: {
+    seedId: v.id("seeds"),
+    feedbackReason: v.optional(v.string()),
+    feedbackNote: v.optional(v.string()),
+  },
   handler: async (ctx, args) => {
     const seed = await ctx.db.get(args.seedId);
     if (!seed) throw new Error("Seed not found");
@@ -15,8 +19,13 @@ export const approveSeed = mutation({
     const brand = await ctx.db.get(seed.brandId);
     if (!brand) throw new Error("Brand not found");
 
-    // Update seed status
-    await ctx.db.patch(args.seedId, { status: "approved", updatedAt: Date.now() });
+    // Update seed status + feedback
+    await ctx.db.patch(args.seedId, {
+      status: "approved",
+      feedbackReason: args.feedbackReason,
+      feedbackNote: args.feedbackNote,
+      updatedAt: Date.now(),
+    });
 
     // Order formats: blog first (anchor content — derivatives need it)
     const formats = brand.activeFormats.slice();
@@ -51,6 +60,22 @@ export const approveSeed = mutation({
     });
 
     return { branchIds, formatsCreated: formats };
+  },
+});
+
+export const rejectSeed = mutation({
+  args: {
+    seedId: v.id("seeds"),
+    feedbackReason: v.optional(v.string()),
+    feedbackNote: v.optional(v.string()),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.seedId, {
+      status: "rejected",
+      feedbackReason: args.feedbackReason,
+      feedbackNote: args.feedbackNote,
+      updatedAt: Date.now(),
+    });
   },
 });
 

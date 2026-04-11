@@ -77,6 +77,9 @@ export default defineSchema({
     contentPillar: v.optional(v.string()), // Brand-defined content pillar/theme
     targetKeywords: v.optional(v.array(v.string())), // SEO/AEO target keywords
     reasoning: v.optional(v.string()), // Agent's reasoning for pitching this seed
+    // Feedback from user (learning loop)
+    feedbackReason: v.optional(v.string()), // Why user approved/rejected: great_idea | on_brand | good_hook | wrong_tone | not_relevant | duplicate | bad_timing | too_generic | already_covered
+    feedbackNote: v.optional(v.string()), // Free-text feedback
     // Attachments (file uploads, etc.)
     attachments: v.optional(v.array(v.object({
       name: v.string(),

@@ -26,6 +26,54 @@
 	const seedCount = $derived(pendingSeeds.length);
 	const branchCount = $derived(reviewBranches.length);
 
+	// Feedback state
+	let feedbackSeedId = $state<string | null>(null);
+	let feedbackAction = $state<'approve' | 'reject'>('approve');
+	let feedbackReason = $state('');
+	let feedbackNote = $state('');
+
+	const approveReasons = [
+		{ value: 'great_idea', label: 'Great idea' },
+		{ value: 'on_brand', label: 'On brand' },
+		{ value: 'good_hook', label: 'Good hook' },
+		{ value: 'fills_gap', label: 'Fills a gap' },
+		{ value: 'timely', label: 'Timely' },
+	];
+
+	const rejectReasons = [
+		{ value: 'not_relevant', label: 'Not relevant' },
+		{ value: 'wrong_tone', label: 'Wrong tone' },
+		{ value: 'too_generic', label: 'Too generic' },
+		{ value: 'already_covered', label: 'Already covered' },
+		{ value: 'bad_timing', label: 'Bad timing' },
+		{ value: 'duplicate', label: 'Duplicate' },
+	];
+
+	function startFeedback(seedId: string, action: 'approve' | 'reject') {
+		feedbackSeedId = seedId;
+		feedbackAction = action;
+		feedbackReason = '';
+		feedbackNote = '';
+	}
+
+	async function submitFeedback() {
+		if (!feedbackSeedId) return;
+		if (feedbackAction === 'approve') {
+			await client.mutation(api.pipeline.approveSeed, {
+				seedId: feedbackSeedId as any,
+				feedbackReason: feedbackReason || undefined,
+				feedbackNote: feedbackNote || undefined,
+			});
+		} else {
+			await client.mutation(api.pipeline.rejectSeed, {
+				seedId: feedbackSeedId as any,
+				feedbackReason: feedbackReason || undefined,
+				feedbackNote: feedbackNote || undefined,
+			});
+		}
+		feedbackSeedId = null;
+	}
+
 	// Quick seed input
 	let quickIdea = $state('');
 	let submittingIdea = $state(false);
@@ -132,21 +180,70 @@
 						</div>
 					{/if}
 
-					<!-- Action buttons -->
-					<div class="flex gap-2 pt-1">
-						<button
-							onclick={() => approveSeed(seed._id)}
-							class="flex-1 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 active:bg-green-800"
-						>
-							Approve
-						</button>
-						<button
-							onclick={() => rejectSeed(seed._id)}
-							class="flex-1 py-2.5 rounded-lg border border-(--color-border) text-(--color-on-surface) text-sm font-medium hover:bg-(--color-surface-container)"
-						>
-							Skip
-						</button>
-					</div>
+					<!-- Action buttons OR feedback form -->
+					{#if feedbackSeedId === seed._id}
+						<div class="space-y-2 pt-1 border-t border-(--color-border)">
+							<p class="text-xs font-medium text-(--color-on-surface-muted)">
+								{feedbackAction === 'approve' ? 'Why approve?' : 'Why skip?'}
+								<span class="font-normal">(optional but helps the agent learn)</span>
+							</p>
+							<div class="flex flex-wrap gap-1.5">
+								{#each (feedbackAction === 'approve' ? approveReasons : rejectReasons) as reason}
+									<button
+										onclick={() => (feedbackReason = feedbackReason === reason.value ? '' : reason.value)}
+										class="text-xs px-2.5 py-1 rounded-full border transition-colors"
+										class:bg-green-600={feedbackReason === reason.value && feedbackAction === 'approve'}
+										class:bg-red-500={feedbackReason === reason.value && feedbackAction === 'reject'}
+										class:text-white={feedbackReason === reason.value}
+										class:border-green-600={feedbackReason === reason.value && feedbackAction === 'approve'}
+										class:border-red-500={feedbackReason === reason.value && feedbackAction === 'reject'}
+										class:border-gray-300={feedbackReason !== reason.value}
+										class:text-gray-600={feedbackReason !== reason.value}
+									>
+										{reason.label}
+									</button>
+								{/each}
+							</div>
+							<input
+								type="text"
+								bind:value={feedbackNote}
+								placeholder="Any other notes..."
+								class="w-full px-3 py-2 rounded-lg border border-(--color-border) bg-(--color-surface) text-(--color-on-surface) text-xs"
+								onkeydown={(e) => { if (e.key === 'Enter') submitFeedback(); }}
+							/>
+							<div class="flex gap-2">
+								<button
+									onclick={submitFeedback}
+									class="flex-1 py-2 rounded-lg text-sm font-medium text-white"
+									class:bg-green-600={feedbackAction === 'approve'}
+									class:bg-red-500={feedbackAction === 'reject'}
+								>
+									{feedbackAction === 'approve' ? 'Approve' : 'Skip'}
+								</button>
+								<button
+									onclick={() => (feedbackSeedId = null)}
+									class="px-4 py-2 rounded-lg border border-(--color-border) text-xs text-(--color-on-surface-muted)"
+								>
+									Cancel
+								</button>
+							</div>
+						</div>
+					{:else}
+						<div class="flex gap-2 pt-1">
+							<button
+								onclick={() => startFeedback(seed._id, 'approve')}
+								class="flex-1 py-2.5 rounded-lg bg-green-600 text-white text-sm font-medium hover:bg-green-700 active:bg-green-800"
+							>
+								Approve
+							</button>
+							<button
+								onclick={() => startFeedback(seed._id, 'reject')}
+								class="flex-1 py-2.5 rounded-lg border border-(--color-border) text-(--color-on-surface) text-sm font-medium hover:bg-(--color-surface-container)"
+							>
+								Skip
+							</button>
+						</div>
+					{/if}
 				</div>
 			{/each}
 
