@@ -64,9 +64,46 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
 
   const notes = document.getElementById("notes").value;
   const brandId = document.getElementById("brandSelect").value;
+  const knowledgeOnly = document.getElementById("knowledgeOnly")?.checked || false;
 
   // Save last selected brand
   if (brandId) chrome.storage.sync.set({ lastBrandId: brandId });
+
+  // Try to extract content from the page (especially for X.com)
+  let pageContent = notes || "";
+  let pageTitle = currentTab.title;
+  try {
+    const [result] = await chrome.scripting.executeScript({
+      target: { tabId: currentTab.id },
+      func: () => {
+        // Inline extraction for any page
+        const url = window.location.href;
+        if (url.includes("x.com") || url.includes("twitter.com")) {
+          const tweets = Array.from(document.querySelectorAll('[data-testid="tweetText"]'))
+            .map(el => el.innerText);
+          const author = document.querySelector('[data-testid="User-Name"]')?.innerText || "";
+          return {
+            content: `Author: ${author}\n\n${tweets.join("\n\n")}`,
+            title: tweets[0]?.slice(0, 100) || document.title,
+            platform: "twitter"
+          };
+        }
+        // Generic article extraction
+        const article = document.querySelector("article") || document.querySelector("main") || document.body;
+        return {
+          content: article.innerText.slice(0, 30000),
+          title: document.title,
+          platform: "web"
+        };
+      }
+    });
+    if (result?.result?.content) {
+      pageContent = notes ? `${notes}\n\n---\n\n${result.result.content}` : result.result.content;
+      pageTitle = result.result.title || pageTitle;
+    }
+  } catch {
+    // Content script injection failed (restricted page) — just use URL
+  }
 
   try {
     const config = await getConfig();
@@ -79,10 +116,11 @@ document.getElementById("sendBtn").addEventListener("click", async () => {
       body: JSON.stringify({
         type: "url",
         url: currentTab.url,
-        title: currentTab.title,
-        content: notes || undefined,
+        title: pageTitle,
+        content: pageContent || undefined,
         brandId: brandId || undefined,
         sourcePlatform: detectPlatform(currentTab.url),
+        knowledgeOnly: knowledgeOnly || undefined,
       }),
     });
 

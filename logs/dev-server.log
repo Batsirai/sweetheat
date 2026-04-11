@@ -197,3 +197,4 @@ Using secrets defined in .env.local
 4:47:58 PM [vite] (client) page reload .svelte-kit/generated/root.js
 4:47:58 PM [vite] (ssr) page reload .svelte-kit/generated/root.js
 4:47:58 PM [vite] (ssr) page reload .svelte-kit/generated/root.svelte
+5:08:46 PM [vite] (client) page reload chrome-extension/popup.html
