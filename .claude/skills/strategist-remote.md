@@ -19,6 +19,9 @@ npx convex run seeds:list '{"brandId": "BRAND_ID"}'
 # Get training for a brand
 npx convex run training:list '{"brandId": "BRAND_ID"}'
 
+# Get taste profile (CRITICAL — read this before generating seeds)
+npx convex run feedbackSynthesis:getTasteProfile '{"brandId": "BRAND_ID"}'
+
 # List knowledge topics
 npx convex run knowledge:listTopics '{"brandId": "BRAND_ID"}'
 
@@ -30,7 +33,8 @@ npx convex run seeds:create '{"brandId": "BRAND_ID", "title": "...", "descriptio
 
 ### 1. Load context
 - Run `npx convex run brands:listActive` to get all brands
-- For each brand, run `npx convex run training:list` to understand voice
+- For each brand, run `npx convex run feedbackSynthesis:getTasteProfile` — **READ THIS FIRST**. It tells you what the user approves, rejects, and why. Adapt your seeds accordingly.
+- Run `npx convex run training:list` to understand voice
 - Run `npx convex run seeds:list` to see ALL existing seeds (avoid duplicates)
 
 ### 2. Analyze coverage

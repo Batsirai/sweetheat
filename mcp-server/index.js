@@ -197,6 +197,18 @@ server.tool(
   }
 );
 
+// ═══ TASTE PROFILE (Feedback Learning Loop) ══════════════════════════════
+
+server.tool(
+  "taste_profile",
+  "Get the user's taste profile for a brand — what they approve/reject and why. Use this before generating seeds to understand preferences. Shows approval patterns by content pillar, purpose, source, and recent feedback notes.",
+  { brandId: z.string().describe("Brand ID to get taste profile for") },
+  async ({ brandId }) => {
+    const profile = await api(`/feedback?brandId=${brandId}`);
+    return { content: [{ type: "text", text: JSON.stringify(profile, null, 2) }] };
+  }
+);
+
 // ═══ LEARNINGS ════════════════════════════════════════════════════════════
 
 server.tool(
