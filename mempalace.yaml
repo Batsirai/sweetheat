@@ -1,0 +1,50 @@
+wing: sweetcontent
+rooms:
+- name: mcp_server
+  description: Files from mcp-server/
+  keywords:
+  - mcp_server
+  - mcp-server
+- name: testing
+  description: Files from tests/
+  keywords:
+  - testing
+  - tests
+- name: documentation
+  description: Files from docs/
+  keywords:
+  - documentation
+  - docs
+- name: convex
+  description: Files from convex/
+  keywords:
+  - convex
+  - convex
+- name: logs
+  description: Files from logs/
+  keywords:
+  - logs
+  - logs
+- name: static
+  description: Files from static/
+  keywords:
+  - static
+  - static
+- name: scripts
+  description: Files from scripts/
+  keywords:
+  - scripts
+  - scripts
+- name: src
+  description: Files from src/
+  keywords:
+  - src
+  - src
+- name: backend
+  description: Files from routes/
+  keywords:
+  - backend
+  - routes
+- name: general
+  description: Files that don't fit other rooms
+  keywords: []

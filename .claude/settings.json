@@ -9,6 +9,10 @@
         "SWEET_HEAT_API_KEY": "${SWEET_HEAT_API_KEY}",
         "SLACK_WEBHOOK_URL": "${SLACK_WEBHOOK_URL}"
       }
+    },
+    "mempalace": {
+      "command": "/usr/local/bin/python3.11",
+      "args": ["-m", "mempalace.mcp_server"]
     }
   }
 }
