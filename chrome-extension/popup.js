@@ -32,51 +32,39 @@ async function init() {
   document.getElementById("platform").textContent = detectPlatform(tab.url);
 
   // Try to extract content from the page
+  // Method 1: Ask the content script (already injected on X.com)
+  // Method 2: Fall back to executeScript (works on all other sites)
   try {
-    const [result] = await chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: () => {
-        const url = window.location.href;
+    let result = null;
 
-        // X.com Articles (long-form)
-        const articleView = document.querySelector('[data-testid="twitterArticleReadView"]');
-        if (articleView) {
-          const titleEl = document.querySelector('[data-testid="twitter-article-title"]');
-          const bodyEl = articleView.querySelector('[data-testid="longformRichTextComponent"]')
-            || articleView.querySelector('.DraftEditor-root')
-            || articleView;
-          const author = document.querySelector('[data-testid="User-Name"]')?.innerText || "";
-          const statsEl = articleView.querySelector('[role="group"]');
+    // Try content script first (already running on X.com pages)
+    try {
+      const response = await chrome.tabs.sendMessage(tab.id, { action: "extractContent" });
+      if (response?.content && response.content.length > 50) {
+        result = { result: response };
+      }
+    } catch {
+      // Content script not available — use executeScript
+    }
+
+    // Fall back to executeScript for non-X.com pages or if content script failed
+    if (!result) {
+      const [execResult] = await chrome.scripting.executeScript({
+        target: { tabId: tab.id },
+        func: () => {
+          const el = document.querySelector("article")
+            || document.querySelector('[role="main"]')
+            || document.querySelector("main")
+            || document.body;
           return {
-            content: `# ${titleEl?.innerText || ""}\nAuthor: ${author}\n${statsEl?.getAttribute("aria-label") || ""}\n\n${bodyEl?.innerText || ""}`,
-            title: titleEl?.innerText || document.title,
-            platform: "twitter"
+            content: el?.innerText?.slice(0, 50000) || "",
+            title: document.title,
+            platform: "web"
           };
         }
-
-        // X.com Tweets
-        if (url.includes("x.com") || url.includes("twitter.com")) {
-          const tweets = Array.from(document.querySelectorAll('[data-testid="tweetText"]')).map(el => el.innerText);
-          const author = document.querySelector('[data-testid="User-Name"]')?.innerText || "";
-          const statsEl = document.querySelector('article [role="group"]');
-          if (tweets.length > 0) {
-            return {
-              content: `Author: ${author}\n${statsEl?.getAttribute("aria-label") || ""}\n\n${tweets.join("\n\n")}`,
-              title: tweets[0]?.slice(0, 100) || document.title,
-              platform: "twitter"
-            };
-          }
-        }
-
-        // Generic: article, main, or body
-        const el = document.querySelector("article") || document.querySelector('[role="main"]') || document.querySelector("main") || document.body;
-        return {
-          content: el?.innerText?.slice(0, 50000) || "",
-          title: document.title,
-          platform: "web"
-        };
-      }
-    });
+      });
+      result = execResult;
+    }
 
     if (result?.result?.content && result.result.content.length > 50) {
       extractedContent = result.result.content;
