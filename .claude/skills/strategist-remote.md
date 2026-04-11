@@ -82,7 +82,7 @@ Example format:
 Today's best: _"The Walmart Meltdown — What Your Child Is Really Saying"_
 Mix: 2 SEO keywords · 1 brand story · 1 engagement hook · 1 AEO answer
 
-<@U0A9H1R97RT> <@U0A9517L831> → https://mac.tailcb4df0.ts.net/seeds
+<@U0A9H1R97RT> <@U0A9517L831> → https://sweet-content.batsirai.workers.dev/seeds
 ```
 
 Use curl with the SLACK_WEBHOOK_URL environment variable from Convex.

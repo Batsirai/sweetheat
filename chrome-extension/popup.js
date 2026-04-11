@@ -1,4 +1,4 @@
-const DEFAULT_API = "https://mac.tailcb4df0.ts.net/api";
+const DEFAULT_API = "https://sweet-content.batsirai.workers.dev/api";
 const DEFAULT_KEY = "sc_agent_2026_kX9mPqR7vN3jL5wT8yF1";
 
 let currentTab = null;
