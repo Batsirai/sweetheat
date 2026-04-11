@@ -711,7 +711,7 @@ Carson: (reads snapshot) "Adjusting strategy. Also noticed a trending
 
 ---
 
-## Attribution System (Content ID + UTM + PostHog + Stripe)
+## Attribution System (Content ID + UTM + DataFast + PostHog + Stripe)
 
 ### Content ID Format
 ```
@@ -728,17 +728,58 @@ Example: ALK-20260411-PIN-AFFIRM-A-BEDTIME
 | utm_content | Full Content ID (lowercase) | alk-20260411-pin-affirm-a-bedtime |
 | utm_term | Hook keyword | bedtime |
 
-### PostHog Integration
-- JS SDK on alreadylovedkids.com with `person_profiles: 'always'`
-- Custom events: `wizard_started`, `wizard_completed`, `checkout_started`
-- `purchase_completed` sent server-side via Stripe webhook
-- Attribution dashboard: 6 panels (revenue by source, conversion by campaign, full funnel by content, top content by revenue, wizard completion by source, AOV by source)
+### DataFast (Primary Analytics + Revenue Attribution)
+DataFast is the primary analytics layer. Simpler than PostHog, built-in revenue attribution via Stripe, and has an API for programmatic access.
+
+**Setup on alreadylovedkids.com:**
+- Install tracking script in `<head>` with `data-website-id` and `data-domain`
+- Connect Stripe in DataFast settings (automatic revenue attribution)
+- Pass `datafast_visitor_id` + `datafast_session_id` cookies as Stripe checkout metadata
+- Custom goals: `wizard_started`, `wizard_completed`, `checkout_started`
+- Conversion funnels: pageview → wizard_started → wizard_completed → checkout_started → payment
+
+**DataFast automatically tracks:**
+- All UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`)
+- Also `ref`, `source`, `via` parameters
+- Revenue attribution per traffic source
+- Conversion funnels with revenue at each step
+- Google Search Console integration (keyword → revenue estimates)
+
+**DataFast API for programmatic access:**
+- `GET /api/v1/analytics/timeseries` — visitors, sessions, revenue over time
+- `GET /api/v1/analytics/campaigns` — UTM breakdown with revenue
+- `GET /api/v1/analytics/referrers` — traffic sources with revenue
+- `GET /api/v1/analytics/pages` — page performance with revenue
+- `GET /api/v1/analytics/overview` — aggregate metrics
+- `GET /api/v1/analytics/realtime` — current active visitors
+- `POST /api/v1/goals` — create custom goal events server-side
+
+The Cowork analytics tasks pull data via DataFast API to create performanceSnapshots in Sweet Heat.
+
+### PostHog (Secondary — Deep Analysis)
+PostHog supplements DataFast for:
+- Session replay (watch user behavior)
+- `$initial_utm_*` person properties (first-touch attribution across sessions)
+- HogQL queries for advanced template/hook/platform analysis
+- Cohort analysis
 
 ### Stripe Bridge
 - UTM params stored in cookies on landing
 - Passed as metadata on Stripe Checkout Session + PaymentIntent
-- `posthog_person_distinct_id` included for cross-system linking
-- Webhook handler sends `purchase_completed` event to PostHog with full attribution
+- Include both `datafast_visitor_id`/`datafast_session_id` AND `posthog_person_distinct_id`
+- DataFast handles revenue attribution automatically via Stripe connection
+- PostHog gets `purchase_completed` event via webhook for deeper analysis
+
+### Communication Layer (Slack)
+Carson and Cowork report to Batsirai and Aimee via Slack:
+
+| Report | Cadence | Channel | Contents |
+|---|---|---|---|
+| Daily ops | Every morning | #content | What was done yesterday, what's planned today, any human action needed |
+| Traffic pulse | Every morning | #dashboard | Visitors, top sources, wizard starts, purchases, revenue |
+| Weekly scorecard | Saturday | #dashboard | Is traffic growing? Top content, platform performance, revenue attribution |
+| Milestone alerts | On event | #dashboard | Revenue milestones, traffic milestones, first ranking achievements |
+| Monthly deep dive | 1st of month | #dashboard | Full month report, strategy adjustments, trajectory to 1,000 books |
 
 ---
 
