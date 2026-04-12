@@ -248,6 +248,11 @@ export const approveBranch = mutation({
     const draft = branch.currentDraftId ? await ctx.db.get(branch.currentDraftId) : null;
     if (!draft) throw new Error("No draft to publish");
 
+    // Generate Content ID + UTM URL before publishing
+    await ctx.scheduler.runAfter(0, internal.contentIds.generateContentId, {
+      branchId: args.branchId,
+    });
+
     // Update status to approved
     await ctx.db.patch(args.branchId, { status: "approved", updatedAt: Date.now() });
 

@@ -16,6 +16,7 @@ import type * as brands from "../brands.js";
 import type * as buffer from "../buffer.js";
 import type * as comments from "../comments.js";
 import type * as compiler from "../compiler.js";
+import type * as contentIds from "../contentIds.js";
 import type * as drafts from "../drafts.js";
 import type * as feedbackSynthesis from "../feedbackSynthesis.js";
 import type * as inbox from "../inbox.js";
@@ -46,6 +47,7 @@ declare const fullApi: ApiFromModules<{
   buffer: typeof buffer;
   comments: typeof comments;
   compiler: typeof compiler;
+  contentIds: typeof contentIds;
   drafts: typeof drafts;
   feedbackSynthesis: typeof feedbackSynthesis;
   inbox: typeof inbox;

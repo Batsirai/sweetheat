@@ -49,6 +49,16 @@ export const create = mutation({
       url: v.string(),
       type: v.string(),
     }))),
+    // Strategic content planning
+    purpose: v.optional(v.string()),
+    contentPillar: v.optional(v.string()),
+    targetKeywords: v.optional(v.array(v.string())),
+    reasoning: v.optional(v.string()),
+    // Traffic assembly line
+    hookAngle: v.optional(v.string()),
+    templateType: v.optional(v.string()),
+    dream100Source: v.optional(v.id("dream100")),
+    researchBriefId: v.optional(v.id("researchBriefs")),
   },
   handler: async (ctx, args) => {
     const now = Date.now();

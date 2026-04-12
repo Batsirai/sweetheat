@@ -50,10 +50,16 @@ export const publishBranch = internalAction({
       return { published: false, reason: `no_channel_for_${platform}` };
     }
 
+    // Look up the UTM URL from the branch (set by Content ID generation)
+    const branch = await ctx.runQuery(api.branches.get, { id: args.branchId });
+    const postText = branch?.utmUrl
+      ? `${args.draftBody}\n\n${branch.utmUrl}`
+      : args.draftBody;
+
     // Post to Buffer
     const formData = new URLSearchParams();
     formData.append("profile_ids[]", channel.id);
-    formData.append("text", args.draftBody);
+    formData.append("text", postText);
     formData.append("access_token", apiKey);
 
     const res = await fetch(`${BUFFER_API}/updates/create.json`, {

@@ -22,9 +22,20 @@ export const POST: RequestHandler = async ({ request }) => {
     title: body.title,
     description: body.description,
     source: body.source || "agent_research",
+    sourceRef: body.sourceRef,
     pitchedBy: body.pitchedBy || "agent",
     targetFormats: body.targetFormats,
     attachments: body.attachments,
+    // Strategic content planning
+    purpose: body.purpose,
+    contentPillar: body.contentPillar,
+    targetKeywords: body.targetKeywords,
+    reasoning: body.reasoning,
+    // Traffic assembly line
+    hookAngle: body.hookAngle,
+    templateType: body.templateType,
+    dream100Source: body.dream100Source,
+    researchBriefId: body.researchBriefId,
   });
 
   return json({ seedId }, { status: 201 });
