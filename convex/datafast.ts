@@ -130,3 +130,92 @@ export const pullTimeseries = action({
     return data;
   },
 });
+
+// ── generateDailyReport ──────────────────────────────────────────────────────
+// Pulls DataFast overview + referrers + timeseries, returns structured daily report data.
+// Does NOT store — the caller (MCP tool or Cowork task) decides what to do with it.
+
+export const generateDailyReport = action({
+  args: { brandId: v.id("brands") },
+  handler: async (ctx, args) => {
+    const [overview, referrers, timeseries] = await Promise.all([
+      datafastGet("/analytics/overview"),
+      datafastGet("/analytics/referrers"),
+      datafastGet(
+        "/analytics/timeseries?fields=visitors,sessions,revenue&interval=day&limit=7"
+      ),
+    ]);
+
+    // Parse overview metrics
+    const visitors =
+      overview?.visitors ?? overview?.pageviews ?? 0;
+    const revenue = overview?.revenue ?? 0;
+    const sessions = overview?.sessions ?? 0;
+    const bounceRate = overview?.bounce_rate ?? null;
+
+    // Top 3 referrers
+    const topReferrers = Array.isArray(referrers)
+      ? referrers.slice(0, 5).map((r: any) => ({
+          source: r.referrer ?? r.source ?? r.name ?? "unknown",
+          visitors: r.visitors ?? r.visits ?? r.count ?? 0,
+          revenue: r.revenue ?? 0,
+        }))
+      : [];
+
+    // 7-day timeseries for trend
+    const days = Array.isArray(timeseries) ? timeseries : [];
+    const totalWeekVisitors = days.reduce(
+      (sum: number, d: any) => sum + (d.visitors ?? 0),
+      0
+    );
+    const totalWeekRevenue = days.reduce(
+      (sum: number, d: any) => sum + (d.revenue ?? 0),
+      0
+    );
+
+    // Compute day-over-day trend (last day vs previous day)
+    let trend = null;
+    if (days.length >= 2) {
+      const today = days[days.length - 1]?.visitors ?? 0;
+      const yesterday = days[days.length - 2]?.visitors ?? 0;
+      if (yesterday > 0) {
+        trend = ((today - yesterday) / yesterday) * 100;
+      }
+    }
+
+    // Store as a snapshot for historical tracking
+    const { periodStart, periodEnd, period } = nowRange();
+    await ctx.runMutation(api.performanceSnapshots.create, {
+      brandId: args.brandId,
+      source: "datafast_daily_report",
+      period,
+      periodStart,
+      periodEnd,
+      metrics: {
+        visitors,
+        revenue,
+        sessions,
+        bounceRate,
+        topReferrers,
+        weeklyVisitors: totalWeekVisitors,
+        weeklyRevenue: totalWeekRevenue,
+        trend,
+        timeseries: days,
+      },
+      topPerformers: topReferrers.slice(0, 3).map((r: any) => r.source),
+    });
+
+    return {
+      date: new Date().toISOString().slice(0, 10),
+      visitors,
+      revenue,
+      sessions,
+      bounceRate,
+      topReferrers,
+      weeklyVisitors: totalWeekVisitors,
+      weeklyRevenue: totalWeekRevenue,
+      trend,
+      timeseries: days,
+    };
+  },
+});

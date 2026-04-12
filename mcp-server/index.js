@@ -1076,6 +1076,222 @@ server.tool(
   }
 );
 
+// ═══ SLACK REPORTING ═════════════════════════════════════════════════════
+
+server.tool(
+  "slack_daily_report",
+  "Generate a formatted daily traffic report for a brand. Pulls DataFast overview and referrers, formats for Slack. Returns the formatted message text — send it via Slack MCP.",
+  {
+    brandId: z.string().describe("Brand ID to report on"),
+    brandName: z.string().optional().describe("Brand display name (avoids extra lookup)"),
+  },
+  async ({ brandId, brandName }) => {
+    try {
+      // Pull overview and referrers from DataFast via the Sweet Heat API
+      const [overviewRes, referrersRes] = await Promise.all([
+        api("/analytics/pull", {
+          method: "POST",
+          body: JSON.stringify({ action: "overview", brandId }),
+        }),
+        api("/analytics/pull", {
+          method: "POST",
+          body: JSON.stringify({ action: "referrers", brandId }),
+        }),
+      ]);
+
+      const overview = overviewRes?.data ?? {};
+      const referrers = referrersRes?.data ?? [];
+
+      // Get brand name if not provided
+      let name = brandName;
+      if (!name) {
+        try {
+          const brand = await api(`/brands/${brandId}`);
+          name = brand?.name ?? "Unknown Brand";
+        } catch { name = "Unknown Brand"; }
+      }
+
+      // Extract metrics
+      const visitors = overview.visitors ?? overview.pageviews ?? "N/A";
+      const revenue = overview.revenue != null ? `$${Number(overview.revenue).toFixed(2)}` : "N/A";
+
+      // Top 3 referrers
+      const topSources = Array.isArray(referrers)
+        ? referrers.slice(0, 3).map(r => {
+            const src = r.referrer ?? r.source ?? r.name ?? "unknown";
+            const count = r.visitors ?? r.visits ?? r.count ?? "?";
+            return `${src} (${count})`;
+          }).join(" | ")
+        : "N/A";
+
+      // Count branches published yesterday (best-effort)
+      let publishedCount = "N/A";
+      try {
+        const seeds = await api(`/seeds?brandId=${brandId}`);
+        // Rough proxy: count seeds with recent activity
+        publishedCount = String(Array.isArray(seeds) ? seeds.filter(s => s.status === "published").length : 0);
+      } catch { /* ignore */ }
+
+      const report = [
+        `📊 *Daily Traffic Report — ${name}*`,
+        `Yesterday: *${visitors}* visitors | *${revenue}* revenue`,
+        `Top sources: ${topSources}`,
+        `Published: ${publishedCount} pieces`,
+        ``,
+        `_Generated ${new Date().toISOString().slice(0, 10)}_`,
+      ].join("\n");
+
+      return { content: [{ type: "text", text: report }] };
+    } catch (err) {
+      return { content: [{ type: "text", text: `Error generating daily report: ${err.message}` }], isError: true };
+    }
+  }
+);
+
+server.tool(
+  "slack_weekly_scorecard",
+  "Generate a formatted weekly scorecard for a brand. Pulls 7-day timeseries from DataFast, computes trends and platform breakdown. Returns formatted Slack message text.",
+  {
+    brandId: z.string().describe("Brand ID to report on"),
+    brandName: z.string().optional().describe("Brand display name (avoids extra lookup)"),
+  },
+  async ({ brandId, brandName }) => {
+    try {
+      // Pull 7-day timeseries and referrers
+      const [timeseriesRes, referrersRes] = await Promise.all([
+        api("/analytics/pull", {
+          method: "POST",
+          body: JSON.stringify({ action: "timeseries", brandId }),
+        }),
+        api("/analytics/pull", {
+          method: "POST",
+          body: JSON.stringify({ action: "referrers", brandId }),
+        }),
+      ]);
+
+      const timeseries = timeseriesRes?.data ?? [];
+      const referrers = referrersRes?.data ?? [];
+
+      // Get brand name if not provided
+      let name = brandName;
+      if (!name) {
+        try {
+          const brand = await api(`/brands/${brandId}`);
+          name = brand?.name ?? "Unknown Brand";
+        } catch { name = "Unknown Brand"; }
+      }
+
+      // Compute weekly totals
+      const days = Array.isArray(timeseries) ? timeseries : [];
+      const totalVisitors = days.reduce((sum, d) => sum + (d.visitors ?? 0), 0);
+      const totalRevenue = days.reduce((sum, d) => sum + (d.revenue ?? 0), 0);
+
+      // Split into this week (last 7 days) vs previous (if 14 days available)
+      const thisWeekDays = days.slice(0, 7);
+      const thisWeekVisitors = thisWeekDays.reduce((sum, d) => sum + (d.visitors ?? 0), 0);
+      const thisWeekRevenue = thisWeekDays.reduce((sum, d) => sum + (d.revenue ?? 0), 0);
+
+      // Platform breakdown from referrers
+      const platformMap = {};
+      if (Array.isArray(referrers)) {
+        for (const r of referrers) {
+          const src = (r.referrer ?? r.source ?? r.name ?? "").toLowerCase();
+          if (src.includes("pinterest")) platformMap["Pinterest"] = (platformMap["Pinterest"] || 0) + (r.visitors ?? 0);
+          else if (src.includes("instagram")) platformMap["Instagram"] = (platformMap["Instagram"] || 0) + (r.visitors ?? 0);
+          else if (src.includes("twitter") || src.includes("t.co") || src.includes("x.com")) platformMap["Twitter/X"] = (platformMap["Twitter/X"] || 0) + (r.visitors ?? 0);
+          else if (src.includes("facebook") || src.includes("fb.com")) platformMap["Facebook"] = (platformMap["Facebook"] || 0) + (r.visitors ?? 0);
+          else if (src.includes("linkedin")) platformMap["LinkedIn"] = (platformMap["LinkedIn"] || 0) + (r.visitors ?? 0);
+          else if (src.includes("tiktok")) platformMap["TikTok"] = (platformMap["TikTok"] || 0) + (r.visitors ?? 0);
+        }
+      }
+
+      const platformBreakdown = Object.entries(platformMap)
+        .sort((a, b) => b[1] - a[1])
+        .map(([platform, count]) => `${platform}: ${count}`)
+        .join(" | ") || "No platform data";
+
+      // Top content by referrer volume (best proxy without per-content data)
+      const topContent = Array.isArray(referrers)
+        ? referrers.slice(0, 3).map(r => {
+            const src = r.referrer ?? r.source ?? r.name ?? "unknown";
+            const rev = r.revenue != null ? ` ($${Number(r.revenue).toFixed(2)})` : "";
+            return `${src}${rev}`;
+          }).join("\n  ")
+        : "N/A";
+
+      const report = [
+        `📈 *Weekly Scorecard — ${name}*`,
+        `This week: *${thisWeekVisitors}* visitors | *$${thisWeekRevenue.toFixed(2)}* revenue`,
+        `Top sources:`,
+        `  ${topContent}`,
+        `Platform breakdown: ${platformBreakdown}`,
+        ``,
+        `_Week of ${new Date().toISOString().slice(0, 10)}_`,
+      ].join("\n");
+
+      return { content: [{ type: "text", text: report }] };
+    } catch (err) {
+      return { content: [{ type: "text", text: `Error generating weekly scorecard: ${err.message}` }], isError: true };
+    }
+  }
+);
+
+server.tool(
+  "slack_ops_update",
+  "Format a daily ops update message for Slack. Takes structured data about what was done, what's planned, and what needs human input. Returns formatted Slack message text.",
+  {
+    brandName: z.string().optional().describe("Brand display name"),
+    doneYesterday: z.array(z.string()).describe("List of things completed yesterday"),
+    plannedToday: z.array(z.string()).describe("List of things planned for today"),
+    needsHuman: z.array(z.string()).optional().describe("Items that need human decision or action"),
+    metrics: z.object({
+      seedsPitched: z.number().optional(),
+      draftsWritten: z.number().optional(),
+      contentPublished: z.number().optional(),
+      outreachSent: z.number().optional(),
+    }).optional().describe("Optional daily metrics"),
+  },
+  async ({ brandName, doneYesterday, plannedToday, needsHuman, metrics }) => {
+    const name = brandName ?? "Content Factory";
+
+    const doneLines = doneYesterday.map(d => `  ✅ ${d}`).join("\n");
+    const planLines = plannedToday.map(p => `  🎯 ${p}`).join("\n");
+
+    let humanLines = "";
+    if (needsHuman && needsHuman.length > 0) {
+      humanLines = `\n*🙋 Needs Human:*\n${needsHuman.map(h => `  ⚠️ ${h}`).join("\n")}`;
+    }
+
+    let metricsLine = "";
+    if (metrics) {
+      const parts = [];
+      if (metrics.seedsPitched) parts.push(`${metrics.seedsPitched} seeds`);
+      if (metrics.draftsWritten) parts.push(`${metrics.draftsWritten} drafts`);
+      if (metrics.contentPublished) parts.push(`${metrics.contentPublished} published`);
+      if (metrics.outreachSent) parts.push(`${metrics.outreachSent} outreach`);
+      if (parts.length > 0) {
+        metricsLine = `\n📊 ${parts.join(" | ")}`;
+      }
+    }
+
+    const report = [
+      `🏭 *Daily Ops — ${name}*`,
+      ``,
+      `*Done Yesterday:*`,
+      doneLines,
+      ``,
+      `*Planned Today:*`,
+      planLines,
+      humanLines,
+      metricsLine,
+      ``,
+      `_${new Date().toISOString().slice(0, 10)}_`,
+    ].filter(Boolean).join("\n");
+
+    return { content: [{ type: "text", text: report }] };
+  }
+);
+
 // ═══ START ═════════════════════════════════════════════════════════════════
 
 const transport = new StdioServerTransport();
