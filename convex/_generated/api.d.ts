@@ -20,6 +20,7 @@ import type * as comments from "../comments.js";
 import type * as compiler from "../compiler.js";
 import type * as contacts from "../contacts.js";
 import type * as contentIds from "../contentIds.js";
+import type * as datafast from "../datafast.js";
 import type * as drafts from "../drafts.js";
 import type * as dream100 from "../dream100.js";
 import type * as emailSequences from "../emailSequences.js";
@@ -63,6 +64,7 @@ declare const fullApi: ApiFromModules<{
   compiler: typeof compiler;
   contacts: typeof contacts;
   contentIds: typeof contentIds;
+  datafast: typeof datafast;
   drafts: typeof drafts;
   dream100: typeof dream100;
   emailSequences: typeof emailSequences;

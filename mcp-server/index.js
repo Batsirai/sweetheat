@@ -622,6 +622,100 @@ server.tool(
   }
 );
 
+// ═══ DATAFAST ANALYTICS ═══════════════════════════════════════════════════
+
+const DATAFAST_API_KEY = process.env.DATAFAST_API_KEY || "";
+const DATAFAST_BASE = "https://datafa.st/api/v1";
+
+async function datafastFetch(path) {
+  if (!DATAFAST_API_KEY) throw new Error("DATAFAST_API_KEY not set");
+  const res = await fetch(`${DATAFAST_BASE}${path}`, {
+    headers: { Authorization: `Bearer ${DATAFAST_API_KEY}` },
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`DataFast ${res.status}: ${err}`);
+  }
+  const json = await res.json();
+  return json.data ?? json;
+}
+
+server.tool(
+  "analytics_pull_overview",
+  "Pull the latest DataFast site-wide analytics overview for a brand and store it as a performance snapshot",
+  { brandId: z.string().describe("Brand ID") },
+  async ({ brandId }) => {
+    const result = await api("/analytics/pull", {
+      method: "POST",
+      body: JSON.stringify({ action: "overview", brandId }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "analytics_pull_referrers",
+  "Pull the latest DataFast referrer breakdown for a brand and store it as a performance snapshot",
+  { brandId: z.string().describe("Brand ID") },
+  async ({ brandId }) => {
+    const result = await api("/analytics/pull", {
+      method: "POST",
+      body: JSON.stringify({ action: "referrers", brandId }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "analytics_pull_campaigns",
+  "Pull the latest DataFast UTM campaign performance for a brand and store it as a performance snapshot",
+  { brandId: z.string().describe("Brand ID") },
+  async ({ brandId }) => {
+    const result = await api("/analytics/pull", {
+      method: "POST",
+      body: JSON.stringify({ action: "campaigns", brandId }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "analytics_get_traffic_summary",
+  "Fetch a live traffic summary directly from DataFast — overview + 7-day timeseries. Returns formatted text suitable for Slack reporting.",
+  {},
+  async () => {
+    const [overview, timeseries] = await Promise.all([
+      datafastFetch("/analytics/overview"),
+      datafastFetch("/analytics/timeseries?fields=visitors,sessions,revenue&interval=day&limit=7"),
+    ]);
+
+    const lines = ["*DataFast Traffic Summary*", ""];
+
+    // Overview section
+    if (overview && typeof overview === "object" && !Array.isArray(overview)) {
+      lines.push("*Overview*");
+      for (const [key, val] of Object.entries(overview)) {
+        lines.push(`• ${key}: ${val}`);
+      }
+      lines.push("");
+    }
+
+    // Timeseries section
+    if (Array.isArray(timeseries) && timeseries.length > 0) {
+      lines.push("*Last 7 Days*");
+      for (const row of timeseries) {
+        const date = row.date ?? row.day ?? "";
+        const visitors = row.visitors ?? "-";
+        const sessions = row.sessions ?? "-";
+        const revenue = row.revenue != null ? `$${row.revenue}` : "-";
+        lines.push(`• ${date}  visitors: ${visitors}  sessions: ${sessions}  revenue: ${revenue}`);
+      }
+    }
+
+    return { content: [{ type: "text", text: lines.join("\n") }] };
+  }
+);
+
 // ═══ SEO ══════════════════════════════════════════════════════════════════
 
 server.tool(
