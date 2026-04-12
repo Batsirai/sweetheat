@@ -1292,6 +1292,181 @@ server.tool(
   }
 );
 
+// ═══ CANVA VISUAL GENERATION ═════════════════════════════════════════════
+
+const CANVA_BRAND_KIT_ID = "kAG_1wVMiiw";
+
+server.tool(
+  "canva_prepare_pin",
+  "Prepare Canva generation parameters for a Pinterest pin design. Returns structured data for the agent to pass to the Canva MCP's generate-design tool.",
+  {
+    title: z.string().describe("Pin title text"),
+    description: z.string().describe("Pin description text"),
+    hookAngle: z.string().describe("The hook angle for this pin variation (e.g. 'Main Hook', 'Question', 'List / Tips')"),
+    brandName: z.string().describe("Brand name for context in the design query"),
+  },
+  async ({ title, description, hookAngle, brandName }) => {
+    const query = `Pinterest pin for ${brandName}. Title: "${title}". Angle: ${hookAngle}. ${description}. Style: clean, save-worthy, text-overlay on branded background.`;
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          tool: "generate-design",
+          parameters: {
+            design_type: "pinterest_pin",
+            query,
+            brand_kit_id: CANVA_BRAND_KIT_ID,
+          },
+          context: {
+            title,
+            description,
+            hookAngle,
+            brandName,
+          },
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+server.tool(
+  "canva_prepare_instagram_post",
+  "Prepare Canva generation parameters for an Instagram post design. Returns structured data for the agent to pass to the Canva MCP's generate-design tool.",
+  {
+    title: z.string().describe("Post title or headline text"),
+    description: z.string().describe("Caption or content summary for visual direction"),
+    hookAngle: z.string().describe("Visual angle — e.g. 'quote card', 'tip graphic', 'announcement'"),
+    brandName: z.string().describe("Brand name for context in the design query"),
+  },
+  async ({ title, description, hookAngle, brandName }) => {
+    const query = `Instagram post for ${brandName}. Headline: "${title}". Style: ${hookAngle}. ${description}. Square format, bold typography, on-brand colors.`;
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          tool: "generate-design",
+          parameters: {
+            design_type: "instagram_post",
+            query,
+            brand_kit_id: CANVA_BRAND_KIT_ID,
+          },
+          context: {
+            title,
+            description,
+            hookAngle,
+            brandName,
+          },
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+server.tool(
+  "canva_prepare_carousel",
+  "Prepare Canva generation parameters for a carousel design (Instagram or LinkedIn). Returns structured data for the agent to pass to the Canva MCP's generate-design tool.",
+  {
+    title: z.string().describe("Carousel cover title"),
+    slidesText: z.string().describe("All slide text content (SLIDE 1: ... SLIDE 2: ... etc.)"),
+    slideCount: z.number().describe("Number of slides in the carousel"),
+    brandName: z.string().describe("Brand name for context in the design query"),
+  },
+  async ({ title, slidesText, slideCount, brandName }) => {
+    const query = `${slideCount}-slide carousel for ${brandName}. Cover: "${title}". Swipeable educational carousel with consistent branded slide design. Each slide has a heading and short body text. ${slidesText.slice(0, 500)}`;
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          tool: "generate-design",
+          parameters: {
+            design_type: "instagram_post",
+            query,
+            brand_kit_id: CANVA_BRAND_KIT_ID,
+          },
+          context: {
+            title,
+            slideCount,
+            slidesText,
+            brandName,
+            note: "Carousel uses instagram_post design_type — each slide is a square frame. Generate the cover slide first, then replicate the style for remaining slides.",
+          },
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+server.tool(
+  "canva_prepare_facebook_post",
+  "Prepare Canva generation parameters for a Facebook post design. Returns structured data for the agent to pass to the Canva MCP's generate-design tool.",
+  {
+    title: z.string().describe("Post headline or key message"),
+    description: z.string().describe("Post content summary for visual direction"),
+    hookAngle: z.string().describe("Visual angle — e.g. 'engagement graphic', 'link preview image', 'shareable quote'"),
+    brandName: z.string().describe("Brand name for context in the design query"),
+  },
+  async ({ title, description, hookAngle, brandName }) => {
+    const query = `Facebook post graphic for ${brandName}. Headline: "${title}". Style: ${hookAngle}. ${description}. Landscape format optimized for Facebook feed, clear text hierarchy.`;
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          tool: "generate-design",
+          parameters: {
+            design_type: "facebook_post",
+            query,
+            brand_kit_id: CANVA_BRAND_KIT_ID,
+          },
+          context: {
+            title,
+            description,
+            hookAngle,
+            brandName,
+          },
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+server.tool(
+  "canva_request_template",
+  "Format a template request message for Slack. The agent sends this to #content-factory to request a human-designed Canva template.",
+  {
+    templateType: z.string().describe("Type of template needed — e.g. 'Pinterest pin', 'Instagram carousel', 'Story template'"),
+    description: z.string().describe("What the template is for and what content it will hold"),
+    designBrief: z.string().describe("Visual direction — colors, layout, mood, text placement, reference examples"),
+    brandName: z.string().describe("Brand name this template is for"),
+  },
+  async ({ templateType, description, designBrief, brandName }) => {
+    const message = [
+      `🎨 Template Request`,
+      `Type: ${templateType}`,
+      `Description: ${description}`,
+      `Design Brief: ${designBrief}`,
+      `Brand: ${brandName}`,
+      ``,
+      `@Aimee — Can you create this in Canva and share the template ID? Reply here or DM me.`,
+    ].join("\n");
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          slackMessage: message,
+          channel: "#content-factory",
+          templateType,
+          brandName,
+        }, null, 2),
+      }],
+    };
+  }
+);
+
 // ═══ START ═════════════════════════════════════════════════════════════════
 
 const transport = new StdioServerTransport();

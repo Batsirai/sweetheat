@@ -126,7 +126,15 @@ You are writing Pinterest pin copy. Pinterest is a visual discovery platform —
 Pinterest pin anatomy:
 - TITLE: 60–100 characters. Shown in bold. Hook first, keyword-rich.
 - DESCRIPTION: 200–500 characters. Keyword-rich, benefit-focused, ends with a soft CTA pointing to the article.
-- LINK NOTE: One sentence telling the Canva designer where this pin links (just "Links to: [short article title]").`;
+- LINK NOTE: One sentence telling the Canva designer where this pin links (just "Links to: [short article title]").
+
+ENGAGEMENT TACTICS (Pinterest algorithm rewards these):
+- Save-worthy content: tips, checklists, how-tos that people want to reference later
+- Keyword-rich titles: Pinterest is a search engine. Front-load with searchable terms.
+- Emotional hooks: "Your child deserves...", "What if bedtime could be...", "The secret to..."
+- Call to save: "Save this for bedtime tonight" in description
+- Seasonal relevance: Connect to upcoming holidays, seasons, milestones
+- Fresh pin design: Pinterest rewards unique images over reposts`;
 
   const articleContext = blogArticle
     ? blogArticleBlock(blogArticle)
@@ -160,7 +168,15 @@ Thread format rules:
 - Tweets 2–4: supporting points, evidence, or actionable steps. One idea per tweet.
 - Last tweet: CTA pointing back to the full article (e.g., "Read the full article 👇 [link]").
 - Number each tweet: 1/ 2/ 3/ etc.
-- Do NOT use hashtags unless they are brand-approved words.`;
+- Do NOT use hashtags unless they are brand-approved words.
+
+ENGAGEMENT TACTICS (X rewards replies and retweets):
+- Hook tweet must be standalone — it shows in feed without the thread
+- Use numbers: "5 things...", "3 reasons..." — signals value
+- Include a "controversial" or counterintuitive take to drive quote-tweets
+- End thread with: "If this was helpful, retweet the first tweet"
+- Use blank lines between sentences in each tweet for readability
+- Ask a question in one of the middle tweets to break up the lecture format`;
 
   const articleContext = blogArticle
     ? blogArticleBlock(blogArticle)
@@ -189,7 +205,16 @@ LinkedIn post structure:
 - Close: a takeaway or reflection that invites engagement (a question or strong statement).
 - CTA: one optional line pointing to the full article.
 - Length: 300–1500 characters total (aim for the sweet spot around 800–1000).
-- Do NOT use excessive emojis. One or two max if they fit the brand voice.`;
+- Do NOT use excessive emojis. One or two max if they fit the brand voice.
+
+ENGAGEMENT TACTICS (LinkedIn rewards dwell time + comments):
+- Hook formulas that work: "I used to think X. Then I learned Y.", "Unpopular opinion:", "3 things I wish I knew about..."
+- Short paragraphs (1-2 sentences each) — white space is engagement
+- Use line breaks after every sentence in the hook
+- Personal story + professional insight = highest engagement
+- Ask a specific question at the end: not "What do you think?" but "What's the hardest part of bedtime for your family?"
+- No links in the post body (kills reach) — put link in first comment
+- Carousel posts get 3x more engagement than text-only on LinkedIn`;
 
   const articleContext = blogArticle
     ? blogArticleBlock(blogArticle)
@@ -217,7 +242,16 @@ Instagram caption rules:
 - Body: engaging, conversational, on-brand. Can use line breaks for readability.
 - End with a CTA (e.g., "Save this post", "Link in bio for the full article", "Tag a friend who needs this").
 - Hashtags: add 5–15 relevant hashtags at the very end, on their own line.
-- Max 2200 characters.`;
+- Max 2200 characters.
+
+ENGAGEMENT TACTICS (Instagram algorithm rewards comments and saves):
+- Open with a pattern interrupt: Start mid-story, ask a provocative question, or make a bold claim
+- Use "THIS or THAT" questions: "Bedtime stories or bedtime prayers? Comment below"
+- "Save this for later" CTA drives the save metric Instagram prioritizes
+- Use line breaks generously — wall-of-text kills engagement
+- End with a question that has multiple valid answers (drives comments)
+- Use 5-15 hashtags in the first comment, NOT in the caption
+- Tag location when relevant (boosts local discovery)`;
 
   const articleContext = blogArticle
     ? blogArticleBlock(blogArticle)
@@ -244,7 +278,15 @@ TikTok caption rules:
 - Max ~150 characters for the visible part (keep it tight).
 - Lead with the hook or most provocative claim.
 - Include 3–5 trending/relevant hashtags.
-- Optional: a one-line CTA ("Link in bio", "Watch till the end", etc.).`;
+- Optional: a one-line CTA ("Link in bio", "Watch till the end", etc.).
+
+ENGAGEMENT TACTICS (TikTok algorithm rewards watch time + comments):
+- First 3 words must create curiosity gap: "POV:", "Wait for it:", "This changed everything:"
+- Hook formula: [Attention grab] + [Promise] in first line
+- Keep caption SHORT (50-150 chars) — the video does the talking
+- End with: "Comment [X] if you relate" or "Tell me I'm not the only one"
+- Stitch/Duet bait: Make content people want to react to
+- Trending audio reference in caption when relevant`;
 
   const articleContext = blogArticle
     ? blogArticleBlock(blogArticle)
