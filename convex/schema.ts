@@ -54,6 +54,16 @@ export default defineSchema({
     // State
     goals: v.optional(v.string()),
     isActive: v.boolean(),
+    // Traffic assembly line
+    brandPrefix: v.optional(v.string()), // ALK, ASB, etc. for Content ID
+    baseUrl: v.optional(v.string()), // https://alreadylovedkids.com
+    tokenBudget: v.optional(v.object({
+      dailyLimit: v.number(),
+      currentSpend: v.number(),
+      alertThreshold: v.number(),
+      modelTiers: v.any(),
+    })),
+    platformStrategy: v.optional(v.any()), // { pinterest: { role: "top_funnel", ... }, ... }
     createdAt: v.number(),
     updatedAt: v.number(),
   })
@@ -86,6 +96,11 @@ export default defineSchema({
       url: v.string(),
       type: v.string(),
     }))),
+    // Traffic assembly line
+    hookAngle: v.optional(v.string()), // BEDTIME | IDENTITY | FAITH | GIFT | etc.
+    templateType: v.optional(v.string()), // AFFIRM | PROB | STORY | HOW | etc.
+    dream100Source: v.optional(v.id("dream100")), // If inspired by Dream 100 monitoring
+    researchBriefId: v.optional(v.id("researchBriefs")), // Which research brief spawned this
     createdAt: v.number(),
     updatedAt: v.number(),
   })
@@ -112,6 +127,10 @@ export default defineSchema({
     // Auto-approval tracking
     confidenceScore: v.optional(v.number()), // 0-1, for graduated autonomy
     autoApproved: v.optional(v.boolean()),
+    // Traffic assembly line
+    contentIdRef: v.optional(v.string()), // Links to contentIds table
+    utmUrl: v.optional(v.string()), // Pre-generated UTM URL
+    seoTargetId: v.optional(v.string()), // If targeting a specific keyword
     createdAt: v.number(),
     updatedAt: v.number(),
   })
@@ -424,4 +443,381 @@ export default defineSchema({
   })
     .index("by_brand", ["brandId"])
     .index("by_channel", ["channelId"]),
+
+  // ═══ TRAFFIC ASSEMBLY LINE ══════════════════════════════════════════════
+  // Dream 100, outreach, attribution, SEO/AEO, ads, email, research, video.
+
+  // ── Dream 100 ──────────────────────────────────────────────────────────
+  // The targeting foundation for everything (Traffic Playbook Foundation 2)
+  dream100: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(), // Person, brand, podcast, community name
+    category: v.string(), // influencer | brand | podcast | blog | youtube | community | keyword_interest
+    platform: v.optional(v.string()), // instagram | youtube | podcast | blog | pinterest | facebook | linkedin
+    url: v.optional(v.string()), // Profile/channel/site URL
+    audienceSize: v.optional(v.number()), // Follower/subscriber count
+    audienceOverlap: v.optional(v.string()), // How their audience maps to dream customer
+    // Relationship tracking (Play 3: Dig Your Well)
+    phase: v.string(), // identified | subscribed | engaging | dialogue | fan | collaborating
+    lastEngagementAt: v.optional(v.number()),
+    notes: v.optional(v.string()),
+    // Targeting
+    adTargetable: v.optional(v.boolean()), // Can target their audience via paid ads?
+    adTargetId: v.optional(v.string()), // Platform interest/audience ID
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_category", ["brandId", "category"])
+    .index("by_brand_phase", ["brandId", "phase"]),
+
+  // ── Dream 100 Activities ───────────────────────────────────────────────
+  // Log of relationship-building actions taken
+  dream100Activities: defineTable({
+    dream100Id: v.id("dream100"),
+    brandId: v.id("brands"),
+    type: v.string(), // subscribed | commented | dm_sent | bought_product | shared_content | interviewed | collaborated
+    description: v.string(),
+    performedBy: v.string(), // agent | user
+    createdAt: v.number(),
+  })
+    .index("by_dream100", ["dream100Id"])
+    .index("by_brand", ["brandId"]),
+
+  // ── Outreach Campaigns ─────────────────────────────────────────────────
+  outreachCampaigns: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(),
+    type: v.string(), // cold_email | podcast_pitch | partnership | pastor_outreach | influencer_collab
+    status: v.string(), // draft | active | paused | completed
+    // Targeting
+    targetAudience: v.string(), // Description of who we're reaching
+    targetCount: v.optional(v.number()), // How many contacts in campaign
+    // Templates
+    subjectTemplate: v.optional(v.string()),
+    bodyTemplate: v.string(),
+    followUpTemplates: v.optional(v.array(v.string())),
+    followUpIntervalDays: v.optional(v.number()),
+    // Stats
+    sent: v.optional(v.number()),
+    opened: v.optional(v.number()),
+    replied: v.optional(v.number()),
+    converted: v.optional(v.number()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_type", ["brandId", "type"])
+    .index("by_status", ["status"]),
+
+  // ── Outreach Messages ──────────────────────────────────────────────────
+  outreachMessages: defineTable({
+    campaignId: v.id("outreachCampaigns"),
+    contactId: v.id("contacts"),
+    brandId: v.id("brands"),
+    type: v.string(), // initial | follow_up_1 | follow_up_2 | follow_up_3
+    subject: v.string(),
+    body: v.string(),
+    status: v.string(), // queued | sent | opened | replied | bounced
+    sentAt: v.optional(v.number()),
+    openedAt: v.optional(v.number()),
+    repliedAt: v.optional(v.number()),
+    replyContent: v.optional(v.string()),
+    createdAt: v.number(),
+  })
+    .index("by_campaign", ["campaignId"])
+    .index("by_contact", ["contactId"])
+    .index("by_status", ["status"])
+    .index("by_brand", ["brandId"]),
+
+  // ── Contacts ───────────────────────────────────────────────────────────
+  // People database for outreach
+  contacts: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(),
+    email: v.optional(v.string()),
+    contactType: v.optional(v.string()), // pastor | podcast_host | influencer | blogger | potential_customer
+    organization: v.optional(v.string()), // Church name, podcast name, etc.
+    location: v.optional(v.string()),
+    socialUrls: v.optional(v.any()), // { instagram, linkedin, twitter, etc. }
+    tags: v.optional(v.array(v.string())),
+    dream100Id: v.optional(v.id("dream100")), // Link to Dream 100 entry if applicable
+    // Relationship state
+    status: v.string(), // prospect | contacted | warm | converted | unresponsive
+    lastContactedAt: v.optional(v.number()),
+    notes: v.optional(v.string()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_contactType", ["brandId", "contactType"])
+    .index("by_status", ["status"])
+    .index("by_email", ["email"]),
+
+  // ── Content IDs ────────────────────────────────────────────────────────
+  // The attribution spine (from revenue attribution doc)
+  contentIds: defineTable({
+    branchId: v.id("branches"),
+    brandId: v.id("brands"),
+    contentId: v.string(), // ALK-20260411-PIN-AFFIRM-A-BEDTIME
+    // Parsed components
+    brandPrefix: v.string(), // ALK
+    publishDate: v.string(), // 20260411
+    platformCode: v.string(), // PIN | TIK | IG | FB | YT | BLG | EML | LI
+    templateCode: v.string(), // AFFIRM | PROB | STORY | HOW | LIST | COMPARE | TESTI | MOCKUP
+    variantCode: v.string(), // A | B | C
+    hookCode: v.string(), // BEDTIME | IDENTITY | FAITH | GIFT | MILESTONE | FEAR | ROUTINE
+    // Generated UTM URL
+    utmUrl: v.string(),
+    utmSource: v.string(),
+    utmMedium: v.string(),
+    utmCampaign: v.string(),
+    utmContent: v.string(),
+    utmTerm: v.string(),
+    createdAt: v.number(),
+  })
+    .index("by_branch", ["branchId"])
+    .index("by_brand", ["brandId"])
+    .index("by_content_id", ["contentId"]),
+
+  // ── Performance Snapshots ──────────────────────────────────────────────
+  // Periodic analytics from external sources
+  performanceSnapshots: defineTable({
+    brandId: v.id("brands"),
+    source: v.string(), // posthog | buffer | search_console | stripe | pinterest_analytics
+    period: v.string(), // daily | weekly | monthly
+    periodStart: v.number(),
+    periodEnd: v.number(),
+    metrics: v.any(), // Source-specific metrics blob
+    // Derived insights
+    topPerformers: v.optional(v.array(v.string())), // Content IDs
+    bottomPerformers: v.optional(v.array(v.string())),
+    insights: v.optional(v.string()), // AI-generated insight summary
+    createdAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_source", ["brandId", "source"])
+    .index("by_period", ["periodStart"]),
+
+  // ── Research Briefs ────────────────────────────────────────────────────
+  researchBriefs: defineTable({
+    brandId: v.id("brands"),
+    type: v.string(), // weekly_editorial | daily_trend | competitor_watch | keyword_gap | aeo_visibility
+    title: v.string(),
+    content: v.string(), // Markdown research output
+    // Structured data
+    trendingTopics: v.optional(v.array(v.string())),
+    keywordOpportunities: v.optional(v.array(v.object({
+      keyword: v.string(),
+      volume: v.optional(v.number()),
+      difficulty: v.optional(v.string()),
+      currentRanking: v.optional(v.number()),
+    }))),
+    competitorUpdates: v.optional(v.array(v.string())),
+    contentRecommendations: v.optional(v.array(v.string())),
+    createdAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_type", ["brandId", "type"]),
+
+  // ── Ad Campaigns ───────────────────────────────────────────────────────
+  adCampaigns: defineTable({
+    brandId: v.id("brands"),
+    platform: v.string(), // meta | google | pinterest | youtube
+    name: v.string(),
+    type: v.string(), // prospecting | retargeting
+    status: v.string(), // draft | active | paused | completed
+    // Targeting (Dream 100 interest-based)
+    targetInterests: v.optional(v.array(v.string())),
+    targetDream100Ids: v.optional(v.array(v.id("dream100"))),
+    // Budget
+    dailyBudget: v.optional(v.number()),
+    totalSpent: v.optional(v.number()),
+    // Performance
+    impressions: v.optional(v.number()),
+    clicks: v.optional(v.number()),
+    conversions: v.optional(v.number()),
+    revenue: v.optional(v.number()),
+    cpa: v.optional(v.number()),
+    roas: v.optional(v.number()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_platform", ["brandId", "platform"])
+    .index("by_status", ["status"]),
+
+  // ── Ad Creatives ───────────────────────────────────────────────────────
+  adCreatives: defineTable({
+    campaignId: v.id("adCampaigns"),
+    brandId: v.id("brands"),
+    // The creative
+    hook: v.string(), // The attention-grabbing headline/opening
+    body: v.string(), // Full ad copy
+    cta: v.string(), // Call to action
+    visualDirection: v.optional(v.string()), // Design brief for the visual
+    destinationUrl: v.string(), // UTM-tagged landing page
+    // Variant tracking
+    variant: v.string(), // A | B | C
+    contentIdRef: v.optional(v.string()), // Links to contentIds table
+    // Performance
+    impressions: v.optional(v.number()),
+    clicks: v.optional(v.number()),
+    conversions: v.optional(v.number()),
+    status: v.string(), // draft | active | paused | winner | loser
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_campaign", ["campaignId"])
+    .index("by_brand", ["brandId"])
+    .index("by_status", ["status"]),
+
+  // ── Lead Magnets ───────────────────────────────────────────────────────
+  leadMagnets: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(), // "5-Minute Bedtime Affirmation Cards"
+    type: v.string(), // checklist | guide | template | mini_course | quiz | free_chapter
+    description: v.string(),
+    // The funnel
+    landingPageUrl: v.optional(v.string()),
+    deliveryMethod: v.string(), // email | download | redirect
+    deliveryContent: v.optional(v.string()), // Email copy or download URL
+    // Follow-up
+    emailSequenceId: v.optional(v.id("emailSequences")), // Links to emailSequences
+    // Performance
+    visits: v.optional(v.number()),
+    optIns: v.optional(v.number()),
+    conversionRate: v.optional(v.number()),
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"]),
+
+  // ── Email Sequences ────────────────────────────────────────────────────
+  emailSequences: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(),
+    type: v.string(), // soap_opera | seinfeld_daily | launch | follow_up | nurture
+    triggerEvent: v.string(), // lead_magnet_optin | purchase | signup | manual
+    // Sequence config
+    emailCount: v.number(),
+    intervalDays: v.number(), // Days between emails
+    // State
+    status: v.string(), // draft | active | paused
+    subscriberCount: v.optional(v.number()),
+    // Performance
+    avgOpenRate: v.optional(v.number()),
+    avgClickRate: v.optional(v.number()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_type", ["brandId", "type"]),
+
+  // ── Email Messages ─────────────────────────────────────────────────────
+  emailMessages: defineTable({
+    sequenceId: v.id("emailSequences"),
+    brandId: v.id("brands"),
+    position: v.number(), // Order in sequence (1, 2, 3...)
+    subject: v.string(),
+    body: v.string(), // HTML email content
+    // Close type (Brunson's Three Closes)
+    closeType: v.optional(v.string()), // emotion | logic | fear
+    // Performance per message
+    sent: v.optional(v.number()),
+    opened: v.optional(v.number()),
+    clicked: v.optional(v.number()),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_sequence", ["sequenceId"])
+    .index("by_brand", ["brandId"]),
+
+  // ── SEO Targets ────────────────────────────────────────────────────────
+  seoTargets: defineTable({
+    brandId: v.id("brands"),
+    keyword: v.string(),
+    searchVolume: v.optional(v.number()),
+    difficulty: v.optional(v.string()), // easy | medium | hard
+    intent: v.optional(v.string()), // informational | transactional | navigational
+    // Current state
+    currentRanking: v.optional(v.number()),
+    currentUrl: v.optional(v.string()), // Which page ranks for this
+    // Target
+    targetUrl: v.optional(v.string()), // Which page should rank
+    branchId: v.optional(v.id("branches")), // Content targeting this keyword
+    // Tracking
+    lastCheckedAt: v.optional(v.number()),
+    rankingHistory: v.optional(v.any()), // Array of { date, position }
+    status: v.string(), // target | ranking | top10 | top3 | featured
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_keyword", ["keyword"])
+    .index("by_status", ["status"]),
+
+  // ── AEO Checks ─────────────────────────────────────────────────────────
+  aeoChecks: defineTable({
+    brandId: v.id("brands"),
+    query: v.string(), // "personalized children's books" | "Christian children's books"
+    engine: v.string(), // chatgpt | perplexity | google_ai_overview
+    cited: v.boolean(), // Was AlreadyLoved cited?
+    citedUrl: v.optional(v.string()),
+    position: v.optional(v.number()), // Position in citations if cited
+    competitorsCited: v.optional(v.array(v.string())),
+    fullResponse: v.optional(v.string()),
+    checkedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_engine", ["brandId", "engine"]),
+
+  // ── Video Scripts ──────────────────────────────────────────────────────
+  videoScripts: defineTable({
+    branchId: v.optional(v.id("branches")), // Link to branch if derived
+    brandId: v.id("brands"),
+    type: v.string(), // short_form | long_form | ugc | podcast_talking_points
+    title: v.string(),
+    // Script content
+    hook: v.string(), // First 3 seconds / opening line
+    script: v.string(), // Full script body
+    cta: v.string(), // Closing call to action
+    duration: v.optional(v.string()), // Estimated duration
+    // UGC-specific
+    creatorBrief: v.optional(v.string()), // Brief for UGC creator
+    talkingPoints: v.optional(v.array(v.string())),
+    // State
+    status: v.string(), // draft | approved | filmed | published
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_type", ["type"])
+    .index("by_status", ["status"]),
+
+  // ── Platform Accounts ──────────────────────────────────────────────────
+  // Multiple accounts per brand per platform
+  platformAccounts: defineTable({
+    brandId: v.id("brands"),
+    platform: v.string(), // pinterest | instagram | tiktok | twitter | youtube | facebook
+    accountName: v.string(), // @BedtimeBookMom
+    accountId: v.optional(v.string()), // Platform's internal ID
+    niche: v.string(), // The thematic angle this account covers
+    voiceNotes: v.optional(v.string()), // How this account differs from main brand voice
+    // Buffer/API connection
+    bufferChannelId: v.optional(v.string()),
+    directApiCredentials: v.optional(v.any()), // For platforms not on Buffer
+    // Rate limiting
+    postsPerDay: v.number(), // Max posts per day for this account
+    postsToday: v.optional(v.number()), // Track against limit
+    lastPostedAt: v.optional(v.number()),
+    // State
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_brand_platform", ["brandId", "platform"]),
 });
