@@ -1,48 +1,15 @@
 import { v } from "convex/values";
 import { mutation, internalMutation, query } from "./_generated/server";
-
-// ── Platform code mapping ────────────────────────────────────────────────────
-const FORMAT_TO_PLATFORM_CODE: Record<string, string> = {
-  pin: "PIN",
-  caption_ig: "IG",
-  carousel: "IG",
-  caption_tiktok: "TIK",
-  tweet: "X",
-  linkedin: "LI",
-  blog: "BLG",
-  newsletter: "EML",
-  short_video: "YT",
-  facebook: "FB",
-  quote_card: "IG",
-};
-
-// ── UTM source mapping ──────────────────────────────────────────────────────
-const PLATFORM_CODE_TO_UTM_SOURCE: Record<string, string> = {
-  PIN: "pinterest",
-  IG: "instagram",
-  TIK: "tiktok",
-  X: "twitter",
-  LI: "linkedin",
-  BLG: "blog",
-  EML: "email",
-  YT: "youtube",
-  FB: "facebook",
-};
-
-// ── Helpers ─────────────────────────────────────────────────────────────────
-
-function formatDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}${m}${d}`;
-}
-
-function formatYearMonth(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  return `${y}${m}`;
-}
+import {
+  FORMAT_TO_PLATFORM_CODE,
+  PLATFORM_CODE_TO_UTM_SOURCE,
+  formatDate,
+  formatYearMonth,
+  buildContentId,
+  buildUtmUrl,
+  getPlatformCode,
+  getUtmSource,
+} from "./lib/contentIdUtils";
 
 /** Count existing variants for the same brand+date+platform+template combo to assign A/B/C */
 async function getNextVariantCode(
@@ -100,7 +67,7 @@ export const generateContentId = internalMutation({
 
     // Derive components
     const brandPrefix = brand.brandPrefix || brand.slug.slice(0, 3).toUpperCase();
-    const platformCode = FORMAT_TO_PLATFORM_CODE[branch.format] || "OTH";
+    const platformCode = getPlatformCode(branch.format);
     const templateCode = (seed.templateType || "GEN").toUpperCase();
     const hookCode = (seed.hookAngle || "GENERAL").toUpperCase();
 
@@ -113,17 +80,17 @@ export const generateContentId = internalMutation({
     );
 
     // Build Content ID: {BrandPrefix}-{YYYYMMDD}-{Platform}-{Template}-{Variant}-{Hook}
-    const contentId = `${brandPrefix}-${publishDate}-${platformCode}-${templateCode}-${variantCode}-${hookCode}`;
+    const contentId = buildContentId(brandPrefix, publishDate, platformCode, templateCode, variantCode, hookCode);
 
     // Build UTM URL
-    const utmSource = PLATFORM_CODE_TO_UTM_SOURCE[platformCode] || "other";
+    const utmSource = getUtmSource(platformCode);
     const utmMedium = "social";
     const utmCampaign = `awareness-custom_book-${yearMonth}`;
     const utmContent = contentId.toLowerCase();
     const utmTerm = hookCode.toLowerCase();
 
     const baseUrl = brand.baseUrl || `https://${brand.slug.replace(/-/g, "")}.com`;
-    const utmUrl = `${baseUrl}/shop?utm_source=${utmSource}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}&utm_content=${utmContent}&utm_term=${utmTerm}`;
+    const utmUrl = buildUtmUrl(`${baseUrl}/shop`, utmSource, utmMedium, utmCampaign, utmContent, utmTerm);
 
     // Save to contentIds table
     const contentIdDocId = await ctx.db.insert("contentIds", {
@@ -186,7 +153,7 @@ export const generate = mutation({
     const yearMonth = formatYearMonth(now);
 
     const brandPrefix = brand.brandPrefix || brand.slug.slice(0, 3).toUpperCase();
-    const platformCode = FORMAT_TO_PLATFORM_CODE[branch.format] || "OTH";
+    const platformCode = getPlatformCode(branch.format);
     const templateCode = (seed.templateType || "GEN").toUpperCase();
     const hookCode = (seed.hookAngle || "GENERAL").toUpperCase();
 
@@ -198,16 +165,16 @@ export const generate = mutation({
       templateCode
     );
 
-    const contentId = `${brandPrefix}-${publishDate}-${platformCode}-${templateCode}-${variantCode}-${hookCode}`;
+    const contentId = buildContentId(brandPrefix, publishDate, platformCode, templateCode, variantCode, hookCode);
 
-    const utmSource = PLATFORM_CODE_TO_UTM_SOURCE[platformCode] || "other";
+    const utmSource = getUtmSource(platformCode);
     const utmMedium = "social";
     const utmCampaign = `awareness-custom_book-${yearMonth}`;
     const utmContent = contentId.toLowerCase();
     const utmTerm = hookCode.toLowerCase();
 
     const baseUrl = brand.baseUrl || `https://${brand.slug.replace(/-/g, "")}.com`;
-    const utmUrl = `${baseUrl}/shop?utm_source=${utmSource}&utm_medium=${utmMedium}&utm_campaign=${utmCampaign}&utm_content=${utmContent}&utm_term=${utmTerm}`;
+    const utmUrl = buildUtmUrl(`${baseUrl}/shop`, utmSource, utmMedium, utmCampaign, utmContent, utmTerm);
 
     const contentIdDocId = await ctx.db.insert("contentIds", {
       branchId: args.branchId,
