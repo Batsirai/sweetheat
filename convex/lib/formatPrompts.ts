@@ -391,6 +391,438 @@ Write the full newsletter section now. No labels needed — just the flowing tex
   return { system, user, maxTokens: 700 };
 }
 
+// ── Format: schema_markup ─────────────────────────────────────────────────────
+// JSON-LD schema.org markup for a blog article. Flow 1 (content pipeline).
+
+function schemaMarkupPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are an SEO technical specialist generating JSON-LD structured data (schema.org).
+
+Rules:
+- Output ONLY valid JSON-LD — no prose, no markdown fences, no explanation.
+- Choose the most appropriate schema type: Article for general posts, FAQPage if the article contains Q&A sections, HowTo if the article is a step-by-step guide.
+- For Article: include @context, @type, headline, description, author (use the brand name), datePublished (use today's date placeholder "YYYY-MM-DD"), and keywords.
+- For FAQPage: include mainEntity as an array of Question/Answer pairs extracted from the article.
+- For HowTo: include name, description, and a step array with HowToStep items.
+- Populate values from the actual article content — do not invent facts.
+- Output must be parseable by JSON.parse() with no modification.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Generate JSON-LD schema.org markup for the following article.${articleContext}
+
+Select the most appropriate schema type (Article, FAQPage, or HowTo) based on the content. Output only the raw JSON-LD object.`;
+
+  return { system, user, maxTokens: 1500 };
+}
+
+// ── Format: video_script_short ────────────────────────────────────────────────
+// 30-60 second short-form video script for TikTok/Reels/Shorts. Flow 2.
+
+function videoScriptShortPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a short-form video script for TikTok, Instagram Reels, or YouTube Shorts. Target spoken length: 30–60 seconds (approximately 65–130 words).
+
+Script structure:
+- HOOK (first 3 seconds): One punchy sentence that stops the scroll immediately. Ask a question, make a bold claim, or drop a surprising fact. This is everything.
+- BODY (main content): Deliver the core value in 3–5 short, spoken sentences. One idea per sentence. No filler. Speak directly to the viewer.
+- CTA (call to action): One line. Tell them exactly what to do next (follow, comment, save, link in bio).
+
+Spoken style: conversational, energetic, first-person. Write for the ear — short sentences, natural rhythm. Avoid jargon.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write a 30–60 second short-form video script based on the content below.${articleContext}
+
+Format:
+HOOK:
+[hook text — 1 sentence, first 3 seconds]
+
+BODY:
+[body text — 3–5 short sentences]
+
+CTA:
+[cta text — 1 sentence]`;
+
+  return { system, user, maxTokens: 800 };
+}
+
+// ── Format: video_script_long ─────────────────────────────────────────────────
+// 5-15 minute YouTube video script. Full structure. Flow 2.
+
+function videoScriptLongPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a full-length YouTube video script. Target length: 5–15 minutes of spoken content (approximately 750–2000 words).
+
+Script structure:
+- INTRO HOOK (first 30 seconds): Open with a pattern-interrupt — a bold question, a relatable struggle, or a surprising stat. Tell viewers exactly what they'll get from watching. Do NOT start with "Hey guys welcome back."
+- MAIN POINTS (3–5 sections): Each section has a clear heading, a concise explanation, and a real-world example or story. Transitions between sections should feel natural.
+- RECAP: 2–3 sentences summarizing the key takeaways. Reinforce the transformation.
+- CTA: Clear, specific action (subscribe, comment, link in description, related video).
+
+Spoken style: warm, authoritative, first-person. Write for the ear. Use conversational language, occasional rhetorical questions, and natural pacing notes (e.g., [PAUSE], [EMPHASIZE]).`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write a full YouTube video script (5–15 minutes) based on the content below.${articleContext}
+
+Format:
+INTRO HOOK:
+[hook text]
+
+[SECTION HEADING 1]:
+[section content with example]
+
+[SECTION HEADING 2]:
+[section content with example]
+
+[continue for 3–5 sections]
+
+RECAP:
+[recap text]
+
+CTA:
+[cta text]`;
+
+  return { system, user, maxTokens: 3000 };
+}
+
+// ── Format: ugc_script ────────────────────────────────────────────────────────
+// UGC-style video script — casual, testimonial-feel, with creator brief. Flow 2.
+
+function ugcScriptPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a UGC (user-generated content) style video script. UGC feels authentic, unpolished, and personal — like a real customer sharing their experience, not a polished ad.
+
+UGC script characteristics:
+- Sounds like a real person talking to their phone camera, not a professional presenter.
+- Personal story or relatable moment leads in — "So I was literally just doing X when..."
+- Casually mentions the product/brand as the natural solution they found.
+- Includes genuine enthusiasm without sounding scripted or salesy.
+- Short and punchy: 30–60 seconds of spoken content.
+
+Output two sections:
+1. CREATOR BRIEF: A short paragraph telling the UGC creator their persona, the vibe, key points to hit, and any brand guidelines (words to use/avoid).
+2. SCRIPT: The actual word-for-word script they can adapt and deliver in their own voice.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write a UGC-style video script based on the content below.${articleContext}
+
+Format:
+CREATOR BRIEF:
+[brief for the creator — persona, vibe, key points, brand do's/don'ts]
+
+SCRIPT:
+[word-for-word script the creator can adapt — casual, first-person, 30–60 sec]`;
+
+  return { system, user, maxTokens: 1000 };
+}
+
+// ── Format: podcast_show_notes ────────────────────────────────────────────────
+// Podcast episode outline and show notes. Flow 2.
+
+function podcastShowNotesPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing podcast episode show notes and an episode outline.
+
+Show notes structure:
+- EPISODE TITLE: Compelling, searchable title for the episode.
+- EPISODE DESCRIPTION: 2–3 sentence summary for podcast directories (Apple Podcasts, Spotify). Hook the listener, tease the value.
+- KEY TOPICS: Bullet list of 4–7 main topics covered in the episode.
+- TIMESTAMPS: Placeholder format — [00:00] Intro, [XX:XX] Topic 1, etc. Use [XX:XX] as placeholder since actual times aren't known yet.
+- KEY QUOTES: 2–3 pull quotes or soundbite-worthy lines from the content.
+- RESOURCES MENTIONED: List any books, tools, websites, or references from the content.
+- CALL TO ACTION: What should listeners do after hearing this episode?
+
+Tone: warm, professional, approachable — matches the brand voice.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write podcast show notes and episode outline based on the content below.${articleContext}
+
+Use the structure: EPISODE TITLE / EPISODE DESCRIPTION / KEY TOPICS / TIMESTAMPS / KEY QUOTES / RESOURCES MENTIONED / CALL TO ACTION.`;
+
+  return { system, user, maxTokens: 1500 };
+}
+
+// ── Format: cold_email ────────────────────────────────────────────────────────
+// Personalized cold outreach email. Genuine, value-first. Flow 3 (outreach).
+
+function coldEmailPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a cold outreach email. This is NOT a mass marketing blast — it is a genuine, personalized message from one person to another.
+
+Cold email principles:
+- Subject line: specific and curious-inducing, never clickbait. Under 50 characters.
+- Opening line: reference something specific about the recipient or their work (use a [PERSONALIZATION] placeholder where the sender should fill in a specific detail).
+- Value-first: lead with what's in it for THEM, not a pitch about the brand.
+- One clear CTA: ask for one small, easy thing (a reply, a quick call, feedback) — not a purchase.
+- Short: 5–8 sentences total. Busy people don't read long emails.
+- Tone: warm, human, peer-to-peer. NOT salesy. NOT "I hope this email finds you well."
+
+Output: SUBJECT: line followed by the email body.`;
+
+  const user = `Write a cold outreach email based on this campaign/topic.
+
+SEED TITLE: ${seed.title}
+SEED DESCRIPTION: ${seed.description}
+
+Use [PERSONALIZATION] as a placeholder where the sender should add a specific, researched detail about the recipient. Keep the email to 5–8 sentences. Output:
+SUBJECT: [subject line]
+
+[email body]`;
+
+  return { system, user, maxTokens: 500 };
+}
+
+// ── Format: podcast_pitch ─────────────────────────────────────────────────────
+// Pitch email to a podcast host. Flow 3 (outreach).
+
+function podcastPitchPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a pitch email to a podcast host requesting to be a guest on their show.
+
+Podcast pitch structure:
+- Subject line: specific and intriguing. Reference the show by name with a [SHOW NAME] placeholder.
+- Opening: genuine compliment about the show — not generic. Use [SPECIFIC EPISODE OR MOMENT] placeholder for personalization.
+- The hook: why THIS topic would resonate with THEIR audience specifically.
+- Suggested talking points: 3 concrete topics/angles the guest could cover.
+- Brief bio: 2–3 sentences about the brand/founder — who they are, what they've built, why they're credible.
+- CTA: simple ask — "Would love to explore if this would be a good fit."
+
+Tone: respectful, confident, peer-to-peer. Not desperate, not fawning. Show that you've actually listened to the show.`;
+
+  const user = `Write a podcast guest pitch email based on this topic/brand.
+
+SEED TITLE: ${seed.title}
+SEED DESCRIPTION: ${seed.description}
+BRAND: ${brand.name}
+
+Use [SHOW NAME] and [SPECIFIC EPISODE OR MOMENT] as personalization placeholders. Output:
+SUBJECT: [subject line]
+
+[email body]`;
+
+  return { system, user, maxTokens: 600 };
+}
+
+// ── Format: ad_copy_prospecting ───────────────────────────────────────────────
+// Facebook/Instagram ad copy for cold audiences. 3 variants (A/B/C).
+
+function adCopyProspectingPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing Facebook/Instagram ad copy for cold audiences — people who have never heard of this brand. These people do NOT know they have the problem yet, or they're not actively searching for a solution.
+
+Ad copy structure for each variant:
+- HOOK (first line): Must stop the scroll in the feed. Ask a question they're already thinking, name their pain, or make a bold/surprising claim. This is the most important line.
+- BODY: Problem → Agitate → Solve. Make them feel understood, show the cost of inaction, then present the solution. 3–5 sentences.
+- CTA: One clear, low-friction action. "Learn more" or "Shop now" or "Get yours" — match to the offer.
+
+Generate 3 distinct variants (A, B, C) testing different hooks and angles. Each variant should feel like a different creative direction, not just a rewording.
+
+Format constraints: Primary text (above image) 125 characters or less for mobile preview. Write the full copy AND note the primary text excerpt.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write 3 Facebook/Instagram prospecting ad copy variants (A/B/C) based on the content below.${articleContext}
+
+For each variant, format as:
+VARIANT [A/B/C]:
+PRIMARY TEXT PREVIEW: [first 125 chars — what shows before "see more"]
+HOOK: [hook line]
+BODY: [body copy]
+CTA: [call to action button text]`;
+
+  return { system, user, maxTokens: 800 };
+}
+
+// ── Format: ad_copy_retargeting ───────────────────────────────────────────────
+// Retargeting ad copy for warm audiences. 3 variants (A/B/C).
+
+function adCopyRetargetingPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing Facebook/Instagram retargeting ad copy for warm audiences — people who have already visited the website or engaged with content but haven't converted yet.
+
+Retargeting ad principles:
+- These people already know the brand. Skip the long introduction.
+- Use social proof, testimonials, or "as seen in" signals to build trust.
+- Address the objection that stopped them from converting (price? timing? trust?).
+- Create gentle urgency — not fake scarcity. "Others are loving this" or "Don't miss out."
+- Shorter copy works better for retargeting — they already know the context.
+
+Generate 3 distinct variants (A, B, C):
+- Variant A: Social proof angle (reviews, results, community)
+- Variant B: Objection-handling angle (address a specific hesitation)
+- Variant C: Urgency/reminder angle (they were this close — nudge them back)`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write 3 retargeting ad copy variants (A/B/C) for warm audiences based on the content below.${articleContext}
+
+For each variant, format as:
+VARIANT [A/B/C]:
+ANGLE: [social proof / objection-handling / urgency-reminder]
+PRIMARY TEXT PREVIEW: [first 125 chars]
+BODY: [ad copy]
+CTA: [call to action button text]`;
+
+  return { system, user, maxTokens: 600 };
+}
+
+// ── Format: email_soap_opera ──────────────────────────────────────────────────
+// First email in a Soap Opera Sequence (Brunson method). Story-driven, no hard sell.
+
+function emailSoapOperaPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing the first email in a Soap Opera Sequence (Russell Brunson method). This is an email automation that builds connection through storytelling over a series of emails.
+
+Email 1 (The Setting): This email sets the stage. Its job is to hook the reader with a compelling story beginning, establish who the sender is through the story (not a bio), and end with a cliffhanger that makes them want to open the next email.
+
+Rules for this email:
+- Open IN the middle of a scene — don't warm up with small talk.
+- The story should be true or at minimum plausible and relatable to the target audience.
+- Theme: a moment of struggle, confusion, or turning point related to the seed topic.
+- NO hard sell. NO product pitch. The relationship is more valuable right now.
+- End with a cliffhanger or "teaser" for Email 2 — "Tomorrow I'll tell you what changed everything..."
+- Subject line: intriguing, story-forward, personal. Under 50 characters.
+- Length: 200–400 words.`;
+
+  const user = `Write Email 1 of a Soap Opera Sequence based on this topic.
+
+SEED TITLE: ${seed.title}
+SEED DESCRIPTION: ${seed.description}
+BRAND: ${brand.name}
+
+This email should read like a story opening — hook them, establish the struggle, end with a cliffhanger. No selling. Output:
+SUBJECT: [subject line]
+
+[email body]
+
+P.S. [teaser for Email 2 — what's coming tomorrow]`;
+
+  return { system, user, maxTokens: 800 };
+}
+
+// ── Format: email_seinfeld ────────────────────────────────────────────────────
+// Daily "Seinfeld" style email — everyday story → brand message → soft CTA.
+
+function emailSeinfeldPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing a "Seinfeld email" — a short, entertaining daily email inspired by Ben Settle's method. The email is about something mundane from everyday life, and then — seemingly by magic — it connects to a brand message or insight.
+
+Seinfeld email formula:
+1. Tell a short, specific, entertaining story from everyday life (2–4 sentences). It can be about anything: standing in line, a Netflix show, a conversation, something a kid said. The more specific and ordinary, the better.
+2. Bridge: one or two sentences that draw an unexpected but insightful connection to your topic or brand lesson. The "so here's why this matters..." moment.
+3. Brand message: 1–3 sentences delivering the real insight, lesson, or value — in the brand's voice.
+4. Soft CTA: one line. Optional link. Not pushy — more like "if you want to go deeper, here's how."
+
+Subject line: should reference the story, not the product. Curiosity over clarity.
+Length: 150–300 words total.`;
+
+  const user = `Write a Seinfeld-style daily email connected to this topic.
+
+SEED TITLE: ${seed.title}
+SEED DESCRIPTION: ${seed.description}
+BRAND: ${brand.name}
+
+Invent a short, specific, relatable everyday story (doesn't have to be real — just feel real) and connect it to the seed topic in a clever, non-obvious way. Output:
+SUBJECT: [subject line]
+
+[email body — story → bridge → brand message → soft CTA]`;
+
+  return { system, user, maxTokens: 600 };
+}
+
+// ── Format: lead_magnet_copy ──────────────────────────────────────────────────
+// Landing page copy for a lead magnet opt-in page.
+
+function leadMagnetCopyPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are writing landing page copy for a lead magnet opt-in page. The goal of this page is one thing: get the visitor to enter their email in exchange for the lead magnet.
+
+Landing page copy structure:
+- HEADLINE: The single most compelling benefit or transformation the lead magnet delivers. Bold, specific, benefit-forward. Under 12 words if possible.
+- SUBHEADLINE: Expand on the headline — who it's for and what they'll get. 1–2 sentences.
+- BENEFIT BULLETS (3–5): Each bullet starts with an action verb and promises a specific outcome. Format: "[Verb] [specific benefit]" (e.g., "Discover the 3 questions every Christian mom should ask before choosing a book for her child").
+- WHAT YOU'LL LEARN: A short paragraph (2–3 sentences) describing the content/format of the lead magnet. Makes it feel real and valuable.
+- CTA BUTTON TEXT: 3–7 words. First-person where possible ("Send Me the Guide" beats "Submit").
+- TRUST LINE: One short sentence below the button that removes friction ("No spam. Unsubscribe anytime.").
+
+Tone: warm, direct, benefit-focused. Speak to the specific pain and desire of the target audience.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write lead magnet landing page copy based on the content below.${articleContext}
+
+Format:
+HEADLINE: [headline]
+SUBHEADLINE: [subheadline]
+BENEFIT BULLETS:
+- [bullet 1]
+- [bullet 2]
+- [bullet 3]
+- [bullet 4 — optional]
+- [bullet 5 — optional]
+WHAT YOU'LL LEARN: [paragraph]
+CTA BUTTON: [button text]
+TRUST LINE: [trust line]`;
+
+  return { system, user, maxTokens: 800 };
+}
+
 // ── Main export ───────────────────────────────────────────────────────────────
 
 const FORMAT_HANDLERS: Record<string, (input: PromptInput) => PromptOutput> = {
@@ -404,6 +836,24 @@ const FORMAT_HANDLERS: Record<string, (input: PromptInput) => PromptOutput> = {
   quote_card: quoteCardPrompt,
   short_video: shortVideoPrompt,
   newsletter: newsletterPrompt,
+  // Flow 1 — Content pipeline
+  schema_markup: schemaMarkupPrompt,
+  // Flow 2 — Video scripts
+  video_script_short: videoScriptShortPrompt,
+  video_script_long: videoScriptLongPrompt,
+  ugc_script: ugcScriptPrompt,
+  podcast_show_notes: podcastShowNotesPrompt,
+  // Flow 3 — Outreach
+  cold_email: coldEmailPrompt,
+  podcast_pitch: podcastPitchPrompt,
+  // Ad formats
+  ad_copy_prospecting: adCopyProspectingPrompt,
+  ad_copy_retargeting: adCopyRetargetingPrompt,
+  // Email formats
+  email_soap_opera: emailSoapOperaPrompt,
+  email_seinfeld: emailSeinfeldPrompt,
+  // Lead magnet
+  lead_magnet_copy: leadMagnetCopyPrompt,
 };
 
 export function getFormatPrompt(format: string, input: PromptInput): PromptOutput {
