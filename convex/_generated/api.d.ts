@@ -8,9 +8,11 @@
  * @module
  */
 
+import type * as abTests from "../abTests.js";
 import type * as adCampaigns from "../adCampaigns.js";
 import type * as aeoChecks from "../aeoChecks.js";
 import type * as agentRuns from "../agentRuns.js";
+import type * as audienceSegments from "../audienceSegments.js";
 import type * as auth from "../auth.js";
 import type * as backfill from "../backfill.js";
 import type * as branches from "../branches.js";
@@ -19,6 +21,7 @@ import type * as buffer from "../buffer.js";
 import type * as comments from "../comments.js";
 import type * as compiler from "../compiler.js";
 import type * as contacts from "../contacts.js";
+import type * as contentCalendar from "../contentCalendar.js";
 import type * as contentIds from "../contentIds.js";
 import type * as datafast from "../datafast.js";
 import type * as drafts from "../drafts.js";
@@ -33,11 +36,14 @@ import type * as learnings from "../learnings.js";
 import type * as lib_callClaude from "../lib/callClaude.js";
 import type * as lib_contentIdUtils from "../lib/contentIdUtils.js";
 import type * as lib_formatPrompts from "../lib/formatPrompts.js";
+import type * as metaOoda from "../metaOoda.js";
 import type * as outreach from "../outreach.js";
 import type * as performanceSnapshots from "../performanceSnapshots.js";
 import type * as pipeline from "../pipeline.js";
 import type * as platformAccounts from "../platformAccounts.js";
+import type * as qualityGate from "../qualityGate.js";
 import type * as researchBriefs from "../researchBriefs.js";
+import type * as seasonalPlanner from "../seasonalPlanner.js";
 import type * as seed from "../seed.js";
 import type * as seeds from "../seeds.js";
 import type * as seoTargets from "../seoTargets.js";
@@ -53,9 +59,11 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  abTests: typeof abTests;
   adCampaigns: typeof adCampaigns;
   aeoChecks: typeof aeoChecks;
   agentRuns: typeof agentRuns;
+  audienceSegments: typeof audienceSegments;
   auth: typeof auth;
   backfill: typeof backfill;
   branches: typeof branches;
@@ -64,6 +72,7 @@ declare const fullApi: ApiFromModules<{
   comments: typeof comments;
   compiler: typeof compiler;
   contacts: typeof contacts;
+  contentCalendar: typeof contentCalendar;
   contentIds: typeof contentIds;
   datafast: typeof datafast;
   drafts: typeof drafts;
@@ -78,11 +87,14 @@ declare const fullApi: ApiFromModules<{
   "lib/callClaude": typeof lib_callClaude;
   "lib/contentIdUtils": typeof lib_contentIdUtils;
   "lib/formatPrompts": typeof lib_formatPrompts;
+  metaOoda: typeof metaOoda;
   outreach: typeof outreach;
   performanceSnapshots: typeof performanceSnapshots;
   pipeline: typeof pipeline;
   platformAccounts: typeof platformAccounts;
+  qualityGate: typeof qualityGate;
   researchBriefs: typeof researchBriefs;
+  seasonalPlanner: typeof seasonalPlanner;
   seed: typeof seed;
   seeds: typeof seeds;
   seoTargets: typeof seoTargets;

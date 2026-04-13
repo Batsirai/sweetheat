@@ -1467,6 +1467,271 @@ server.tool(
   }
 );
 
+// ═══ CONTENT CALENDAR ════════════════════════════════════════════════════
+
+server.tool(
+  "calendar_schedule_content",
+  "Prepare a Google Calendar event for scheduled content. Returns structured data for the agent to pass to the gcal_create_event MCP tool. Creates a 15-minute marker event with content details.",
+  {
+    title: z.string().describe("Content title"),
+    platform: z.string().describe("Platform: Pinterest | Instagram | TikTok | LinkedIn | Twitter/X | Facebook | Blog | Email | YouTube"),
+    scheduledAt: z.string().describe("When the content is scheduled (ISO string)"),
+    contentId: z.string().optional().describe("Content ID for tracking"),
+    utmUrl: z.string().optional().describe("UTM-tagged URL for the content"),
+    description: z.string().optional().describe("Additional description or notes"),
+  },
+  async ({ title, platform, scheduledAt, contentId, utmUrl, description }) => {
+    const eventTitle = `[${platform}] ${title}`;
+
+    const startTime = new Date(scheduledAt);
+    const endTime = new Date(startTime.getTime() + 15 * 60 * 1000); // 15 min marker
+
+    const descriptionParts = [
+      `Content scheduled via Sweet Heat`,
+      contentId ? `Content ID: ${contentId}` : null,
+      utmUrl ? `UTM URL: ${utmUrl}` : null,
+      description ? `\n${description}` : null,
+    ].filter(Boolean).join("\n");
+
+    return {
+      content: [{
+        type: "text",
+        text: JSON.stringify({
+          tool: "gcal_create_event",
+          parameters: {
+            summary: eventTitle,
+            description: descriptionParts,
+            start: { dateTime: startTime.toISOString() },
+            end: { dateTime: endTime.toISOString() },
+          },
+          context: {
+            title,
+            platform,
+            contentId,
+            utmUrl,
+            note: "Pass the parameters object to gcal_create_event to create the calendar event.",
+          },
+        }, null, 2),
+      }],
+    };
+  }
+);
+
+server.tool(
+  "calendar_get_content_schedule",
+  "Get all scheduled and recently published content for a date range, formatted as a calendar view",
+  {
+    brandId: z.string().describe("Brand ID"),
+    startDate: z.string().describe("Start date (ISO string)"),
+    endDate: z.string().describe("End date (ISO string)"),
+  },
+  async ({ brandId, startDate, endDate }) => {
+    const params = new URLSearchParams({
+      brandId,
+      startDate,
+      endDate,
+    });
+    // Fetch scheduled branches via the API
+    const scheduled = await api(`/calendar/schedule?${params}`);
+    return { content: [{ type: "text", text: JSON.stringify(scheduled, null, 2) }] };
+  }
+);
+
+// ═══ SEASONAL PLANNER ════════════════════════════════════════════════════
+
+server.tool(
+  "seasonal_get_upcoming",
+  "Get upcoming seasonal events and holidays in the next 90 days with content coverage status. Shows which events have content planned and which need attention.",
+  {
+    brandId: z.string().describe("Brand ID"),
+    lookAheadDays: z.number().optional().describe("Days to look ahead (default 90)"),
+  },
+  async ({ brandId, lookAheadDays }) => {
+    const params = new URLSearchParams({ brandId });
+    if (lookAheadDays) params.set("lookAheadDays", String(lookAheadDays));
+    const result = await api(`/seasonal/upcoming?${params}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "seasonal_check_coverage",
+  "Check content coverage for upcoming seasonal events. Identifies gaps and generates research briefs for events that need content.",
+  {
+    brandId: z.string().describe("Brand ID"),
+    lookAheadDays: z.number().optional().describe("Days to look ahead (default 90)"),
+  },
+  async ({ brandId, lookAheadDays }) => {
+    const result = await api("/seasonal/coverage", {
+      method: "POST",
+      body: JSON.stringify({ brandId, lookAheadDays }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// ═══ META-OODA (System Self-Review) ══════════════════════════════════════
+
+server.tool(
+  "meta_ooda_generate_review",
+  "Generate a system self-review for a brand — analyzes last 7 days of pipeline data including approval rates, throughput, velocity, bottlenecks, and quality trends. Stores the review as a research brief.",
+  {
+    brandId: z.string().describe("Brand ID to review"),
+  },
+  async ({ brandId }) => {
+    const result = await api("/meta-ooda/review", {
+      method: "POST",
+      body: JSON.stringify({ brandId }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "meta_ooda_get_latest",
+  "Get the most recent system review for a brand — shows pipeline health, bottlenecks, and recommendations",
+  {
+    brandId: z.string().describe("Brand ID"),
+  },
+  async ({ brandId }) => {
+    const result = await api(`/meta-ooda/latest?brandId=${brandId}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "meta_ooda_check_bottlenecks",
+  "Quick check for pipeline bottlenecks — stuck branches, pending seeds, and other blockers that need attention",
+  {
+    brandId: z.string().describe("Brand ID"),
+  },
+  async ({ brandId }) => {
+    const result = await api(`/meta-ooda/bottlenecks?brandId=${brandId}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// ═══ A/B TESTS ═══════════════════════════════════════════════════════════
+
+server.tool(
+  "ab_test_create",
+  "Create an A/B test comparing two content variants — track which hook, headline, CTA, or template performs better",
+  {
+    brandId: z.string().describe("Brand ID"),
+    name: z.string().describe("Test name, e.g. 'Pin hook test: bedtime vs identity'"),
+    type: z.string().describe("What's being tested: headline | hook | cta | template | image"),
+    variantA: z.object({
+      branchId: z.string().optional().describe("Branch ID for variant A"),
+      contentIdRef: z.string().optional().describe("Content ID reference for variant A"),
+      description: z.string().describe("Description of variant A"),
+    }),
+    variantB: z.object({
+      branchId: z.string().optional().describe("Branch ID for variant B"),
+      contentIdRef: z.string().optional().describe("Content ID reference for variant B"),
+      description: z.string().describe("Description of variant B"),
+    }),
+    endsAt: z.number().optional().describe("Unix timestamp when the test should auto-evaluate"),
+  },
+  async (args) => {
+    const result = await api("/ab-tests", {
+      method: "POST",
+      body: JSON.stringify(args),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "ab_test_list",
+  "List A/B tests for a brand — see running, completed, and declared winners",
+  {
+    brandId: z.string().describe("Brand ID"),
+    status: z.string().optional().describe("Filter by status: running | completed | winner_declared"),
+  },
+  async ({ brandId, status }) => {
+    const params = new URLSearchParams({ brandId });
+    if (status) params.set("status", status);
+    const result = await api(`/ab-tests?${params}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "ab_test_update_metrics",
+  "Update performance metrics for an A/B test variant — impressions, clicks, saves, revenue",
+  {
+    id: z.string().describe("A/B test ID"),
+    variant: z.enum(["A", "B"]).describe("Which variant to update"),
+    metrics: z.object({
+      impressions: z.number().optional().describe("Total impressions"),
+      clicks: z.number().optional().describe("Total clicks"),
+      saves: z.number().optional().describe("Total saves (Pinterest)"),
+      revenue: z.number().optional().describe("Total revenue attributed"),
+    }),
+  },
+  async (args) => {
+    const result = await api("/ab-tests", {
+      method: "POST",
+      body: JSON.stringify({ action: "update_metrics", ...args }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "ab_test_declare_winner",
+  "Declare a winner for an A/B test — marks the test as completed with reason",
+  {
+    id: z.string().describe("A/B test ID"),
+    winner: z.enum(["A", "B"]).describe("Which variant won"),
+    winnerReason: z.string().describe("Why this variant won — cite the data"),
+  },
+  async (args) => {
+    const result = await api("/ab-tests", {
+      method: "POST",
+      body: JSON.stringify({ action: "declare_winner", ...args }),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+// ═══ AUDIENCE SEGMENTS ═══════════════════════════════════════════════════
+
+server.tool(
+  "audience_segment_create",
+  "Create an audience segment — a psychographic profile of a target audience group for content targeting",
+  {
+    brandId: z.string().describe("Brand ID"),
+    name: z.string().describe("Segment name, e.g. 'First-time moms'"),
+    description: z.string().describe("Detailed segment description"),
+    painPoints: z.array(z.string()).describe("Pain points this segment experiences"),
+    desires: z.array(z.string()).describe("What this segment wants/aspires to"),
+    language: z.array(z.string()).optional().describe("Words and phrases this segment uses"),
+    platforms: z.array(z.string()).optional().describe("Platforms where this segment is most active"),
+    contentPillars: z.array(z.string()).optional().describe("Content pillars that resonate with this segment"),
+    hookStyles: z.array(z.string()).optional().describe("Hook styles that work best for this segment"),
+  },
+  async (args) => {
+    const result = await api("/audience-segments", {
+      method: "POST",
+      body: JSON.stringify(args),
+    });
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "audience_segment_list",
+  "List audience segments for a brand — psychographic profiles used for content targeting",
+  {
+    brandId: z.string().describe("Brand ID"),
+  },
+  async ({ brandId }) => {
+    const result = await api(`/audience-segments?brandId=${brandId}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
 // ═══ START ═════════════════════════════════════════════════════════════════
 
 const transport = new StdioServerTransport();

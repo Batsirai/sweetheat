@@ -4,7 +4,8 @@ export async function callClaude(
   apiKey: string,
   systemPrompt: string,
   userPrompt: string,
-  maxTokens = 4096
+  maxTokens = 4096,
+  model = "claude-sonnet-4-20250514"
 ): Promise<string> {
   const res = await fetch(ANTHROPIC_API, {
     method: "POST",
@@ -14,7 +15,7 @@ export async function callClaude(
       "anthropic-version": "2023-06-01",
     },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
+      model,
       max_tokens: maxTokens,
       system: systemPrompt,
       messages: [{ role: "user", content: userPrompt }],

@@ -101,6 +101,7 @@ export default defineSchema({
     templateType: v.optional(v.string()), // AFFIRM | PROB | STORY | HOW | etc.
     dream100Source: v.optional(v.id("dream100")), // If inspired by Dream 100 monitoring
     researchBriefId: v.optional(v.id("researchBriefs")), // Which research brief spawned this
+    segmentId: v.optional(v.id("audienceSegments")), // Target audience segment
     createdAt: v.number(),
     updatedAt: v.number(),
   })
@@ -127,6 +128,8 @@ export default defineSchema({
     // Auto-approval tracking
     confidenceScore: v.optional(v.number()), // 0-1, for graduated autonomy
     autoApproved: v.optional(v.boolean()),
+    // Quality gate
+    qualityScore: v.optional(v.number()), // 1-10, from automated quality review
     // Traffic assembly line
     contentIdRef: v.optional(v.string()), // Links to contentIds table
     utmUrl: v.optional(v.string()), // Pre-generated UTM URL
@@ -820,4 +823,70 @@ export default defineSchema({
   })
     .index("by_brand", ["brandId"])
     .index("by_brand_platform", ["brandId", "platform"]),
+
+  // ── A/B Tests ──────────────────────────────────────────────────────────
+  // Compare two content variants to find what resonates best.
+  abTests: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(),                    // "Pin hook test: bedtime vs identity"
+    type: v.string(),                    // headline | hook | cta | template | image
+    status: v.string(),                  // running | completed | winner_declared
+    // Variants
+    variantA: v.object({
+      branchId: v.optional(v.id("branches")),
+      contentIdRef: v.optional(v.string()),
+      description: v.string(),
+    }),
+    variantB: v.object({
+      branchId: v.optional(v.id("branches")),
+      contentIdRef: v.optional(v.string()),
+      description: v.string(),
+    }),
+    // Metrics (updated by analytics loop)
+    metricsA: v.optional(v.object({
+      impressions: v.optional(v.number()),
+      clicks: v.optional(v.number()),
+      saves: v.optional(v.number()),
+      revenue: v.optional(v.number()),
+    })),
+    metricsB: v.optional(v.object({
+      impressions: v.optional(v.number()),
+      clicks: v.optional(v.number()),
+      saves: v.optional(v.number()),
+      revenue: v.optional(v.number()),
+    })),
+    winner: v.optional(v.string()),      // "A" | "B" | null
+    winnerReason: v.optional(v.string()),
+    // Timing
+    startedAt: v.number(),
+    endsAt: v.optional(v.number()),      // Auto-evaluate after this time
+    completedAt: v.optional(v.number()),
+    createdAt: v.number(),
+  })
+    .index("by_brand", ["brandId"])
+    .index("by_status", ["status"]),
+
+  // ── Audience Segments ──────────────────────────────────────────────────
+  // Psychographic audience groups that inform content creation and targeting.
+  audienceSegments: defineTable({
+    brandId: v.id("brands"),
+    name: v.string(),                    // "First-time moms"
+    description: v.string(),            // Detailed segment description
+    // Psychographics
+    painPoints: v.array(v.string()),
+    desires: v.array(v.string()),
+    language: v.optional(v.array(v.string())),  // Words/phrases this segment uses
+    // Targeting
+    platforms: v.optional(v.array(v.string())), // Which platforms this segment is most active on
+    contentPillars: v.optional(v.array(v.string())), // Which content pillars resonate
+    hookStyles: v.optional(v.array(v.string())), // Which hook styles work best
+    // Performance tracking
+    avgConversionRate: v.optional(v.number()),
+    totalRevenue: v.optional(v.number()),
+    contentCount: v.optional(v.number()),
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_brand", ["brandId"]),
 });

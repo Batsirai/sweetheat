@@ -224,11 +224,15 @@ export const saveDraftInternal = internalMutation({
       createdAt: Date.now(),
     });
 
-    // Update branch: set currentDraftId and transition to in_review
+    // Update branch: set currentDraftId. Status stays "draft" until quality gate decides.
     await ctx.db.patch(args.branchId, {
       currentDraftId: draftId,
-      status: "in_review",
       updatedAt: Date.now(),
+    });
+
+    // Schedule quality gate review — it decides whether to set "in_review" or "revision_requested"
+    await ctx.scheduler.runAfter(0, internal.qualityGate.reviewDraft, {
+      branchId: args.branchId,
     });
 
     return draftId;
