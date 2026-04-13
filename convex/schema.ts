@@ -128,8 +128,11 @@ export default defineSchema({
     // Auto-approval tracking
     confidenceScore: v.optional(v.number()), // 0-1, for graduated autonomy
     autoApproved: v.optional(v.boolean()),
-    // Quality gate
+    // Quality gate (legacy aggregate, 1-10)
     qualityScore: v.optional(v.number()), // 1-10, from automated quality review
+    // Preflight signals: { [signalName]: 0..1 } snapshot of all predictors at last gate run
+    preflightScores: v.optional(v.any()),
+    preflightPassedAt: v.optional(v.number()),
     // Traffic assembly line
     contentIdRef: v.optional(v.string()), // Links to contentIds table
     utmUrl: v.optional(v.string()), // Pre-generated UTM URL
@@ -888,5 +891,31 @@ export default defineSchema({
     createdAt: v.number(),
     updatedAt: v.number(),
   })
+    .index("by_brand", ["brandId"]),
+
+  // ── Predictions (Pre-publish signals) ──────────────────────────────────
+  // One row per predictor run per draft. Normalized 0..1 score + free-form
+  // details. Paired with performanceSnapshots after publish to calibrate
+  // which signals actually predict outcomes.
+  predictions: defineTable({
+    brandId: v.id("brands"),
+    branchId: v.id("branches"),
+    draftId: v.optional(v.id("drafts")),
+    // Which predictor and which version of it produced this row
+    signal: v.string(),                 // voice_fit | hook_strength | neural_engagement | pacing | platform_fit
+    version: v.string(),                // e.g. "haiku-voice-v1"
+    // Normalized 0..1
+    score: v.number(),
+    // Optional richer payload: per-second timeseries, subscores, flagged substrings
+    details: v.optional(v.any()),
+    notes: v.optional(v.string()),
+    // Cost/latency tracking so we can evaluate if a predictor is worth it
+    costUsd: v.optional(v.number()),
+    latencyMs: v.optional(v.number()),
+    createdAt: v.number(),
+  })
+    .index("by_branch", ["branchId"])
+    .index("by_branch_signal", ["branchId", "signal"])
+    .index("by_brand_signal", ["brandId", "signal"])
     .index("by_brand", ["brandId"]),
 });

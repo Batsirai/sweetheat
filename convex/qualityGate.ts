@@ -1,14 +1,13 @@
 import { v } from "convex/values";
 import { internalAction, internalMutation } from "./_generated/server";
 import { internal, api } from "./_generated/api";
-import { callClaude } from "./lib/callClaude";
+import { registry, PREFLIGHT_THRESHOLD, type PredictorContext } from "./lib/predictors";
 
-const HAIKU_MODEL = "claude-3-5-haiku-20241022";
-const QUALITY_THRESHOLD = 7;
-
-// ── Quality Gate: Auto-review draft before human review ─────────────────────
-// Called after saveDraftInternal. Uses a cheap model to score the draft
-// against brand voice, wordsToAvoid/Use, hook strength, CTA, and tone.
+// ── Preflight Gate: run all predictors, write predictions, decide ───────────
+// Formerly a single voice-fit check. Now an orchestrator that runs the
+// registered predictor chain, writes one `predictions` row per signal, and
+// uses the aggregate + any blocking failures to route the branch to
+// `in_review` or `revision_requested`.
 
 export const reviewDraft = internalAction({
   args: { branchId: v.id("branches") },
@@ -16,24 +15,20 @@ export const reviewDraft = internalAction({
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) throw new Error("ANTHROPIC_API_KEY not set");
 
-    // Load branch
     const branch = await ctx.runQuery(api.branches.get, { id: args.branchId });
     if (!branch) throw new Error(`Branch ${args.branchId} not found`);
     if (!branch.currentDraftId) throw new Error("No draft on branch");
 
-    // Load draft body
     const draft = await ctx.runQuery(api.drafts.get, { id: branch.currentDraftId });
     if (!draft) throw new Error("Draft not found");
 
-    // Load seed
     const seed = await ctx.runQuery(api.seeds.get, { id: branch.seedId });
     if (!seed) throw new Error("Seed not found");
 
-    // Load brand (with voice training)
     const brand = await ctx.runQuery(api.brands.get, { id: branch.brandId });
     if (!brand) throw new Error("Brand not found");
 
-    // Load primary voice training docs
+    // Prefer agent-synthesized primary voice doc; fall back to brand.voiceTraining.
     const trainingDocs = await ctx.runQuery(api.training.listByLayer, {
       brandId: branch.brandId,
       layer: "voice_general",
@@ -43,127 +38,133 @@ export const reviewDraft = internalAction({
       .map((t: any) => t.content)
       .join("\n\n");
 
-    const effectiveVoice = voiceTraining || brand.voiceTraining;
+    const input: PredictorContext = {
+      branchId: args.branchId,
+      draftId: draft._id,
+      brandId: branch.brandId,
+      format: branch.format,
+      body: draft.body,
+      seedTitle: seed.title,
+      seedDescription: seed.description,
+      voiceTraining: voiceTraining || brand.voiceTraining,
+      wordsToAvoid: brand.wordsToAvoid ?? [],
+      wordsToUse: brand.wordsToUse ?? [],
+      apiKey,
+    };
 
-    const systemPrompt = `You are a content quality reviewer for the brand "${brand.name}".
-You review draft content against brand standards and provide a structured quality assessment.
-Respond ONLY with valid JSON — no markdown, no explanation outside the JSON.`;
+    const applicable = registry.filter(
+      (p) => p.formats === "*" || p.formats.includes(branch.format),
+    );
 
-    const userPrompt = `Review this ${branch.format} draft against the brand standards below.
+    // Run predictors concurrently. One failure does not abort the gate — we
+    // still want other signals recorded so calibration data keeps accumulating.
+    const results = await Promise.all(
+      applicable.map(async (p) => {
+        try {
+          const r = await p.run(input);
+          return { ok: true as const, name: p.name, blocking: p.blocking, result: r };
+        } catch (err) {
+          console.error(`Predictor ${p.name} error:`, err);
+          return {
+            ok: false as const,
+            name: p.name,
+            blocking: p.blocking,
+            err: err instanceof Error ? err.message : String(err),
+          };
+        }
+      }),
+    );
 
-BRAND VOICE TRAINING:
-${effectiveVoice}
-
-WORDS TO AVOID (auto-fail if any appear): ${brand.wordsToAvoid.join(", ") || "none"}
-WORDS TO USE (bonus if included): ${brand.wordsToUse.join(", ") || "none"}
-
-SEED TITLE: ${seed.title}
-SEED DESCRIPTION: ${seed.description}
-
-DRAFT CONTENT:
-${draft.body.slice(0, 3000)}
-
-Evaluate and return JSON:
-{
-  "score": <1-10>,
-  "avoidedWordsFound": [<any words from wordsToAvoid found in draft>],
-  "usedWordsFound": [<any words from wordsToUse found in draft>],
-  "hookAssessment": "<one sentence on first-line strength>",
-  "toneMatch": "<one sentence on voice alignment>",
-  "ctaPresent": <true|false>,
-  "notes": "<2-3 sentence summary of key issues or strengths>"
-}`;
-
-    try {
-      const raw = await callClaude(apiKey, systemPrompt, userPrompt, 500, HAIKU_MODEL);
-
-      // Parse the JSON response
-      const jsonMatch = raw.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
-        console.error("Quality gate: could not parse JSON from response:", raw);
-        // Fail-safe: send to human review
-        await ctx.runMutation(internal.qualityGate.applyReviewResult, {
+    // Persist each successful prediction so we can calibrate it later.
+    for (const res of results) {
+      if (res.ok) {
+        await ctx.runMutation(internal.predictions.record, {
+          brandId: branch.brandId,
           branchId: args.branchId,
-          score: 0,
-          notes: "Quality gate could not parse review. Sending to human review.",
-          passed: false,
+          draftId: draft._id,
+          signal: res.result.signal,
+          version: res.result.version,
+          score: res.result.score,
+          notes: res.result.notes,
+          details: res.result.details as any,
+          costUsd: res.result.costUsd,
+          latencyMs: res.result.latencyMs,
         });
-        return;
       }
-
-      const review = JSON.parse(jsonMatch[0]);
-      const score = typeof review.score === "number" ? review.score : 0;
-
-      // Auto-fail if avoided words found
-      const hasAvoidedWords =
-        Array.isArray(review.avoidedWordsFound) && review.avoidedWordsFound.length > 0;
-      const effectiveScore = hasAvoidedWords ? Math.min(score, QUALITY_THRESHOLD - 1) : score;
-
-      const notes = [
-        review.notes || "",
-        review.hookAssessment ? `Hook: ${review.hookAssessment}` : "",
-        review.toneMatch ? `Tone: ${review.toneMatch}` : "",
-        review.ctaPresent === false ? "Missing CTA." : "",
-        hasAvoidedWords
-          ? `AUTO-FAIL: Found avoided words: ${review.avoidedWordsFound.join(", ")}`
-          : "",
-        Array.isArray(review.usedWordsFound) && review.usedWordsFound.length > 0
-          ? `Used brand words: ${review.usedWordsFound.join(", ")}`
-          : "",
-      ]
-        .filter(Boolean)
-        .join(" | ");
-
-      await ctx.runMutation(internal.qualityGate.applyReviewResult, {
-        branchId: args.branchId,
-        score: effectiveScore,
-        notes,
-        passed: effectiveScore >= QUALITY_THRESHOLD,
-      });
-    } catch (err) {
-      console.error("Quality gate error:", err);
-      // On failure, still send to human review so the pipeline doesn't stall
-      await ctx.runMutation(internal.qualityGate.applyReviewResult, {
-        branchId: args.branchId,
-        score: 0,
-        notes: `Quality gate error: ${err}. Sending to human review.`,
-        passed: false,
-      });
     }
+
+    const scored = results.filter(
+      (r): r is Extract<typeof r, { ok: true }> => r.ok,
+    );
+
+    // Aggregate: mean of normalized scores. Keep simple until calibration
+    // tells us how to weight.
+    const aggregate =
+      scored.length === 0
+        ? 0
+        : scored.reduce((s, r) => s + r.result.score, 0) / scored.length;
+
+    const hardFail = scored.some((r) => r.result.hardFail);
+    const blockingFail =
+      results.some((r) => r.blocking && (!r.ok || !r.result.passed));
+    const passed = !hardFail && !blockingFail && aggregate >= PREFLIGHT_THRESHOLD;
+
+    const preflightScores: Record<string, number> = {};
+    for (const r of scored) preflightScores[r.result.signal] = r.result.score;
+
+    const notes =
+      scored
+        .filter((r) => r.result.notes)
+        .map((r) => `${r.result.signal}(${r.result.score.toFixed(2)}): ${r.result.notes}`)
+        .join(" | ") ||
+      results
+        .filter((r) => !r.ok)
+        .map((r) => `${r.name}: ERROR ${r.err}`)
+        .join(" | ") ||
+      "No predictor notes.";
+
+    await ctx.runMutation(internal.qualityGate.applyReviewResult, {
+      branchId: args.branchId,
+      score: Math.round(aggregate * 10), // retain 1-10 legacy scale for qualityScore
+      preflightScores,
+      notes,
+      passed,
+    });
   },
 });
 
-// ── Apply review result: update branch status + quality score ────────────────
+// ── Apply review result: update branch status + preflight snapshot ──────────
 
 export const applyReviewResult = internalMutation({
   args: {
     branchId: v.id("branches"),
     score: v.number(),
+    preflightScores: v.any(),
     notes: v.string(),
     passed: v.boolean(),
   },
   handler: async (ctx, args) => {
     if (args.passed) {
-      // Quality check passed — ready for human review
       await ctx.db.patch(args.branchId, {
         status: "in_review",
         qualityScore: args.score,
+        preflightScores: args.preflightScores,
+        preflightPassedAt: Date.now(),
         updatedAt: Date.now(),
       });
     } else {
-      // Quality check failed — request revision
       await ctx.db.patch(args.branchId, {
         status: "revision_requested",
         qualityScore: args.score,
+        preflightScores: args.preflightScores,
         updatedAt: Date.now(),
       });
 
-      // Add a comment with the review notes
       await ctx.db.insert("comments", {
         targetType: "branch",
         targetId: args.branchId,
         authoredBy: "agent",
-        body: `Quality Gate (score: ${args.score}/10): ${args.notes}`,
+        body: `Preflight failed (aggregate ${args.score}/10): ${args.notes}`,
         isQuickFeedback: false,
         createdAt: Date.now(),
       });
