@@ -84,6 +84,16 @@ export const update = mutation({
     repurposeMatrix: v.optional(v.any()),
     goals: v.optional(v.string()),
     isActive: v.optional(v.boolean()),
+    // Traffic assembly line fields
+    brandPrefix: v.optional(v.string()),
+    baseUrl: v.optional(v.string()),
+    tokenBudget: v.optional(v.object({
+      dailyLimit: v.number(),
+      currentSpend: v.number(),
+      alertThreshold: v.number(),
+      modelTiers: v.any(),
+    })),
+    platformStrategy: v.optional(v.any()),
   },
   handler: async (ctx, args) => {
     const { id, ...updates } = args;

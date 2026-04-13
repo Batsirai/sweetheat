@@ -31,6 +31,7 @@ import type * as knowledge from "../knowledge.js";
 import type * as leadMagnets from "../leadMagnets.js";
 import type * as learnings from "../learnings.js";
 import type * as lib_callClaude from "../lib/callClaude.js";
+import type * as lib_contentIdUtils from "../lib/contentIdUtils.js";
 import type * as lib_formatPrompts from "../lib/formatPrompts.js";
 import type * as outreach from "../outreach.js";
 import type * as performanceSnapshots from "../performanceSnapshots.js";
@@ -75,6 +76,7 @@ declare const fullApi: ApiFromModules<{
   leadMagnets: typeof leadMagnets;
   learnings: typeof learnings;
   "lib/callClaude": typeof lib_callClaude;
+  "lib/contentIdUtils": typeof lib_contentIdUtils;
   "lib/formatPrompts": typeof lib_formatPrompts;
   outreach: typeof outreach;
   performanceSnapshots: typeof performanceSnapshots;
