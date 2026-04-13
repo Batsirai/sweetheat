@@ -18,6 +18,7 @@ import {
   SUPPORTED_FORMATS,
   type PromptInput,
   type PromptOutput,
+  type ModelTier,
 } from "../convex/lib/formatPrompts";
 
 // ── Test fixtures ────────────────────────────────────────────────────────────
@@ -125,13 +126,13 @@ describe("UTM URL generation", () => {
 
 describe("Format prompt validation", () => {
   it(`has ${SUPPORTED_FORMATS.length} format handlers`, () => {
-    // The file declares 21 formats in FORMAT_HANDLERS
-    expect(SUPPORTED_FORMATS.length).toBeGreaterThanOrEqual(20);
+    // The file declares 28 formats in FORMAT_HANDLERS (21 original + 7 new)
+    expect(SUPPORTED_FORMATS.length).toBeGreaterThanOrEqual(28);
   });
 
   for (const format of SUPPORTED_FORMATS) {
     describe(`format: ${format}`, () => {
-      it("returns a valid { system, user, maxTokens } object", () => {
+      it("returns a valid { system, user, maxTokens, modelTier } object", () => {
         const input: PromptInput = {
           ...SAMPLE_INPUT,
           variationIndex: format === "pin" ? 0 : undefined,
@@ -141,9 +142,11 @@ describe("Format prompt validation", () => {
         expect(result).toHaveProperty("system");
         expect(result).toHaveProperty("user");
         expect(result).toHaveProperty("maxTokens");
+        expect(result).toHaveProperty("modelTier");
         expect(typeof result.system).toBe("string");
         expect(typeof result.user).toBe("string");
         expect(typeof result.maxTokens).toBe("number");
+        expect(["opus", "sonnet", "haiku"]).toContain(result.modelTier);
       });
 
       it("system prompt contains brand voice instructions", () => {

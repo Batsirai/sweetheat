@@ -15,10 +15,13 @@ export type PromptInput = {
   variationIndex?: number; // For pin format (0-4)
 };
 
+export type ModelTier = 'opus' | 'sonnet' | 'haiku';
+
 export type PromptOutput = {
   system: string;
   user: string;
   maxTokens: number;
+  modelTier: ModelTier;
 };
 
 // ── Shared helpers ────────────────────────────────────────────────────────────
@@ -79,7 +82,7 @@ REQUIREMENTS:
 
 Write the full article now.`;
 
-  return { system, user, maxTokens: 3000 };
+  return { system, user, maxTokens: 3000, modelTier: 'sonnet' };
 }
 
 // ── Format: pin ───────────────────────────────────────────────────────────────
@@ -150,7 +153,7 @@ TITLE: [your title here]
 DESCRIPTION: [your description here]
 LINK NOTE: [your link note here]`;
 
-  return { system, user, maxTokens: 400 };
+  return { system, user, maxTokens: 400, modelTier: 'haiku' };
 }
 
 // ── Format: tweet ─────────────────────────────────────────────────────────────
@@ -186,7 +189,7 @@ ENGAGEMENT TACTICS (X rewards replies and retweets):
 
 Output each tweet on its own line, numbered (1/ 2/ etc.). Each tweet must be ≤280 characters.`;
 
-  return { system, user, maxTokens: 600 };
+  return { system, user, maxTokens: 600, modelTier: 'haiku' };
 }
 
 // ── Format: linkedin ──────────────────────────────────────────────────────────
@@ -224,7 +227,7 @@ ENGAGEMENT TACTICS (LinkedIn rewards dwell time + comments):
 
 Write the full post now. No preamble — output only the post text.`;
 
-  return { system, user, maxTokens: 700 };
+  return { system, user, maxTokens: 700, modelTier: 'haiku' };
 }
 
 // ── Format: caption_ig ────────────────────────────────────────────────────────
@@ -261,7 +264,7 @@ ENGAGEMENT TACTICS (Instagram algorithm rewards comments and saves):
 
 Write the full caption (including hashtags at the end). No preamble.`;
 
-  return { system, user, maxTokens: 700 };
+  return { system, user, maxTokens: 700, modelTier: 'haiku' };
 }
 
 // ── Format: caption_tiktok ────────────────────────────────────────────────────
@@ -296,7 +299,7 @@ ENGAGEMENT TACTICS (TikTok algorithm rewards watch time + comments):
 
 Output only the caption text (with hashtags). Keep it punchy and under 200 characters total where possible.`;
 
-  return { system, user, maxTokens: 200 };
+  return { system, user, maxTokens: 200, modelTier: 'haiku' };
 }
 
 // ── Format: carousel ──────────────────────────────────────────────────────────
@@ -329,7 +332,7 @@ BODY: [optional body text]
 
 Start with SLIDE 1 (Cover) and end with a CTA slide.`;
 
-  return { system, user, maxTokens: 1000 };
+  return { system, user, maxTokens: 1000, modelTier: 'haiku' };
 }
 
 // ── Format: quote_card ────────────────────────────────────────────────────────
@@ -362,7 +365,7 @@ QUOTE 1: [best quote]
 QUOTE 2: [second choice]
 QUOTE 3: [third choice]`;
 
-  return { system, user, maxTokens: 300 };
+  return { system, user, maxTokens: 300, modelTier: 'haiku' };
 }
 
 // ── Format: short_video ───────────────────────────────────────────────────────
@@ -402,7 +405,7 @@ BODY:
 CTA:
 [cta text]`;
 
-  return { system, user, maxTokens: 500 };
+  return { system, user, maxTokens: 500, modelTier: 'haiku' };
 }
 
 // ── Format: newsletter ────────────────────────────────────────────────────────
@@ -430,7 +433,7 @@ Newsletter section structure:
 
 Write the full newsletter section now. No labels needed — just the flowing text as it would appear in the newsletter.`;
 
-  return { system, user, maxTokens: 700 };
+  return { system, user, maxTokens: 700, modelTier: 'haiku' };
 }
 
 // ── Format: schema_markup ─────────────────────────────────────────────────────
@@ -460,7 +463,7 @@ Rules:
 
 Select the most appropriate schema type (Article, FAQPage, or HowTo) based on the content. Output only the raw JSON-LD object.`;
 
-  return { system, user, maxTokens: 1500 };
+  return { system, user, maxTokens: 1500, modelTier: 'haiku' };
 }
 
 // ── Format: video_script_short ────────────────────────────────────────────────
@@ -496,7 +499,7 @@ BODY:
 CTA:
 [cta text — 1 sentence]`;
 
-  return { system, user, maxTokens: 800 };
+  return { system, user, maxTokens: 800, modelTier: 'haiku' };
 }
 
 // ── Format: video_script_long ─────────────────────────────────────────────────
@@ -541,7 +544,7 @@ RECAP:
 CTA:
 [cta text]`;
 
-  return { system, user, maxTokens: 3000 };
+  return { system, user, maxTokens: 3000, modelTier: 'sonnet' };
 }
 
 // ── Format: ugc_script ────────────────────────────────────────────────────────
@@ -578,7 +581,7 @@ CREATOR BRIEF:
 SCRIPT:
 [word-for-word script the creator can adapt — casual, first-person, 30–60 sec]`;
 
-  return { system, user, maxTokens: 1000 };
+  return { system, user, maxTokens: 1000, modelTier: 'sonnet' };
 }
 
 // ── Format: podcast_show_notes ────────────────────────────────────────────────
@@ -610,7 +613,7 @@ Tone: warm, professional, approachable — matches the brand voice.`;
 
 Use the structure: EPISODE TITLE / EPISODE DESCRIPTION / KEY TOPICS / TIMESTAMPS / KEY QUOTES / RESOURCES MENTIONED / CALL TO ACTION.`;
 
-  return { system, user, maxTokens: 1500 };
+  return { system, user, maxTokens: 1500, modelTier: 'haiku' };
 }
 
 // ── Format: cold_email ────────────────────────────────────────────────────────
@@ -643,7 +646,7 @@ SUBJECT: [subject line]
 
 [email body]`;
 
-  return { system, user, maxTokens: 500 };
+  return { system, user, maxTokens: 500, modelTier: 'sonnet' };
 }
 
 // ── Format: podcast_pitch ─────────────────────────────────────────────────────
@@ -677,7 +680,7 @@ SUBJECT: [subject line]
 
 [email body]`;
 
-  return { system, user, maxTokens: 600 };
+  return { system, user, maxTokens: 600, modelTier: 'sonnet' };
 }
 
 // ── Format: ad_copy_prospecting ───────────────────────────────────────────────
@@ -712,7 +715,7 @@ HOOK: [hook line]
 BODY: [body copy]
 CTA: [call to action button text]`;
 
-  return { system, user, maxTokens: 800 };
+  return { system, user, maxTokens: 800, modelTier: 'sonnet' };
 }
 
 // ── Format: ad_copy_retargeting ───────────────────────────────────────────────
@@ -750,7 +753,7 @@ PRIMARY TEXT PREVIEW: [first 125 chars]
 BODY: [ad copy]
 CTA: [call to action button text]`;
 
-  return { system, user, maxTokens: 600 };
+  return { system, user, maxTokens: 600, modelTier: 'sonnet' };
 }
 
 // ── Format: email_soap_opera ──────────────────────────────────────────────────
@@ -787,7 +790,7 @@ SUBJECT: [subject line]
 
 P.S. [teaser for Email 2 — what's coming tomorrow]`;
 
-  return { system, user, maxTokens: 800 };
+  return { system, user, maxTokens: 800, modelTier: 'sonnet' };
 }
 
 // ── Format: email_seinfeld ────────────────────────────────────────────────────
@@ -820,7 +823,7 @@ SUBJECT: [subject line]
 
 [email body — story → bridge → brand message → soft CTA]`;
 
-  return { system, user, maxTokens: 600 };
+  return { system, user, maxTokens: 600, modelTier: 'haiku' };
 }
 
 // ── Format: lead_magnet_copy ──────────────────────────────────────────────────
@@ -862,7 +865,375 @@ WHAT YOU'LL LEARN: [paragraph]
 CTA BUTTON: [button text]
 TRUST LINE: [trust line]`;
 
-  return { system, user, maxTokens: 800 };
+  return { system, user, maxTokens: 800, modelTier: 'haiku' };
+}
+
+// ── Format: hook_generator ──────────────────────────────────────────────────
+// 20 hooks for any topic in 4 styles. ORIENT phase tool.
+
+function hookGeneratorPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are an expert copywriter specializing in scroll-stopping hooks for social media, email subject lines, and video intros. You understand what makes people stop scrolling, click, and engage.
+
+Hook psychology principles you apply:
+- Pattern interrupt: break the reader's autopilot with something unexpected
+- Curiosity gap: open a loop the brain needs to close
+- Identity play: speak to who they are or who they want to become
+- Specificity: concrete numbers and details beat vague promises
+- Emotional resonance: tap into feelings they already have but haven't articulated`;
+
+  const user = `Generate 20 hooks for the following topic. Group them into 4 styles (5 hooks each).
+
+TOPIC: ${seed.title}
+CONTEXT: ${seed.description}
+
+Generate exactly 20 hooks organized as follows:
+
+BOLD STATEMENTS (5):
+[Hooks that make a confident, provocative, or contrarian claim. These take a stance.]
+
+QUESTION HOOKS (5):
+[Hooks that ask a question the reader urgently wants answered. Open a curiosity loop.]
+
+PERSONAL STORY SETUPS (5):
+[Hooks that begin a relatable personal narrative. "I used to...", "The moment I realized...", "Nobody told me..."]
+
+SHOCKING / COUNTERINTUITIVE (5):
+[Hooks that challenge conventional wisdom or reveal something unexpected. "Actually, X is wrong because..."]
+
+After all 20 hooks, select the TOP 3 for virality potential. For each, explain in 1 sentence why it would perform best.
+
+TOP 3:
+1. [Hook text] — [Why this would go viral]
+2. [Hook text] — [Why this would go viral]
+3. [Hook text] — [Why this would go viral]`;
+
+  return { system, user, maxTokens: 1500, modelTier: 'sonnet' };
+}
+
+// ── Format: competitor_analysis ──────────────────────────────────────────────
+// Analyze a competitor's content strategy and find gaps. ORIENT phase.
+
+function competitorAnalysisPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a senior competitive intelligence analyst specializing in content strategy. You reverse-engineer what competitors are doing, identify their blind spots, and find opportunities for your client to own uncontested space.
+
+Your analysis framework:
+- Content format audit: what types of content are they producing and where
+- Pain point mapping: what customer problems are they addressing (and which are they ignoring)
+- Positioning gaps: where is there white space in the market narrative
+- Audience blind spots: who are they NOT speaking to that they should be
+- Content angle analysis: what perspectives and angles are missing from their approach`;
+
+  const user = `Analyze the competitive content landscape for the topic/competitor below and find exploitable gaps.
+
+COMPETITOR / TOPIC: ${seed.title}
+CONTEXT: ${seed.description}
+OUR BRAND: ${brand.name}
+
+Provide a structured competitive analysis:
+
+CONTENT FORMATS THEY USE:
+[List the content formats this competitor likely employs — blog, video, podcast, social, email, etc. Note frequency and quality level.]
+
+PAIN POINTS THEY ADDRESS:
+[What customer problems and desires are they actively speaking to in their content?]
+
+GAPS IN THEIR CONTENT:
+[What topics, formats, or angles are they clearly NOT covering? Where is the white space?]
+
+10 CONTENT ANGLES THEY'RE NOT COVERING:
+[For each angle, provide a specific post/article title we could create to own that space.]
+1. ANGLE: [angle description]
+   TITLE: "[specific title for our content]"
+2. ANGLE: [angle description]
+   TITLE: "[specific title for our content]"
+[...continue through 10]
+
+STRATEGIC RECOMMENDATION:
+[2-3 sentences on how ${brand.name} should position against this competitor's content strategy]`;
+
+  return { system, user, maxTokens: 2000, modelTier: 'opus' };
+}
+
+// ── Format: customer_avatar ──────────────────────────────────────────────────
+// Build detailed ICP avatar with psychographic depth. ORIENT phase.
+
+function customerAvatarPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a consumer psychologist and market researcher who builds deeply empathetic customer avatars. You go beyond demographics into the messy, real emotional landscape of how people think about their problems.
+
+Your avatar methodology:
+- Start with the surface (demographics) but go deep into psychographics
+- Map the gap between what people say and what they actually want
+- Identify the specific language they use (not marketing language — THEIR words)
+- Understand the purchase trigger moments — what makes them finally act
+- Know where they gather and who influences them`;
+
+  const user = `Build a detailed customer avatar for the product/service category below.
+
+PRODUCT/SERVICE: ${seed.title}
+CONTEXT: ${seed.description}
+BRAND: ${brand.name}
+
+DEMOGRAPHICS:
+[Age range, gender, income, location, education, family status, occupation]
+
+PSYCHOGRAPHICS:
+[Values, beliefs, aspirations, identity — who do they see themselves as?]
+
+DAILY FRUSTRATIONS:
+[3-5 specific frustrations related to this product category they experience regularly]
+
+WHAT THEY'VE TRIED THAT DIDN'T WORK:
+[Past solutions they've attempted and why those fell short]
+
+WHAT THEY TELL FRIENDS vs WHAT THEY ACTUALLY WANT:
+[The public narrative vs the private desire — these are always different]
+
+WHERE THEY SPEND TIME ONLINE:
+[Specific platforms, subreddits, Facebook groups, YouTube channels, podcasts, newsletters]
+
+EXACT WORDS THEY USE:
+[10-15 phrases they actually say when describing their problem — sourced from how real people talk, not marketing copy]
+
+WHAT MAKES THEM BUY IMMEDIATELY vs HESITATE:
+[Triggers that create urgency vs objections that create delay]`;
+
+  return { system, user, maxTokens: 2000, modelTier: 'opus' };
+}
+
+// ── Format: objection_map ────────────────────────────────────────────────────
+// Map every purchase objection with layered responses. ORIENT phase.
+
+function objectionMapPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a sales psychology expert who understands that every purchase objection has three layers: the surface objection (what they say), the real objection (what they mean), and the emotional root (what they're afraid of). Effective selling addresses all three.
+
+Your framework maps objections across 5 categories:
+- PRICE: "It's too expensive" / "I can't afford it" / "I'll wait for a sale"
+- TRUST: "I don't know if this is legit" / "What if it doesn't work?" / "I've been burned before"
+- TIMING: "Not right now" / "I need to think about it" / "Maybe next month"
+- PRODUCT: "I'm not sure this is what I need" / "Does it work for my situation?"
+- SELF-DOUBT: "I don't think I can do this" / "What if I fail?" / "I'm not the type of person who..."`;
+
+  const user = `Create a complete objection map for the product/audience below.
+
+PRODUCT/SERVICE: ${seed.title}
+CONTEXT: ${seed.description}
+BRAND: ${brand.name}
+
+For each category, provide 2-3 specific objections with all three layers and a response:
+
+PRICE OBJECTIONS:
+Objection 1:
+- SURFACE (what they say): "[exact words]"
+- REAL (what they mean): "[underlying concern]"
+- EMOTIONAL ROOT (what they're afraid of): "[deep fear]"
+- BEST RESPONSE: [A response that addresses all three layers — not defensive, empathetic]
+- CUSTOMER QUOTE: "[What a converted customer would say about this objection]"
+
+[Continue for 2-3 objections per category]
+
+TRUST OBJECTIONS:
+[Same format]
+
+TIMING OBJECTIONS:
+[Same format]
+
+PRODUCT OBJECTIONS:
+[Same format]
+
+SELF-DOUBT OBJECTIONS:
+[Same format]`;
+
+  return { system, user, maxTokens: 2000, modelTier: 'opus' };
+}
+
+// ── Format: landing_page_copy ────────────────────────────────────────────────
+// High-converting landing page copy (Hormozi/Brunson school).
+
+function landingPageCopyPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a direct response copywriter trained in the Hormozi/Brunson school of landing page copy. You write pages that convert because they make the reader feel deeply understood before presenting a solution.
+
+Your copy principles:
+- Mirror their exact frustration in the opening — they should think "this person gets me"
+- Problem section should agitate without being manipulative — make them feel the cost of inaction
+- Solution reveal should feel like a relief, not a pitch
+- Offer stack should make the price feel like a no-brainer
+- Objection handling should be woven in naturally, not listed defensively
+- CTA should create real urgency without fake scarcity or countdown timers
+- Social proof should be specific and believable, not generic testimonials`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Write high-converting landing page copy for the product/offer below.${articleContext}
+
+HEADLINE:
+[A headline that stops them cold — specific, benefit-driven, under 15 words]
+
+SUBHEADLINE:
+[Expand on the headline — who it's for and the transformation promised]
+
+OPENING (Mirror Their Frustration):
+[2-3 sentences that mirror their exact daily frustration. They should feel seen.]
+
+PROBLEM SECTION (Make Them Feel the Cost):
+[3-4 paragraphs that agitate the problem. Show what happens if nothing changes. Use specific scenarios.]
+
+SOLUTION REVEAL:
+[Introduce the product/offer as the natural answer. Not a hard pitch — a relief.]
+
+SOCIAL PROOF:
+[3 placeholder testimonials with specific details — name, situation, result. Mark as [PLACEHOLDER - replace with real testimonials]]
+
+OFFER STACK:
+[Break down everything they get. List each component with its standalone value. Make the total value dwarf the price.]
+
+OBJECTION HANDLING:
+[Address the top 3 objections naturally in a FAQ-style section]
+
+CTA:
+[Clear call to action with genuine urgency — not fake scarcity]
+
+GUARANTEE:
+[Risk-reversal statement that makes saying yes feel safe]`;
+
+  return { system, user, maxTokens: 3000, modelTier: 'sonnet' };
+}
+
+// ── Format: headline_variants ────────────────────────────────────────────────
+// 20 headline variations for A/B testing.
+
+function headlineVariantsPrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a headline testing specialist who understands that the headline is responsible for 80% of a page's conversion rate. You write headlines that earn the click without resorting to clickbait.
+
+Your headline frameworks:
+- DIRECT OUTCOME: Promise the specific result they want. No mystery — just value.
+- CURIOSITY GAP: Open a loop their brain needs to close. Make them NEED to know.
+- FEAR-BASED: Name the risk of inaction. Loss aversion is 2x more powerful than gain.
+- SOCIAL PROOF: Leverage the herd — what others have done, discovered, or achieved.
+- TIME-BASED: Promise speed. Time is the scarcest resource.`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Generate 20 headline variations for the page/product below.${articleContext}
+
+DIRECT OUTCOME (4):
+1. [headline]
+2. [headline]
+3. [headline]
+4. [headline]
+
+CURIOSITY GAP (4):
+5. [headline]
+6. [headline]
+7. [headline]
+8. [headline]
+
+FEAR-BASED (4):
+9. [headline]
+10. [headline]
+11. [headline]
+12. [headline]
+
+SOCIAL PROOF (4):
+13. [headline]
+14. [headline]
+15. [headline]
+16. [headline]
+
+TIME-BASED (4):
+17. [headline]
+18. [headline]
+19. [headline]
+20. [headline]
+
+TOP 3 TO A/B TEST:
+1. [headline number and text] — [Why this would win: conversion psychology reasoning]
+2. [headline number and text] — [Why this would win: conversion psychology reasoning]
+3. [headline number and text] — [Why this would win: conversion psychology reasoning]`;
+
+  return { system, user, maxTokens: 1000, modelTier: 'sonnet' };
+}
+
+// ── Format: content_repurpose ────────────────────────────────────────────────
+// Take one piece of content and adapt it into 8 platform-specific formats.
+
+function contentRepurposePrompt(input: PromptInput): PromptOutput {
+  const { seed, brand, blogArticle } = input;
+
+  const system = `${voiceInstructions(brand)}
+
+You are a multi-platform content strategist who understands that each platform has its own culture, format expectations, and algorithm preferences. You take one anchor piece of content and adapt it for maximum reach across 8 platforms — maintaining the core insight but completely changing the format and tone for each.
+
+Platform expertise:
+- Twitter/X: short, punchy, thread-friendly, hot takes, numbers
+- LinkedIn: professional insight, personal stories, thought leadership
+- Instagram: visual-first, emotional, save-worthy, hashtag strategy
+- Email: personal, conversational, value-driven, click-through optimized
+- YouTube: hook-driven, structured, retention-focused
+- TikTok: trend-aware, fast-paced, personality-driven, under 60 seconds
+- Carousel: scannable, tip-based, save-worthy, 10-slide structure
+- Podcast: conversational, story-driven, discussion-ready`;
+
+  const articleContext = blogArticle
+    ? blogArticleBlock(blogArticle)
+    : `\n\nSEED TITLE: ${seed.title}\nSEED DESCRIPTION: ${seed.description}`;
+
+  const user = `Take the content below and repurpose it into 8 platform-specific formats.${articleContext}
+
+For each platform, write the COMPLETE adapted content — not an outline, but the actual post/script/copy ready to publish.
+
+--- 1. TWITTER/X THREAD ---
+[3-5 tweet thread. Each tweet under 280 chars. Numbered. Hook tweet must stand alone in feed.]
+
+--- 2. LINKEDIN POST ---
+[Professional insight post, 800-1200 chars. Hook line, short paragraphs, question at end. No link in body.]
+
+--- 3. INSTAGRAM CAPTION ---
+[Hook in first 2 lines (before "more"). Conversational body. CTA (save/comment/share). 5-10 hashtags at end.]
+
+--- 4. EMAIL NEWSLETTER SECTION ---
+[Personal intro (2-3 sentences), key insights distilled, bridge to full article. Warm, friend-to-friend tone.]
+
+--- 5. YOUTUBE VIDEO SCRIPT INTRO ---
+[First 60 seconds of a video. Pattern-interrupt hook, promise of what they'll learn, brief credibility. Conversational, spoken-word style.]
+
+--- 6. TIKTOK SCRIPT ---
+[Under 60 seconds of spoken content. Hook in first 3 seconds. Fast-paced. End with engagement CTA. Include visual/action notes in [brackets].]
+
+--- 7. CAROUSEL POST OUTLINE ---
+[10 slides. Slide 1: bold cover headline. Slides 2-9: one idea per slide (heading + 1-2 sentences). Slide 10: CTA + brand.]
+
+--- 8. PODCAST TALKING POINTS ---
+[5-7 discussion points with brief notes on each. Include a personal story prompt and a listener question to pose.]`;
+
+  return { system, user, maxTokens: 4000, modelTier: 'sonnet' };
 }
 
 // ── Main export ───────────────────────────────────────────────────────────────
@@ -896,6 +1267,16 @@ const FORMAT_HANDLERS: Record<string, (input: PromptInput) => PromptOutput> = {
   email_seinfeld: emailSeinfeldPrompt,
   // Lead magnet
   lead_magnet_copy: leadMagnetCopyPrompt,
+  // Marketing capabilities — ORIENT phase
+  hook_generator: hookGeneratorPrompt,
+  competitor_analysis: competitorAnalysisPrompt,
+  customer_avatar: customerAvatarPrompt,
+  objection_map: objectionMapPrompt,
+  // Landing page copy
+  landing_page_copy: landingPageCopyPrompt,
+  headline_variants: headlineVariantsPrompt,
+  // Content repurposing
+  content_repurpose: contentRepurposePrompt,
 };
 
 export function getFormatPrompt(format: string, input: PromptInput): PromptOutput {
