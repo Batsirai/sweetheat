@@ -1736,3 +1736,78 @@ server.tool(
 
 const transport = new StdioServerTransport();
 await server.connect(transport);
+
+// ── Unified Content Calendar ──────────────────────────────────────────
+
+server.tool(
+  "calendar_unified_view",
+  "Get a unified calendar view of ALL content across ALL brands with status indicators. Shows what's scheduled, published, in review. Color-coded by platform.",
+  {
+    startDate: z.string().describe("Start date (ISO string)"),
+    endDate: z.string().describe("End date (ISO string)"),
+    brandId: z.string().optional().describe("Optional brand ID to filter"),
+  },
+  async ({ startDate, endDate, brandId }) => {
+    const params = new URLSearchParams({
+      startDate: new Date(startDate).getTime().toString(),
+      endDate: new Date(endDate).getTime().toString(),
+    });
+    if (brandId) params.set("brandId", brandId);
+    const result = await api(`/calendar/schedule?view=unified&${params}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "calendar_post_history",
+  "Get recent post history across all brands. Shows what was published, when, on which platform, with status and Buffer post ID. Most recent first.",
+  {
+    limit: z.number().optional().describe("Max posts to return (default 50)"),
+    brandId: z.string().optional().describe("Optional brand ID to filter"),
+  },
+  async ({ limit, brandId }) => {
+    const params = new URLSearchParams();
+    if (limit) params.set("limit", limit.toString());
+    if (brandId) params.set("brandId", brandId);
+    const result = await api(`/calendar/schedule?view=history&${params}`);
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+  }
+);
+
+server.tool(
+  "calendar_create_gcal_event",
+  "Prepare a Google Calendar event for a published/scheduled piece of content. Returns the event data ready to pass to gcal_create_event. Includes platform color coding and status.",
+  {
+    branchId: z.string().describe("Branch ID"),
+    calendarId: z.string().optional().describe("Google Calendar ID (default: Sweet Heat calendar)"),
+  },
+  async ({ branchId, calendarId }) => {
+    const branch = await api(`/calendar/schedule?branchId=${branchId}`);
+    const defaultCalId = "80b0810673ef679cf48d8c743c5b0fa51a6442562d368e4c7e53e6719a7b89c6@group.calendar.google.com";
+    const event = {
+      calendarId: calendarId || defaultCalId,
+      event: {
+        summary: branch.calendarTitle || `[${branch.platform}] ${branch.seedTitle}`,
+        description: [
+          `Brand: ${branch.brandName}`,
+          `Content ID: ${branch.contentIdRef || 'pending'}`,
+          `Format: ${branch.format}`,
+          `Status: ${branch.status}`,
+          `UTM: ${branch.utmUrl || 'none'}`,
+          branch.externalPostId ? `Buffer: ${branch.externalPostId}` : null,
+        ].filter(Boolean).join('\n'),
+        start: {
+          dateTime: new Date(branch.time || Date.now()).toISOString(),
+          timeZone: "America/Toronto",
+        },
+        end: {
+          dateTime: new Date((branch.time || Date.now()) + 15 * 60 * 1000).toISOString(),
+          timeZone: "America/Toronto",
+        },
+        colorId: branch.calendarColor || "8",
+      },
+      sendUpdates: "none",
+    };
+    return { content: [{ type: "text", text: JSON.stringify(event, null, 2) }] };
+  }
+);
