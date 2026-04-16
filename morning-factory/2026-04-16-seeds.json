@@ -1,0 +1,85 @@
+{
+  "date": "2026-04-16",
+  "brand": "AlreadyLoved Kids",
+  "brandSlug": "alreadyloved-kids",
+  "seeds": [
+    {
+      "title": "Bedtime Affirmations for Toddlers: What to Say When the Day Feels Like Too Much",
+      "description": "A parent-facing guide to bedtime identity affirmations — what to say, how to say it, and why it matters more than the perfect bedtime routine. Targets the high-volume keyword 'bedtime affirmations for toddlers' and captures moms searching for bedtime routines that feel meaningful.",
+      "source": "seo",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin", "caption_ig", "caption_tiktok"],
+      "purpose": "SEO traffic + email list growth",
+      "contentPillar": "identity-first parenting",
+      "targetKeywords": ["bedtime affirmations for toddlers", "what to say to your child at bedtime", "toddler bedtime routine affirmations"],
+      "reasoning": "High search volume, low competition. Moms search this after hard bedtimes. Our angle (identity > routine) differentiates us from every other listicle. Feeds directly into personalized book CTA.",
+      "hookAngle": "The night I realized my bedtime routine was all wrong — not the order of things, but what I was saying",
+      "templateType": "SEO_blog"
+    },
+    {
+      "title": "Best Personalized Baptism Books for Babies: Gifts That Speak to Who They Already Are",
+      "description": "A gift guide framed around meaningful, identity-affirming baptism gifts. Targets gift buyers — parents, grandparents, godparents — searching for baptism keepsakes. Mother's Day adjacency: godmothers giving a gift they can feel good about.",
+      "source": "seo",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin", "caption_ig"],
+      "purpose": "SEO product traffic + direct conversion",
+      "contentPillar": "milestone moments",
+      "targetKeywords": ["personalized baptism books for babies", "baptism gift book personalized", "christian personalized children's book"],
+      "reasoning": "Baptism season runs spring through fall. Mother's Day is 25 days away — godmothers are shopping now. This converts directly. Pairs with our personalized book CTA.",
+      "hookAngle": "What if the best baptism gift wasn't a silver cup but a story that tells them who they are?",
+      "templateType": "SEO_gift_guide"
+    },
+    {
+      "title": "What Are the Best Affirmation Books for Toddlers? (Honest Answer for Parents Who Are Tired of Generic)",
+      "description": "AEO-formatted Q&A that leads with a direct answer: the best affirmation books don't just list nice words — they weave identity into a story the child can return to. Designed for AI citation and featured snippets. Covers what to look for, what to avoid, and why personalization matters.",
+      "source": "aeo",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog"],
+      "purpose": "AEO / AI search citation",
+      "contentPillar": "product education",
+      "targetKeywords": ["best affirmation books for toddlers", "affirmation books for kids", "children's books that build confidence"],
+      "reasoning": "AI search is eating featured snippets. Parents ask AI 'what are the best affirmation books for toddlers?' — we want that citation. Structure: direct answer paragraph first, then detail. Sets up AlreadyLoved personalized books as the answer.",
+      "hookAngle": "The best affirmation books for toddlers do one thing well: they make your child the main character of a story that says who they already are.",
+      "templateType": "AEO_QA"
+    },
+    {
+      "title": "Your Child Is Not Earning Your Love. But Are You Sure They Know That?",
+      "description": "Brand-building essay for parents who sense something is off but can't name it. The insight: most parenting culture is built around behavior modification, which quietly teaches kids that love is conditional. AlreadyLoved names the pattern and offers a different foundation — identity before behavior.",
+      "source": "brand",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "caption_ig", "linkedin"],
+      "purpose": "Brand authority + organic shares",
+      "contentPillar": "identity-first parenting",
+      "targetKeywords": ["unconditional love parenting", "identity first parenting", "teaching kids they are enough"],
+      "reasoning": "This is the AlreadyLoved thesis. Every parent who reads it and feels seen shares it. High Pinterest save rate for this type of content. Also strong LinkedIn angle for parenting professionals.",
+      "hookAngle": "The day I caught myself saying 'I'm so proud of you' and realized I might be doing it wrong",
+      "templateType": "brand_essay"
+    },
+    {
+      "title": "The Bedtime Confession: What I Was Accidentally Teaching My Kids Every Night",
+      "description": "Personal narrative engagement piece. A mom's honest story about realizing her 'perfect' bedtime routine was full of praise-for-performance language — and what she changed. High shareability. Real, vulnerable, and lands on the AlreadyLoved insight without ever being preachy.",
+      "source": "engagement",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "caption_ig", "caption_tiktok", "pin"],
+      "purpose": "Engagement + virality + email capture",
+      "contentPillar": "real mom moments",
+      "targetKeywords": ["teaching kids unconditional love", "bedtime routine parenting", "what to say to kids before bed"],
+      "reasoning": "This is the content that gets saved, shared, and DM'd to a friend. Vulnerable first-person hook. Resolves to AlreadyLoved's core insight without lecturing. Strong TikTok / Reels hook.",
+      "hookAngle": "Every night I said the same five things to my kids. Then one day I actually listened to what I was saying.",
+      "templateType": "personal_narrative"
+    },
+    {
+      "title": "Mother's Day Gifts That Tell Your Child: You Were Always Loved",
+      "description": "Seasonal gift guide timed to Mother's Day (May 11). Angle: the best Mother's Day gift for a mom is something that speaks to her child's identity — something that outlasts the day. Personalized books, memory items, and experience gifts that build belonging. CTA to AlreadyLoved personalized books.",
+      "source": "seasonal",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin", "caption_ig", "caption_tiktok"],
+      "purpose": "Seasonal SEO + product conversion",
+      "contentPillar": "milestone moments",
+      "targetKeywords": ["Mother's Day gifts personalized children's book", "meaningful Mother's Day gifts from kids", "Mother's Day gift ideas for moms who have everything"],
+      "reasoning": "Mother's Day is May 11 — exactly 25 days out. This is peak search and purchase window. Personalized books ship in time. Our angle (give the child a story about belonging) differentiates from every candle-and-flowers guide.",
+      "hookAngle": "The Mother's Day gift that made her cry wasn't flowers. It was the moment her child saw their own name in a story about being loved.",
+      "templateType": "seasonal_gift_guide"
+    }
+  ]
+}
