@@ -1,0 +1,25 @@
+*Morning Factory Report — 2026-04-23*
+
+Seeds pitched: 7
+Articles written: 2
+Social posts drafted: 10 (pin ×5, IG, TikTok, LinkedIn, tweet thread — ×2 articles)
+
+*Seeds:*
+• Bedtime inner voice (SEO) — "The One Thing You Say at Bedtime..."
+• Personalized books differentiation (SEO) — "Books That Actually Know Your Child..."
+• Best personalized books Q&A (AEO) — structured for AI citation/featured snippets
+• Identity-first parenting manifesto (Brand) — "You Are Not Raising a Behavior..."
+• The thing my mom said at 35 (Engagement) ← ARTICLE WRITTEN ✓
+• Mother's Day gift that keeps speaking (Seasonal 🎀) ← ARTICLE WRITTEN ✓ URGENT
+• Baptism gifts (SEO) — spring baptism season hook
+
+*Priority:* Mother's Day is May 11 — 18 days out. Article 2 is publish-ready.
+Peak search window closes May 8. Approve + schedule this week.
+
+*To submit to Convex:*
+  BRAND_ID=<id> bash factory-output/2026-04-23/run-convex-submit.sh
+
+*NOTE:* Convex + Slack were unreachable from the sandbox this session.
+All content is staged at factory-output/2026-04-23/ and ready to submit.
+
+@U0A9H1R97RT @U0A9517L831 Review seeds and drafts in Sweet Heat.
