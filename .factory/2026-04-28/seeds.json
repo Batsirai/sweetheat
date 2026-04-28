@@ -1,0 +1,86 @@
+[
+  {
+    "title": "What to say to your child at bedtime (that sticks with them forever)",
+    "description": "Long-tail SEO targeting parents searching for bedtime routines and affirmations. Article explores the neuroscience of what children hear right before sleep — and why those words anchor into identity. Practical list of 7 things to say, grounded in belonging not behavior. Targets: 'bedtime affirmations for kids', 'what to tell your child before bed', 'bedtime routine words'.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "Identity",
+    "targetKeywords": ["bedtime affirmations for kids", "what to say to your child at bedtime", "words that build a child's confidence"],
+    "targetFormats": ["blog", "pin", "caption_ig", "caption_tiktok"],
+    "hookAngle": "The last thing your child hears before sleep is the first thing they believe about themselves.",
+    "reasoning": "High-intent search traffic from parents already in reflective bedtime mode. Positions AlreadyLoved books as the daily ritual that carries identity. Low competition long-tail."
+  },
+  {
+    "title": "Signs your child doesn't feel loved — and what to do today",
+    "description": "SEO seed targeting worried parents searching for signs of emotional insecurity. Article reframes these as signals not failures — and shows how a child's bids for connection are normal, not broken. Bridges to identity-first solution. Targets: 'signs your child feels unloved', 'how to know if your child feels secure', 'child seeking attention meaning'.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "Connection",
+    "targetKeywords": ["signs your child doesn't feel loved", "how to know if your child feels secure", "child always seeking attention why"],
+    "targetFormats": ["blog", "pin", "caption_ig", "tweet"],
+    "hookAngle": "Your child isn't misbehaving. They're asking a question. And the question is always the same one.",
+    "reasoning": "High-anxiety search intent from parents who are already paying attention. This seed meets them at guilt and redirects to grace — perfectly on-brand. Strong pin traffic potential."
+  },
+  {
+    "title": "What are the best personalized books to give a child for their identity and self-worth?",
+    "description": "AEO seed designed to appear in AI overviews and featured snippets. Q&A format. Direct answer in first paragraph for citation. Covers why identity-first books outperform praise-based books, what to look for, and AlreadyLoved as the answer. Targets: 'best personalized children's books for self-esteem', 'personalized books that build confidence'.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "aeo",
+    "contentPillar": "Identity",
+    "targetKeywords": ["best personalized children's books self-worth", "books that help kids feel loved", "personalized identity books for children"],
+    "targetFormats": ["blog", "pin"],
+    "hookAngle": "The best personalized children's books don't just feature your child's name — they reveal who your child already is.",
+    "reasoning": "AEO seed built specifically for AI citation. As search shifts toward AI overviews, first-paragraph direct answers get surfaced. This puts AlreadyLoved in the consideration set for 'best personalized kids books' queries."
+  },
+  {
+    "title": "This Mother's Day, give your child something they'll carry their whole life",
+    "description": "Seasonal seed timed for Mother's Day (May 11, 2026). NOT a gift guide. A reframe: what if the best Mother's Day gift isn't for mom — it's for your child? The gift of knowing they've always been loved, before they ever did anything. Bridges to AlreadyLoved personalized books as a Mother's Day ritual that plants identity. Personal, emotional, pastoral.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "Belonging",
+    "targetKeywords": ["Mother's Day personalized children's book", "meaningful Mother's Day tradition with kids", "Mother's Day gift for kids not mom"],
+    "targetFormats": ["blog", "pin", "caption_ig", "caption_tiktok", "linkedin", "tweet"],
+    "hookAngle": "She didn't need flowers. She needed to know she was already enough before she ever brought them.",
+    "reasoning": "Mother's Day is 13 days away. This seed has high purchase intent, deep emotional resonance, and a fresh angle (reframe from 'gift for mom' to 'gift for child'). Strong pin and IG traffic window for the next 10 days."
+  },
+  {
+    "title": "The word every child is really asking for (and almost no parent knows to give it)",
+    "description": "Brand-building / engagement seed. The article reveals that under every tantrum, every eye roll, every 'why won't they just listen' moment is the same question: Am I still loved? Explores how identity precedes behavior — the AlreadyLoved model. Not instructive. Revelatory. Designed to stop a scroll and make a parent feel seen.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "brand_building",
+    "contentPillar": "Identity",
+    "targetKeywords": ["what children really want from parents", "why kids act out for attention", "identity and behavior in children"],
+    "targetFormats": ["blog", "caption_ig", "tweet", "linkedin"],
+    "hookAngle": "Every time your child acts out, they're asking you a question. It's the same question every time.",
+    "reasoning": "This is pure brand-building — the AlreadyLoved philosophy stated compellingly. No product push. Designed for shares, saves, and follows. The kind of content that makes someone say 'this brand gets it.'"
+  },
+  {
+    "title": "Why personalized baptism gifts hit different when they're built on identity, not ceremony",
+    "description": "SEO seed targeting a high-intent purchase search. Parents searching for baptism gifts are already in a spiritual/meaning-making mindset — perfect AlreadyLoved territory. Article explores what a baptism really declares (this child is already beloved) and how a personalized book that names that identity outlasts any silver frame. Targets: 'personalized baptism gift', 'christian personalized books for babies', 'baptism gift that lasts'.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "Belonging",
+    "targetKeywords": ["personalized baptism gift children", "best baptism gifts that last", "christian personalized book for baby"],
+    "targetFormats": ["blog", "pin", "caption_ig"],
+    "hookAngle": "A baptism says: this child is already known, already held, already named. The gift should say the same thing.",
+    "reasoning": "High purchase intent, spiritual resonance, year-round demand with spikes around Easter and spring. AlreadyLoved books are a natural fit — the brand's philosophy aligns exactly with what a baptism declares."
+  },
+  {
+    "title": "What you say today becomes their inner voice tomorrow — a parent's guide to identity-first words",
+    "description": "Engagement / shareability seed. List-format for high pin traffic and saves. 10 things to say to your child that plant identity instead of earning conditions. Each line is a specific phrase with a brief note on what it does. Warm, practical, designed to be screenshotted and saved. Not a lecture — a love language toolkit.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "contentPillar": "Identity",
+    "targetKeywords": ["what to say to your child every day", "positive affirmations for kids from parents", "words that build identity in children"],
+    "targetFormats": ["blog", "pin", "caption_ig", "caption_tiktok"],
+    "hookAngle": "What you say today becomes the voice in their head at 25. Here's what to say.",
+    "reasoning": "High shareability — parents love practical lists they can use tonight. Designed to be saved on Pinterest and screenshotted on Instagram. Drives brand awareness while being genuinely useful."
+  }
+]
