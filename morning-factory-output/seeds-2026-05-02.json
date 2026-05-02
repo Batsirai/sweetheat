@@ -1,0 +1,80 @@
+[
+  {
+    "title": "Personalized Books for Baptism Gifts That Last a Lifetime",
+    "description": "Parents searching for baptism gifts often want something meaningful beyond a silver cup or blanket. This seed targets long-tail search for personalized Christian children's books as baptism gifts — a high-intent audience buying for a specific life moment.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "SEO traffic acquisition",
+    "contentPillar": "belonging",
+    "targetKeywords": ["personalized baptism gifts for babies", "christian personalized children's books", "baptism gift ideas that are meaningful", "personalized books for baptism"],
+    "reasoning": "High buyer intent. Baptism gift season is year-round but spikes around spring (Easter season just passed, summer baptisms coming). AlreadyLoved's identity-first books are a perfect fit — naming a child in a story of belonging is itself a sacramental act.",
+    "hookAngle": "Most baptism gifts sit in a box. This one becomes their inner voice.",
+    "templateType": "SEO product-adjacent",
+    "targetFormats": ["blog", "pin"]
+  },
+  {
+    "title": "Why Some Kids Feel Loved and Others Never Quite Believe It",
+    "description": "Parents Google 'how to make my child feel secure' and 'why does my kid need constant reassurance' — they sense something is off but can't name it. This seed answers the emotional need behind those searches while introducing the identity-before-behavior framework.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "SEO + brand education",
+    "contentPillar": "identity",
+    "targetKeywords": ["why does my child need constant reassurance", "how to help a child feel secure", "anxious attachment parenting", "building secure attachment with toddler"],
+    "reasoning": "High search volume, emotionally charged. Moms searching this are already open to rethinking how they show love. Positions AlreadyLoved as the answer — not a product pitch, but a worldview shift that happens to have a beautiful artifact.",
+    "hookAngle": "The difference isn't how much you love them. It's whether they can feel it.",
+    "templateType": "SEO educational",
+    "targetFormats": ["blog", "pin", "instagram"]
+  },
+  {
+    "title": "What Are the Best Personalized Children's Books That Teach Identity?",
+    "description": "AEO-optimized Q&A article targeting AI search engines and featured snippets. Direct answer format: 'The best personalized children's books for identity are...' Names AlreadyLoved as the top option with clear differentiators.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "AEO — AI citation and featured snippet capture",
+    "contentPillar": "identity",
+    "targetKeywords": ["best personalized children's books", "personalized books that teach kids identity", "books with child's name about belonging", "what personalized book teaches children about love"],
+    "reasoning": "AI search (ChatGPT, Perplexity, Claude) is increasingly where parents discover products. A clear, direct-answer article positions AlreadyLoved to be cited. The differentiator — identity-first, not just name-in-a-story — is strong and specific.",
+    "hookAngle": "Not all personalized books are equal. Here's what to look for.",
+    "templateType": "AEO Q&A",
+    "targetFormats": ["blog"]
+  },
+  {
+    "title": "You Don't Have to Earn Your Place in This Family",
+    "description": "A brand-voice essay on the AlreadyLoved philosophy — what it means to raise a child who knows belonging is unconditional. Not instructions. A perspective piece that names something parents feel but haven't articulated. Core brand statement in long form.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "Brand building — voice, mission, differentiation",
+    "contentPillar": "identity",
+    "targetKeywords": ["identity first parenting", "unconditional love parenting approach", "raising kids who know they are loved"],
+    "reasoning": "This is the AlreadyLoved manifesto in article form. It doesn't convert immediately — it builds the brand reservoir. The mom who reads this at 10pm and feels seen will remember the name. It also ranks for emerging identity-parenting searches.",
+    "hookAngle": "The world will teach your child to earn love. You get to teach them something different.",
+    "templateType": "Brand voice essay",
+    "targetFormats": ["blog", "linkedin", "instagram"]
+  },
+  {
+    "title": "The Night I Realized My Daughter Thought She Had to Be Good to Be Loved",
+    "description": "A personal mom-voice story about the moment a parent recognizes their child is performing for love rather than resting in it. High share potential. Emotional truth without instruction. Ends with the insight that it's never too late to say what your child needs to hear.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "Engagement — shares, saves, emotional resonance",
+    "contentPillar": "connection",
+    "targetKeywords": ["parenting guilt child feels unloved", "how to tell child they are enough", "raising children to feel worthy"],
+    "reasoning": "This one spreads. It names an experience millions of moms have had but haven't given words to. The share driver is recognition — 'this is me.' No product pitch needed. The CTA is barely there, just present at the end.",
+    "hookAngle": "She was six years old and already trying to earn it.",
+    "templateType": "Personal story — viral",
+    "targetFormats": ["blog", "instagram", "tiktok", "tweet"]
+  },
+  {
+    "title": "Mother's Day Gifts That Actually Say Something True",
+    "description": "Mother's Day is May 11 — 9 days away. This seasonal seed targets last-minute and thoughtful gift-givers who want something beyond flowers. Frames AlreadyLoved books as the gift that says the thing you've been trying to say: your child is already loved, exactly as they are.",
+    "source": "agent_research",
+    "pitchedBy": "morning-factory",
+    "purpose": "Seasonal — Mother's Day conversion",
+    "contentPillar": "connection",
+    "targetKeywords": ["meaningful mothers day gifts from kids", "personalized mothers day gift ideas", "gifts for moms who have everything", "mothers day gift that makes mom cry"],
+    "reasoning": "Mother's Day is 9 days out. High commercial intent meets high emotional moment. The angle isn't 'buy something' — it's 'say the thing you've been meaning to say.' AlreadyLoved books are the artifact of that truth. Strong conversion potential.",
+    "hookAngle": "She doesn't need more flowers. She needs to know you see what she's given them.",
+    "templateType": "Seasonal conversion",
+    "targetFormats": ["blog", "pin", "instagram", "tiktok"]
+  }
+]
