@@ -1,0 +1,132 @@
+{
+  "date": "2026-05-07",
+  "brand": "AlreadyLoved",
+  "seasonal_notes": "Mother's Day May 11 (4 days). Father's Day June 15 (39 days — lead window opens ~May 18). Summer break ~June 1. Back-to-school August.",
+  "seeds": [
+    {
+      "id": "seed-2026-05-07-01",
+      "title": "The Voice in Your Child's Head Is Yours — You're Already Writing It",
+      "purpose": "seo",
+      "hook": "IDENTITY",
+      "focus_keyword": "how to build child confidence",
+      "long_tail_variants": [
+        "how to raise a confident child at home",
+        "positive self-talk for kids",
+        "how to build a child's inner voice",
+        "what makes a child feel secure"
+      ],
+      "format": "blog",
+      "angle": "Research shows children internalize the voices of the people who love them most. That voice becomes their inner narrator — the one they hear when they're scared, when they fail, when someone is mean to them at recess. This article explores what that means for parents and what one intentional act (naming a child in a story about who they already are) does to that inner voice.",
+      "intent": "Parents searching for practical confidence-building for kids, but arriving at something deeper — identity before behavior.",
+      "cta": "Explore AlreadyLoved personalized books.",
+      "priority": "HIGH — evergreen + seasonal Mother's Day hook",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-02",
+      "title": "Personalized Books for Kids: What to Look For (Beyond Just the Name)",
+      "purpose": "seo",
+      "hook": "GIFT",
+      "focus_keyword": "personalized books for kids",
+      "long_tail_variants": [
+        "best personalized children's books 2026",
+        "personalized books for toddlers",
+        "personalized books for kids that teach values",
+        "personalized baby books milestone"
+      ],
+      "format": "buyer's guide / blog hybrid",
+      "angle": "Most personalized books just drop a name into an existing story. This article explains why that's not enough — and what to look for instead: books where the child's identity (not just their name) is woven into the narrative. Comparison framework without naming competitors.",
+      "intent": "Pre-purchase research, comparison-shopping parents. High purchase intent.",
+      "cta": "Explore AlreadyLoved personalized books — where your child's name carries a story, not just a label.",
+      "priority": "HIGH — SEO + gifting intent peaks now through June",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-03",
+      "title": "What Does It Mean to Raise a Child Who Knows They're Already Loved?",
+      "purpose": "aeo",
+      "hook": "IDENTITY",
+      "focus_keyword": "what does already loved mean for kids",
+      "long_tail_variants": [
+        "what is unconditional love in parenting",
+        "how do you teach a child they are loved",
+        "raising a child with secure attachment"
+      ],
+      "format": "FAQ blog (conversational H2s, designed for AI Overview / featured snippet)",
+      "angle": "Direct, clear answer in first paragraph: 'A child who knows they're already loved doesn't need to earn belonging. They don't perform for approval or shrink to stay safe. They ask questions. They take risks. They come home.' Then expands into science (secure attachment, identity formation) and practical story.",
+      "intent": "Google AI Overview / Perplexity citation. Parents asking questions about unconditional love parenting.",
+      "cta": "AlreadyLoved books are one way to say it in words that stay.",
+      "priority": "MEDIUM — AEO, builds long-term brand authority",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-04",
+      "title": "The Letter I Keep Meaning to Write My Child (and Why I Haven't)",
+      "purpose": "brand_building",
+      "hook": "IDENTITY",
+      "focus_keyword": null,
+      "format": "personal essay / blog",
+      "angle": "A first-person essay in Simmone's voice about the things she means to tell her child — the sentences she forms in her head at 2am, the moments she almost says it and then doesn't. What holds us back from saying the true things out loud. How a personalized book does what the letter never quite gets written. No guilt. The essay is for the mom who recognizes herself.",
+      "intent": "Pure brand voice. High share potential. Pins well. Seeds the AlreadyLoved worldview in a deeply relatable way.",
+      "cta": "None hard. Final line is an invitation: 'The letter is already in you. AlreadyLoved is just one way to send it.'",
+      "priority": "MEDIUM — brand depth, evergreen",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-05",
+      "title": "He Asked Me If He Was Good at Anything. He Was Four.",
+      "purpose": "engagement",
+      "hook": "IDENTITY",
+      "focus_keyword": "child self-esteem toddler",
+      "long_tail_variants": [
+        "my child says they're not good at anything",
+        "how to respond when your child feels not good enough",
+        "building self-esteem in 4 year olds"
+      ],
+      "format": "blog / social crossover",
+      "angle": "Character: Mateo (Light Bearer). The moment a four-year-old asks if they're good at anything — not because something bad happened, but because they're already measuring themselves against the world. What that question reveals about how early identity formation begins. What the right answer is (not a list of their skills, but a statement of who they already are).",
+      "intent": "High emotional resonance, high share potential on Pinterest and IG. Search intent: parents looking for responses to early low self-esteem.",
+      "cta": "Soft: AlreadyLoved books put the answer in a form they can hold.",
+      "priority": "HIGH — engagement + search intent overlap",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-06",
+      "title": "A Father's Day Gift That Tells Your Child What Their Dad Already Sees",
+      "purpose": "seo",
+      "hook": "GIFT",
+      "focus_keyword": "father's day gifts from dad to child",
+      "long_tail_variants": [
+        "meaningful father's day gift ideas 2026",
+        "personalized gift from father to son",
+        "personalized gift from dad to daughter",
+        "father's day gift that teaches values"
+      ],
+      "format": "blog / gift guide hybrid",
+      "angle": "Father's Day angle that's distinctly different from Mother's Day coverage: 'Moms worry about whether their child feels loved. Dads often wonder if their child knows what they believe about them.' The book as a vehicle for a father's specific, named love — not generic affirmation but a father's particular way of seeing his child. Character: Leo (Adventurer) or Noah (Joyful One).",
+      "intent": "Pre-purchase research. Father's Day buying window opens ~May 18. Getting this live before then captures early searches.",
+      "cta": "Explore AlreadyLoved personalized books — give your child the story their dad already tells about them.",
+      "priority": "HIGH — seasonal, lead window opens in 11 days",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-07-07",
+      "title": "What the First Day of Summer Actually Tells Your Child About Who They Are",
+      "purpose": "seo",
+      "hook": "IDENTITY",
+      "focus_keyword": "summer activities for kids identity",
+      "long_tail_variants": [
+        "screen-free summer activities kids",
+        "summer bedtime routine for kids",
+        "how to help kids feel secure during summer break",
+        "family connection activities summer"
+      ],
+      "format": "blog",
+      "angle": "Summer strips away the structure that tells children what role they play (student, team member, schedule-keeper). What's left is just who they are — and some children don't know what to do with that. This piece explores what identity looks like during unstructured time and how parents can use summer to reinforce the truest things about their children without turning it into a curriculum.",
+      "intent": "Search volume builds May 18+. Parents anxious about screen time, boredom, and summer structure.",
+      "cta": "Soft: AlreadyLoved books are one anchor for the long days.",
+      "priority": "MEDIUM — seasonal, lead window opens May 18",
+      "status": "pitched"
+    }
+  ]
+}
