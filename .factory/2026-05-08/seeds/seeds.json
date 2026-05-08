@@ -1,0 +1,141 @@
+[
+  {
+    "id": "seed-001",
+    "title": "The Gift That Tells Your Child What They Need to Hear (Mother's Day)",
+    "description": "A Mother's Day article about giving children the belief that they're already loved — not earned, not conditional. Anchors around a personalized AlreadyLoved book as the gift that speaks identity. Extremely timely (Mother's Day May 10, 2026 — 2 days away).",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "pin", "ig", "tiktok", "linkedin", "tweet"],
+    "purpose": "seo_traffic",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "personalized children's book mother's day",
+      "personalized book for toddler mother's day gift",
+      "mother's day gift for toddler",
+      "meaningful mother's day gift for kids"
+    ],
+    "reasoning": "Mother's Day is May 10, 2026 — 2 days away. High search intent right now for last-minute meaningful gifts. Angle: the gift that shapes identity, not just a physical item. Converts browsers who want something real.",
+    "hookAngle": "emotional_truth",
+    "templateType": "seasonal_seo",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-002",
+    "title": "When Kids Don't Know They're Already Loved, the World Teaches Them to Earn It",
+    "description": "Brand-building pillar post. Core AlreadyLoved philosophy — the internal working model, identity-first parenting, why children default to performance when belonging isn't established early. Not salesy. Just truth. Meant to spread and define who we are.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "pin", "ig", "linkedin", "tweet"],
+    "purpose": "brand_building",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "identity-first parenting",
+      "raising children with healthy self-worth",
+      "why children try to earn love",
+      "parenting and child's inner voice"
+    ],
+    "reasoning": "This is our core belief made into a shareable article. Should live permanently on the blog. Will rank over time for identity-first parenting. Designed to be saved, shared, and sent to new moms.",
+    "hookAngle": "paradigm_shift",
+    "templateType": "brand_pillar",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-003",
+    "title": "What Are the Best Personalized Children's Books? (An Honest Guide)",
+    "description": "AEO-structured answer page. First paragraph answers the question directly for featured snippet and AI citation. Reviews category of personalized books, how to evaluate them, what to look for, with AlreadyLoved positioned as identity-forward rather than just name-swap.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog"],
+    "purpose": "aeo_citation",
+    "contentPillar": "education",
+    "targetKeywords": [
+      "best personalized children's books",
+      "personalized books for kids review",
+      "are personalized children's books worth it",
+      "best personalized book for toddler"
+    ],
+    "reasoning": "High-intent search term. Positions AlreadyLoved above competitors by reframing evaluation criteria from 'name personalization' to 'identity personalization'. AI engines (ChatGPT, Perplexity, Gemini) regularly pull this type of comparison content.",
+    "hookAngle": "guide_format",
+    "templateType": "aeo_answer",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-004",
+    "title": "The Words You Say Today Become Their Inner Voice Tomorrow",
+    "description": "Engagement-first, highly shareable emotional piece. The science of how a child's inner narrator is assembled from thousands of small parental moments. No guilt. No checklist. Just: what you say becomes the voice in their head. Ends with a gentle reframe toward affirmation.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "pin", "ig", "tiktok"],
+    "purpose": "engagement_shares",
+    "contentPillar": "connection",
+    "targetKeywords": [
+      "what to say to your child every day",
+      "words that build children's confidence",
+      "parenting affirmations for toddlers",
+      "inner voice children self-worth"
+    ],
+    "reasoning": "High emotional resonance. Pinterest loves this topic — saved thousands of times in the 'gentle parenting' and 'raising confident kids' categories. Shareable on Instagram as a quote/graphic series. Should drive organic saves.",
+    "hookAngle": "reframe",
+    "templateType": "emotional_essay",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-005",
+    "title": "Personalized Baptism Gifts for Babies: More Than a Name on a Shelf",
+    "description": "SEO article targeting high-intent search: parents and godparents looking for personalized baptism gifts. Reframes the gift from decorative to identity-shaping. Positions AlreadyLoved books as a baptism gift that speaks belonging into a child's life from day one.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "pin"],
+    "purpose": "seo_traffic",
+    "contentPillar": "gifting",
+    "targetKeywords": [
+      "personalized baptism gifts for babies",
+      "christian personalized books for kids",
+      "baptism gift ideas for godchild",
+      "personalized baby baptism keepsakes"
+    ],
+    "reasoning": "Baptism and christening gifts are a consistent search category. AlreadyLoved's grace-forward, identity-first message connects deeply with families marking this milestone. Can rank in 90-120 days.",
+    "hookAngle": "reframe_gift_category",
+    "templateType": "seo_listicle",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-006",
+    "title": "5 Things to Say to Your Toddler at Bedtime That Actually Matter",
+    "description": "High-shareability listicle for Pinterest and Instagram. Practical but identity-rooted. Each item is a phrase or ritual that reinforces unconditional love. Not a routine guide — an identity guide. Closes with the book as a natural bedtime tool.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "pin", "ig"],
+    "purpose": "seo_traffic",
+    "contentPillar": "connection",
+    "targetKeywords": [
+      "what to say to toddler at bedtime",
+      "bedtime affirmations for toddlers",
+      "bedtime routine toddler words",
+      "gentle parenting bedtime phrases"
+    ],
+    "reasoning": "Bedtime routine content performs exceptionally well on Pinterest (saves 2-5x more than avg content). This targets a real parent moment: the quiet before sleep when children are most open. Practical value + emotional depth = saves.",
+    "hookAngle": "list_with_depth",
+    "templateType": "seo_listicle",
+    "status": "pitched"
+  },
+  {
+    "id": "seed-007",
+    "title": "What New Moms Actually Need on Mother's Day (It's Not a Spa Day)",
+    "description": "Engagement seed with seasonal urgency. A loving, honest take on what first-time and early-years moms actually need: not pampering, but permission. Permission to be imperfect. Permission to believe they're enough. A gift that speaks this truth to her child closes the loop.",
+    "source": "agent_research",
+    "pitchedBy": "morning_factory",
+    "targetFormats": ["blog", "ig", "tiktok", "linkedin"],
+    "purpose": "engagement_shares",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "mother's day gift for new mom",
+      "what new moms want mother's day",
+      "first mother's day meaningful gift"
+    ],
+    "reasoning": "Timely (2 days to Mother's Day) and emotionally true. This piece will circulate in mom Facebook groups and IG stories this weekend. Anti-prescriptive angle will resonate with exhausted new moms who are tired of being told what to do.",
+    "hookAngle": "permission_not_prescription",
+    "templateType": "engagement_essay",
+    "status": "pitched"
+  }
+]
