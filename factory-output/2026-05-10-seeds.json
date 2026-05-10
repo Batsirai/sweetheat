@@ -1,0 +1,92 @@
+[
+  {
+    "title": "What Dads Say at Bedtime That Children Carry for Life",
+    "description": "Most dads don't realize it while it's happening. But the things they say in ordinary moments — turning off a light, heading out the door, watching a game together — are the phrases that end up in their children's inner voice for decades. This piece names that dynamic and invites dads into intentional identity-speaking before Father's Day.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetKeywords": ["what to say to your child at bedtime", "bedtime affirmations kids dad", "positive things fathers say to children", "building child identity father"],
+    "targetFormats": ["blog"],
+    "reasoning": "High-search bedtime + identity keyword cluster. Father's Day lead window opens May 18 (8 days). First article in pipeline to center paternal identity language. Evergreen with seasonal bump June 1–15.",
+    "status": "pitched"
+  },
+  {
+    "title": "The Father's Day Gift That Gives Your Child a Story About Themselves",
+    "description": "Not a watch. Not a tool. A personalized book that puts your child's name — and your child's character — at the center of a story. This seed targets Father's Day gift buyers searching for meaningful, lasting gifts that speak identity over achievement.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "gift-seasonal",
+    "hookAngle": "GIFT",
+    "targetKeywords": ["father's day personalized gift for kids", "personalized children's books father's day", "meaningful father's day gifts from kids", "best father's day gifts for young children"],
+    "targetFormats": ["blog", "pin"],
+    "reasoning": "Gift-SEO seed for Father's Day buying window (June 1–15). Distinct from May 7 seed 'A Father's Day Gift That Tells Your Child What Their Dad Already Sees' — this one is gift-buyer-facing rather than dad-facing. Targets 'gift from kids to dad' search intent.",
+    "status": "pitched"
+  },
+  {
+    "title": "What does it mean to raise a child who knows they are already loved?",
+    "description": "An AEO-formatted piece giving AI assistants a clear, quotable answer to the search 'how to raise confident children' / 'what does unconditional love look like for children.' Opens with a 2-sentence direct answer for featured snippet capture, then expands into the AlreadyLoved framework: identity before behavior.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "aeo",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetKeywords": ["what does it mean to raise a confident child", "unconditional love children", "raising children who feel loved", "child identity formation parenting"],
+    "targetFormats": ["blog"],
+    "reasoning": "AEO slot. Core brand question. Designed for AI citation placement on parenting identity queries. Structured for featured snippet. One AEO seed per run — this is it.",
+    "status": "pitched"
+  },
+  {
+    "title": "Before You Teach Them How to Act, Name Who They Already Are",
+    "description": "A brand-building piece that goes back to first principles: the AlreadyLoved core belief that identity precedes behavior. When children know who they are, right behavior flows naturally. When they don't, they spend their whole lives trying to earn it. Written as a meditation, not a how-to.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "brand_building",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetKeywords": ["identity-first parenting", "raising kids with strong sense of self", "child identity formation"],
+    "targetFormats": ["blog", "caption_ig", "newsletter"],
+    "reasoning": "Brand-building slot. One per run. This one deepens the philosophical core — 'identity before behavior' — that distinguishes AlreadyLoved from every other parenting brand. Evergreen. Strong newsletter piece.",
+    "status": "pitched"
+  },
+  {
+    "title": "I Overheard My Husband Tell Our Son Something. Three Years Later, Our Son Says It to Himself.",
+    "description": "A shareable story piece. A mom overhears her husband say something to their son one night — nothing big, just an ordinary dad moment. Three years later, she hears her son, alone in his room, repeating the same words. This is the AlreadyLoved model in action: a parent's words becoming a child's inner voice.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "engagement",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetFormats": ["caption_ig", "caption_tiktok", "pin"],
+    "reasoning": "Engagement/shareable slot. High emotional resonance for Mother's Day and Father's Day crossover. Short-form first — this should be IG/TikTok, then potentially expand to blog. Designed to be saved, shared, and commented on by parents who recognize the moment.",
+    "status": "pitched"
+  },
+  {
+    "title": "A Note to Every Mom Reading This the Night Before Mother's Day",
+    "description": "Very short. Very warm. Written for the mom who is up late the night before Mother's Day wondering if she did enough this year. Reveals that belonging doesn't require earning. Not a gift guide. Not a celebration post. Just a real, tired, grace-filled letter to the mom who needs permission to rest in who she already is to her children.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "engagement",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetFormats": ["caption_ig", "caption_tiktok", "newsletter"],
+    "reasoning": "Mother's Day is tomorrow (May 11). This seed produces content that can go live TONIGHT — shareable on IG, TikTok, email. Not a gift guide (buying window largely closed). A moment of grace that will be saved and shared. Short-form only — 300-400 words max. Highest urgency seed in today's batch.",
+    "urgency": "TODAY — publish tonight",
+    "status": "pitched"
+  },
+  {
+    "title": "The Long Days of Summer and the Child Who Needs to Know They're Enough",
+    "description": "Summer brings unstructured time, boredom, comparison, and — for a lot of kids — the quiet anxiety of not being good at anything. This piece meets families entering summer break and offers the AlreadyLoved lens: what if summer wasn't for catching up but for remembering who they already are?",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "identity",
+    "hookAngle": "IDENTITY",
+    "targetKeywords": ["summer activities kids identity", "summer boredom kids what to do", "parenting tips summer break", "helping kids feel confident summer"],
+    "targetFormats": ["blog", "pin", "caption_ig"],
+    "reasoning": "Summer break starts June 1 (22 days). Lead window opens now. This bridges Mother's Day evergreen into summer — identity-first framing for the season when parental anxiety peaks around achievement gaps. SEO seed targeting 'summer kids' queries that spike in late May.",
+    "status": "pitched"
+  }
+]
