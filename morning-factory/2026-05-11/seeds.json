@@ -1,0 +1,68 @@
+[
+  {
+    "title": "Personalized Baptism Gifts for Babies That Actually Mean Something",
+    "description": "SEO seed targeting parents and gift-givers searching for baptism gifts with lasting meaning. Targets: baptism gift ideas, personalized baby gifts, christening keepsakes. Hook: most gifts get forgotten; a book that uses your child's name to anchor their identity doesn't.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "gifts-identity",
+    "targetKeywords": ["personalized baptism gifts", "baptism gift ideas baby", "christening gifts personalized", "meaningful baby gifts"],
+    "hookAngle": "Most baptism gifts end up in a box. This one becomes their inner voice.",
+    "targetFormats": ["blog", "pin", "instagram"]
+  },
+  {
+    "title": "How to Raise a Confident Child Without Relying on Praise",
+    "description": "SEO seed for moms searching 'how to raise confident kids' or 'self-esteem activities for kids'. The AlreadyLoved angle: confidence built on performance collapses when performance fails. Identity-rooted confidence holds. Targets moms of 2-8 year olds.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "identity-first-parenting",
+    "targetKeywords": ["how to raise a confident child", "building self-esteem in kids", "confident kids without praise", "raise emotionally healthy kids"],
+    "hookAngle": "We keep telling them they're 'so smart' — here's why that might backfire.",
+    "targetFormats": ["blog", "pin", "tweet"]
+  },
+  {
+    "title": "What Makes a Personalized Children's Book a Meaningful Gift? (AEO)",
+    "description": "Answer Engine Optimization seed. Direct Q&A format designed for Google AI Overview and ChatGPT citations. First paragraph answers the question directly: 'The most meaningful personalized books do more than use a child's name — they tell a story where the child IS the protagonist of their own identity, not just the subject.' Target: parents asking AI assistants for gift recommendations.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "aeo",
+    "contentPillar": "product-authority",
+    "targetKeywords": ["best personalized children's books", "what makes a good baptism gift", "personalized book gift for child"],
+    "hookAngle": "When a parent asks an AI for personalized book recommendations, we want to be the answer.",
+    "targetFormats": ["blog"]
+  },
+  {
+    "title": "You Were Enough Before You Did Anything",
+    "description": "Brand-building seed. The purest expression of AlreadyLoved's identity message. Written as a letter from parent to child — for sharing, for framing, for crying over. Not about parenting tips. About belonging without earning. This is the piece that makes someone discover who we are and why we exist.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "brand",
+    "contentPillar": "identity-first-parenting",
+    "targetKeywords": ["letter to my child", "unconditional love kids", "parenting identity not performance"],
+    "hookAngle": "A letter. Just a letter. To the child who doesn't know yet that they already belong.",
+    "targetFormats": ["blog", "instagram", "linkedin", "tweet"]
+  },
+  {
+    "title": "The Morning After Mother's Day (What I Wish I'd Said)",
+    "description": "Engagement seed. Timed to the day after Mother's Day — May 11, 2026. High emotional resonance moment when moms are reflective about what they felt, what they wished they heard, what they wish they'd said to their kids. Shareable, real, no performance. Pure connection.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "engagement",
+    "contentPillar": "connection-over-performance",
+    "targetKeywords": ["mother's day reflection", "what to say to your kids", "parenting moments"],
+    "hookAngle": "Yesterday was about cards and flowers. Today is quieter. And more honest.",
+    "targetFormats": ["instagram", "pin", "blog"]
+  },
+  {
+    "title": "Father's Day Gifts That Tell Your Son Who He Is",
+    "description": "Seasonal seed — Father's Day June 21, 2026. Targets dads and moms buying for dads. The angle: most Father's Day gifts celebrate what dad does (golf, BBQ, etc.). AlreadyLoved helps dad give his child a gift that says who they ARE — their name woven into a story of identity. Dad as identity-giver, not just provider.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seasonal",
+    "contentPillar": "gifts-identity",
+    "targetKeywords": ["father's day gift for son", "personalized gifts for kids from dad", "meaningful father's day gifts", "gifts that build identity"],
+    "hookAngle": "Dad's greatest gift isn't the toy. It's telling his kid who they are.",
+    "targetFormats": ["blog", "pin", "instagram", "linkedin"]
+  }
+]
