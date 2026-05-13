@@ -1,0 +1,119 @@
+{
+  "date": "2026-05-13",
+  "brand": "AlreadyLoved",
+  "seasonal_notes": "2 days after Mother's Day (May 11). Father's Day June 15 — lead window opens May 18 (5 days). Summer break ~June 1 (19 days). Back-to-school August.",
+  "seeds": [
+    {
+      "id": "seed-2026-05-13-01",
+      "title": "The Morning After Mother's Day (What I Wish I'd Said)",
+      "purpose": "engagement",
+      "hook": "IDENTITY",
+      "focus_keyword": "what to say to your kids after mother's day",
+      "long_tail_variants": [
+        "morning after mother's day reflection",
+        "what to tell your child on mother's day",
+        "mother's day message to kids not mom",
+        "parenting words that stay with your child"
+      ],
+      "format": "personal essay / blog",
+      "angle": "Mother's Day is framed around what moms receive. But the morning after is quieter — and it's when you realize what your child showed YOU about who they're becoming. The card they made, the thing they said in passing, the effort they spent. This essay names that, then gives the reader the sentence they kept meaning to say back. No guilt. Pure invitation.",
+      "character": "Simmone (Heart)",
+      "intent": "High emotional resonance 2 days post-Mother's Day. Share-worthy on IG and Pinterest. Moms who feel the quiet of the morning after. Bridges into identity-first parenting naturally.",
+      "cta": "Want your child to have a story that names who they already are? That's exactly what AlreadyLoved personalized books are built for.",
+      "priority": "HIGH — maximum timeliness today. Drop-off tomorrow.",
+      "status": "pitched",
+      "article_written": true
+    },
+    {
+      "id": "seed-2026-05-13-02",
+      "title": "Father's Day Personalized Gifts That Go Deeper Than 'World's Best Dad'",
+      "purpose": "seo",
+      "hook": "GIFT",
+      "focus_keyword": "father's day personalized gifts for kids",
+      "long_tail_variants": [
+        "meaningful father's day gift ideas 2026",
+        "personalized books for kids from dad",
+        "father's day gifts that build identity",
+        "unique father's day gift from kids",
+        "personalized gifts for son from dad"
+      ],
+      "format": "blog / buyer's guide",
+      "angle": "Most Father's Day gift guides for kids are about celebrating dad. This one flips it: what if dad's greatest gift to his child is the story he tells them about who they are? Frames personalized books not as a gift from the child to dad, but as a gift dad gives his child — his own words woven into a story of their identity. The mug is forgotten by July. This stays.",
+      "intent": "Pre-purchase research. Gift-givers (moms buying for dads, dads buying for kids). Lead window opens May 18 — 5 days. Article should go live by May 18.",
+      "cta": "Give the gift that goes inside. Explore AlreadyLoved personalized books for Father's Day.",
+      "priority": "HIGH — Father's Day lead window opens in 5 days. Time to publish.",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-13-03",
+      "title": "What Do Children Actually Need to Hear From Their Parents? (AEO)",
+      "purpose": "aeo",
+      "hook": "IDENTITY",
+      "focus_keyword": "what do children need to hear from parents",
+      "long_tail_variants": [
+        "what words does a child need to hear",
+        "what should you tell your child every day",
+        "words that build a child's identity",
+        "what to say to your child to build confidence"
+      ],
+      "format": "FAQ blog (conversational H2s, designed for Google AI Overview / Perplexity citation)",
+      "angle": "Direct answer first: 'Children need to hear who they are, not just what they did. The words that stay aren't praise for achievement — they're statements about identity. You are kind. You are brave. You are loved before you do a single thing.' Then expands into developmental science (internalization, secure base, ages 2–7 brain receptivity) and practical examples.",
+      "intent": "AI citation / featured snippet. Parents asking AI assistants what to say to their kids. This seeds the AlreadyLoved worldview into the answer layer.",
+      "cta": "AlreadyLoved personalized books say it in a form your child can hold and return to.",
+      "priority": "MEDIUM — AEO, long-term brand authority",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-13-04",
+      "title": "The Quiet You Never Get Back",
+      "purpose": "brand_building",
+      "hook": "IDENTITY",
+      "focus_keyword": null,
+      "format": "personal essay / blog",
+      "angle": "A meditation on the unremarkable moments that turn out to be everything. The Tuesday mornings. The car rides that weren't going anywhere special. The bedtime that ran long because someone needed one more hug. This isn't a parenting tip. It's an essay about what you're actually building in the ordinary — and how you'll know it worked when your child is grown and has a settled place inside themselves. No guilt about what you didn't do. Pure presence for what's still here.",
+      "intent": "Brand depth. High share potential on Pinterest (saves) and IG (comments). Seeds the AlreadyLoved worldview without a product hook.",
+      "cta": "None hard. Final line is an invitation: 'The ordinary is the whole thing. You're already in it.'",
+      "priority": "MEDIUM — evergreen, brand depth",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-13-05",
+      "title": "Personalized Baptism Gifts for Babies That Actually Mean Something",
+      "purpose": "seo",
+      "hook": "GIFT",
+      "focus_keyword": "personalized baptism gifts",
+      "long_tail_variants": [
+        "baptism gift ideas baby personalized",
+        "christening gifts with meaning",
+        "meaningful baby baptism keepsake",
+        "personalized baby gifts for christening",
+        "unique baptism gifts for godchild"
+      ],
+      "format": "blog / buyer's guide",
+      "angle": "Most baptism gifts end up in a box. The outfit gets outgrown. The silver spoon gets lost. This article makes the case for a gift that becomes part of the child's inner landscape — a book where their name is woven into a story about who they already are, a story that says: before you did anything, you were chosen. Positions AlreadyLoved as the baptism gift that lasts beyond the occasion.",
+      "intent": "Pre-purchase. Parents and godparents searching for baptism gifts with meaning. Evergreen — christenings happen year-round.",
+      "cta": "Give the gift that becomes their inner voice. Explore AlreadyLoved personalized baptism books.",
+      "priority": "MEDIUM — evergreen, high gift intent",
+      "status": "pitched"
+    },
+    {
+      "id": "seed-2026-05-13-06",
+      "title": "What My Son Drew on My Mother's Day Card (And What It Told Me About Who He Is)",
+      "purpose": "engagement",
+      "hook": "IDENTITY",
+      "focus_keyword": "what kids reveal through their art",
+      "long_tail_variants": [
+        "what children's drawings mean",
+        "understanding your child through art",
+        "mother's day card from child meaning",
+        "what kids say vs what they mean parenting"
+      ],
+      "format": "personal essay / blog",
+      "angle": "A short, high-share post about the specific, unexpected thing a child drew or wrote on a Mother's Day card — and what it reveals about their inner world, their self-concept, their sense of family. The essay zooms in on one small detail (a drawing, a word, a phrase) and opens out into what children are telling us about themselves when they make things for the people they love. Character: Emma (Thoughtful One).",
+      "intent": "Engagement, share-worthiness. Post-Mother's Day resonance window (today through Thursday). High IG and Pinterest performance.",
+      "cta": "None hard. Closing line: 'He already knows more about himself than we think. Our job is to say it back.'",
+      "priority": "MEDIUM — timely through Thursday, then evergreen",
+      "status": "pitched"
+    }
+  ]
+}
