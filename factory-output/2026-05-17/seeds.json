@@ -1,0 +1,100 @@
+[
+  {
+    "title": "What Your Kids Will Remember From This Summer (It's Not What You Think)",
+    "description": "SEO + seasonal seed. Memorial Day weekend is the symbolic start of summer. Parents are planning trips and activities, but the AlreadyLoved angle is identity-first: the thing your child carries into adulthood isn't the vacation — it's the sentence you said at the kitchen table that became their inner voice. Targets parents in summer-planning mode. Seasonal urgency: publish before May 25.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "identity-first-parenting",
+    "targetKeywords": [
+      "what kids remember from childhood",
+      "meaningful summer activities for kids",
+      "summer memories for toddlers",
+      "what to do with kids this summer",
+      "summer with kids bucket list"
+    ],
+    "hookAngle": "They won't remember the beach trip. They'll remember what you whispered to them on the drive home.",
+    "targetFormats": ["blog", "pin", "instagram", "linkedin"]
+  },
+  {
+    "title": "End of School Year Gifts for Kids That Celebrate Who They Are (Not Just What They Did)",
+    "description": "SEO seed targeting the May-June search spike for 'end of school year gifts'. Most gift guides lean on achievement (trophies, honor roll). AlreadyLoved angle: the best end-of-year gift tells a child they were enough before the grades — that who they are is more than what they earned. High purchase intent, broad audience: parents, grandparents, teachers.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seo",
+    "contentPillar": "gifts-identity",
+    "targetKeywords": [
+      "end of school year gifts for kids",
+      "meaningful gifts for kids end of year",
+      "personalized gifts for children",
+      "gifts that build confidence in kids",
+      "last day of school gift ideas"
+    ],
+    "hookAngle": "The trophy celebrates what they did. This gift reminds them who they already are.",
+    "targetFormats": ["blog", "pin", "instagram"]
+  },
+  {
+    "title": "What Do You Say When Your Child Feels Left Out?",
+    "description": "AEO seed. Conversational, Q&A format designed for Google AI Overview and AI assistant citations. Direct answer in first paragraph: what to actually say. Parents search this in real time — standing in a pickup line, sitting outside a birthday party. This covers the AlreadyLoved core: belonging is not earned by being invited. It is already given.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "aeo",
+    "contentPillar": "connection-language",
+    "targetKeywords": [
+      "what to say when your child feels left out",
+      "child left out birthday party what to say",
+      "kid not invited to party",
+      "how to help child feel included",
+      "what to tell a child who has no friends"
+    ],
+    "hookAngle": "The fastest way to help a child who feels left out is to tell them what was never up for a vote.",
+    "targetFormats": ["blog"]
+  },
+  {
+    "title": "The Ordinary Tuesday",
+    "description": "Brand-building seed. Pure AlreadyLoved voice. The thesis: belonging isn't planted at Christmas or birthday parties — it's planted on an ordinary Tuesday, in the way a parent looks up from their phone, says a name, and means it. This piece names the quiet daily moments that become a child's foundation. No tips. No lists. Just presence and truth.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "brand",
+    "contentPillar": "identity-first-parenting",
+    "targetKeywords": [
+      "present parenting moments",
+      "belonging in everyday moments",
+      "connection over performance parenting"
+    ],
+    "hookAngle": "Nobody's child will remember the Tuesday. But they'll carry what happened on it forever.",
+    "targetFormats": ["blog", "instagram", "linkedin", "tweet"]
+  },
+  {
+    "title": "The Last Day of School Is Almost Here. Do They Know?",
+    "description": "Engagement seed. Timed to the end-of-school-year emotional moment (late May). Parents feel a mix of nostalgia, relief, and worry as summer starts. This seed names what's beneath all of that: do my kids know they're loved beyond what school says about them? Shareable, emotional, real. No tips — just a question that opens a door.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "engagement",
+    "contentPillar": "connection-over-performance",
+    "targetKeywords": [
+      "end of school year feelings",
+      "last day of school mom",
+      "summer parenting",
+      "school year reflection"
+    ],
+    "hookAngle": "Report cards will come home this week. What gets said after that matters more than what's on the paper.",
+    "targetFormats": ["instagram", "pin", "blog"]
+  },
+  {
+    "title": "What I Want My Kids to Know Before Summer Starts",
+    "description": "Seasonal seed — Memorial Day gateway. A letter-format piece: before the trips and the camps and the long days and the boredom complaints, here's what every child needs to hear. Identity-anchoring summer opener. Reads like a personal essay, functions as a gentle manifesto. High share potential for parents who want to enter summer with intention.",
+    "source": "morning-factory",
+    "pitchedBy": "morning-factory",
+    "purpose": "seasonal",
+    "contentPillar": "identity-first-parenting",
+    "targetKeywords": [
+      "intentional summer parenting",
+      "summer parenting goals",
+      "meaningful summer with kids",
+      "before summer starts parenting"
+    ],
+    "hookAngle": "Summer doesn't need a plan. It needs a foundation.",
+    "targetFormats": ["instagram", "blog", "linkedin", "tweet"]
+  }
+]
