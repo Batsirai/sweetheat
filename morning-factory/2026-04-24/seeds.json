@@ -1,0 +1,74 @@
+[
+  {
+    "title": "What to say to your child at bedtime (that they'll carry forever)",
+    "description": "SEO-targeted piece around 'bedtime affirmations for kids' and 'what to say to kids at night'. Reframes bedtime routine from logistics to identity reinforcement. Surfaces the research on how the last words before sleep become inner voice. Soft CTA to personalized books as a ritual tool.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "SEO traffic",
+    "contentPillar": "identity-first parenting",
+    "targetKeywords": ["bedtime affirmations for kids", "what to say to children at bedtime", "bedtime routine toddler words", "positive things to say to your child"],
+    "reasoning": "High-volume long-tail keywords with strong commercial intent. Bedtime is the exact moment parents are most open to this message — tired, present, reflective.",
+    "hookAngle": "The words you say right before they close their eyes go somewhere. Research shows they become the voice kids hear in their own head.",
+    "templateType": "how-to-reframe"
+  },
+  {
+    "title": "The best personalized books for toddlers (that actually build confidence, not just spell their name)",
+    "description": "SEO comparison piece targeting 'personalized books for toddlers' and 'best personalized children's books'. Differentiates AlreadyLoved from surface-level name-in-book products by surfacing the identity layer. Reviews category with clear winner framing.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "SEO + conversion",
+    "contentPillar": "product education",
+    "targetKeywords": ["personalized books for toddlers", "best personalized children's books", "custom books for kids self esteem", "personalized baptism gift book"],
+    "reasoning": "Buyers searching this term are already convinced of the category. We need to be the page that captures them and differentiates on identity depth, not novelty.",
+    "hookAngle": "Most personalized books just drop a name in. This one weaves who your child is into the story itself.",
+    "templateType": "category-review"
+  },
+  {
+    "title": "What is the best gift for a child's self-esteem? (The answer isn't what you'd expect)",
+    "description": "AEO-optimized Q&A article designed for AI citation and featured snippets. Direct answer in first paragraph: the best gift is a story that reflects who they already are. Pulls in child development research on narrative identity. Surfaces personalized books as the medium.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "AEO — AI search citation",
+    "contentPillar": "identity-first parenting",
+    "targetKeywords": ["best gift for child's self esteem", "how to build a child's confidence", "what boosts self esteem in toddlers"],
+    "reasoning": "AI assistants are being asked parenting questions constantly. A clean, direct answer with supporting science will get cited. The answer naturally leads to AlreadyLoved.",
+    "hookAngle": "The answer isn't a toy or a class. It's a story — specifically, a story about them.",
+    "templateType": "AEO-direct-answer"
+  },
+  {
+    "title": "Your child is not trying to earn your love. They're trying to find out if they already have it.",
+    "description": "Brand-building think piece. The core AlreadyLoved thesis made tangible through a scene most parents recognize — the child acting out, the parent exhausted, the moment of disconnection. Reveals the behavior as a question, not a defiance. Identity precedes behavior.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "brand building + shareability",
+    "contentPillar": "identity-first parenting",
+    "targetKeywords": ["child acting out love", "why kids misbehave identity", "identity before behavior parenting"],
+    "reasoning": "This is the core thesis. Every parent has had this moment. When it's named correctly, it creates the 'that's exactly it' reaction that drives shares and brand trust.",
+    "hookAngle": "When your child is at their worst, they're actually asking their most important question.",
+    "templateType": "revelation-essay"
+  },
+  {
+    "title": "The thing every mom wants to give her kids — and forgets she already has",
+    "description": "Engagement-first piece for Mother's Day lead-up (May 11). Written for moms reading late at night, already doubting themselves. Reframes the 'am I enough' spiral into the AlreadyLoved message. High share potential in mom Facebook groups and Pinterest boards.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "engagement + seasonal lift",
+    "contentPillar": "maternal identity",
+    "targetKeywords": ["am I a good enough mom", "what do kids really need from mom", "Mother's Day meaningful gift kids"],
+    "reasoning": "Mother's Day is 17 days away. This piece speaks directly to the mom reading it — seen, not lectured. The gift reveal at the end is soft and earned.",
+    "hookAngle": "Most moms I know are trying to give their kids confidence. They just don't know they're already the source of it.",
+    "templateType": "personal-revelation"
+  },
+  {
+    "title": "A Mother's Day gift that says what you've been trying to say all year",
+    "description": "Seasonal SEO seed targeting Mother's Day gifting searches. Framed as a gift guide but written as a story. Targets grandparents, partners, and moms buying for themselves. Positions AlreadyLoved personalized books as the alternative to generic gifts — the one that carries the real message.",
+    "source": "agent",
+    "pitchedBy": "morning-factory",
+    "purpose": "SEO + seasonal conversion",
+    "contentPillar": "gifting",
+    "targetKeywords": ["Mother's Day gift ideas personalized", "meaningful Mother's Day gift for kids to give", "personalized gift for new mom", "Mother's Day gift from child"],
+    "reasoning": "High commercial intent, seasonal urgency, 17-day window. This seed should be approved and written immediately — articles need 5-7 days to index for the holiday.",
+    "hookAngle": "Not another candle. Not another 'World's Best Mom' mug. The gift that actually says what your family means.",
+    "templateType": "gift-guide-story"
+  }
+]
