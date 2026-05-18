@@ -1,0 +1,49 @@
+{
+  "brand": "AlreadyLoved Kids",
+  "date": "2026-05-18",
+  "agent": "afternoon-distribution",
+  "seeds": [
+    {
+      "id": "seed-A",
+      "title": "When You Stop Posting Your Child, What Story Are You Building Instead?",
+      "description": "The 2026 'privacy as the new luxury' trend marks parents opting out of documenting their children's lives on social media. The AlreadyLoved angle inverts the defensive posture: when you stop performing your child's identity for the world, you make space to build it for them. The story they carry inward — the book with their name in it, the sentence you say at bedtime — is the story that actually counts. This piece speaks to the mom who just deleted the post and looked up. Identity before audience. What we name in our children in private becomes what they carry forever.",
+      "source": "agent_research",
+      "pitchedBy": "afternoon-distribution-agent",
+      "purpose": "seo",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "stop sharing kids on social media",
+        "sharenting effects on children",
+        "what to do instead of posting your child",
+        "privacy parenting 2026",
+        "sharenting alternative"
+      ],
+      "hookAngle": "You deleted the post. Now build the story.",
+      "targetFormats": ["blog", "instagram", "pin"],
+      "urgency": "medium",
+      "trendSignal": "BuzzFeed, parenting blogs 2026 — 'privacy is the new luxury', first generation of sharented kids speaking out",
+      "convexImportCommand": "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"When You Stop Posting Your Child, What Story Are You Building Instead?\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"seo\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"You deleted the post. Now build the story.\"}'"
+    },
+    {
+      "id": "seed-B",
+      "title": "What Do You Say to a Child Who's Sad That School Is Over?",
+      "description": "AEO seed with a closing window (~5 days). Parents are standing in pickup lanes searching this in real time. The child is crying about leaving their teacher or their friends. The competitor answer: validate feelings, redirect, plan summer playdates. The AlreadyLoved answer: the foundation they're standing on isn't Ms. Rodriguez's classroom — it's who they already are. This piece answers the real-time question with gentleness and truth, and ends with one sentence worth saying tonight. Optimized for Google AI Overview and conversational AI citation. Short article (600-800 words) — fast to write, high impact.",
+      "source": "agent_research",
+      "pitchedBy": "afternoon-distribution-agent",
+      "purpose": "aeo",
+      "contentPillar": "connection-language",
+      "targetKeywords": [
+        "what to say when your child is sad school is over",
+        "child crying about leaving teacher",
+        "end of school year emotions kids",
+        "last day of school emotional child",
+        "my child is sad summer is starting"
+      ],
+      "hookAngle": "The classroom changes. The foundation doesn't.",
+      "targetFormats": ["blog"],
+      "urgency": "HIGH — publish by May 23",
+      "trendSignal": "Psychology Today 'Parenting Through the Bittersweet End of Another School Year' May 2026, The Globe and Mail coverage of child grief at year-end",
+      "convexImportCommand": "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What Do You Say to a Child Who's Sad That School Is Over?\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"aeo\", \"contentPillar\": \"connection-language\", \"hookAngle\": \"The classroom changes. The foundation doesn't.\"}'"
+    }
+  ]
+}
