@@ -1,0 +1,133 @@
+{
+  "brand": "AlreadyLoved Kids",
+  "date": "2026-05-19",
+  "agent": "morning-factory",
+  "season": "End of school year (last day ~May 23), Memorial Day (May 25), Father's Day (June 15)",
+  "seeds": [
+    {
+      "id": "seed-01",
+      "title": "End of School Year Teacher Gifts That Actually Say What You Mean",
+      "description": "Every May, parents search for teacher gift ideas and land on: gift cards, mugs, plants, wine. The AlreadyLoved angle is the one nobody's writing: the teacher named your child this year. They saw something in your kid — called it brave, called it kind, called it funny — and your child heard it and stored it. The gift that honors that isn't a mug. It's something that shows what your child carries because of that year. This piece serves the shopping-intent searcher and reveals something worth knowing: what makes a gift memorable isn't the object. It's what it names. Soft CTA: AlreadyLoved personalized book as a classroom-closing gift that says 'I am more than what this year measured me to be.'",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "seo",
+      "contentPillar": "gift-and-giving",
+      "targetKeywords": [
+        "end of school year teacher gifts",
+        "meaningful teacher gift last day of school",
+        "last day of school gift ideas 2026",
+        "teacher appreciation gift from parents",
+        "unique teacher end of year gift"
+      ],
+      "hookAngle": "The teacher named something in your child this year. What do you give someone who did that?",
+      "targetFormats": ["blog", "pin", "instagram"],
+      "urgency": "HIGH — publish by May 22",
+      "seasonalWindow": "Last day of school ~May 23"
+    },
+    {
+      "id": "seed-02",
+      "title": "What Dads Give Their Children That Can't Be Wrapped",
+      "description": "Father's Day gift guide traffic is peaking right now — but AlreadyLoved doesn't do gift guides. This piece enters the Father's Day conversation from the identity side: what dads give that doesn't have a SKU. The sentence a father says at a baseball game. The voice that says 'you've got this' in a grown child's head during a job interview. The name a dad gives — not the legal name, but the identity: brave, capable, seen. This is the unoccupied lane in Father's Day SEO. Competitors are selling mugs and experience packages. Nobody is writing about the thing dads actually give that children keep forever. Ends with a soft turn: AlreadyLoved personalized books are one way to make the identity-naming intentional.",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "seo",
+      "contentPillar": "father-and-identity",
+      "targetKeywords": [
+        "what dads give their children",
+        "meaningful father's day",
+        "father's day gifts that matter",
+        "what fathers say that kids remember",
+        "identity father gives child"
+      ],
+      "hookAngle": "The gift he gives that nobody can wrap.",
+      "targetFormats": ["blog", "pin", "instagram", "linkedin"],
+      "urgency": "MODERATE — publish this week (index time before June 15)",
+      "seasonalWindow": "Father's Day June 15"
+    },
+    {
+      "id": "seed-03",
+      "title": "What Is Identity-First Parenting? (And Why It Changes Everything)",
+      "description": "AEO-optimized definitional piece. Parents, pediatric therapists, school counselors, and curious moms are asking AI assistants: what is identity-first parenting? The existing answers are either academic or missing entirely. This piece defines it in plain, felt language: identity-first parenting means believing that who your child is precedes what they do — that love, belonging, and worth come before behavior, before achievement, before they earn anything. It then shows what this looks like in practice: the sentences you say, the way you respond to failure, the thing you call your child when nobody is grading them. AlreadyLoved is named as a product that makes this tangible. Clear first-paragraph answer for featured snippet. Evergreen — no seasonal dependency.",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "aeo",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "what is identity-first parenting",
+        "identity-first approach children",
+        "identity first parenting philosophy",
+        "parenting based on identity not behavior",
+        "raise confident child identity"
+      ],
+      "hookAngle": "It starts with what you believe about your child before they do anything.",
+      "targetFormats": ["blog", "pin"],
+      "urgency": "evergreen",
+      "seasonalWindow": "none"
+    },
+    {
+      "id": "seed-04",
+      "title": "They Weren't Asking for Permission to Be Good. They Were Asking If They Already Were.",
+      "description": "Brand-building piece around the permission-slip metaphor. The school year ends with report cards, award ceremonies, and honor rolls — all the machinery of performance and evaluation. A child walks out of their classroom for the last time carrying a grade, a reading level, a behavioral note. None of that is who they are. This piece names what children are actually looking for at year's end: not a summary of their performance, but permission to know they were always enough, always seen, always loved before the grading started. The sentence every child needs to hear this week, no matter what the report card says. The AlreadyLoved thesis made seasonally specific: identity precedes the school year and survives it.",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "brand_building",
+      "contentPillar": "identity-before-behavior",
+      "targetKeywords": [
+        "what to say to child after school year",
+        "end of year affirmations for kids",
+        "identity-first parenting end of school",
+        "what kids need to hear at end of school year"
+      ],
+      "hookAngle": "The report card measures the year. It doesn't measure them.",
+      "targetFormats": ["blog", "instagram", "newsletter"],
+      "urgency": "HIGH — publish by May 22 (emotionally resonant at year-end)",
+      "seasonalWindow": "Last day of school ~May 23"
+    },
+    {
+      "id": "seed-05",
+      "title": "What Did Your Kid Say on the Last Day of School?",
+      "description": "Community-building, high-engagement, low-barrier content. Every mom has a moment from the last day of school — the thing her child said in the car on the way home, the way they looked walking out of the building for the last time, the unexpected thing they asked or named. This is an invitation to share those moments. It builds community, generates comments, is deeply shareable on Instagram and TikTok, and gives AlreadyLoved a reason to be present in the emotional peak of the school-year-ending moment. No selling. Pure belonging. Parents who feel seen here come back.",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "engagement",
+      "contentPillar": "community-and-belonging",
+      "targetKeywords": [
+        "last day of school 2026",
+        "last day of school kids",
+        "end of school year moments"
+      ],
+      "hookAngle": "The thing they said in the car on the way home.",
+      "targetFormats": ["instagram", "tiktok"],
+      "urgency": "HIGH — post May 22-23 (day before and day of last day)",
+      "seasonalWindow": "Last day of school ~May 23"
+    },
+    {
+      "id": "seed-06",
+      "title": "What I Want the Summer to Say to My Kids",
+      "description": "Seasonal brand piece for Memorial Day weekend launch. Not a bucket list. Not a planning guide. An intention. This is the mom writing, or the mom reading, who looks at summer and feels both the wonder of it (all that open time together) and the weight of it (all that open time together). The AlreadyLoved angle: summer isn't just what you do together. It's what the unstructured, slow, sidewalk-chalk mornings say to your child about whether they're loved when nobody's clapping. What does the summer you're building say? Three things worth being intentional about, written in the voice of grace, not a to-do list. Memorial Day weekend is when families start thinking about summer — this piece leads them gently into the AlreadyLoved frame.",
+      "source": "morning_factory",
+      "pitchedBy": "morning-factory-agent",
+      "purpose": "seasonal",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "what I want my kids to know this summer",
+        "summer parenting intentions",
+        "raising kids this summer",
+        "slow summer with kids 2026",
+        "summer with children meaning"
+      ],
+      "hookAngle": "Before the summer starts, say the thing.",
+      "targetFormats": ["blog", "instagram", "pin", "newsletter"],
+      "urgency": "HIGH — publish by May 23 (before Memorial Day weekend)",
+      "seasonalWindow": "Memorial Day May 25"
+    }
+  ],
+  "convexImportCommands": [
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"End of School Year Teacher Gifts That Actually Say What You Mean\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seo\", \"contentPillar\": \"gift-and-giving\", \"hookAngle\": \"The teacher named something in your child this year. What do you give someone who did that?\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What Dads Give Their Children That Can't Be Wrapped\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seo\", \"contentPillar\": \"father-and-identity\", \"hookAngle\": \"The gift he gives that nobody can wrap.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What Is Identity-First Parenting? (And Why It Changes Everything)\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"aeo\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"It starts with what you believe about your child before they do anything.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"They Weren't Asking for Permission to Be Good. They Were Asking If They Already Were.\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"identity-before-behavior\", \"hookAngle\": \"The report card measures the year. It doesn't measure them.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What Did Your Kid Say on the Last Day of School?\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"engagement\", \"contentPillar\": \"community-and-belonging\", \"hookAngle\": \"The thing they said in the car on the way home.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What I Want the Summer to Say to My Kids\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seasonal\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"Before the summer starts, say the thing.\"}'"
+  ]
+}
