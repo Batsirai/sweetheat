@@ -1,0 +1,56 @@
+{
+  "brand": "AlreadyLoved Kids",
+  "date": "2026-05-21",
+  "agent": "afternoon-distribution",
+  "runTime": "2:00 PM ET",
+  "trendSource": "Psychology Today (end-of-school parent-emotion pieces published this week), Pinterest 2026 Parenting Trend Report (no-phone-summer +340%)",
+  "seeds": [
+    {
+      "id": "seed-pm-01",
+      "title": "When the Last Day of School Makes You the One Who Cries",
+      "description": "Psychology Today and The Globe and Mail both published parent-emotion pieces this week on the bittersweet end of school year. Both cover the parent's grief — the chapter closing, the logistical anxiety of summer. Neither names what that grief is actually about. The AlreadyLoved angle: when you cry at drop-off or in the parking lot, you are not being dramatic. You loved what that year meant for your child. You watched them become something in that classroom. Your tears are evidence that the year was real — that belonging happened, that growth happened, that your child was named by someone who saw them. This piece is the companion to the AEO article ('What to Say When Your Child Is Sad School Is Over'). It serves parents who feel embarrassed by their own end-of-year feelings and names those feelings as the truest form of love: noticing what mattered. No product angle needed. Pure brand. Pure belonging.",
+      "source": "agent_research",
+      "pitchedBy": "afternoon-distribution-agent",
+      "trendSignal": "Psychology Today 'Parenting Through the Bittersweet End of Another School Year' (May 2026) + Globe and Mail 'Is your kid sad about school ending?' (this week) — both cover parent emotion, neither names what it's about",
+      "purpose": "brand_building",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "why do I cry on the last day of school",
+        "parent emotions last day of school",
+        "bittersweet end of school year parent",
+        "why am I sad school is over mom",
+        "parent grief end of school year"
+      ],
+      "hookAngle": "Your tears don't need an explanation. They are the explanation.",
+      "targetFormats": ["blog", "instagram", "newsletter"],
+      "urgency": "HIGH — publish by May 23 (in the window)",
+      "seasonalWindow": "Last day of school ~May 23"
+    },
+    {
+      "id": "seed-pm-02",
+      "title": "What a Screen-Free Summer Actually Says to Your Child",
+      "description": "Pinterest's 2026 Parenting Trend Report shows 'no phone summer' at +340% YoY, 'screen free activities' at +200% YoY. Every article in this trend is instructional: how to do a screen-free summer. None of them name what the choice says to the child when you actually do it. The AlreadyLoved angle: when you put the phone down and look at your child in the middle of a Tuesday afternoon, your child's nervous system hears something specific. It hears: you are worth my full attention. You are more interesting than everything else. This is not about screens. It is about what your presence names in them. The summer doesn't need a plan. It needs your eyes on your child at ordinary moments. The identity frame applied to the biggest parenting trend of the season. AEO-ready: 'what screen free time says to a child' has no strong competitor in AI answer results. Ends with: AlreadyLoved books as one way to make the naming permanent — something they keep.",
+      "source": "agent_research",
+      "pitchedBy": "afternoon-distribution-agent",
+      "trendSignal": "Pinterest 2026 Parenting Trend Report: 'no phone summer' +340% YoY, 'screen free activities' +200% YoY, 'slow motherhood' top term",
+      "purpose": "aeo",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "what screen free summer means for kids",
+        "what does putting down phone say to child",
+        "slow summer identity children",
+        "no phone summer meaning",
+        "what undivided attention says to a child",
+        "screen free summer parenting 2026"
+      ],
+      "hookAngle": "You don't need a plan. You need to put the phone down and look at them.",
+      "targetFormats": ["blog", "pin", "instagram"],
+      "urgency": "HIGH — peak Pinterest search window now through July 4",
+      "seasonalWindow": "Memorial Day through July 4"
+    }
+  ],
+  "convexImportCommands": [
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"When the Last Day of School Makes You the One Who Cries\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"Your tears don\\'t need an explanation. They are the explanation.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What a Screen-Free Summer Actually Says to Your Child\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"aeo\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"You don\\'t need a plan. You need to put the phone down and look at them.\"}'"
+  ]
+}
