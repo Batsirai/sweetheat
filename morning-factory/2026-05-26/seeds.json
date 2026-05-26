@@ -1,0 +1,92 @@
+{
+  "date": "2026-05-26",
+  "brand": "AlreadyLoved",
+  "pitchedBy": "agent",
+  "note": "Network policy blocked Convex/Slack. Content generated locally. Manual import required.",
+  "seeds": [
+    {
+      "title": "Personalized Baptism Gifts: Books That Tell a Child Who They Already Are",
+      "description": "Parents searching for personalized baptism gifts often land on keepsake boxes or engraved frames. This post introduces the idea that a personalized book — one that weaves a child's name and identity into a story of being loved before they could earn it — is the gift that becomes the voice they hear when no one else is watching. Targets parents of infants being baptized (Catholic, Protestant, Orthodox), godparents searching for meaningful gifts, and grandparents wanting something lasting.",
+      "source": "agent_research",
+      "purpose": "seo",
+      "contentPillar": "gifts_and_milestones",
+      "targetKeywords": ["personalized baptism gifts", "personalized children's books baptism", "unique baptism gifts baby", "christian personalized baby books"],
+      "targetFormats": ["blog", "pin"],
+      "hookAngle": "GIFT",
+      "reasoning": "High purchase-intent keyword. Baptism season peaks spring/fall. Converts well because the buyer is already looking for something meaningful, not just decorative.",
+      "status": "pitched"
+    },
+    {
+      "title": "Bedtime Routine for Toddlers That Actually Builds Confidence (Not Just Sleep)",
+      "description": "Most bedtime routine articles cover the tactical: bath, book, song, lights out. This one goes deeper — what you say in those last 10 minutes becomes the inner voice your toddler carries. The post walks through a simple identity-affirming bedtime ritual and explains why a personalized book that says their name back to them is one of the most powerful tools a parent has. Targets parents of 2-5 year olds searching for bedtime routine help.",
+      "source": "agent_research",
+      "purpose": "seo",
+      "contentPillar": "parenting_rituals",
+      "targetKeywords": ["bedtime routine toddler", "toddler bedtime routine 3 year old", "bedtime affirmations toddler", "confidence building toddler bedtime"],
+      "targetFormats": ["blog", "pin"],
+      "hookAngle": "BEDTIME",
+      "reasoning": "One of the highest-volume parenting search queries. Most results are logistical. AlreadyLoved can own the identity angle — what you say at bedtime matters more than the schedule.",
+      "status": "pitched"
+    },
+    {
+      "title": "What Are the Best Personalized Children's Books? (What Experts Actually Say)",
+      "description": "A clear, direct answer to the question AI assistants and parents are asking. Structured as a comparison guide with a featured snippet hook: 'The best personalized children's books aren't just books with a child's name in them — they're books that teach children who they are.' Covers what to look for, why identity-based personalization matters more than just name insertion, and positions AlreadyLoved as the category leader for books that plant identity, not just delight.",
+      "source": "agent_research",
+      "purpose": "aeo",
+      "contentPillar": "brand_authority",
+      "targetKeywords": ["best personalized children's books", "personalized books for toddlers", "personalized books kids review", "are personalized books good for kids"],
+      "targetFormats": ["blog"],
+      "hookAngle": "IDENTITY",
+      "reasoning": "AEO play — this exact question is appearing in AI-generated answers. A well-structured post with direct answers in the first paragraph positions AlreadyLoved for AI citation and featured snippets.",
+      "status": "pitched"
+    },
+    {
+      "title": "What Kids Learn When We Stop Making Them Earn It",
+      "description": "A brand-building essay on the core AlreadyLoved philosophy. The world is very good at teaching children to perform for love — good grades, good behavior, good enough. This piece names what's actually happening when we pivot toward identity-first parenting: we're not lowering the bar. We're building the floor. Explores the Seed → Soil → Fruit model: when a child knows they're already loved (seed/identity), they naturally grow toward connection and good behavior. No guilt, no pressure — just the quiet revolution of a parent who says 'you don't have to earn this.'",
+      "source": "agent_research",
+      "purpose": "brand_building",
+      "contentPillar": "identity_first_parenting",
+      "targetKeywords": ["identity first parenting", "unconditional love children", "parenting without pressure"],
+      "targetFormats": ["blog", "caption_ig", "linkedin"],
+      "hookAngle": "IDENTITY",
+      "reasoning": "Core brand manifesto content. This type of piece builds subscriber loyalty, gets shared deeply (not broadly), and establishes AlreadyLoved as a philosophical category, not just a product.",
+      "status": "pitched"
+    },
+    {
+      "title": "The Night I Realized I'd Been Teaching My Kid to Earn Love",
+      "description": "A confessional, shareable piece written in first person from a mom's perspective. The moment: it's 9pm, the house is quiet, and she realizes her 4-year-old has been asking 'Are you proud of me?' after everything — drawing, eating dinner, picking up toys. And she realizes she's the one who taught that. Not maliciously. Just... incrementally. The post moves from guilt (briefly) to grace — this is how most of us were raised, and we can quietly, simply, start planting different seeds. Ends with a specific thing to say tonight at bedtime.",
+      "source": "agent_research",
+      "purpose": "engagement",
+      "contentPillar": "real_mom_moments",
+      "targetKeywords": ["teaching kids unconditional love", "parenting mistakes love"],
+      "targetFormats": ["blog", "caption_ig", "caption_tiktok"],
+      "hookAngle": "IDENTITY",
+      "reasoning": "High-share potential. The 'Are you proud of me?' moment is universally recognizable. Creates emotional connection and drives saves/shares on social. No shame spiral — ends with grace and a simple action.",
+      "status": "pitched"
+    },
+    {
+      "title": "Father's Day Gifts That Tell Your Son He's Already Enough",
+      "description": "Most Father's Day content is dad-focused. This one flips it: the best gift a dad can give his son or daughter is the knowledge that they don't have to become someone to deserve love — they already are someone. Combines a Father's Day gift guide angle (personalized books for dads to give their kids, or for moms to give on behalf of dad) with a deep idea about fathers and identity formation. Practical: includes AlreadyLoved book ideas as gifts from dad to child, or a meaningful read-together ritual.",
+      "source": "agent_research",
+      "purpose": "seo",
+      "contentPillar": "gifts_and_milestones",
+      "targetKeywords": ["father's day gifts from dad to kids", "meaningful father's day gifts children", "personalized books father's day", "gifts for kids from dad fathers day"],
+      "targetFormats": ["blog", "pin", "caption_ig"],
+      "hookAngle": "GIFT",
+      "reasoning": "Father's Day is June 15 — 3 weeks out. Purchase-intent window is now. This angle (dad giving to child) is underserved in Father's Day content. AlreadyLoved owns this positioning.",
+      "status": "pitched"
+    },
+    {
+      "title": "What Memorial Day Taught Me About What My Kids Will Actually Remember",
+      "description": "A timely, reflective piece for Memorial Day week. Not about war or patriotism — about legacy. We pause today to remember people. What do we want our kids to remember about us — and about themselves? The piece circles back to the AlreadyLoved core: the phrases we repeat, the books we read at night, the way we say their name — these become the inner voice they carry into hard moments. Light seasonal hook, deep brand message. Ends with a quote from a character (Simmone or Mei) and a gentle CTA.",
+      "source": "agent_research",
+      "purpose": "engagement",
+      "contentPillar": "identity_first_parenting",
+      "targetKeywords": ["memorial day family activities", "memorial day kids meaning"],
+      "targetFormats": ["blog", "caption_ig"],
+      "hookAngle": "IDENTITY",
+      "reasoning": "Timely hook (Memorial Day today) with a deeply AlreadyLoved angle on legacy and memory. Earns attention via the holiday, delivers brand message about what kids carry forward.",
+      "status": "pitched"
+    }
+  ]
+}
