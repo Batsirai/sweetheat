@@ -1,0 +1,82 @@
+{
+  "date": "2026-05-30",
+  "brand": "AlreadyLoved",
+  "totalSeeds": 7,
+  "seeds": [
+    {
+      "seedId": "SEED_ID_ACTOUT_GOOD_DAYS",
+      "title": "Why Does My Child Act Out After Good Days? (The Answer Changes Everything)",
+      "purpose": "aeo_citation",
+      "contentPillar": "belonging",
+      "targetKeywords": ["why does my child act out after a good day", "child behavior after fun day", "toddler meltdown after good day", "child acts worse after positive experience", "why do kids act out when happy"],
+      "format": ["blog"],
+      "hook": "You had a perfect day. Playground, ice cream, everyone laughing. And then the drive home. What happened?",
+      "reasoning": "This is one of the most-searched counter-intuitive parenting questions. AlreadyLoved answer: kids stress-test belonging hardest when they've just experienced it. The good day raised the stakes. The meltdown is a question: 'Was that real? Do I still belong even now?' Positions brand for AI citation in a high-anxiety parenting search."
+    },
+    {
+      "seedId": "SEED_ID_TODDLER_BOOKS_REAL",
+      "title": "The Best Books for 2-Year-Olds That Aren't Just Colors and Animals",
+      "purpose": "organic_seo",
+      "contentPillar": "identity",
+      "targetKeywords": ["best books for 2 year olds", "toddler books about feelings", "books for toddlers identity", "meaningful toddler books", "personalized books 2 year old"],
+      "format": ["blog", "pin"],
+      "hook": "The color-and-animal books are fine. But there's a shelf of books your two-year-old is ready for — the ones that say something real.",
+      "reasoning": "High-volume SEO. Parent with a 2-year-old is in the sweet spot of the AlreadyLoved customer. Frames personalized identity books as the upgrade from typical board books. Natural product mention without selling."
+    },
+    {
+      "seedId": "SEED_ID_ENOUGH_JUST_BY_BEING",
+      "title": "She Stopped Trying So Hard When She Finally Knew",
+      "purpose": "brand_building",
+      "contentPillar": "identity",
+      "targetKeywords": ["raising confident daughter", "helping child feel enough", "unconditional love parenting", "identity first parenting", "children who feel worthy"],
+      "format": ["blog", "caption_ig", "tweet"],
+      "hook": "She used to perform. Dance harder, hug longer, be funnier. The day that stopped, I understood what I'd been missing.",
+      "reasoning": "Core AlreadyLoved insight as a narrative. Seed -> Soil -> Fruit. A child who performs love earned it from somewhere. Naming that pattern is brand-defining. High emotional resonance, very shareable among moms recognizing their own childhood."
+    },
+    {
+      "seedId": "SEED_ID_GODPARENT_GIFTS",
+      "title": "Godparent Gift Ideas That Feel Like You Actually Know the Child",
+      "purpose": "organic_seo",
+      "contentPillar": "belonging",
+      "targetKeywords": ["godparent gift ideas", "gifts from godparent to child", "meaningful godparent gifts", "personalized gifts godchildren", "baptism godparent gift"],
+      "format": ["blog", "pin"],
+      "hook": "You've been named. You carry a particular kind of love for this particular child. The gift should say that.",
+      "reasoning": "Baptism season running through September. Godparents are a high-intent gifting segment — they want something personal. AlreadyLoved personalized books are the obvious fit. Distinct from the May 29 general baptism article, this speaks directly to the godparent identity."
+    },
+    {
+      "seedId": "SEED_ID_LAST_DAY_OF_SCHOOL",
+      "title": "What to Say on the Last Day of School (That Has Nothing to Do With Grades)",
+      "purpose": "engagement",
+      "contentPillar": "identity",
+      "targetKeywords": ["last day of school message for kids", "what to say to your child last day of school", "end of school year encouragement", "last day of kindergarten message"],
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "hook": "The report card comes home. And all I want to say is: none of that is who you are.",
+      "reasoning": "The last day of school is this week for most families. Hyper-timely. Parents are composing their mental speech on the drive home. AlreadyLoved answer: what you say about who they ARE matters more than what you say about what they DID. Very shareable."
+    },
+    {
+      "seedId": "SEED_ID_WHEN_PARENT_IS_TIRED",
+      "title": "What Your Child Needs When You Have Nothing Left to Give",
+      "purpose": "engagement",
+      "contentPillar": "belonging",
+      "targetKeywords": ["exhausted parent toddler", "when you have nothing left as a parent", "parenting while depleted", "tired mom parenting", "parent guilt about being tired"],
+      "format": ["blog", "caption_ig"],
+      "hook": "It was 6pm. I was running on four hours of sleep and a granola bar. And she needed her mom. Not a Pinterest mom. Just me.",
+      "reasoning": "Speaks directly to the brand's primary audience — tired moms reading at 10pm. AlreadyLoved reframe: presence, not performance. You don't have to be at your best to show them they belong. Reduces guilt and pressure. Should outperform most pieces we've written."
+    },
+    {
+      "seedId": "SEED_ID_FATHERS_DAY_LETTER",
+      "title": "A Letter Dads Can Read When the Work Feels Invisible",
+      "purpose": "seasonal",
+      "contentPillar": "belonging",
+      "targetKeywords": ["encouragement for dads", "father's day message for hard-working dads", "what to tell dads on father's day", "appreciation for quiet dads", "fathers who feel unseen"],
+      "format": ["blog", "caption_ig", "tweet"],
+      "hook": "He doesn't need a tie. He needs someone to say: we see the things you do that no one mentions.",
+      "reasoning": "Different Father's Day format from May 28 (child's letter to dad) and May 29 (for the dad who doesn't think he's doing enough). This is a direct letter — intimate, not instructional. Father's Day safe publish window closes June 8 = 9 days. Very different emotional register from prior pieces."
+    }
+  ],
+  "convexStatus": "403 from cloud environment — paste create commands manually in dashboard",
+  "manualConvexCommands": [
+    "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"Why Does My Child Act Out After Good Days? (The Answer Changes Everything)\", \"purpose\": \"aeo_citation\", \"contentPillar\": \"belonging\", \"targetKeywords\": [\"why does my child act out after a good day\"], \"format\": [\"blog\"], \"status\": \"pending\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"The Best Books for 2-Year-Olds That Aren't Just Colors and Animals\", \"purpose\": \"organic_seo\", \"contentPillar\": \"identity\", \"targetKeywords\": [\"best books for 2 year olds\", \"personalized books 2 year old\"], \"format\": [\"blog\", \"pin\"], \"status\": \"pending\"}'"
+  ]
+}
