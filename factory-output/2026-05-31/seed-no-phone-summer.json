@@ -1,0 +1,37 @@
+{
+  "date": "2026-05-31",
+  "brand": "AlreadyLoved",
+  "source": "agent_research",
+  "pitchedBy": "afternoon_distribution_agent",
+  "trendSignal": {
+    "query": "no phone summer",
+    "searchGrowth": "+340% YoY (Pinterest 2026 Parenting Trend Report)",
+    "peakWindow": "June–August 2026",
+    "platforms": ["Pinterest", "Instagram", "r/Parenting", "r/Mommit"]
+  },
+  "seed": {
+    "seedId": "SEED_ID_NO_PHONE_SUMMER",
+    "title": "What the No-Phone Summer Actually Gives Your Child (It's Not What You Think)",
+    "purpose": "timely_trend",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "no phone summer kids",
+      "analog childhood 2026",
+      "screen free summer activities",
+      "phone free summer children",
+      "what unstructured play gives kids",
+      "boredom is good for children",
+      "feral child summer identity",
+      "raising children without screens identity"
+    ],
+    "format": ["blog", "pin", "caption_ig"],
+    "hook": "You're not just taking away the screen. You're giving them something the screen was quietly stealing — the chance to find out who they are when no one is watching.",
+    "reasoning": "Pinterest 'no phone summer' searches are up 340% YoY. This is the #1 parenting trend of 2026. Every competitor is writing this article as a screen-time tips listicle. AlreadyLoved doesn't write screen-time tips — we write identity. Our angle: boredom at the creek, the backyard, the quiet afternoon isn't deprivation. It's the laboratory where your child discovers who they are when no algorithm is curating their experience. A child who knows they're already loved doesn't need the validation loop. This connects directly to the brand thesis AND to the feral child summer seed (PM-02, pitched May 24) — consider writing them together or as a two-part sequence.",
+    "connectedSeeds": ["SEED_ID_FERAL_CHILD_SUMMER"],
+    "seoAngle": "AEO-ready: 'what does no phone summer do for kids' — we answer the identity question that every other article misses.",
+    "competitorGap": "All competitor articles are about screen time limits, schedules, and replacement activities. None answer: what is the child learning ABOUT THEMSELVES in the analog space? That gap is AlreadyLoved.",
+    "urgency": "🔴 HIGH — Peak trend window is now. June is the publish-or-miss moment. Searches will begin climbing the first week of June as summer break starts."
+  },
+  "convexCommand": "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What the No-Phone Summer Actually Gives Your Child (It's Not What You Think)\", \"purpose\": \"timely_trend\", \"contentPillar\": \"identity\", \"targetKeywords\": [\"no phone summer kids\", \"analog childhood 2026\", \"screen free summer\", \"unstructured play identity\"], \"format\": [\"blog\", \"pin\", \"caption_ig\"], \"status\": \"pending\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\"}'",
+  "status": "pending_manual_convex_entry"
+}
