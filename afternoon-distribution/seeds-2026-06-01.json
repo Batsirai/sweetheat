@@ -1,0 +1,61 @@
+{
+  "run_date": "2026-06-01",
+  "agent": "afternoon_distribution",
+  "brand": "AlreadyLoved",
+  "seeds": [
+    {
+      "title": "When School Ends and Your Child Loses Who They Were",
+      "purpose": "engagement",
+      "content_pillar": "identity",
+      "target_keywords": [
+        "child sad school is over",
+        "kids lose identity summer",
+        "child cries at end of school year",
+        "sensitive child end of school year",
+        "child identity outside of school"
+      ],
+      "format": ["blog", "caption_ig", "pin"],
+      "hook": "She walked out on the last day and didn't look like she'd just been freed. She looked like she'd lost something. She had.",
+      "reasoning": "Trend signal: Globe and Mail + multiple mental health sites flagging that sensitive/connected children experience end-of-school as loss, not relief. First week of summer is the exact window this piece would be found and shared. Most parenting content addresses summer as logistics problem (screen time, boredom, structure). Nobody is writing about the identity dimension — that school gave kids a tribe, a daily role, a recurring answer to 'who am I here?' AlreadyLoved angle: identity doesn't live at school. It travels home with them. This is a discovery moment.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week"
+    },
+    {
+      "title": "The Week After School Ends (Nobody Told You It Would Feel Like This)",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "target_keywords": [
+        "first week of summer break parenting",
+        "kids bored first week of summer",
+        "summer break adjustment period",
+        "maycember recovery",
+        "after school ends exhausted parent"
+      ],
+      "format": ["blog", "caption_ig", "tweet"],
+      "hook": "The last school bell rang. You exhaled. And then Monday came, and you realized no one told you about the week after.",
+      "reasoning": "Trend: 'Maycember' TikTok trend (Holderness family, viral) captures parent exhaustion at end-of-school. The conversation is live RIGHT NOW in the first week of June. AlreadyLoved angle: this piece meets the parent in the Maycember hangover and shifts from logistics (how do we survive summer) to identity (this unstructured time is where your child discovers who they are without a role). Permission-giving. High share potential. Window: this week only.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week"
+    },
+    {
+      "title": "The Invisible Gift Fathers Give (That Never Gets Mentioned in the Card)",
+      "purpose": "seasonal",
+      "content_pillar": "belonging",
+      "target_keywords": [
+        "what fathers do that no one notices",
+        "father's day appreciation invisible work dad",
+        "quiet dads who show up",
+        "father's day 2026",
+        "what to say to your husband father's day"
+      ],
+      "format": ["blog", "caption_ig", "pin"],
+      "hook": "He didn't make the school run feel magical. He just made it every day. There's a difference. But both matter.",
+      "reasoning": "Trend: Father's Day 2026 shifting toward emotional connection over gifts — appreciation for presence, reliability, invisible labor. Distinct from the 3 existing Father's Day seeds (May 28 child letter, May 29 dad who doesn't feel enough, May 30 letter to hard-working dads). This targets the spouse audience — moms composing what to say to their husbands. High share potential. Father's Day June 21 = safe publish deadline June 8 = 7 days. ⚠️ Urgent window.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "june_8_deadline"
+    }
+  ]
+}
