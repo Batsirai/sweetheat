@@ -1,0 +1,106 @@
+{
+  "run_date": "2026-06-04",
+  "brand": "AlreadyLoved",
+  "context": "June 4, 2026 (Thursday) — Father's Day June 21 (17 days). SAFE PUBLISH DEADLINE JUNE 8 = 4 DAYS. First full week of summer for most US families. Baptism season ongoing through September. Daughter article written today (daughter-worth-fathers-day) — son article is next urgent Father's Day piece.",
+  "seeds": [
+    {
+      "title": "What Your Son Is Learning About How Men Love by Watching You",
+      "purpose": "seasonal",
+      "season": "fathers_day_2026",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "father son relationship lessons",
+        "what sons learn from fathers",
+        "how dads shape sons",
+        "raising emotionally intelligent boys",
+        "father influence on son",
+        "what boys learn from their dads"
+      ],
+      "hook": "She learned from watching. But so did he. Your son is writing down everything about what it means to be a man who loves people — and he's getting most of it from you.",
+      "alreadyloved_angle": "Complement to the June 2 daughter article but boy-specific. Sons don't just learn skills from their fathers — they learn whether men stay. Whether men apologize. Whether men cry. Whether a man can be strong and tender at the same time. They're watching for all of it. This is identity formation for boys — their picture of what a man is allowed to feel.",
+      "urgency": "FATHER'S DAY JUNE 21. Safe publish deadline June 8 = 4 DAYS. Write and publish immediately.",
+      "seo_notes": "Companion piece to the daughter article written today. Boy-specific angle has distinct search volume. High emotional resonance for dads of sons."
+    },
+    {
+      "title": "What Does 'Unconditional Love' Actually Mean for a Child?",
+      "purpose": "aeo_citation",
+      "content_pillar": "belonging",
+      "format": ["blog"],
+      "target_keywords": [
+        "unconditional love for children definition",
+        "how to show unconditional love to a child",
+        "what is unconditional love parenting",
+        "unconditional love vs conditional love children",
+        "teaching children unconditional love"
+      ],
+      "hook": "Every parent says it. 'I love you no matter what.' But children don't process words — they process experience. What does unconditional love actually feel like to a child, and how do they know if they have it?",
+      "alreadyloved_angle": "Unconditional love is not the absence of consequence — it's the unshakeable baseline that a child's belonging is never at stake. Kids test this constantly. The misbehavior is often the test: 'Am I still yours even now?' When a child knows the answer is yes before they even ask, that's unconditional love in practice. It changes how they move in the world.",
+      "seo_notes": "High AI citation potential. Direct answer format for featured snippet. This is the core AlreadyLoved philosophy translated into a searchable question — positions brand as the authoritative voice."
+    },
+    {
+      "title": "Personalized Books for Boys: What to Look for Beyond Sports and Cars",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "personalized books for boys",
+        "meaningful books for boys",
+        "books for boys about feelings",
+        "personalized children's books for boys",
+        "books that build confidence in boys"
+      ],
+      "hook": "The personalized book section has a lot of boys playing soccer. But your son is a whole person — and he already knows, somewhere deep, when a gift is about a boy in general versus about him specifically.",
+      "alreadyloved_angle": "Boys receive fewer identity-first stories than girls. The gap between what boys are given to read and what they actually need to understand about themselves is real and measurable. A book that speaks to his inner life — his name in a story that says he is brave, kind, worthy — is different from anything else on the shelf. Soft CTA territory.",
+      "seo_notes": "Fills a gap in the existing content library — all personalized book content so far has been gender-neutral or girl-skewing. Boys are a distinct search segment. High commercial intent."
+    },
+    {
+      "title": "She Was Performing. I Didn't Know I'd Taught Her To.",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "child who people pleases",
+        "raising daughter who people pleases",
+        "child performs emotions",
+        "helping child feel enough",
+        "unconditional love parenting daughter"
+      ],
+      "hook": "She was four and she already apologized when she cried. 'Sorry, Mommy.' She was apologizing for having a feeling. And I had to sit with that — where did she learn that feelings required an apology?",
+      "alreadyloved_angle": "The child who manages other people's emotions, hides her own needs, apologizes for existing — she is not a 'good' child. She's a child who has learned that her belonging is conditional. This is the hardest mirror AlreadyLoved holds up. And the most important. The fix is not correction — it's re-establishing unconditional ground.",
+      "seo_notes": "Deeply shareable among moms who see themselves or their daughters in this. Core brand-defining content. High emotional resonance."
+    },
+    {
+      "title": "How to Build an Emotional Vocabulary With Your Toddler (Without It Feeling Like Homework)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "emotional vocabulary for toddlers",
+        "teaching kids to name emotions",
+        "emotional intelligence toddler",
+        "feelings vocabulary preschool",
+        "help toddler identify emotions"
+      ],
+      "hook": "She threw the cup because she didn't have the word for what she was feeling. That's it. The whole meltdown was a vocabulary problem — and once I understood that, everything changed.",
+      "alreadyloved_angle": "Naming feelings is not therapy-speak — it's the most practical parenting tool there is. When children have language for their interior world, they don't have to act it out. But beyond the behavior: naming feelings says 'your inner world is real and it matters to me.' That's identity formation. That's belonging.",
+      "seo_notes": "High search volume among parents of toddlers 2-4. Practical framing that leads naturally to AlreadyLoved identity-first message. Distinct from previous emotion content."
+    },
+    {
+      "title": "Week Four of Summer. This Is When the Real Parenting Happens.",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "target_keywords": [
+        "surviving summer with kids",
+        "summer boredom kids parenting",
+        "summer with kids is hard",
+        "tired summer parent",
+        "summer parenting honest"
+      ],
+      "hook": "The magic ran out somewhere around day eighteen. Nobody wants to say it. Everyone's a little bored, the backyard feels small, and the vacation feels like it was in another life. This is actually when the most important part of summer begins.",
+      "alreadyloved_angle": "The bored summer is not a failure. It's an invitation. Kids who sit in the discomfort of 'there's nothing to do' and still feel safe, still find their way back to you — those kids are learning the deepest belonging. Not dependent on entertainment or performance or adventure. Just real. That's harder to create than a theme park day, and it's worth more.",
+      "seo_notes": "Timely mid-June angle as summer shine fades. Anti-guilt, anti-pressure framing. Very shareable among moms who feel summer anxiety. Would perform well on Pinterest in the 'honest parenting' category."
+    }
+  ]
+}
