@@ -1,0 +1,26 @@
+{
+  "run_date": "2026-06-09",
+  "agent": "afternoon_distribution",
+  "brand": "AlreadyLoved",
+  "seeds": [
+    {
+      "title": "What You're Telling Your Child When You Track Them at Camp",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin"],
+      "target_keywords": [
+        "tracking kids at summer camp",
+        "summer camp anxiety parent",
+        "letting kids have independence at camp",
+        "summer camp separation anxiety parent",
+        "should I monitor my child at camp"
+      ],
+      "hook": "The app sends you a photo every few hours. A location ping when they cross into the dining hall. You can see, in real time, whether they're smiling. And you check it constantly — because what if they're not okay? But here's the question underneath that question: what is it like to be a child who is always being watched for signs that they need rescuing?",
+      "alreadyloved_angle": "The camp surveillance trend (Slate, May 2026: parents using facial recognition + GPS tracking at sleepaway camp) is exploding. Every other parenting site is treating it as a logistics/safety debate. Nobody is writing about what the watching communicates to the child. AlreadyLoved angle: a child who is constantly monitored learns that they are not trusted to be okay without you watching. Their security comes from your surveillance, not from within. The alternative isn't abandonment — it's the radical act of sending them with something sturdier than a location pin: the knowledge that they belong to you regardless of whether you can see them.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week",
+      "trend_source": "Slate May 2026 — summer camp monitoring trend; camp enrollment season peak"
+    }
+  ]
+}
