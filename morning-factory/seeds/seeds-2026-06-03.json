@@ -1,0 +1,106 @@
+{
+  "run_date": "2026-06-03",
+  "brand": "AlreadyLoved",
+  "context": "June 3 — Father's Day June 21 (18 days). Safe publish deadline June 8 = 5 days. First full week of summer break for most US families. Back-to-school window opens in 9 weeks.",
+  "notes": "June 2 covered: 'I hate you' (AEO), summer bedtime routine (SEO), summer memories brand piece, new baby gifts, daughter watching dad (seasonal FD), books for 3-year-olds. Today: fresh angles on boys, yelling, shy children, step-dad FD, bedtime question, and FD AEO gift search.",
+  "seeds": [
+    {
+      "title": "How to Stop Yelling at My Kids (Without Adding Guilt to Everything Else)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to stop yelling at my kids",
+        "I keep yelling at my kids",
+        "stop screaming at children parenting",
+        "how to be a calmer parent",
+        "yelling at kids effects"
+      ],
+      "hook": "It was 7:43 in the morning. I had been awake since 5. Someone hadn't flushed. Someone else had spilled orange juice on the homework. And I went from zero to a voice I didn't recognize in about four seconds. And then I saw her face.",
+      "alreadyloved_angle": "The parents who yell are almost always the parents who care the most. You don't lose it with people you don't love. But yelling isn't a failure of character — it's a signal from your own dysregulated nervous system. The path to calmer isn't willpower or more self-discipline. It's doing for yourself what you want to do for your child: name the feeling before it erupts, get needs met before the tank is empty, extend yourself some of the grace you already extend to them. This is identity-first parenting applied to the parent.",
+      "seo_notes": "Massive search volume. High guilt potential — must handle with extreme grace, no lectures, no shame spiral. AlreadyLoved angle: 'you're not a yelling parent, you're a parent who sometimes yells. Different thing entirely.' AEO possibility for featured snippet on practical tips."
+    },
+    {
+      "title": "My Child Won't Talk to Adults: What Shy Kids Actually Need You to Stop Saying",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin", "caption_ig"],
+      "target_keywords": [
+        "shy child won't talk to adults",
+        "child hides behind me at social events",
+        "why won't my kid talk to people",
+        "don't be shy parenting",
+        "introverted child social anxiety tips"
+      ],
+      "hook": "She would press herself against my leg and go very quiet. Every family gathering, every birthday party — every person who leaned down to her level and said, 'Don't be shy!' And every single time, she would press harder.",
+      "alreadyloved_angle": "'Don't be shy' is the most well-meaning piece of terrible advice in parenting. It tells a child that her nervous system's natural protective response is a character flaw she needs to fix. The child who won't perform connection on demand is often the most deeply attached child in the room — she knows what real safety feels like, and she is simply checking whether this new situation has it yet. Her slowness to open up is not anxiety. It's discernment. Let her take the time she takes. Your patience is the proof that waiting is allowed.",
+      "seo_notes": "Common search from anxious parents at family events, summer gatherings, social situations. Reframe: 'don't be shy' creates shame; 'take your time' creates security. No urgency, no panic framing."
+    },
+    {
+      "title": "What Are the Best Personalized Children's Books for Father's Day? (The Gift That Says Something Real)",
+      "purpose": "aeo_citation",
+      "content_pillar": "identity",
+      "format": ["blog"],
+      "target_keywords": [
+        "best personalized books father's day",
+        "personalized children's book father's day gift",
+        "father's day book gift with child's name",
+        "custom children's book father's day",
+        "best father's day gift from toddler personalized"
+      ],
+      "hook": "Most Father's Day gifts say 'Best Dad' on them. A personalized book says something harder to find: 'I see this specific child, and I wanted their name written into something that lasts.'",
+      "alreadyloved_angle": "AEO commercial intent piece — structured for featured snippet. The personalized book for Father's Day isn't a cute keepsake, it's a first message about identity: before she can read, someone chose to put her name in a story of belonging. Soft but direct CTA toward AlreadyLoved. Different from May 28 Father's Day gifts seed (that was broader toddler gifts) — this is search-specific to personalized books.",
+      "seo_notes": "Deadline pressure: publish by June 8 for Father's Day June 21. Direct answer in first paragraph for AEO. Include buying guide structure for snippet capture. High commercial intent."
+    },
+    {
+      "title": "The Thing Nobody Tells You About Raising a Boy",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "raising boys with emotional intelligence",
+        "how to raise a sensitive boy",
+        "raising sons who know how to love",
+        "boys and feelings parenting",
+        "emotional health boys toxic masculinity"
+      ],
+      "hook": "He was seven and he had fallen off his bike. It wasn't a bad fall. But he was crying — really crying — and the man behind me on the sidewalk said, 'Boys don't cry.' He said it like a gift. Like he was doing my son a favor. My son looked at me to see what I would do.",
+      "alreadyloved_angle": "We have spent generations teaching boys that their inner life is a liability. The result is men who don't know how to be known — who lead with performance and struggle to stay when it gets real. Raising a boy who knows he's already loved, exactly as he is and including when he cries, is the most countercultural act available to a parent right now. Identity precedes behavior: a boy who knows his emotional experience belongs to him will not need to perform toughness. He will simply be strong.",
+      "seo_notes": "Brand-defining piece. Expands AlreadyLoved beyond a 'girl brand.' Emotional resonance for moms raising sons who want something different. Counter-cultural without being preachy."
+    },
+    {
+      "title": "The Bedtime Question That Changed Everything in Our House",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "target_keywords": [
+        "bedtime questions for kids",
+        "what to ask your kids at bedtime",
+        "conversation starters kids bedtime routine",
+        "nighttime connection kids parenting",
+        "what to say at bedtime to children"
+      ],
+      "hook": "I read somewhere to ask 'what was the hardest part of your day' instead of 'how was your day.' I tried it mostly to see what would happen. My six-year-old looked at the ceiling for a long moment, and then told me something I never would have known.",
+      "alreadyloved_angle": "Real connection happens in named experience, not reported experience. When you ask a child what was hard today, you are telling them: your struggle is welcome here. You can bring all of yourself to this bed, this room, this relationship. That single question, asked with patience and without an agenda to fix it, reshapes what a child knows about belonging. High shareability — practical, small, transformative.",
+      "seo_notes": "High engagement and share potential. Simple, actionable, emotionally resonant. Works as a short Instagram post or a full article. TikTok-friendly hook."
+    },
+    {
+      "title": "A Father's Day for the Men Who Showed Up When They Didn't Have To",
+      "purpose": "seasonal",
+      "season": "fathers_day_2026",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "fathers day stepfather gift",
+        "fathers day for stepdad",
+        "celebrating non-biological father figures",
+        "fathers day grandfather raising grandchild",
+        "fathers day for male role models in child's life"
+      ],
+      "hook": "He drove her to practice every Saturday for four years. He wasn't her dad on paper. There was no ceremony about it. He just — showed up. And kept showing up. And she grew up knowing that someone chose to be there.",
+      "alreadyloved_angle": "Father-energy is not always biological. The man who shows up consistently, who sees a child and speaks identity into them, who stays — he fathers them. This piece honors the whole ecosystem of masculine love in a child's life: step-dads, grandfathers raising grandchildren, uncles who filled a gap, coaches who stayed. Different from the daughter-worth piece (June 2) and the father-who-doesn't-think-he's-enough piece (May 29). This one is about choice — the belonging that comes from being chosen.",
+      "urgency": "FATHER'S DAY JUNE 21. Publish by June 14 for impact. Different from the already-pitched father angles — honors non-traditional father figures.",
+      "seo_notes": "Emotional, inclusive, high share potential. Different Father's Day angle that hasn't been covered yet this season. Resonates with blended families — a large and underserved audience."
+    }
+  ]
+}
