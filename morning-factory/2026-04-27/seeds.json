@@ -1,0 +1,74 @@
+[
+  {
+    "title": "The Best Personalized Books for Toddlers (That Actually Matter)",
+    "description": "Long-tail SEO targeting parents searching for personalized toddler books. Focuses on why identity-based books matter more than entertainment—connects AlreadyLoved's philosophy to the search intent. Target keyword cluster: 'personalized books for toddlers', 'personalized children's books', 'toddler name books'.",
+    "purpose": "seo",
+    "contentPillar": "identity",
+    "targetKeywords": ["personalized books for toddlers", "personalized children's books", "toddler name books", "books with child's name"],
+    "hookAngle": "The difference between a book that entertains and a book that forms identity",
+    "templateType": "list+narrative",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "pin"]
+  },
+  {
+    "title": "Mother's Day Gift That Tells Your Child Who They Are",
+    "description": "Seasonal SEO targeting Mother's Day 2026 (May 11). Parents searching for 'meaningful mother's day gifts for kids' and 'gifts from mom to child'. Angle: the gift you give your child that outlasts any toy—a story that names who they already are. Timely window: 2 weeks to Mother's Day.",
+    "purpose": "seo_seasonal",
+    "contentPillar": "connection",
+    "targetKeywords": ["mother's day gift from mom to child", "meaningful mother's day gifts", "personalized gift for child mother's day 2026"],
+    "hookAngle": "What if the best Mother's Day gift isn't for the mom—it's for the child?",
+    "templateType": "narrative+gift-guide",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "pin", "instagram", "tiktok"]
+  },
+  {
+    "title": "What Is Identity-First Parenting? (And Why It Changes Everything)",
+    "description": "AEO seed targeting AI-cited answers for the question 'what is identity-first parenting'. Opens with a clear, quotable definition. Positions AlreadyLoved as the authority on this emerging framework. Optimized for Google's Featured Snippet and AI assistants like Claude, ChatGPT, Perplexity.",
+    "purpose": "aeo",
+    "contentPillar": "identity",
+    "targetKeywords": ["what is identity-first parenting", "identity first parenting", "identity based parenting approach"],
+    "hookAngle": "A direct, quotable definition followed by the 'why it matters' science",
+    "templateType": "faq+explainer",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "pin"]
+  },
+  {
+    "title": "The Day I Realized My Daughter Was Performing for My Approval",
+    "description": "High-engagement seed. Relatable mom moment that opens with vulnerability—a specific scene every parent will recognize—then pivots to the core AlreadyLoved insight. Shareable because it names something parents feel but can't articulate: the difference between earning love and knowing love. High Pinterest and Instagram potential.",
+    "purpose": "engagement",
+    "contentPillar": "belonging",
+    "targetKeywords": ["kids performing for approval", "parenting unconditional love", "how to raise confident kids"],
+    "hookAngle": "The moment I saw my daughter scan my face before she laughed",
+    "templateType": "personal-essay+insight",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "instagram", "tiktok", "linkedin", "twitter"]
+  },
+  {
+    "title": "What You Say Before Bedtime Becomes Their Inner Voice",
+    "description": "Brand-building seed. Anchors the AlreadyLoved soundbite 'What you say today becomes their inner voice tomorrow.' Not selling a product—revealing a truth about how identity forms. Deep resonance with the 10pm mom reading on her phone. High save/share rate on Pinterest and Instagram.",
+    "purpose": "brand",
+    "contentPillar": "identity",
+    "targetKeywords": ["bedtime routine toddler talking", "what to say to kids at bedtime", "positive affirmations for kids"],
+    "hookAngle": "The last thing they hear before sleep becomes the first thing they tell themselves",
+    "templateType": "short-essay+list",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "pin", "instagram", "linkedin"]
+  },
+  {
+    "title": "Why 'Good Job' Is Not Enough (What Kids Actually Need to Hear)",
+    "description": "SEO seed targeting the massive search cluster around praising kids. Parents search this because they've read that 'good job' is bad, but no one has told them what to say instead. AlreadyLoved answers this beautifully—identity-naming over performance-praising. Connects directly to the product's core promise.",
+    "purpose": "seo",
+    "contentPillar": "connection",
+    "targetKeywords": ["what to say instead of good job to kids", "praising kids the right way", "growth mindset praise children"],
+    "hookAngle": "You already stopped saying 'good job.' But what do you say now?",
+    "templateType": "problem+solution",
+    "pitchedBy": "morning-factory",
+    "source": "agent",
+    "targetFormats": ["blog", "pin", "instagram"]
+  }
+]
