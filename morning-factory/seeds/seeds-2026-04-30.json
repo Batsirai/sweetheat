@@ -1,0 +1,135 @@
+[
+  {
+    "title": "The Last-Minute Mother's Day Gift That Actually Means Something",
+    "description": "11 days out. Moms are googling gifts in a panic. This seed captures high-intent buyers who've waited too long and want something real — not a candle. Positions personalized books as the gift that still ships in time and lasts forever.",
+    "source": "agent_research",
+    "status": "approved",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "gift",
+    "targetKeywords": [
+      "last minute mother's day gifts",
+      "meaningful mother's day gift ideas 2026",
+      "personalized gifts that ship fast",
+      "mother's day gift from kid to mom"
+    ],
+    "targetFormats": ["blog", "pin", "ig"],
+    "hookAngle": "GIFT",
+    "templateType": "PROB",
+    "reasoning": "Mother's Day is May 11 — exactly 11 days. The last 10 days are peak panic-buying volume. 'Last minute meaningful gift' is the highest-urgency search that still converts well. Angle: this gift is actually better when it's intentional, not rushed. Subverts the panic.",
+    "seasonalWindow": "2026-05-01 to 2026-05-10",
+    "priority": "URGENT"
+  },
+  {
+    "title": "How Do Personalized Children's Books Help With Self-Esteem?",
+    "description": "AEO-optimized answer for AI citations and featured snippets. Direct answer in first paragraph. Covers developmental psychology of name recognition, narrative identity, and why seeing yourself in a story builds the kind of confidence that doesn't need to be earned.",
+    "source": "agent_research",
+    "status": "approved",
+    "pitchedBy": "agent",
+    "purpose": "aeo",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "how personalized books help kids",
+      "personalized children's books self-esteem",
+      "do personalized books help confidence",
+      "benefits of personalized books for children"
+    ],
+    "targetFormats": ["blog"],
+    "hookAngle": "IDENTITY",
+    "templateType": "QA",
+    "reasoning": "Perplexity and Google AI are pulling structured answers on 'do personalized books help kids.' We need to own this citation. First paragraph must be a clean, quotable answer. Rest of the article backs it with science and story.",
+    "priority": "HIGH"
+  },
+  {
+    "title": "What to Say When Your Child Doesn't Make the Team (Or the Lead, Or the List)",
+    "description": "Parents reaching for words in a hard moment. Their child just didn't get picked. This piece gives them exact language — but frames it around identity, not consolation. The goal isn't to make the child feel better about losing. It's to remind them they were never competing for their worth.",
+    "source": "agent_research",
+    "status": "pitched",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "what to say when kid doesn't make team",
+      "child rejected from team what to say",
+      "raising resilient kids"
+    ],
+    "targetFormats": ["blog", "pin", "ig"],
+    "hookAngle": "IDENTITY",
+    "templateType": "GUIDE",
+    "reasoning": "Evergreen emotional search. High share potential among moms of elementary-age kids. The AlreadyLoved angle — identity before achievement — is completely different from every 'growth mindset' article. We can own this keyword with a take no one else has."
+  },
+  {
+    "title": "Personalized Baptism Gifts for Boys and Girls: What Actually Lasts",
+    "description": "Faith-adjacent parents looking for a baptism or christening gift that isn't a cross and a candle. Targets the overlap between the religious community and the identity-first parenting mindset. 'Your name is in the story' resonates deeply here.",
+    "source": "agent_research",
+    "status": "pitched",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "faith",
+    "targetKeywords": [
+      "personalized baptism gift ideas",
+      "personalized christening gifts",
+      "baptism gifts for boys",
+      "baptism gifts for girls",
+      "unique baptism gifts 2026"
+    ],
+    "targetFormats": ["blog", "pin"],
+    "hookAngle": "IDENTITY",
+    "templateType": "GUIDE",
+    "reasoning": "Baptism/christening gift is a high-conversion, year-round search with seasonal spikes (Easter season just passed, but christenings happen all spring and summer). AlreadyLoved has a story to tell here — the name, the belonging, the covenant of love — that no generic gift guide can tell."
+  },
+  {
+    "title": "The Quiet Kid in the Back of the Room (What Your Child Might Not Be Telling You)",
+    "description": "For parents who sense something is off with their child but can't name it. Quiet, compliant, but somehow absent. This piece names introversion vs. internal disconnection, and gives parents the language to reach a child who's stopped reaching back.",
+    "source": "agent_research",
+    "status": "pitched",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "quiet child introvert parenting",
+      "child seems disconnected what to do",
+      "shy kids parenting advice"
+    ],
+    "targetFormats": ["blog", "ig"],
+    "hookAngle": "IDENTITY",
+    "templateType": "NARRATIVE",
+    "reasoning": "High emotional resonance. Mothers of quiet kids often feel unseen by parenting content that defaults to the meltdown/tantrum kid. This piece speaks directly to them. Character: Emma (the Thoughtful One) fits perfectly."
+  },
+  {
+    "title": "What Kids Learn When We Stop Rewarding Good Behavior",
+    "description": "Counterintuitive hook for parents exhausted by the sticker chart that stopped working. The AlreadyLoved insight: when behavior is the currency of love, kids become performers, not people. What happens when you take the reward chart down.",
+    "source": "agent_research",
+    "status": "pitched",
+    "pitchedBy": "agent",
+    "purpose": "brand",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "reward charts do they work",
+      "stop rewarding good behavior kids",
+      "unconditional love parenting"
+    ],
+    "targetFormats": ["blog", "ig", "linkedin"],
+    "hookAngle": "IDENTITY",
+    "templateType": "COUNTERINTUITIVE",
+    "reasoning": "Pure brand-building. This is the AlreadyLoved thesis in action. Not SEO-first, but it seeds the worldview and drives shares from parents who are tired of behavior management systems that only work when the parent is watching."
+  },
+  {
+    "title": "The Bedtime Sentence That Changes Everything (And Takes 10 Seconds)",
+    "description": "Engagement/shareable. A single sentence parents can say tonight. Based on the AlreadyLoved identity model — not 'I love you when you...' but a phrase that names who the child is, not what they did. Practical, emotional, immediately usable.",
+    "source": "agent_research",
+    "status": "pitched",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "contentPillar": "identity",
+    "targetKeywords": [
+      "what to say to kids at bedtime",
+      "bedtime affirmations for kids",
+      "positive things to say to your child"
+    ],
+    "targetFormats": ["blog", "pin", "ig", "tiktok"],
+    "hookAngle": "IDENTITY",
+    "templateType": "HOOK",
+    "reasoning": "High shareability across all platforms. Short-form video potential (TikTok: '10-second bedtime ritual'). This is the type of piece that travels and brings new people into the AlreadyLoved world. Pairs with a CTA to the personalized books."
+  }
+]
