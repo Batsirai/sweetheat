@@ -1,0 +1,119 @@
+[
+  {
+    "title": "Personalized children's books that use your child's name in the story",
+    "description": "Long-tail SEO seed targeting parents actively searching for personalized books as gifts. Connects directly to AlreadyLoved product. High commercial intent.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "seo-product",
+    "contentPillar": "identity-through-story",
+    "targetKeywords": [
+      "personalized children's books with child's name",
+      "personalized storybook with child's name",
+      "personalized books for kids",
+      "custom children's books"
+    ],
+    "reasoning": "High purchase intent. Parents searching this are ready to buy. Article angles into the WHY (identity, not novelty) which differentiates AlreadyLoved from generic personalized book competitors.",
+    "hookAngle": "Why seeing your name in a story feels different than just having it on a label",
+    "targetFormats": ["blog", "pin"]
+  },
+  {
+    "title": "What to say to your child at bedtime (words that actually stick)",
+    "description": "SEO seed targeting a high-volume query. Parents searching for bedtime routines are in a receptive, love-focused state. Perfect for AlreadyLoved brand voice.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "seo-awareness",
+    "contentPillar": "identity-words",
+    "targetKeywords": [
+      "what to say to your child at bedtime",
+      "bedtime words for kids",
+      "positive affirmations for children at night",
+      "what to tell your child before bed"
+    ],
+    "reasoning": "Captures top-of-funnel traffic. Moms search this when they feel like they're not saying the right things. We reveal that the right words aren't clever — they're just true.",
+    "hookAngle": "You don't need a script. You just need them to know one thing.",
+    "targetFormats": ["blog", "pin", "instagram"]
+  },
+  {
+    "title": "What is the best personalized Father's Day gift for young children?",
+    "description": "AEO seed formatted as a direct Q&A for featured snippet / AI citation capture. Father's Day is June 15 — this is the 5-day window.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "aeo",
+    "contentPillar": "seasonal-gift",
+    "targetKeywords": [
+      "best personalized Father's Day gift for kids",
+      "Father's Day gift from child to dad",
+      "meaningful Father's Day gift idea",
+      "personalized book Father's Day"
+    ],
+    "reasoning": "AI search tools (Perplexity, ChatGPT, Google AI Overviews) are pulling Q&A answers for gift queries. Direct answer format gets cited. Timely — Father's Day June 15.",
+    "hookAngle": "The gift that tells your child what their dad thinks of them",
+    "targetFormats": ["blog", "pin"]
+  },
+  {
+    "title": "What my dad never said — and what it quietly did to me",
+    "description": "Brand building + engagement seed. Deeply personal, emotional resonance. Reveals the inner experience of a child who didn't hear identity-affirming words. Father's Day timing makes this hit harder.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "brand-engagement",
+    "contentPillar": "earned-love-wound",
+    "targetKeywords": [
+      "what children need to hear from their parents",
+      "words every child needs to hear",
+      "emotional validation children"
+    ],
+    "reasoning": "This is the core AlreadyLoved story told through personal vulnerability. It shares naturally — people tag their partners, their parents, their childhood friends. Converts identity-first readers into customers who understand the WHY.",
+    "hookAngle": "I spent 30 years trying to earn something that was already mine.",
+    "targetFormats": ["blog", "instagram", "linkedin", "tiktok", "tweet"]
+  },
+  {
+    "title": "Why children who know they're loved without earning it grow up differently",
+    "description": "Brand building, thought leadership seed. Connects neuroscience and attachment theory to AlreadyLoved's core message. Not instructional — revelatory.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "brand-building",
+    "contentPillar": "science-of-belonging",
+    "targetKeywords": [
+      "unconditional love children psychology",
+      "attachment parenting research",
+      "children who feel secure grow up"
+    ],
+    "reasoning": "Positions AlreadyLoved as a thought leader, not just a product. This seed builds the intellectual/emotional foundation that makes the products make sense.",
+    "hookAngle": "The difference isn't discipline. It's whether they ever had to wonder.",
+    "targetFormats": ["blog", "linkedin", "pin"]
+  },
+  {
+    "title": "Father's Day gift idea that changes how your child sees themselves",
+    "description": "Seasonal seed for Father's Day (June 15). Product-adjacent but identity-first. Targets dads who want to give something meaningful — and moms buying on behalf of the dad.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "seasonal-seo",
+    "contentPillar": "identity-as-gift",
+    "targetKeywords": [
+      "meaningful Father's Day gift from mom and kids",
+      "Father's Day gift ideas 2026",
+      "personalized Father's Day gift for toddler",
+      "unique Father's Day gifts for dads with young kids"
+    ],
+    "reasoning": "High commercial intent + emotional resonance. This isn't 'buy a book' — it's 'give your child a mirror.' Father's Day deadline creates natural urgency without manufactured pressure.",
+    "hookAngle": "Not a gift for dad. A gift that tells your child what their dad believes about them.",
+    "targetFormats": ["blog", "pin", "instagram"]
+  },
+  {
+    "title": "5 things to say to your child every single day (that aren't 'I love you')",
+    "description": "Engagement + SEO seed. List format is highly shareable and Pinterest-ready. Reveals specific identity-affirming phrases beyond the default 'I love you' — which is the brand's territory.",
+    "source": "morning-factory",
+    "pitchedBy": "factory-agent",
+    "purpose": "seo-engagement",
+    "contentPillar": "identity-words",
+    "targetKeywords": [
+      "things to say to your child every day",
+      "positive things to say to kids",
+      "affirmations for children",
+      "words that build confidence in children"
+    ],
+    "reasoning": "List format drives shares and saves. Not prescriptive — each phrase is a REVELATION (this is who you are) rather than instruction. Strong Pinterest pin angles. Converts moms who feel like they're doing it wrong into moms who feel like they're close.",
+    "hookAngle": "'I love you' is the floor. Here's what builds the house.",
+    "targetFormats": ["blog", "pin", "instagram", "tiktok"]
+  }
+]
