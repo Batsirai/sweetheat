@@ -1,0 +1,134 @@
+{
+  "brand": "AlreadyLoved Kids",
+  "date": "2026-05-22",
+  "agent": "morning-factory",
+  "runTime": "6:00 AM ET",
+  "seasonalContext": {
+    "lastDayOfSchool": "TOMORROW (May 23) — LAST WINDOW",
+    "memorialDay": "3 days (May 25)",
+    "fathersDay": "24 days (June 15)",
+    "summerWindow": "Opens May 26 — prime content ramp"
+  },
+  "seeds": [
+    {
+      "id": "seed-0522-01",
+      "title": "What to Write in Your Child's Last Day of School Card",
+      "description": "Parents search 'what to write in a last day of school card' and 'end of year message to my child' every May. Almost every result gives them a list of phrases — cheerful, forgettable. None of them write from the identity frame. The AlreadyLoved angle: what you write on the last day isn't just a note — it's a sentence your child may carry for years. It becomes part of their inner voice. This piece gives 8-10 actual examples, each one written to name something specific about the child rather than describe the year. Ends with the principle: the best thing you can write is something only you could write, about something only they are. Clear AEO-ready direct answer in the first paragraph. High purchase-intent audience: parents who are already buying personalized books and gifts.",
+      "source": "agent_seasonal",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "seo",
+      "contentPillar": "practical-identity-parenting",
+      "targetKeywords": [
+        "what to write in last day of school card",
+        "end of year message to my child",
+        "last day of school note to child",
+        "meaningful end of school year message",
+        "what to write in child school card"
+      ],
+      "hookAngle": "The note you write today might be the sentence they hear on their hardest day at 24.",
+      "targetFormats": ["blog", "pin", "instagram"],
+      "urgency": "CRITICAL — publish TODAY (May 22) or tomorrow morning",
+      "seasonalWindow": "Last day of school May 23"
+    },
+    {
+      "id": "seed-0522-02",
+      "title": "The Best Father's Day Gifts From Kids in 2026 That Dads Actually Keep",
+      "description": "Father's Day is June 15 — 24 days away. The gift guide SEO window opens now. Current top results are all transactional: socks, grills, tools, subscription boxes. None frame the gift around what it says to the child. The AlreadyLoved angle: the best Father's Day gift isn't for dad — it's the one that tells the child they are the best thing that ever happened to him. A personalized book with the father's name and the child's name woven into a story of identity does this better than anything else. Gift guide format, 8-10 items, AlreadyLoved positioned as the emotionally meaningful anchor. Strong CTA opportunity. This seed starts the Father's Day pipeline now so we're indexed before competitors.",
+      "source": "agent_seasonal",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "seo",
+      "contentPillar": "gift-guide-identity",
+      "targetKeywords": [
+        "best father's day gifts from kids 2026",
+        "meaningful father's day gifts",
+        "personalized father's day gifts for kids to give",
+        "unique father's day gift ideas 2026",
+        "father's day gifts that last"
+      ],
+      "hookAngle": "The gift your child gives their dad says something to your child, not just to dad.",
+      "targetFormats": ["blog", "pin", "instagram"],
+      "urgency": "HIGH — search volume rising now, peaks June 8-12",
+      "seasonalWindow": "Father's Day June 15"
+    },
+    {
+      "id": "seed-0522-03",
+      "title": "What Does It Mean When a Child Doesn't Want Summer to Start?",
+      "description": "AEO seed targeting AI Overview and featured snippet. The question 'why doesn't my child want school to end' has no strong editorial answer in current search results — only forum posts and clinical overviews. Parents asking this are sitting in parking lots right now. The AlreadyLoved direct answer: a child who doesn't want summer to start is a child who found somewhere they belonged. The not-wanting is good news, not a problem. It means the year built something real. The piece validates the child's experience, names what's underneath it (belonging anxiety, not summer-phobia), gives parents 3-4 sentences to say in the car, and ends with the identity frame: what they built in that classroom is already packed and coming home with them. Clear direct answer in paragraph one. AEO-optimized headers.",
+      "source": "agent_seasonal",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "aeo",
+      "contentPillar": "child-emotions-identity",
+      "targetKeywords": [
+        "why doesn't my child want school to end",
+        "child doesn't want summer to start",
+        "child sad about end of school year",
+        "my kid doesn't want to leave school",
+        "child crying last day of school meaning"
+      ],
+      "hookAngle": "A child who doesn't want summer to start found somewhere they belonged. That's the answer — and it's good news.",
+      "targetFormats": ["blog", "pin"],
+      "urgency": "CRITICAL — peak search window TODAY and tomorrow",
+      "seasonalWindow": "Last day of school May 23"
+    },
+    {
+      "id": "seed-0522-04",
+      "title": "The Goodbye That Doesn't Ask Permission",
+      "description": "Brand-building piece. Pure identity, no keyword pressure. The AlreadyLoved thesis applied to transitions: endings happen to children before they've learned how to leave. The school year ends. The teacher moves on. The class scatters. The friend group shifts. Children don't get to decide when chapters close. But they carry what the chapter built. This piece explores what parents can say in those moments when endings arrive without asking — not to make the goodbye easier, but to make the child steadier. The character is Simmone, watching her daughter put the last thing in the school bag and zip it shut. One small act that holds a whole year. Tone: pastoral, slow, grace-toned. No product angle. This piece seeds the AlreadyLoved worldview for readers who have never heard of us.",
+      "source": "agent_voice",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "brand_building",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [],
+      "hookAngle": "She zipped the bag shut and I watched a whole year become past tense.",
+      "targetFormats": ["blog", "newsletter", "instagram"],
+      "urgency": "MODERATE — publish by May 24 while transition moment is live",
+      "seasonalWindow": "End of school year / summer transition"
+    },
+    {
+      "id": "seed-0522-05",
+      "title": "I Cried in My Car on the Last Day of School and I'm Not Sorry",
+      "description": "High-shareability engagement seed. Written in first person from the parent's perspective — the mom who made it all the way through drop-off, then sat in the parking lot in the quiet car and cried. Not about their child. About what they watched their child become this year. This piece does two things: first, it makes the crying mom feel seen and not embarrassed. Second, it names why she's crying: she loved what the year built. She's grieving a chapter that was good. That grief is evidence of something — it means it mattered. Relatable, short (600-900 words), written for Instagram and Pinterest shares but lives as a blog post too. Character is Simmone. High engagement signal because every parent in May has sat in that car at some point.",
+      "source": "agent_seasonal",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "engagement",
+      "contentPillar": "parent-emotion",
+      "targetKeywords": [
+        "crying on last day of school mom",
+        "parent emotions end of school year",
+        "why do moms cry on last day of school",
+        "bittersweet last day of school parent feelings"
+      ],
+      "hookAngle": "I made it all the way through drop-off. The parking lot got me.",
+      "targetFormats": ["blog", "instagram", "tiktok", "newsletter"],
+      "urgency": "CRITICAL — post TODAY or tomorrow morning",
+      "seasonalWindow": "Last day of school May 23"
+    },
+    {
+      "id": "seed-0522-06",
+      "title": "What the Long Weekend Should Say to Your Kids",
+      "description": "Memorial Day bridge seed. Most Memorial Day parenting content is either patriotic (history, veterans, flags) or logistical (cookout ideas, activities). The AlreadyLoved angle: a long weekend is a belonging event. Three days of unscheduled time is three days of your child watching what they are to you — not what they can perform, not what they can accomplish, just what they are. This piece isn't about Memorial Day specifically. It's about what it means to give a child a long weekend where they feel seen in the small moments: the unplanned afternoon, the drive with no destination, the conversation that starts because there was time for one. Pastoral, slow. Timely. Can be written short (700-1000 words) and shared easily. Soft CTA: what summer gets to say to your child before school starts again.",
+      "source": "agent_seasonal",
+      "pitchedBy": "morning-factory-0522",
+      "purpose": "seasonal",
+      "contentPillar": "identity-first-parenting",
+      "targetKeywords": [
+        "memorial day with kids 2026",
+        "memorial day family activities meaningful",
+        "what to do with kids memorial day weekend",
+        "slow memorial day weekend with children"
+      ],
+      "hookAngle": "Three days. No schedule. Your child is watching what they are to you.",
+      "targetFormats": ["blog", "instagram", "newsletter"],
+      "urgency": "HIGH — publish May 22-23 for Memorial Day weekend reads",
+      "seasonalWindow": "Memorial Day May 25"
+    }
+  ],
+  "convexImportCommands": [
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What to Write in Your Child's Last Day of School Card\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seo\", \"contentPillar\": \"practical-identity-parenting\", \"hookAngle\": \"The note you write today might be the sentence they hear on their hardest day at 24.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"The Best Father's Day Gifts From Kids in 2026 That Dads Actually Keep\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seo\", \"contentPillar\": \"gift-guide-identity\", \"hookAngle\": \"The gift your child gives their dad says something to your child, not just to dad.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What Does It Mean When a Child Doesn't Want Summer to Start?\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"aeo\", \"contentPillar\": \"child-emotions-identity\", \"hookAngle\": \"A child who doesn't want summer to start found somewhere they belonged. That's the answer — and it's good news.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"The Goodbye That Doesn't Ask Permission\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"She zipped the bag shut and I watched a whole year become past tense.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"I Cried in My Car on the Last Day of School and I'm Not Sorry\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"engagement\", \"contentPillar\": \"parent-emotion\", \"hookAngle\": \"I made it all the way through drop-off. The parking lot got me.\"}'",
+    "npx convex run seeds:create '{\"brandId\": \"BRAND_ID\", \"title\": \"What the Long Weekend Should Say to Your Kids\", \"source\": \"agent\", \"pitchedBy\": \"agent\", \"purpose\": \"seasonal\", \"contentPillar\": \"identity-first-parenting\", \"hookAngle\": \"Three days. No schedule. Your child is watching what they are to you.\"}'"
+  ]
+}
