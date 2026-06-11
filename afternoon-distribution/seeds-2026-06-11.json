@@ -1,0 +1,54 @@
+{
+  "run_date": "2026-06-11",
+  "agent": "afternoon_distribution",
+  "brand": "AlreadyLoved",
+  "context": "June 11, 2026 (Wednesday) — Father's Day June 21 = 10 days. Summer week 2-3. Analog Childhood trend at peak. Summer mental load on moms active. Last morning factory: June 6. Two Father's Day articles pending publication.",
+  "seeds": [
+    {
+      "title": "The Bored Child: What Summer Without a Schedule Is Actually Teaching Her",
+      "purpose": "engagement",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "pin"],
+      "target_keywords": [
+        "kids bored in summer",
+        "unstructured summer for kids",
+        "analog childhood summer",
+        "bored kids summer activities",
+        "slow summer parenting",
+        "unscheduled summer benefits"
+      ],
+      "hook": "She said she was bored. It was day four of summer. And I almost reached for my phone to find an activity — and then I stopped. Because boredom has a job, and the job isn't misery. The job is finding out who you are when nobody's telling you what to do next.",
+      "alreadyloved_angle": "The Analog Childhood trend is 2026's biggest parenting movement — BraveStoryTime, Nashville Parent, NTB Times, ChildStrategies, Christian Family Oasis all publishing on it now. Every piece frames it as a technique: limit screens, add board games, let them be bored. Nobody is connecting analog summer to *identity formation*. Children who aren't being entertained have to find out what they actually like. What they're actually curious about. What they reach for when there's no algorithm doing it for them. That's not wellness. That's the ground where a self gets built. AlreadyLoved angle: unstructured time isn't a gift you give a child because you read an article. It's what happens when you trust that she already has something in her worth finding.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week",
+      "trend_source": "Analog Childhood trend — BraveStoryTime, Nashville Parent June 2026; children's summer mental health coverage peak (UofU Health, Brown University Health, InsideOut MZ May-June 2026)"
+    },
+    {
+      "title": "The Summer Wasn't Pinterest-Perfect. She'll Remember It Anyway.",
+      "purpose": "brand_building",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "email"],
+      "target_keywords": [
+        "summer memories for kids",
+        "imperfect summer parenting",
+        "summer pressure for moms",
+        "making summer meaningful for kids",
+        "summer without activities kids"
+      ],
+      "hook": "The vacation fell through. The camp was boring. The one big day we'd planned rained out. And she's going to tell someone about this summer someday, and what she'll remember won't be any of those things. She'll remember something I said on a Tuesday. A Wednesday afternoon that didn't look like anything. I'm trying to remember that.",
+      "alreadyloved_angle": "June 2026 Mindful Transformations newsletter captures exactly what moms are feeling: 'The mental load of motherhood doesn't disappear when school ends — in many ways it gets heavier.' The pressure to manufacture a meaningful summer is at peak in week 2. Every parenting outlet is publishing 'how to make summer count.' AlreadyLoved counter: you can't schedule the moments that shape a child. Identity doesn't form during the curated experience. It forms in the ordinary Tuesday when she sees how you handle frustration, or the Wednesday when you play cards instead of looking at your phone. The summer that doesn't look like anything is the summer that gets inside them.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week",
+      "trend_source": "Mindful Transformations June 2026 newsletter; summer scheduling/mental load content peak across parenting outlets"
+    }
+  ],
+  "convex_commands": {
+    "note": "Replace YOUR_BRAND_ID with AlreadyLoved brand _id from Convex dashboard (https://dashboard.convex.dev/d/loyal-hamster-102)",
+    "create_seed_1": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"The Bored Child: What Summer Without a Schedule Is Actually Teaching Her\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"engagement\", \"contentPillar\": \"identity\", \"formats\": [\"blog\", \"caption_ig\", \"pin\"], \"hook\": \"She said she was bored. It was day four of summer. And I almost reached for my phone to find an activity — and then I stopped. Because boredom has a job, and the job isn't misery. The job is finding out who you are when nobody's telling you what to do next.\", \"notes\": \"Analog Childhood trend angle — identity formation framing. BraveStoryTime, Nashville Parent June 2026.\"}'",
+    "create_seed_2": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"The Summer Wasn't Pinterest-Perfect. She'll Remember It Anyway.\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"belonging\", \"formats\": [\"blog\", \"caption_ig\", \"email\"], \"hook\": \"The vacation fell through. The camp was boring. The one big day we'd planned rained out. And she's going to tell someone about this summer someday, and what she'll remember won't be any of those things.\", \"notes\": \"Summer mental load trend — moms feeling pressure to make summer meaningful. Mindful Transformations June 2026.\"}'",
+    "list_seeds": "npx convex run seeds:list '{\"brandId\": \"YOUR_BRAND_ID\"}'",
+    "list_dream100": "npx convex run dream100:list '{\"brandId\": \"YOUR_BRAND_ID\"}'"
+  }
+}
