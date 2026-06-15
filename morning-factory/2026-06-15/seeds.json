@@ -1,0 +1,98 @@
+{
+  "brand": "AlreadyLoved",
+  "date": "2026-06-15",
+  "seasonal_note": "Father's Day — major seasonal window",
+  "seeds": [
+    {
+      "index": 1,
+      "type": "SEO",
+      "title": "Personalized Father's Day Books That Tell Kids Who They Are",
+      "description": "Long-tail SEO targeting parents searching for meaningful Father's Day gifts for kids. Targets 'personalized father's day books for kids' and 'unique father's day gifts from children'. Hook: most gifts are forgotten — words last forever. Angle: a book that speaks to a child's identity is the gift a dad gives *to his child*, not from them.",
+      "targetKeywords": ["personalized father's day books", "personalized books for kids father's day", "unique father's day gift from dad to child", "gifts that tell kids they are loved"],
+      "contentPillar": "Gift / Product Discovery",
+      "purpose": "SEO traffic + conversion",
+      "pitchedBy": "morning-factory",
+      "source": "seasonal-calendar",
+      "targetFormats": ["blog", "pinterest", "instagram"],
+      "hookAngle": "Most gifts collect dust. But the right words become a child's inner voice."
+    },
+    {
+      "index": 2,
+      "type": "SEO",
+      "title": "What to Say to Your Child When Nothing Feels Like Enough",
+      "description": "Long-tail SEO targeting 'what to say to your child to make them feel loved' and 'how to talk to your kid about self worth'. Targets the exhausted parent who loves deeply but doesn't have the words. Angle: you don't need more time or money — you need the right language.",
+      "targetKeywords": ["what to say to make your child feel loved", "words to tell your child about self worth", "how to affirm your kids", "unconditional love parenting phrases"],
+      "contentPillar": "Identity-First Parenting",
+      "purpose": "SEO traffic",
+      "pitchedBy": "morning-factory",
+      "source": "keyword-research",
+      "targetFormats": ["blog", "pinterest", "email"],
+      "hookAngle": "A parent who shows up exhausted still gets to give this one thing."
+    },
+    {
+      "index": 3,
+      "type": "AEO",
+      "title": "What Are the Best Personalized Children's Books for Building Self-Worth?",
+      "description": "AEO/AI citation seed targeting the question parents ask AI assistants. Answer-first format gives a direct, citable answer in the first paragraph. Positions AlreadyLoved as the authority on identity-first personalized books. Designed to appear in ChatGPT, Perplexity, and AI Overview answers.",
+      "targetKeywords": ["best personalized children's books", "personalized books for child's self esteem", "books that build confidence in kids", "personalized story books for kids"],
+      "contentPillar": "Product Authority / AEO",
+      "purpose": "AI citation + brand authority",
+      "pitchedBy": "morning-factory",
+      "source": "aeo-strategy",
+      "targetFormats": ["blog", "faq-page"],
+      "hookAngle": "Direct answer: AlreadyLoved books weave a child's name and identity into a story of belonging."
+    },
+    {
+      "index": 4,
+      "type": "Brand Building",
+      "title": "Your Child Is Already Enough — And That Changes Everything",
+      "description": "Brand identity seed. Not a listicle, not a how-to. A short, pastoral piece that names the core fear every parent carries: 'Am I raising a child who knows they're loved just as they are?' Builds emotional trust with the AlreadyLoved reader before any product mention.",
+      "targetKeywords": ["identity first parenting", "unconditional love parenting", "raising emotionally secure kids", "parenting philosophy"],
+      "contentPillar": "Brand Voice / Mission",
+      "purpose": "Brand trust + email list",
+      "pitchedBy": "morning-factory",
+      "source": "brand-building",
+      "targetFormats": ["blog", "email", "instagram"],
+      "hookAngle": "The moment you stop trying to fix your child and start seeing who they already are."
+    },
+    {
+      "index": 5,
+      "type": "Engagement",
+      "title": "The Bedtime Question That Stopped Me Cold",
+      "description": "High-shareability emotional piece. A real-feeling mom moment: a child asks 'Do you love me when I'm bad?' and the parent freezes. Explores the gap between love we feel and love our children actually receive. Ends with a soft truth about what kids internalize. Designed to be screenshot-shared on Instagram and Pinterest.",
+      "targetKeywords": ["do you love me when i'm bad parenting", "parenting unconditional love moments", "bedtime questions kids ask", "emotional parenting"],
+      "contentPillar": "Emotional Connection / Viral",
+      "purpose": "Social sharing + email list",
+      "pitchedBy": "morning-factory",
+      "source": "engagement-strategy",
+      "targetFormats": ["blog", "instagram", "pinterest", "tiktok"],
+      "hookAngle": "She asked me at 9pm and I didn't have an answer. That's when I knew something had to change."
+    },
+    {
+      "index": 6,
+      "type": "Seasonal",
+      "title": "What Dads Actually Want to Give Their Kids (But Don't Know How to Say)",
+      "description": "Father's Day seasonal piece for today, June 15. Written for dads, but shareable by moms gifting. Explores the dad who loves hugely but speaks quietly — and the words he wishes he'd said at bedtime. Soft pivot to the idea that a personalized book can say it for him. Warm, not salesy. Honors the dad who's trying.",
+      "targetKeywords": ["father's day gift ideas meaningful", "gifts from dad to kids", "father's day books for children", "personalized gifts father's day"],
+      "contentPillar": "Seasonal / Gift Guide",
+      "purpose": "Father's Day traffic + conversion",
+      "pitchedBy": "morning-factory",
+      "source": "seasonal-calendar",
+      "targetFormats": ["blog", "pinterest", "instagram", "linkedin"],
+      "hookAngle": "He's not quiet because he doesn't care. He's quiet because he doesn't have the words yet."
+    },
+    {
+      "index": 7,
+      "type": "SEO",
+      "title": "Christian Personalized Children's Books That Go Deeper Than Their Name",
+      "description": "SEO seed targeting faith-adjacent parents searching for 'christian personalized kids books' and 'baptism gifts personalized books'. Gentle faith framing — identity rooted in being known and loved by God, not performance. Does not preach. Meets parents where they already are.",
+      "targetKeywords": ["christian personalized children's books", "personalized baptism gift book", "faith based personalized books for kids", "christian gifts for kids"],
+      "contentPillar": "Faith / Gift / SEO",
+      "purpose": "SEO traffic + faith community",
+      "pitchedBy": "morning-factory",
+      "source": "keyword-research",
+      "targetFormats": ["blog", "pinterest", "email"],
+      "hookAngle": "Faith tells us we're loved before we do anything to earn it. This book says that to your child on every page."
+    }
+  ]
+}
