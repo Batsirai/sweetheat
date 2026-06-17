@@ -1,0 +1,55 @@
+{
+  "run_date": "2026-06-17",
+  "agent": "afternoon_distribution",
+  "brand": "AlreadyLoved",
+  "context": "June 17, 2026 (Wednesday) — Father's Day June 21 = 4 DAYS. Peak Father's Day distribution window. Summer week 3-4. Screen-free summer at full peak (Deseret News, Pinterest Trend Report, CNN). Two Father's Day articles still unpublished since June 6. Morning Factory has not run since June 6 (11 days).",
+  "seeds": [
+    {
+      "title": "He Doesn't Need to Be the Fun Dad",
+      "purpose": "brand_building",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin", "email"],
+      "target_keywords": [
+        "Father's Day message for dads",
+        "pressure on dads",
+        "what children need from fathers",
+        "quiet dads Father's Day",
+        "what fathers give children",
+        "being a good dad without fun activities"
+      ],
+      "hook": "There's a version of Father's Day that asks a lot of dads. Be the adventure. The grill. The memory. The highlight reel. And some dads just... aren't that. They're the couch end of the couch. The \"I'm in here\" at the end of a long day. The man reading in the chair when she walks in the door. That's not a lesser kind of fathering. That might be the most important kind.",
+      "alreadyloved_angle": "The cultural noise around Father's Day is adventure, experiences, and memory-making. The pressure on dads is to perform a summer of significance. But what children actually carry from fathers isn't the vacation or the game or the planned memory — it's the baseline feeling of being safe enough to be themselves in his presence. The quiet dad who looks up from his book and genuinely asks how she's doing is building something the fun dad misses if he's always on. Security doesn't come from the trip. It comes from consistent, ordinary presence. This is grace for the fathers who love deeply and quietly — and who need to hear, 4 days before Father's Day, that it's enough.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "TODAY — Father's Day is June 21, 4 days. Social shares peak this weekend. Publish by Thursday June 18.",
+      "trend_source": "Father's Day 2026 emotional presence trend — Vocal.media 'Father's Day 2026 Will Mean More Than Gifts for Many Families'; Boldsky 'Indian Celebrity Dads Rewriting the Rules of Fatherhood' June 2026; cultural shift from performative to present fatherhood"
+    },
+    {
+      "title": "What's Keeping Her Off the Screen (It's Not the Rules)",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to get kids off screens",
+        "screen free kids summer",
+        "children and screen time solutions",
+        "raise kids who don't need screens",
+        "screen-free summer for kids",
+        "why kids prefer screens"
+      ],
+      "hook": "Every summer, we try something new to limit the screens. The app blocker. The time tracker. The rule about no phones until noon. And sometimes it works, and sometimes it doesn't, and we never quite understand why. But I've noticed something. The children who reach for screens the least aren't the most restricted — they're the most themselves.",
+      "alreadyloved_angle": "Deseret News published June 8, 2026 specifically on 'screen-free summer' as a family choice. Pinterest's 2026 Parenting Trend Report (featured by CNN) shows soaring searches for raising 'screen-smart kids who seek real-world adventure.' Every piece is framing screen-free summer as a parenting technique: set limits, block apps, schedule alternatives. Nobody is asking the upstream question: what makes a child *want* to reach for something else? The answer is identity. A child who knows she is a reader reads. A child who knows she is an artist draws. A child who feels secure enough to be bored finds out what she actually wants. You can't limit a child into having a self. But a child with a rich inner life doesn't need the algorithm to fill the space. The goal isn't less screen time. It's a child whose self is more interesting to her than the feed.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week — peak summer screen-time conversation right now",
+      "trend_source": "Deseret News June 8 2026 'What is a screen-free summer and why are families choosing it?'; Pinterest Parenting Trend Report 2026 via CNN Feb 2026; screen-free summer at peak June 2026"
+    }
+  ],
+  "convex_commands": {
+    "note": "Replace YOUR_BRAND_ID with AlreadyLoved brand _id from Convex dashboard (https://dashboard.convex.dev/d/loyal-hamster-102)",
+    "create_seed_1": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"He Doesn't Need to Be the Fun Dad\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"belonging\", \"formats\": [\"blog\", \"caption_ig\", \"pin\", \"email\"], \"hook\": \"There's a version of Father's Day that asks a lot of dads. Be the adventure. The grill. The memory. The highlight reel. And some dads just... aren't that. They're the couch end of the couch. That might be the most important kind.\", \"notes\": \"Father's Day 4 days out. Grace for quiet, present dads. Emotional presence > performative fatherhood. Publish by June 18 to catch social sharing peak.\"}'",
+    "create_seed_2": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"What's Keeping Her Off the Screen (It's Not the Rules)\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"organic_seo\", \"contentPillar\": \"identity\", \"formats\": [\"blog\", \"pin\"], \"hook\": \"The children who reach for screens the least aren't the most restricted — they're the most themselves.\", \"notes\": \"Screen-free summer at peak. Deseret News June 8, Pinterest Trend Report via CNN. Identity-formation angle — nobody else is writing this upstream.\"}'",
+    "list_seeds": "npx convex run seeds:list '{\"brandId\": \"YOUR_BRAND_ID\"}'",
+    "list_dream100": "npx convex run dream100:list '{\"brandId\": \"YOUR_BRAND_ID\"}'"
+  }
+}
