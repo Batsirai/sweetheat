@@ -1,0 +1,166 @@
+{
+  "run_date": "2026-06-13",
+  "agent": "morning_factory",
+  "brand": "AlreadyLoved",
+  "context": "June 13, 2026 (Saturday) — Father's Day June 21 = 8 days (final publish window). Summer week 2-3. Kids have been home for ~2 weeks; sibling conflict and summer mental load peaks. Father's Day articles already written (bedtime dad, son watching, daughter worth). Analog Childhood trend active. Baptism season ongoing through September. Post-Father's Day: summer identity content needed.",
+  "seeds": [
+    {
+      "title": "Why Kids Fight More in Summer (And the One Thing That Actually Helps)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin", "caption_ig", "tweet"],
+      "target_keywords": [
+        "sibling fighting summer",
+        "kids fighting all the time",
+        "siblings bickering summer",
+        "how to stop sibling fighting",
+        "why do siblings fight so much",
+        "brothers and sisters fighting all summer",
+        "what to do when kids fight constantly"
+      ],
+      "hook": "She came to me with her hands on her hips and her voice at that particular pitch. Seven days into summer. 'He keeps following me around.' Three rooms away, her brother was preparing his defense.",
+      "alreadyloved_angle": "Summer sibling fighting is not a discipline problem. It's a regulation problem. Children use their closest relationships to manage stress — when school ends, all the regulatory scaffolding disappears: peer interaction, movement, challenge and resolution. A child who's under-stimulated and mildly dysregulated reaches for whatever connection is nearest. In summer, that's a sibling. The bickering is a bid for connection that doesn't have language yet. The fix isn't more consequences — it's reconnection to the primary attachment. Ten minutes of undivided attention from a parent can change the temperature of the whole house for hours. Belonging is the environment that makes regulation possible.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week",
+      "seo_notes": "High-volume summer search. Peaks weeks 2-4 of summer. Counter-intuitive angle (regulation, not behavior) drives shares. Practical language section ('what to say instead of who started it') increases Pinterest saves. Article written today — ready to brief."
+    },
+    {
+      "title": "What Is Secure Attachment in Children? (A Plain-Language Answer)",
+      "purpose": "aeo_citation",
+      "content_pillar": "identity",
+      "format": ["blog"],
+      "target_keywords": [
+        "what is secure attachment in children",
+        "secure attachment definition children",
+        "signs of secure attachment child",
+        "secure attachment examples",
+        "what does secure attachment look like",
+        "secure attachment parenting",
+        "how to build secure attachment with child"
+      ],
+      "hook": "The word 'attachment' shows up everywhere in parenting now — secure, insecure, anxious, avoidant. It can start to sound clinical and theoretical. But secure attachment is not a concept. It's something that happens on a Tuesday afternoon when your child falls off the swing, cries, and runs to you instead of sitting alone.",
+      "alreadyloved_angle": "Secure attachment is the lived reality of what AlreadyLoved is trying to plant. It's a child who knows: when I need something, there is someone who will come. When I fall apart, I will be put back together. When I do something wrong, I am still loved. That inner knowing doesn't just make childhood easier — it becomes the voice inside an adult that says 'I am someone worth caring for.' This piece is the theory behind everything we write — clear enough for AI citation, pastoral enough for our mom audience.",
+      "source": "brand_strategy",
+      "pitchedBy": "agent",
+      "urgency": "this_month",
+      "seo_notes": "High AEO/AI citation value — direct answer to definitional question. Featured snippet territory. Core AlreadyLoved philosophy in Q&A format. Evergreen, grows in value as AI search expands. Strong internal linking anchor for all belonging/identity articles."
+    },
+    {
+      "title": "What Dads Are Teaching Without Saying a Word",
+      "purpose": "seasonal",
+      "season": "fathers_day_2026",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "what dads teach their kids",
+        "lessons from dad",
+        "father influence on child identity",
+        "dads and daughters",
+        "dads and sons identity",
+        "what children learn from fathers",
+        "fathers day tribute"
+      ],
+      "hook": "He didn't give a speech. He just showed up. He fixed the bike without making her feel dumb for asking. He apologized in front of the kids when he was wrong. He cried at the graduation, and he didn't try to hide it. She was watching all of it. Kids always are.",
+      "alreadyloved_angle": "Father's Day coverage tends to be either celebratory (great dads!) or prescriptive (here's what to do). Neither names what's actually happening. Dads shape identity through the unconscious curriculum — what they model under pressure, how they handle failure, what they say when nothing's on the line. A dad who shows up consistently is teaching 'you are worth coming home to.' A dad who repairs after conflict is teaching 'relationships survive hard things.' A dad who doesn't pretend to be okay is teaching 'big feelings are allowed here.' This piece honors dads by naming what they're already doing.",
+      "source": "agent_strategy",
+      "pitchedBy": "agent",
+      "urgency": "father_day_june_21_8_days",
+      "seo_notes": "FINAL FATHER'S DAY WINDOW — publish by June 16 for full indexing before June 21. Complements existing Father's Day articles without repeating them. Strong gift content traffic overlap (dads and daughters/sons). High share rate for this frame — moms sharing about dads they know."
+    },
+    {
+      "title": "The Summer Isn't What You Planned. That's Okay.",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin"],
+      "target_keywords": [
+        "summer expectations vs reality parenting",
+        "summer guilt moms",
+        "summer not going as planned",
+        "imperfect summer with kids",
+        "summer pressure parents",
+        "letting go of perfect summer"
+      ],
+      "hook": "The camp got cancelled. The big trip is not happening. We've been home for two weeks and I've already run out of the things I thought would make this feel like summer. And my kid just asked if we could set up the sprinkler again. Like we did last week. Like she'd do it every day if I said yes.",
+      "alreadyloved_angle": "The summer that shapes a child is almost never the one that was planned. Identity forms in the unplanned afternoon, the lazy Tuesday, the conversation in the car where you weren't trying to say anything important. The pressure to manufacture a meaningful summer is peak right now — every parenting outlet is running 'how to make summer count.' AlreadyLoved counter: you can't schedule the moments that matter. And your child doesn't need a curated summer. She needs a present parent in an ordinary one.",
+      "source": "agent_strategy",
+      "pitchedBy": "agent",
+      "urgency": "this_week",
+      "seo_notes": "Summer mental load is at peak in week 2-3. Moms searching for permission and validation. High save/share rate. Connects naturally to the AlreadyLoved message without selling. Good evergreen anchor for summer content cluster."
+    },
+    {
+      "title": "How to Raise a Confident Child (Without Focusing on Their Achievements)",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to raise a confident child",
+        "raising confident kids",
+        "how to build confidence in children",
+        "confident child development",
+        "raising kids with confidence",
+        "child confidence tips",
+        "how to help child be more confident"
+      ],
+      "hook": "She stood at the edge of the diving board for four full minutes. Everyone in the pool was watching. She knew it. And then she jumped — not because she'd decided she was brave, but because she'd decided that even if it was terrible, she'd still be okay after.",
+      "alreadyloved_angle": "Real confidence isn't 'I will succeed.' It's 'I will survive whatever happens.' It comes not from a track record of achievements but from a felt sense of security — knowing that failure doesn't cost you love, that falling apart doesn't mean you've fallen out. Children who are confident aren't the ones who were told they were great. They're the ones who were loved consistently enough that they stopped needing external approval to feel okay. Confidence is downstream from belonging. This reframe is pure AlreadyLoved and positions us distinctly from the achievement-focused parenting mainstream.",
+      "source": "brand_strategy",
+      "pitchedBy": "agent",
+      "urgency": "this_month",
+      "seo_notes": "One of the highest-volume parenting SEO searches. Very competitive space but AlreadyLoved angle (identity and belonging as the source of confidence, not achievement or praise) is genuinely distinctive. Connects naturally to personalized books as an identity tool."
+    },
+    {
+      "title": "What to Say to Your Child Before Father's Day (If Your Family Is Complicated)",
+      "purpose": "seasonal",
+      "season": "fathers_day_2026",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig"],
+      "target_keywords": [
+        "father's day single mom",
+        "father's day no dad",
+        "what to say about father's day when dad is absent",
+        "father's day difficult family",
+        "navigating father's day single parent",
+        "father's day when dad is not in the picture"
+      ],
+      "hook": "She asked why Father's Day is a thing if not everyone has a dad who's around. And I didn't have a fast answer. Because she's right. And I've been thinking about what to say — not to explain it away, but to make sure she knows that her story still has dignity in it.",
+      "alreadyloved_angle": "Father's Day is one of the highest-purchase holidays in our niche — and it's also one of the most emotionally complex. A significant portion of our audience is single moms, stepfamilies, or families navigating absent fathers. This content serves them directly while staying true to the AlreadyLoved frame: no situation disqualifies a child from love. This piece gives specific language for complicated Father's Days — how to honor what IS present rather than grieving what isn't, and how to reinforce belonging in a child whose family doesn't fit the card aisle.",
+      "source": "audience_insight",
+      "pitchedBy": "agent",
+      "urgency": "father_day_june_21_8_days",
+      "seo_notes": "High search volume in the days before Father's Day from single parents and stepfamilies. Underserved content area — most Father's Day content assumes traditional families. Deeply aligned with AlreadyLoved mission. Strong IG share potential."
+    },
+    {
+      "title": "Summer Reading for Kids That's Actually Worth the Fight",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "summer reading for kids",
+        "best summer books for children",
+        "personalized books for kids",
+        "summer reading programs children",
+        "books about identity for kids",
+        "books that build confidence in children",
+        "meaningful books for toddlers"
+      ],
+      "hook": "She said reading was boring. She said that about a book where her own name was the main character, too — right up until she got to the part where the character was scared of something she was scared of. Then she went quiet. That's the kind of quiet that means something is happening.",
+      "alreadyloved_angle": "Summer reading pressure is high on parents — every school sends home a list, every camp has a program. Most of the conversation is about reading volume, not reading depth. AlreadyLoved angle: the book that changes a child isn't necessarily the most impressive one. It's the one that finds them. The one that says 'I see you' through the page. Personalized books are a natural product tie-in here — a story written around a child's name and identity meets them in a way a general bestseller can't. This piece serves both SEO and commercial intent.",
+      "source": "brand_strategy",
+      "pitchedBy": "agent",
+      "urgency": "this_month",
+      "seo_notes": "Summer reading is a perennial high-traffic SEO cluster. Personalized books for kids is a primary commercial keyword for AlreadyLoved. This piece bridges editorial and commercial naturally — it's not a product pitch, it's a reframe of what 'good summer reading' actually means."
+    }
+  ],
+  "convex_commands": {
+    "note": "Replace YOUR_BRAND_ID with AlreadyLoved brand _id from Convex dashboard (https://dashboard.convex.dev/d/loyal-hamster-102)",
+    "list_brand": "npx convex run brands:listActive",
+    "create_seed_1": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"Why Kids Fight More in Summer (And the One Thing That Actually Helps)\", \"description\": \"Summer sibling fighting is not a discipline problem — it is a regulation problem. Children use their closest relationships to manage stress, and in summer, with the regulatory scaffolding of school gone, siblings become the nearest outlet. This piece reveals the real reason fights spike, what doesn't help, and the one shift (10 min undivided attention) that actually works.\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"organic_seo\", \"contentPillar\": \"belonging\", \"targetFormats\": [\"blog\", \"pin\", \"caption_ig\", \"tweet\"], \"targetKeywords\": [\"sibling fighting summer\", \"kids fighting all the time\", \"how to stop sibling fighting\", \"why do siblings fight so much\", \"what to do when kids fight constantly\"], \"hookAngle\": \"She came to me with her hands on her hips and her voice at that particular pitch. Seven days into summer.\"}'",
+    "create_seed_2": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"What Is Secure Attachment in Children? (A Plain-Language Answer)\", \"description\": \"The core AlreadyLoved philosophy in AEO-ready format. Secure attachment defined through concrete, relatable moments rather than clinical language. Featured snippet and AI citation target.\", \"source\": \"brand_strategy\", \"pitchedBy\": \"agent\", \"purpose\": \"aeo_citation\", \"contentPillar\": \"identity\", \"targetFormats\": [\"blog\"], \"targetKeywords\": [\"what is secure attachment in children\", \"secure attachment definition\", \"signs of secure attachment child\", \"how to build secure attachment\"]}'",
+    "create_seed_3": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"What Dads Are Teaching Without Saying a Word\", \"description\": \"Father's Day final window piece — 8 days out. Honors dads by naming the unconscious curriculum: what they model under pressure, how they handle failure, what they say when nothing is on the line. Complements existing Father's Day articles without repeating them.\", \"source\": \"agent_strategy\", \"pitchedBy\": \"agent\", \"purpose\": \"seasonal\", \"contentPillar\": \"identity\", \"targetFormats\": [\"blog\", \"caption_ig\", \"tweet\"], \"targetKeywords\": [\"what dads teach their kids\", \"father influence on child identity\", \"fathers day tribute\"]}'",
+    "create_seed_4": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"The Summer Isn't What You Planned. That's Okay.\", \"description\": \"Summer mental load peak — moms in week 2-3 searching for permission and validation. The unplanned summer is often the one children remember. Anti-Pinterest-perfect framing, pure AlreadyLoved voice.\", \"source\": \"agent_strategy\", \"pitchedBy\": \"agent\", \"purpose\": \"engagement\", \"contentPillar\": \"belonging\", \"targetFormats\": [\"blog\", \"caption_ig\", \"pin\"]}'",
+    "create_seed_5": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"How to Raise a Confident Child (Without Focusing on Their Achievements)\", \"description\": \"High-volume SEO, distinctly AlreadyLoved angle: confidence is downstream from belonging, not achievement. Children confident enough to try difficult things are those who know failure won't cost them love.\", \"source\": \"brand_strategy\", \"pitchedBy\": \"agent\", \"purpose\": \"organic_seo\", \"contentPillar\": \"identity\", \"targetFormats\": [\"blog\", \"pin\"], \"targetKeywords\": [\"how to raise a confident child\", \"raising confident kids\", \"how to build confidence in children\"]}'",
+    "create_seed_6": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"What to Say to Your Child Before Father's Day (If Your Family Is Complicated)\", \"description\": \"Serves single moms, stepfamilies, and absent-father families — a large part of our audience. Language for complicated Father's Days. Honors what IS present rather than grieving what isn't. Strong IG share potential.\", \"source\": \"audience_insight\", \"pitchedBy\": \"agent\", \"purpose\": \"seasonal\", \"contentPillar\": \"belonging\", \"targetFormats\": [\"blog\", \"caption_ig\"]}'",
+    "create_seed_7": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"Summer Reading for Kids That's Actually Worth the Fight\", \"description\": \"Bridges editorial and commercial naturally. Summer reading is perennial high-traffic SEO. AlreadyLoved angle: the book that changes a child is not the most impressive one — it's the one that finds them. Natural tie-in to personalized books.\", \"source\": \"brand_strategy\", \"pitchedBy\": \"agent\", \"purpose\": \"organic_seo\", \"contentPillar\": \"identity\", \"targetFormats\": [\"blog\", \"pin\"], \"targetKeywords\": [\"summer reading for kids\", \"personalized books for kids\", \"best summer books children\"]}'"
+  }
+}
