@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-06-11T06:00:00Z",
+  "brand": "AlreadyLoved",
+  "note": "Convex deploy key returned 403 — seeds staged for manual import via `npx convex run seeds:create`. Run from a machine with valid auth.",
+  "seeds": [
+    {
+      "title": "The One Father's Day Gift That Tells Your Child Who They Are",
+      "description": "Father's Day is June 15 — four days away. Most personalized gifts celebrate the dad. This angle flips it: what if the gift celebrated the child, through dad's eyes? A piece that weaves identity-first parenting into a timely gift-guide format. Targets moms searching for meaningful Father's Day ideas.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "seo",
+      "contentPillar": "identity-first parenting",
+      "targetKeywords": [
+        "personalized father's day books for kids",
+        "father's day gifts from children",
+        "meaningful father's day gift ideas",
+        "personalized children's books father's day 2026"
+      ],
+      "targetFormats": ["blog", "pin", "ig", "tiktok"],
+      "hookAngle": "Flips the Father's Day frame: the gift that names the child",
+      "reasoning": "Father's Day June 15 is 4 days away. High purchase intent. Identity-first angle differentiates from generic gift guides. Directly supports conversion to personalized book purchase.",
+      "templateType": "gift-guide-with-emotional-hook"
+    },
+    {
+      "title": "What Your Child Hears at Bedtime Becomes Their Inner Voice",
+      "description": "Long-tail SEO piece targeting moms searching for bedtime affirmations, bedtime routines, and what to say to kids before sleep. The insight: the words spoken in those last quiet minutes accumulate into the voice a child hears in their own head for decades. No instructions. Just revelation.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "seo",
+      "contentPillar": "words matter",
+      "targetKeywords": [
+        "bedtime affirmations for kids",
+        "what to say to your child at bedtime",
+        "positive bedtime routine toddler",
+        "words to tell your child every night"
+      ],
+      "targetFormats": ["blog", "pin", "ig"],
+      "hookAngle": "The last thing they hear before sleep is the first thing they believe about themselves",
+      "reasoning": "High search volume, evergreen, directly tied to AlreadyLoved's core message about words forming identity. Strong pin potential.",
+      "templateType": "revelation-led-evergreen"
+    },
+    {
+      "title": "What Do Children Need to Hear Every Day? (The Answer Might Surprise You)",
+      "description": "AEO-formatted piece designed for featured snippet and AI citation. Direct answer in first paragraph: children need to hear statements of unconditional belonging — not praise, not instruction, but identity. Contrasts 'good job' (praise) with 'you're the kind of kid who gets back up' (identity). Includes research citations format.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "aeo",
+      "contentPillar": "identity-first parenting",
+      "targetKeywords": [
+        "what do children need to hear every day",
+        "what to say to your child",
+        "words children need to hear",
+        "positive affirmations for children"
+      ],
+      "targetFormats": ["blog", "pin"],
+      "hookAngle": "Q&A format, direct answer first, AI-optimized",
+      "reasoning": "High AI-search volume. Positions AlreadyLoved as authoritative voice on child identity formation. AEO seed means it can be cited by ChatGPT, Perplexity, Claude when parents ask about what to say to their kids.",
+      "templateType": "aeo-question-answer"
+    },
+    {
+      "title": "Your Child Doesn't Need to Earn Your Love — They Need to Know They Already Have It",
+      "description": "Core brand manifesto piece. The central AlreadyLoved belief: when kids don't know they're already loved, the world teaches them to earn love. This isn't parenting advice — it's a revelation about what's missing in most children's inner world. No prescriptions. Just truth.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "brand",
+      "contentPillar": "identity-first parenting",
+      "targetKeywords": [
+        "unconditional love parenting",
+        "raising children who feel loved",
+        "identity before behavior parenting",
+        "children and belonging"
+      ],
+      "targetFormats": ["blog", "ig", "linkedin"],
+      "hookAngle": "Brand manifesto — the belief that drives everything",
+      "reasoning": "Brand-building. Defines the AlreadyLoved worldview. Attracts moms who already feel this but haven't had the language for it. High share potential among parenting communities.",
+      "templateType": "brand-manifesto"
+    },
+    {
+      "title": "She Threw a Fit in the Grocery Store. Here's What I Said Instead.",
+      "description": "Engagement seed — a relatable mom moment that pivots from the usual 'what to do when your kid melts down' advice to something deeper: the words that land when a child is dysregulated aren't corrections, they're belonging statements. Real, specific, no lecture.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "engagement",
+      "contentPillar": "connection over correction",
+      "targetKeywords": [
+        "toddler tantrum in public",
+        "what to say when kids act out",
+        "connection over correction parenting"
+      ],
+      "targetFormats": ["ig", "tiktok", "blog"],
+      "hookAngle": "Universal moment, unexpected pivot — reveals belonging as the response",
+      "reasoning": "Maximum shareability. Every parent has been in this moment. The pivot from 'fix the behavior' to 'speak to the identity' is the AlreadyLoved insight in action.",
+      "templateType": "story-pivot-reveal"
+    },
+    {
+      "title": "Why Your Child's Name in a Story Changes Everything",
+      "description": "SEO piece on personalized children's books — but rooted in the neuroscience of the 'cocktail party effect' and how hearing your own name activates the brain differently. This isn't about cute customization — it's about why your child's name, spoken with love, in a story about who they are, is actually formative.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "seo",
+      "contentPillar": "personalization + identity",
+      "targetKeywords": [
+        "personalized books for kids with their name",
+        "personalized children's books",
+        "best personalized books for toddlers",
+        "custom name books for kids"
+      ],
+      "targetFormats": ["blog", "pin", "ig"],
+      "hookAngle": "Science-backed reason why personalization matters beyond the cute factor",
+      "reasoning": "High purchase-intent search terms. Positions AlreadyLoved above generic personalized book competitors by grounding the product in identity formation science.",
+      "templateType": "science-backed-product-story"
+    },
+    {
+      "title": "The Words That Stick: What Dads Say That Daughters Remember Forever",
+      "description": "Father's Day companion piece — more evergreen than the gift guide. Explores the specific language patterns that form a daughter's self-concept. Real examples, no listicle format. The piece doesn't tell dads what to say — it reveals the weight of what they're already saying.",
+      "source": "agent",
+      "pitchedBy": "morning-factory",
+      "purpose": "seo",
+      "contentPillar": "fatherhood + identity",
+      "targetKeywords": [
+        "what dads say that daughters remember",
+        "words fathers say to daughters",
+        "father daughter bond language",
+        "what to say to your daughter"
+      ],
+      "targetFormats": ["blog", "pin", "ig", "linkedin"],
+      "hookAngle": "Reveals the lasting weight of ordinary words",
+      "reasoning": "Father's Day timing. Deeply emotional, highly shareable. Strong Pinterest and Facebook performance expected. Broad appeal to both moms buying for dads and dads who want to show up better.",
+      "templateType": "revelation-story-research"
+    }
+  ]
+}
