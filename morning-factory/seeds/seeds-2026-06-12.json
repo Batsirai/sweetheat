@@ -1,0 +1,174 @@
+{
+  "run_date": "2026-06-12",
+  "brand": "AlreadyLoved",
+  "context": "June 12, 2026 (Friday) — Father's Day June 21 (9 days, past safe publish deadline but in full social amplification window). Real summer week 2-3 for most US families. School fully out. Screen time guilt season. Back-to-school still 8+ weeks away. 4th of July 3 weeks out. 65 seeds previously pitched; no duplicates below.",
+  "seeds": [
+    {
+      "title": "Screen Time in Summer: What You're Actually Worried About (It's Not the Screen)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin", "caption_ig"],
+      "target_keywords": [
+        "screen time kids summer",
+        "how much screen time is too much for kids",
+        "summer screen time limits",
+        "screen time toddler",
+        "kids and screens summer break",
+        "screen time guidelines children"
+      ],
+      "hook": "The tablet has been out since 8am. It's 10. And I'm already doing math in my head — calculating minutes, asking myself what kind of mother I am, scrolling parenting articles while she watches her fourth episode.",
+      "alreadyloved_angle": "The screen time guilt is a belonging question in disguise. We're not worried about the screen — we're worried the screen is replacing us. But children who know they're already loved come back. Not because we limited their access or enforced a rule, but because they already know the couch next to us is the best place to be. Identity precedes behavior: a child who belongs doesn't use the screen to escape belonging.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "She would feel SEEN — not lectured about screen limits"
+      },
+      "seo_notes": "One of the most high-volume summer parenting searches. 'Screen time' guilt is universal and seasonal. Counter-intuitive angle (it's not about the screen) drives shares and saves. Evergreen with strong summer boost."
+    },
+    {
+      "title": "Last-Minute Father's Day Gifts That Actually Feel Like You Tried",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "last-minute father's day gifts",
+        "father's day gift ideas 2026",
+        "meaningful father's day gifts",
+        "personalized father's day gifts",
+        "what to get dad for father's day",
+        "last minute fathers day personalized gift"
+      ],
+      "hook": "It's June 12. Father's Day is nine days away. You're not late — you're right on time for the part where you actually find something that means something.",
+      "alreadyloved_angle": "The most meaningful thing you can give a dad on Father's Day isn't a product — it's a mirror. Something that shows him what his child already sees. A personalized AlreadyLoved book does exactly that: it names his child's identity in a story, and that story exists because of who he's been. He didn't have to earn it. It was always true.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "She'd feel relieved — and actually want to click through"
+      },
+      "seo_notes": "Peak search window right now. 'Last-minute' + 'meaningful' combination captures both urgency and intentional gifters. Strong commercial intent with AlreadyLoved personalized books as the CTA. Hard publish deadline: June 15 to capture weekend shopping."
+    },
+    {
+      "title": "What Does a Child Need to Feel Loved? (The Short Answer Is Simpler Than You Think)",
+      "purpose": "aeo_citation",
+      "content_pillar": "belonging",
+      "format": ["blog"],
+      "target_keywords": [
+        "what does a child need to feel loved",
+        "how to make your child feel loved",
+        "what children need from parents emotionally",
+        "how to show your child you love them",
+        "what kids need to feel secure",
+        "emotional needs of a child"
+      ],
+      "hook": "You love your child completely. That's not the question. The question is: does your child feel it? And if you're being honest — do you know?",
+      "alreadyloved_angle": "The short answer: to feel loved, a child needs to believe their belonging is not at risk. Not conditional on behavior. Not earned by being good or staying quiet or making you proud. Simply given. When a child isn't sure their love is safe, they spend enormous energy managing your opinion of them instead of just being a kid. Identity before behavior: a child who feels unconditionally loved doesn't have to perform to stay loved. That's the whole AlreadyLoved idea in one question.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "She'd feel named, not taught"
+      },
+      "seo_notes": "Prime AI citation target — direct, searchable question. Featured snippet territory. Massive evergreen volume. The answer positions AlreadyLoved perfectly in the citation layer without selling."
+    },
+    {
+      "title": "You Don't Have to Be the Fun Parent This Summer",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "summer parenting guilt",
+        "not a fun mom",
+        "summer activities for kids mom exhausted",
+        "mom guilt summer",
+        "parenting in summer without activities",
+        "summer bucket list pressure"
+      ],
+      "hook": "I've seen the summer bucket lists. The tie-dye kits. The sunrise hikes. The craft-a-day calendar with laminated cards. I did none of them last summer. My kids were fine. They were better than fine.",
+      "alreadyloved_angle": "The pressure to be the fun parent is a performance trap — and here's who it hurts most: the child who starts to think that love looks like effort and engagement, that connection needs a Pinterest board. Children don't need summer adventures as much as they need summer safety. A parent who is present. Even boring. Even tired. Even just sitting on the same couch. The greatest gift you can give your child this summer is not an activity. It's being the place they keep coming back to.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "She would feel like someone finally said it"
+      },
+      "seo_notes": "Extremely shareable and saveable. Counter-cultural brand-building. High organic reach on IG and Pinterest. Names the exhausted parent's experience without making it worse. Perfect AlreadyLoved register."
+    },
+    {
+      "title": "What Your Child Will Remember About This Summer (It's Not the Trip)",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin", "caption_ig", "tweet"],
+      "target_keywords": [
+        "what kids remember about summer",
+        "summer memories for kids",
+        "what children remember from childhood",
+        "family summer memories",
+        "what kids remember about parents"
+      ],
+      "hook": "We spent $2,000 on that trip. What she talks about is the night we all got rained out and ate gas station sandwiches in the car. I haven't stopped thinking about that.",
+      "alreadyloved_angle": "Children don't remember the well-planned moments — they remember the unguarded ones. The time you stopped being a parent for a second and became just a person. The moments your guard dropped, your laugh came out, and you were just there together. Presence is not a gift you plan. It's what happens when you stop trying to give your child an experience and just let them be with you.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "Would make her tear up a little — in the right way"
+      },
+      "seo_notes": "Highest share potential of the batch. Universally resonant. Pinterest-friendly list format possible (5 things your kids will remember about summer). Strong IG caption. Emotional truth over information — drives saves."
+    },
+    {
+      "title": "How to Talk to Your Child About Big Feelings Without Losing Yours",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to talk to kids about emotions",
+        "child big feelings meltdown",
+        "what to say when child is upset",
+        "toddler big feelings what to do",
+        "how to help child regulate emotions",
+        "what to say to emotional child"
+      ],
+      "hook": "She threw herself on the floor because the crackers were the wrong shape. I know how to handle that one. It's the quiet 'nobody likes me' at bedtime that breaks me open.",
+      "alreadyloved_angle": "Before a child can name a feeling, they need to believe the feeling is allowed. Emotional literacy isn't a skill we teach — it's a safety we create. When a child trusts that their big feeling won't threaten their belonging, the words come on their own. We're not building a vocabulary. We're building a room they're safe to feel in.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "Feels like permission, not a lesson plan"
+      },
+      "seo_notes": "Evergreen high-volume. 'Big feelings' is a dominant parenting search cluster. The bedtime 'nobody likes me' hook is universally recognized. Strong Pinterest pin potential with 'what to say when' list format."
+    },
+    {
+      "title": "What Kids Don't Know How to Say to Their Dads (But Carry Everywhere)",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "what kids want their dad to know",
+        "father's day message from child",
+        "what children think about their dads",
+        "letter to dad from child",
+        "father's day meaning for kids",
+        "what toddlers feel about dad"
+      ],
+      "hook": "She doesn't have the words yet. She's three. But she keeps dragging his shoes to the door when he hasn't come home, like she's calling him back. Kids carry the whole weight of how they feel about their dads — they just can't say it in a card.",
+      "alreadyloved_angle": "This piece is written in the imagined voice of the child — turning the Father's Day moment from the parent toward the child, and back. The gift a child most wants to give their dad isn't something they bought. It's the thing they already know: that he is the safe place. That when he comes through the door, the room gets better. A child who is already loved carries their dad everywhere, even when they can't say his name yet.",
+      "quality_gate": {
+        "reveals_not_instructs": true,
+        "names_inner_experience": true,
+        "preserves_belonging": true,
+        "reduces_pressure": true,
+        "tired_mom_test": "She'd read it twice and send it to her sister"
+      },
+      "seo_notes": "Father's Day amplification window — 9 days out. Strong IG/social share piece. Child-voice narrative is distinctive and memorable. Drives emotional resonance + gift consideration without direct sell. Works well as short-form video hook."
+    }
+  ]
+}
