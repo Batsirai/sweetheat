@@ -1,0 +1,111 @@
+{
+  "run_date": "2026-06-18",
+  "brand": "AlreadyLoved",
+  "context": "June 18, 2026 (Thursday) — Father's Day was June 15 (past). Juneteenth June 19 (TOMORROW — urgent). Summer week 3-4 for most US families. July 4th in 16 days. Baptism season ongoing through September. Pivot completely away from Father's Day. Summer identity and belonging content window.",
+  "seeds": [
+    {
+      "title": "What to Do When Your Child Says 'I'm Bored' (The Answer Might Surprise You)",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "what to do when child is bored",
+        "child says im bored summer",
+        "summer boredom kids activities",
+        "how to handle bored kids summer",
+        "child boredom development",
+        "kids bored at home summer"
+      ],
+      "hook": "She said it fourteen times by noon. I said it back to her — 'I'm bored too.' That's when things got interesting.",
+      "alreadyloved_angle": "Boredom is not a problem to solve — it's the gap where self-discovery lives. When we rush to entertain our children, we communicate: you are not enough without stimulation. The child who can sit with boredom and find their own way through it is learning that they are a person with inner resources. That's an identity truth. The parent who doesn't fix every empty moment is giving a gift the child can't unwrap until they're older.",
+      "seo_notes": "One of the most searched summer parenting queries. High seasonal traffic June-August. AlreadyLoved angle is distinctly counter-cultural: boredom is developmental, not a parenting failure. Will perform on Pinterest all summer."
+    },
+    {
+      "title": "What Is Secure Attachment? A Plain-English Explanation for Parents",
+      "purpose": "aeo_citation",
+      "content_pillar": "belonging",
+      "format": ["blog"],
+      "target_keywords": [
+        "what is secure attachment",
+        "secure attachment definition parenting",
+        "how to raise securely attached child",
+        "secure vs insecure attachment children",
+        "secure attachment examples parenting",
+        "attachment theory for parents explained"
+      ],
+      "hook": "Every parenting article mentions it. Secure attachment. But what does it actually mean — and how do you know if your child has it?",
+      "alreadyloved_angle": "Secure attachment means the child has built an internal working model that says: my needs will be met, I am worth showing up for, the world is basically safe. That model gets built through thousands of small ordinary interactions in the first years of life — not big moments. Not grand gestures. The ordinary ones. AlreadyLoved is built on exactly this: identity forms in the repeated, consistent message that a child is already loved. Before they do anything impressive.",
+      "seo_notes": "Extremely high AI citation potential — clear, specific question with a direct answer. Featured snippet territory. Foundation concept for all AlreadyLoved content. Evergreen, high-volume search that parents come to with genuine questions."
+    },
+    {
+      "title": "What Freedom Has to Do With Belonging: A Juneteenth Note for Parents",
+      "purpose": "seasonal",
+      "season": "juneteenth_2026",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "juneteenth for kids",
+        "teaching kids about juneteenth",
+        "juneteenth meaning for children",
+        "how to talk to kids about juneteenth",
+        "juneteenth family activities",
+        "juneteenth parenting"
+      ],
+      "hook": "June 19, 1865. The war was over. The proclamation was two and a half years old. But the people didn't know. They had been free, on paper — and didn't know it yet.",
+      "alreadyloved_angle": "Juneteenth names the gap between being free and knowing you're free. AlreadyLoved was built for a different version of that same gap: children can be safe and loved and still carry messages, absorbed from the world around them, that their worth is conditional. That they have to earn their place. That love is a reward. The mission is to close that gap — to let children know, before the world teaches them otherwise, that they are already loved. Juneteenth is a profound entry point into that conversation.",
+      "urgency": "Juneteenth is TOMORROW June 19. Write and publish today if possible.",
+      "seo_notes": "Juneteenth searches spike June 18-19. AlreadyLoved angle is genuine and non-performative — connects freedom to identity and belonging in a way that serves the brand's core message. High shareable potential for Instagram and Twitter."
+    },
+    {
+      "title": "The Day I Stopped Trying to Make My Child Happy (And What Changed)",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "raising happy children parenting",
+        "stop trying to make kids happy",
+        "child happiness vs wellbeing",
+        "happiness vs security children",
+        "emotional regulation parenting",
+        "raising emotionally healthy children"
+      ],
+      "hook": "She was crying and I was fixing — suggesting, redirecting, offering snacks. I realized I had been so focused on managing her feelings that I missed the feeling underneath the feeling. The one that was trying to tell me something.",
+      "alreadyloved_angle": "The parent who makes their child's happiness their job accidentally communicates: your negative feelings are a problem I need to solve. The parent who stays with the feeling communicates something different: you are worth sitting with. Even the hard versions of you. That second message is identity. Happiness is a byproduct of security, not something we produce on demand. When we stop pursuing their happiness and start pursuing their security, something relaxes — in them, and in us.",
+      "seo_notes": "Counter-intuitive brand-building piece. High emotional resonance for parents feeling pressure to give kids a perfect childhood. Strong Pinterest save rate. Positions AlreadyLoved philosophy as the upstream answer to childhood anxiety."
+    },
+    {
+      "title": "How to Talk to Your Kids About Hard Things in the News Without Scaring Them",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to talk to kids about scary news",
+        "talking to children about hard things in the news",
+        "how to explain current events to kids",
+        "protecting children from news anxiety",
+        "age appropriate news for kids",
+        "how to discuss world events with children"
+      ],
+      "hook": "She overheard something at dinner. Didn't say anything. An hour later, at bedtime, she said: 'Is the world going to be okay?' I put the book down.",
+      "alreadyloved_angle": "Children don't need perfect explanations. They need regulated parents. When a parent stays present, honest in an age-appropriate way, and emotionally steady — they communicate: the world can hold hard things, and so can you. You are safe with me even in the uncertainty. That's not toxic positivity. That's the specific message of belonging that carries a child through the hard things rather than shielding them from reality.",
+      "seo_notes": "Evergreen with perennial search spikes during news events. High save rate on Pinterest — parents bookmark these for 'when I need it.' Strong SEO competition but AlreadyLoved angle is genuinely distinct from 'age-appropriate talking points' listicles."
+    },
+    {
+      "title": "Toddler Tantrums: What the Research Actually Says (It's Not What You Think)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "toddler tantrums science",
+        "what causes toddler tantrums",
+        "how to handle toddler tantrums gently",
+        "toddler meltdown research",
+        "why toddlers have tantrums brain",
+        "toddler tantrum not manipulation"
+      ],
+      "hook": "The tantrum wasn't about the crackers. It was never about the crackers.",
+      "alreadyloved_angle": "A tantrum is a nervous system event, not a power play. The toddler is not trying to manipulate you — they're drowning and communicating it the only way they currently can. Co-regulation (your calm nervous system helping regulate theirs) is what the brain needs in that moment, not consequence. This reframe removes the adversarial dynamic that damages connection. The child having the biggest tantrum is the child who trusts you most to hold the storm — which is, itself, a form of secure attachment.",
+      "seo_notes": "One of the highest-volume toddler search topics. The 'not manipulation' angle is counter-intuitive enough to earn shares. Strong foundation for AlreadyLoved's brand positioning. Evergreen, very high commercial connection to personalized books as identity-building gifts."
+    }
+  ]
+}
