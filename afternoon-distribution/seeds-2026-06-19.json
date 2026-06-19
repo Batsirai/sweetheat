@@ -1,0 +1,76 @@
+{
+  "run_date": "2026-06-19",
+  "agent": "afternoon_distribution",
+  "brand": "AlreadyLoved",
+  "context": "June 19, 2026 (Friday) — Father's Day is THIS SUNDAY June 21 = 2 days. June 21 is also the Summer Solstice / First Day of Summer — rare double holiday (next overlap 2037). Social share window for Father's Day = TODAY and Saturday. Convex API inaccessible (403 Forbidden). Two Father's Day articles still unpublished since June 6. Morning Factory has not run since June 6 (13 days). New trends: Authoritative 2.0 (post-gentle-parenting), sharenting pullback, summer anxiety in kids, cultural identity through family story.",
+  "seeds": [
+    {
+      "title": "The Longest Day",
+      "purpose": "brand_building",
+      "content_pillar": "belonging",
+      "format": ["caption_ig", "pin", "blog_short"],
+      "target_keywords": [
+        "Father's Day summer solstice 2026",
+        "first day of summer Father's Day",
+        "Father's Day longest day of year",
+        "summer solstice family",
+        "what to do on Father's Day 2026"
+      ],
+      "hook": "This year, Father's Day is the longest day of the year. The summer solstice. The most light. The most hours. It only lines up this way every decade or so — the next time is 2037. Which means your children won't remember the last time it happened. But they might remember this one.",
+      "alreadyloved_angle": "Every Father's Day piece this weekend will tell you to make a memory, plan a trip, get the gift card. Nobody is pausing on what it means that June 21, 2026 is simultaneously the longest day of the year and the day we're asked to notice the fathers in our lives. The solstice is a natural threshold — the sun at its fullest. And a father at bedtime is what happens when the day is finally, fully done. There's a piece here about light: the child who grows up knowing her father is home when the day is over carries something in her the whole summer long. The longest day ends the same way every other day ends — in his voice, on her stairs, saying goodnight. That's not a small thing. That's the whole thing.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "EMERGENCY — publish TODAY (Friday June 19) or Saturday morning. Father's Day is Sunday. Social sharing peaks Friday night and Saturday. This is a once-per-decade content moment. A short-form post or Instagram caption can go out in hours.",
+      "format_note": "This does not need to be a full article. A 400-word blog post or a single long-form Instagram caption would be enough. The summer solstice angle is the hook — give it 3 paragraphs and publish it.",
+      "trend_source": "Summer Solstice 2026 = June 21 (confirmed: almanac.com, earthsky.org, starwalk.space). Father's Day 2026 = June 21 (confirmed). Double holiday overlap — next in 2037 (confirmed by Parade, Farmers' Almanac)."
+    },
+    {
+      "title": "She Has a Story. It Doesn't Belong to You.",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig"],
+      "target_keywords": [
+        "sharenting children's privacy",
+        "posting kids on social media",
+        "should I post my child's hard moments",
+        "children's privacy online",
+        "parenting social media sharing",
+        "protecting children's stories"
+      ],
+      "hook": "Before you post it — her meltdown at Target, the thing she said that was so funny, the hard day she had — there's one question worth sitting with. Not 'will people relate to this?' They will. Not 'is this too much?' Maybe not. The question is: whose story is this?",
+      "alreadyloved_angle": "The sharenting pullback of 2026 is real. Parents are increasingly pausing before posting their children's hardest moments, with a growing cultural recognition that what we share about our children's lives shapes not just their privacy but their sense of who they are and who gets to tell it. Every other piece on this trend is writing from the parent's lens — the guilt of oversharing, the nostalgia, the engagement metrics. AlreadyLoved writes from the child's lens: she is already becoming a person with a story. That story includes the meltdown, the fear, the embarrassing thing. How her mother holds those moments — privately, tenderly, as something that belongs to her — is part of what teaches her that her inner life has value, that she is not content for anyone else's narrative, that she belongs to herself. 'She has a story. It doesn't belong to you.' That's not a rule. That's identity formation.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week — sharenting trend is active now, not breaking. Publish any time in the next 2 weeks.",
+      "trend_source": "Macaroni KID Parenting Trends 2026 (viral across multiple regional editions): parents are 'hitting pause before posting their kids' hardest moments — a broader movement toward protecting children's privacy and mental health.' Viral Parenting Humor: A 2026 Snapshot (humor-quirks.news-articles.net): shift toward authenticity but with growing awareness of child privacy."
+    },
+    {
+      "title": "What She's Learning to Call Herself This Summer",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin", "caption_ig"],
+      "target_keywords": [
+        "how children develop identity summer",
+        "unstructured summer time identity",
+        "what does summer teach children",
+        "child self-discovery summer",
+        "summer and child development",
+        "raising confident children summer activities"
+      ],
+      "hook": "There's a version of summer where she is very, very busy. And a version where she isn't. And the second version — the one with the long, unscheduled afternoons, the boredom, the nothing-to-do — might be the one she looks back on as the one that made her.",
+      "alreadyloved_angle": "Every parenting trend in 2026 is pointing toward the same upstream truth from different directions: screen-free summer (identity over algorithm), summer anxiety in anxious kids (structured children fear the open afternoon), boredom-as-creativity (emergence of self through unstructured time). What nobody is writing is: summer is a laboratory for the self. Not because of what you plan for her, but because of what she discovers when you don't. The child who has space in summer to be bored, to try things, to quit them, to try other things — she is learning what she likes, what she's like, who she is becoming. That's not a parenting technique. That's grace. AlreadyLoved angle: give her a summer with some empty hours in it. Not because boredom is good. Because she's in there. And she needs space to find herself.",
+      "source": "agent_research",
+      "pitchedBy": "agent",
+      "urgency": "this_week — peak summer boredom conversation. Publish next week before week 4 of summer begins.",
+      "trend_source": "Macaroni KID Parenting Trends 2026: 'boredom is no longer feared — it's embraced as a catalyst for creativity, self-discovery, and independent thinking.' Psychology Today: 'anxious kids often struggle in summer because too much unstructured time activates anxiety in children who rely on structure for safety.' Pinterest 2026 Parenting Trend Report: offline, experience-rich parenting at peak."
+    }
+  ],
+  "convex_commands": {
+    "note": "Replace YOUR_BRAND_ID with AlreadyLoved brand _id from Convex dashboard (https://dashboard.convex.dev/d/loyal-hamster-102)",
+    "create_seed_1_EMERGENCY": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"The Longest Day\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"belonging\", \"formats\": [\"caption_ig\", \"pin\", \"blog_short\"], \"hook\": \"This year, Father's Day is the longest day of the year. The summer solstice. The most light. The most hours. It only lines up this way every decade or so — the next time is 2037.\", \"notes\": \"EMERGENCY: publish today June 19 or Saturday morning. Father's Day = Summer Solstice 2026 = June 21. Double holiday, next overlap 2037. 400-word post or single IG caption is enough.\"}'",
+    "create_seed_2": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"She Has a Story. It Doesn't Belong to You.\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"brand_building\", \"contentPillar\": \"identity\", \"formats\": [\"blog\", \"caption_ig\"], \"hook\": \"Before you post it — whose story is this?\", \"notes\": \"Sharenting pullback trend 2026. Identity-first angle: her story belongs to her. Publish any time in the next 2 weeks.\"}'",
+    "create_seed_3": "npx convex run seeds:create '{\"brandId\": \"YOUR_BRAND_ID\", \"title\": \"What She's Learning to Call Herself This Summer\", \"source\": \"agent_research\", \"pitchedBy\": \"agent\", \"purpose\": \"organic_seo\", \"contentPillar\": \"identity\", \"formats\": [\"blog\", \"pin\", \"caption_ig\"], \"hook\": \"The long, unscheduled afternoon might be the one she looks back on as the one that made her.\", \"notes\": \"Synthesis of screen-free summer + summer anxiety + boredom-as-creativity. Identity formation through unstructured time. Peak timing week 3-4 of summer.\"}'",
+    "list_seeds": "npx convex run seeds:list '{\"brandId\": \"YOUR_BRAND_ID\"}'",
+    "list_dream100": "npx convex run dream100:list '{\"brandId\": \"YOUR_BRAND_ID\"}'"
+  }
+}
