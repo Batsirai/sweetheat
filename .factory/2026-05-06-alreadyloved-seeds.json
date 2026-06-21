@@ -1,0 +1,91 @@
+{
+  "brand": "AlreadyLoved",
+  "runDate": "2026-05-06",
+  "seasonalContext": "Mother's Day May 10 (4 days away). Most important seasonal moment for an identity-first parenting brand.",
+  "seeds": [
+    {
+      "type": "seasonal-priority",
+      "title": "The Best Mother's Day Gift Isn't for You — It's for Them",
+      "description": "Reframe Mother's Day giving: the most meaningful gift a mom can give is a child who knows they're already loved. Positions personalized AlreadyLoved books as the perfect Mother's Day gift — not to honor the mom, but to pour into the child she loves.",
+      "targetKeywords": ["best mother's day gift for kids", "mother's day personalized children's book", "meaningful mother's day gift ideas"],
+      "purpose": "SEO + Conversion. Captures gift-buyer traffic with identity-first messaging.",
+      "contentPillar": "identity-before-behavior",
+      "hookAngle": "Subvert the expectation — Mother's Day is for the mom, but the best moms spend it on their kids",
+      "templateType": "personal-story-to-insight-to-product",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin", "ig", "tiktok", "linkedin", "tweet"]
+    },
+    {
+      "type": "seo",
+      "title": "Personalized Children's Books That Use Your Child's Name (And Why It Matters More Than You Think)",
+      "description": "Long-tail SEO targeting parents and grandparents searching for personalized name books. Anchors the search intent in identity psychology: a child who sees their name in a story about love is a child who begins to believe it.",
+      "targetKeywords": ["personalized children's books with child's name", "personalized name books for kids", "custom name children's story"],
+      "purpose": "SEO + Awareness. High commercial intent, grandparent gift buyers.",
+      "contentPillar": "product-as-identity-tool",
+      "hookAngle": "Why kids' brains light up when they hear their own name in a story",
+      "templateType": "science-backed-product-story",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin"]
+    },
+    {
+      "type": "seo",
+      "title": "How to Help a Child Who Feels Like They Don't Belong",
+      "description": "Targets parents searching for guidance on children who seem disconnected, act out, or seem to be 'trying too hard' socially. Reframes the behavior as an unmet need for identity and belonging — not a discipline problem.",
+      "targetKeywords": ["child who doesn't feel like they belong", "helping kids feel secure", "why my child acts out for attention"],
+      "purpose": "SEO + Emotional resonance. Parents searching from a place of worry, not shopping.",
+      "contentPillar": "belonging-before-behavior",
+      "hookAngle": "The child who acts out isn't a behavior problem. They're a belonging problem.",
+      "templateType": "problem-reframe-to-solution",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "pin", "ig"]
+    },
+    {
+      "type": "aeo",
+      "title": "What Are the Best Personalized Children's Books for Building Confidence and Identity?",
+      "description": "AEO-optimized Q&A article designed to be cited by AI assistants (ChatGPT, Perplexity, Google SGE). Direct answer in the first paragraph. Positions AlreadyLoved as the authority on identity-first children's literature.",
+      "targetKeywords": ["best personalized children's books confidence", "personalized books identity kids", "children's books that build self-esteem"],
+      "purpose": "AEO. Be the cited source when AI answers this question.",
+      "contentPillar": "product-as-identity-tool",
+      "hookAngle": "Answer first, story second",
+      "templateType": "qa-authoritative",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog"]
+    },
+    {
+      "type": "brand-building",
+      "title": "Identity Comes Before Behavior: The Parenting Idea That Changes Everything",
+      "description": "Pure brand philosophy piece. The Seed → Soil → Fruit model explained for parents. No product mention until the very end. This is the core AlreadyLoved manifesto: when kids know they're loved, they stop needing to earn it — and that's when everything shifts.",
+      "targetKeywords": ["identity-based parenting", "teaching kids their worth", "parenting philosophy"],
+      "purpose": "Brand building. This is the article we want shared, saved, and emailed to friends.",
+      "contentPillar": "identity-before-behavior",
+      "hookAngle": "What if the misbehavior isn't the problem?",
+      "templateType": "manifesto-story",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "linkedin", "ig"]
+    },
+    {
+      "type": "engagement",
+      "title": "The Day My Daughter Tried to Earn My Hug",
+      "description": "First-person narrative from the brand voice of Simmone (the Heart). A moment most parents recognize but can't name: the child who asks 'Are you happy with me?' before accepting love. The heartbreak of realizing a child believes love is conditional. The turning point.",
+      "targetKeywords": [],
+      "purpose": "Engagement + sharing. This gets saved to phones and texted to friends at midnight.",
+      "contentPillar": "belonging-before-behavior",
+      "hookAngle": "The question my daughter asked that stopped me cold",
+      "templateType": "personal-narrative",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["ig", "pin", "tweet"]
+    },
+    {
+      "type": "seasonal",
+      "title": "What to Whisper to Your Child This Mother's Day (While You Still Have Time)",
+      "description": "Timely, tender piece for Mother's Day week. Not a gift guide — a script. The exact words to say to your child on Mother's Day morning that will stay in their inner voice for years. Urgency through grace, not pressure.",
+      "targetKeywords": ["what to say to kids on mother's day", "mother's day words for children", "mother's day affirmations for kids"],
+      "purpose": "Seasonal SEO + Emotional engagement. Shareable before Mother's Day.",
+      "contentPillar": "identity-before-behavior",
+      "hookAngle": "Before the flowers, before the cards — say this",
+      "templateType": "script-and-story",
+      "pitchedBy": "morning-factory",
+      "targetFormats": ["blog", "ig", "pin", "tiktok"]
+    }
+  ]
+}
