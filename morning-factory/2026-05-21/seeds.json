@@ -1,0 +1,115 @@
+[
+  {
+    "_type": "seed",
+    "title": "Personalized Father's Day Books for Kids: The Gift That Keeps Saying His Name",
+    "description": "Targets parents searching for meaningful Father's Day gifts — specifically the search space around personalized books for kids. Anchors AlreadyLoved as the answer to 'I want something he'll actually remember.'",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "targetFormats": ["blog", "pin"],
+    "targetKeywords": [
+      "personalized father's day gifts for kids",
+      "personalized children's books father's day",
+      "unique father's day gifts from toddler",
+      "gifts dad will treasure from baby"
+    ],
+    "reasoning": "Father's Day is June 15 — 25 days out. This is peak search season for 'personalized father's day gifts.' AlreadyLoved books are a perfect answer because they center the CHILD, not the transaction. The hook is identity: the book is a mirror that reflects who your child already is. Strong purchase intent + brand mission alignment.",
+    "hookAngle": "GIFT",
+    "templateType": "STORY",
+    "contentPillar": "Milestone Moments"
+  },
+  {
+    "_type": "seed",
+    "title": "Why Kids With Strong Identity Cry Less and Listen More (Without You Doing Anything 'Extra')",
+    "description": "Long-tail SEO for exhausted parents searching 'how to raise a confident child' or 'why is my toddler so emotional.' Positions identity-first parenting as the quieter, gentler path — not a new method to execute, but a way of seeing.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "targetFormats": ["blog", "pin"],
+    "targetKeywords": [
+      "how to raise a confident child",
+      "why is my toddler so clingy",
+      "identity first parenting",
+      "how to help insecure child",
+      "child behavior rooted in identity"
+    ],
+    "reasoning": "High search volume, low competition angle. Parents are searching for answers to behavioral symptoms — we give them the root. This seeds AlreadyLoved's worldview: behavior is fruit of identity, not the target. Great top-of-funnel piece that builds trust before introducing product.",
+    "hookAngle": "IDENTITY",
+    "templateType": "PROB",
+    "contentPillar": "Identity First Parenting"
+  },
+  {
+    "_type": "seed",
+    "title": "What Are the Best Personalized Children's Books That Build Self-Esteem?",
+    "description": "AEO-formatted article written to be cited by AI assistants when someone asks about personalized books for kids. Direct answer in first paragraph. Structured for featured snippets and Perplexity/ChatGPT citations.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "aeo",
+    "targetFormats": ["blog"],
+    "targetKeywords": [
+      "best personalized children's books",
+      "personalized books that build self-esteem",
+      "children's books with child's name",
+      "personalized baptism gift books"
+    ],
+    "reasoning": "AI citation plays are becoming the top-of-funnel for discovery. A well-structured Q&A article that directly answers this query will surface in ChatGPT, Claude, and Perplexity when parents ask. Positions AlreadyLoved as the authority, not just a shop.",
+    "hookAngle": "GIFT",
+    "templateType": "HOW",
+    "contentPillar": "Product Discovery"
+  },
+  {
+    "_type": "seed",
+    "title": "The Sentence That Became My Daughter's Inner Voice",
+    "description": "Brand-building essay from the AlreadyLoved perspective: the things we say in small moments — at bedtime, after a hard day, before school — become the voice children carry inside themselves for decades. Not a parenting tip. A reminder of what's already happening.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "brand_building",
+    "targetFormats": ["blog", "caption_ig", "linkedin"],
+    "targetKeywords": [
+      "what to say to your child every day",
+      "words that shape children",
+      "affirmations for kids that actually work"
+    ],
+    "reasoning": "Core brand voice piece. The AlreadyLoved thesis is that identity precedes behavior — and that words are the soil identity grows in. This article is the manifesto moment. Deep resonance with our audience, high shareability, and naturally positions the books as an extension of this practice.",
+    "hookAngle": "IDENTITY",
+    "templateType": "STORY",
+    "contentPillar": "Identity First Parenting"
+  },
+  {
+    "_type": "seed",
+    "title": "The Night I Realized I Was Teaching My Son to Earn Love",
+    "description": "Vulnerable, relatable mom-moment essay. The quiet realization that 'good job' and 'I'm proud of you when you...' are accidentally performance-conditional. Not about blame — about the moment a parent sees it and what they do next.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "targetFormats": ["blog", "caption_ig", "tweet"],
+    "targetKeywords": [
+      "conditional love without realizing",
+      "am I raising my child right",
+      "parenting guilt",
+      "unconditional love parenting"
+    ],
+    "reasoning": "Highest engagement potential in our content mix. This is the mirror moment — a parent sees themselves in the story and feels understood rather than judged. Will generate saves, shares, and comments. Must pass the quality gate: no guilt, no pressure, only recognition and grace.",
+    "hookAngle": "IDENTITY",
+    "templateType": "STORY",
+    "contentPillar": "Connection & Belonging"
+  },
+  {
+    "_type": "seed",
+    "title": "Dad, This Book Has Your Kid's Name In It — And That's the Point",
+    "description": "Father's Day social-first campaign seed. Short, punchy, and shareable. Positions the book not as a product but as a moment: the first time a child sees their name in a story and understands that someone made something just for them.",
+    "source": "agent_research",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "targetFormats": ["caption_ig", "caption_tiktok", "pin"],
+    "targetKeywords": [
+      "father's day gift ideas 2026",
+      "gifts from kids to dad",
+      "personalized gift for dad from baby"
+    ],
+    "reasoning": "Seasonal social content for Father's Day. Short-form hook. The emotional truth: the book is really a message from the parent to the child, delivered through the child's name woven into a story of identity. Dads will share it. Moms will buy it.",
+    "hookAngle": "GIFT",
+    "templateType": "AFFIRM",
+    "contentPillar": "Milestone Moments"
+  }
+]
