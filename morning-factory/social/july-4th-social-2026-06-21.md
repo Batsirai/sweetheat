@@ -209,3 +209,14 @@ That's the inheritance worth passing on.
 Happy Fourth of July 🎆
 
 New essay: What July 4th Is Actually Saying to Your Child [link]
+
+---
+
+## QUALITY GATE (Social Copy)
+
+- Reveals rather than instructs? ✅ (shows what's happening in children, doesn't prescribe a parenting method)
+- Names an inner experience? ✅ ("she was receiving them," "before she can name it")
+- Preserves belonging? ✅ (the whole piece is about this)
+- Reduces pressure? ✅ (IG: "you don't need a speech," tweet 4: just one sentence)
+- Tired mom at 10pm test? ✅ (IG is personal, relatable, not a lecture — she will share it)
+- Free of AI language? ✅ (no delve/crucial/robust/comprehensive/landscape/leverage)

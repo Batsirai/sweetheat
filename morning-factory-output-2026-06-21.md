@@ -52,7 +52,7 @@ No duplicates with prior runs confirmed (checked against May 28 – June 6 run h
 **Keywords:** July 4th with kids, talking to kids about independence day, july 4 meaning for kids, what to tell kids about july 4th
 **Hook:** "The fireworks are beautiful. But there's something under them — under all of it — that's worth saying out loud to your child. Something about belonging that the flags can't quite hold."
 **Urgency:** ⚠️ July 4th = 13 days. Publish by June 28 for search indexing. Article written today — ready to publish.
-**Reasoning:** Non-political angle (belonging, not civics) makes it universally shareable. AlreadyLoved reframe: a child can't feel the national belonging until she has the smaller, personal belonging first. Identity precedes participation. Distinct from anything in prior runs.
+**Reasoning:** Non-political angle (belonging, not civics) makes it universally shareable. AlreadyLoved reframe: a child can't feel the national belonging until she has the smaller, personal belonging first. Identity precedes participation. The child who knows she is already loved can reach toward every other kind of belonging. Distinct from anything in prior runs.
 
 ---
 
@@ -62,7 +62,7 @@ No duplicates with prior runs confirmed (checked against May 28 – June 6 run h
 **Content Pillar:** belonging
 **Keywords:** am i a good mom, parenting anxiety, parenting wins invisible, gentle parenting am i doing it right, mom guilt summer
 **Hook:** "There's no app for this. No metric. No progress report. But somewhere in the ordinary Tuesday of your parenting life, things are being built in your child that will outlast every grade, every trophy, every summer camp."
-**Reasoning:** Peak resonance in summer when parents have more unstructured time with their kids and more self-doubt. Anti-guilt content always performs well with the AlreadyLoved audience. The child doesn't score the invisible things — they absorb them. The mom reading this at 10pm will recognize herself.
+**Reasoning:** Peak resonance in summer when parents have more unstructured time with their kids and more self-doubt. Anti-guilt content always performs well with the AlreadyLoved audience. The child doesn't score the invisible things — they absorb them. The mom reading this at 10pm will recognize herself. Very high share rate.
 
 ---
 
@@ -72,7 +72,7 @@ No duplicates with prior runs confirmed (checked against May 28 – June 6 run h
 **Content Pillar:** belonging
 **Keywords:** baptism gift for godchild, what to give godchild at baptism, meaningful baptism gifts, personalized baptism gift ideas
 **Hook:** "You've been named. Which means something about this particular child is now in your keeping. The gift at the font should say that. Not 'I came.' Something more like: 'I'll be paying attention.'"
-**Reasoning:** Baptism season June-September. Godparents are high-intent gifters who want something personal. Different angle from May 29 and May 30 runs — this is specifically purchase-intent content for the godparent at the moment of ceremony. Strong commercial alignment.
+**Reasoning:** Baptism season June-September. Godparents are high-intent gifters who want something personal. Different from May 29 baptism article (guests) and May 30 godparent article (general) — this is specifically purchase-intent content for the godparent at the moment of ceremony. Strong commercial alignment. Good for Pinterest and Google Shopping intent.
 
 ---
 
@@ -82,7 +82,7 @@ No duplicates with prior runs confirmed (checked against May 28 – June 6 run h
 **Content Pillar:** belonging
 **Keywords:** child wont say sorry, toddler refuses to apologize, child wont apologize what to do, how to teach kids to say sorry
 **Hook:** "I've watched parents ask their child to say sorry for a full eight minutes. The child goes rigid. Nobody wins. What I noticed: the standoff wasn't about manners. It was about something else entirely."
-**Reasoning:** High-volume evergreen parenting frustration. AlreadyLoved counter-intuitive reframe: children who won't apologize are usually not defiant — they're ashamed. Shame shuts children down because the apology feels like it confirms they are fundamentally wrong, which puts their belonging at risk. Secure children can apologize more freely.
+**Reasoning:** High-volume evergreen parenting frustration. AlreadyLoved counter-intuitive reframe: children who won't apologize are usually not defiant — they're ashamed. Shame (feeling bad vs. feeling like you did something bad) shuts children down because apologizing feels like it confirms they are fundamentally wrong. Secure children can apologize more freely because their belonging isn't at risk. This reframe will drive shares among parents who have been stuck in this loop.
 
 ---
 
@@ -123,18 +123,18 @@ No duplicates with prior runs confirmed (checked against May 28 – June 6 run h
 5. **Phrase List** — "3 Things to Say to Your Child Under the Fireworks Tonight"
 
 ### Instagram Caption
-~380 words. Opens with "She was four the first year she really paid attention to fireworks." Personal, real, no prescriptions. Ends with "Tell her: she belongs here." Full hashtag set included.
+~380 words. Opens with "She was four the first year she really paid attention to fireworks." Personal, real, no prescriptions. Ends with "Tell her: she belongs here." Link in bio CTA. Full hashtag set included.
 
 ### TikTok Caption
 Short, punchy. 7 hashtags. Ends with the July 4th emoji.
 
 ### LinkedIn Post
-~300 words. Professional framing connecting attachment theory to civic identity. Cites the Seed → Soil → Fruit model.
+~300 words. Professional framing connecting attachment theory to civic identity. Cites the Seed → Soil → Fruit model. Audience: parents, early childhood professionals, thought leaders, school counselors.
 
 ### Tweet Thread (5 tweets)
 Hook → what children feel → the smaller belonging first → what to say → the inheritance. Each under 280 chars.
 
-**Quality gate (social):** All formats pass.
+**Quality gate (social):** All formats pass — reveals, names, preserves, reduces pressure, human language throughout.
 
 ---
 
@@ -142,17 +142,22 @@ Hook → what children feel → the smaller belonging first → what to say → 
 
 Attempted. Blocked by outbound network policy (hooks.slack.com not in allowlist) — consistent since April.
 
-**Manual Slack message to post:**
+**Manual Slack message to post (or copy-paste into #content channel):**
 
 > **Morning Factory Report — June 21, 2026**
 >
 > Father's Day TODAY — the 6-article series is complete and out the door.
 >
-> Seeds pitched: 7 | Articles written: 1 | Social posts drafted: 8 (5 pins, IG, TikTok, LinkedIn, tweet thread)
+> Seeds pitched: 7
+> Articles written: 1
+> Social posts drafted: 8 (5 pins, IG, TikTok, LinkedIn, tweet thread)
 >
 > **Today's seeds:** Summer boredom SEO | Secure attachment AEO | The Summer You Let It Be Enough (brand) | ⚠️ July 4th article (13 days, written today — ready to publish) | The Things You're Getting Right (engagement) | Baptism godchild gifts SEO | Child won't apologize SEO
 >
-> **Article:** "What July 4th Is Actually Saying to Your Child" (~1,400 words) — publish by June 28
+> **Article written:** "What July 4th Is Actually Saying to Your Child" (~1,400 words)
+> **Publish deadline:** June 28 for July 4th indexing
+> **Social:** 5 Pinterest pins, IG, TikTok, LinkedIn, tweet thread
+> **Files:** morning-factory/seeds/, articles/, social/
 >
 > ⚠️ Convex 403 from cloud — manual push needed. Commands in seeds-2026-06-21.json.
 >
