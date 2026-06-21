@@ -1,0 +1,80 @@
+[
+  {
+    "id": "seed-01",
+    "title": "Personalized children's books for baptism — gifts that name who they are",
+    "description": "Parents searching for meaningful baptism gifts want something that lasts beyond the day. This post targets the long-tail 'personalized baptism gifts for kids' and positions AlreadyLoved books as identity-anchors, not just keepsakes.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "identity",
+    "targetKeywords": ["personalized baptism gifts", "personalized children's books baptism", "baptism gift for baby", "christian personalized books for kids"],
+    "targetFormats": ["blog", "pinterest", "instagram"],
+    "reasoning": "High commercial intent. 'Personalized baptism gifts' is a perennial search with gift-season spikes. Connects AlreadyLoved's product directly to a life milestone that is literally about naming identity."
+  },
+  {
+    "id": "seed-02",
+    "title": "What do you say to a child who thinks they're not good enough?",
+    "description": "An AEO-format answer for parents who are in the hard moment — their kid just said 'I'm stupid' or 'nobody likes me.' Direct, warm, practical. Designed to be cited by AI search.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "aeo",
+    "contentPillar": "connection",
+    "targetKeywords": ["what to say when your child says they're not good enough", "child low self esteem what to say", "how to respond when your kid feels like a failure"],
+    "reasoning": "This is a high-distress search parents do in a hard moment. A clear, warm first paragraph positions for featured snippets and AI citations. Emotional entry point that converts to AlreadyLoved's core message."
+  },
+  {
+    "id": "seed-03",
+    "title": "Bedtime affirmations for toddlers that actually land",
+    "description": "Not a list of rote phrases but a reframe: what kids hear at night becomes their inner voice. Short, warm, specific affirmations paired with the WHY behind each one.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "belonging",
+    "targetKeywords": ["bedtime affirmations for toddlers", "positive affirmations for kids at night", "what to say to kids before bed", "toddler bedtime routine affirmations"],
+    "reasoning": "Consistently high search volume from parents building routines. Connects naturally to AlreadyLoved's 'what you say today becomes their inner voice tomorrow' core soundbite."
+  },
+  {
+    "id": "seed-04",
+    "title": "Identity-first parenting: why belonging can't be something they earn",
+    "description": "The brand-building piece. A longer essay explaining the AlreadyLoved model — Seed (identity) → Soil (connection) → Fruit (behavior) — in plain language a tired mom at 10pm can follow.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "brand",
+    "contentPillar": "identity",
+    "targetKeywords": ["identity first parenting", "unconditional love parenting", "belonging before behavior", "parenting philosophy"],
+    "reasoning": "Core brand differentiation. Teaches the framework without selling. Builds authority and search presence around AlreadyLoved's distinctive worldview."
+  },
+  {
+    "id": "seed-05",
+    "title": "The morning I realized my daughter thought she had to earn my love",
+    "description": "First-person narrative seed. A mom's moment of recognition — the small thing her daughter did that revealed a gap. Shareable, emotional, real. Voice: Simmone.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "engagement",
+    "contentPillar": "connection",
+    "targetKeywords": ["earning love parenting", "unconditional love children", "mom confession parenting"],
+    "reasoning": "High shareability. The 'moment of recognition' format travels on Pinterest and Instagram. Mirrors the inner experience parents don't admit out loud. Ends with a soft pivot to what AlreadyLoved does."
+  },
+  {
+    "id": "seed-06",
+    "title": "A Father's Day gift that tells your child who they already are",
+    "description": "Seasonal seed for Father's Day (June 21). Positions a personalized AlreadyLoved book as a gift from dad to child — an object that carries a father's words into the child's inner life.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "seasonal",
+    "contentPillar": "identity",
+    "targetKeywords": ["fathers day gift from dad to child", "meaningful father's day gifts kids", "personalized book dad gift for child", "father's day 2026 gift ideas"],
+    "reasoning": "Father's Day is 5 weeks out (June 21, 2026). Gift-search volume climbs starting now. This angle — dad giving the book to the child, not receiving it — is counter-intuitive and memorable."
+  },
+  {
+    "id": "seed-07",
+    "title": "Why your child acts out before school — and what they actually need",
+    "description": "End-of-school-year anxiety in children, framed not as a behavior problem but as a belonging question. Practical for moms in the thick of it right now.",
+    "source": "morning-factory",
+    "pitchedBy": "agent",
+    "purpose": "seo",
+    "contentPillar": "belonging",
+    "targetKeywords": ["child acting out before school", "end of school year anxiety kids", "why kids act out", "school transitions child behavior"],
+    "reasoning": "Highly timely — school year ends in late May/June. Parents are searching this right now. Reframes behavior as belonging need, which is the AlreadyLoved core frame."
+  }
+]
