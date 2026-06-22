@@ -1,0 +1,143 @@
+{
+  "run_date": "2026-06-22",
+  "brand": "AlreadyLoved",
+  "context": "June 22, 2026 (Monday) — First Monday of official summer. Father's Day has passed (June 15). 4th of July in 12 days. Back-to-school season ~7 weeks out (Pinterest searches start now). Baptism season active through September. Pending articles from June 6 seeds still unwritten — prioritizing 'Why Does My Child Lie?' today (16 days overdue). Infrastructure note: Convex 403/Slack blocked from cloud environment — content saved locally.",
+  "deduplication_check": [
+    "Why Does My Child Lie? (June 6) — article being written today from this seed",
+    "Discipline vs. Punishment (June 6)",
+    "What I Want My Kids to Know When I'm Gone (June 6)",
+    "The Bedtime Dad (June 6)",
+    "The Parenting Win Nobody Talks About (June 6)",
+    "What to Say When Your Child Feels Left Out (June 6)",
+    "How to Raise a Kind Child (June 6)",
+    "The Bored Child (June 11)",
+    "The Summer Wasn't Pinterest-Perfect (June 11)",
+    "What You're Telling Your Child When You Track Them at Camp (June 9)",
+    "He Doesn't Need to Be the Fun Dad (June 17)",
+    "What's Keeping Her Off the Screen (June 17)"
+  ],
+  "seeds": [
+    {
+      "title": "What to Say to Your Child the Night Before School Starts",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin", "caption_ig"],
+      "target_keywords": [
+        "what to say before first day of school",
+        "night before school starts what to tell your child",
+        "back to school anxiety kids",
+        "first day of school nerves",
+        "what to tell your child about school",
+        "how to prepare child for first day of school"
+      ],
+      "hook": "It's the night before. She's already been to bed twice. You've checked the backpack. You've found the shoes. You're standing in the doorway of her room and she's looking at you and you know she's waiting for something — and you're not sure what. What do you say?",
+      "alreadyloved_angle": "The night before school is one of the highest-stakes identity moments of the year. Children are going to walk into a room full of social evaluation — grades, friendships, comparison — and they will need something underneath all of it. What you say tonight becomes the voice they hear in the hallway tomorrow. Not 'you'll do great' — that's performance expectation. Not 'just be yourself' — that's too abstract. Something truer: you already have a place. Not just at school, but here. In this house. With us. Before any of it.",
+      "timing_note": "Back-to-school is 7-8 weeks out. Pinterest searches begin 8-10 weeks before school. This seed should yield an article within the next 2 weeks to capture early-mover search traffic.",
+      "seo_notes": "Highly specific, low-competition search phrase. Strong emotional hook. Pure AlreadyLoved territory — identity-first, pre-performance. High Pinterest save potential (parents revisit this annually). Article should include specific language parents can say verbatim."
+    },
+    {
+      "title": "What Do Children Need Most From Their Parents? (Hint: It's Not What We Think)",
+      "purpose": "aeo_citation",
+      "content_pillar": "belonging",
+      "format": ["blog"],
+      "target_keywords": [
+        "what do children need most from parents",
+        "what kids need most from mom and dad",
+        "what do children need emotionally",
+        "what is most important for child development",
+        "what children need to thrive",
+        "most important thing parents can give children"
+      ],
+      "hook": "If you asked a room full of parents this question, you'd hear: time, attention, consistency, good values, education. And all of those are real. But there's a thing that lives underneath all of them — the thing that makes all of them possible — and it's rarely named.",
+      "alreadyloved_angle": "The answer the research keeps arriving at is belonging. Unconditional belonging — the child's deep, body-level knowing that they have a place in their family regardless of performance, mood, achievement, or failure. Not love that is communicated when they are good. Love that is simply there. This is not a soft answer. It is structural. Children who have this baseline security are more empathetic, more resilient, more willing to try hard things and fail at them, more honest, more kind. Belonging is the root system. Everything else grows from it.",
+      "seo_notes": "Classic AI-citation question — will appear in voice search and featured snippets. Strong direct answer in first paragraph. Cite Bowlby/Ainsworth attachment theory and Brené Brown's belonging research. High evergreen value. Pure AlreadyLoved philosophy in a searchable Q&A structure."
+    },
+    {
+      "title": "She Came Home From Camp Different. Here's Why I Wasn't Worried.",
+      "purpose": "engagement",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "target_keywords": [
+        "child different after summer camp",
+        "kids changed after camp",
+        "summer camp growth",
+        "child growth over summer",
+        "my child is different after camp",
+        "what summer camp does to kids"
+      ],
+      "hook": "She came back quieter. Not sad — quieter. Like someone who had been thinking a lot and hadn't finished yet. I watched her at dinner and something about the way she held herself was different, and I had this feeling: she found something at camp. Something that was already hers. She just hadn't met it yet.",
+      "alreadyloved_angle": "We send children to camp and hope they'll have fun. But what often happens is more interesting: away from the structure of their usual identity, away from the role they play in their family and friend group, children sometimes find a self that was waiting. The quieter kid discovers she's actually funny. The shy boy finds out he's brave in water. The child who was always the youngest at home is just — a kid. This is not a change. It's a revelation. And it happens most easily to children who already have a secure enough sense of themselves that they can let the rest shift.",
+      "seo_notes": "High summer engagement value — parents are sending kids to camp now or just got them back. Emotionally resonant. Shareable. Good Pinterest and IG save potential. AlreadyLoved angle is gentle and counter-intuitive: the change is not a loss, it's an emergence."
+    },
+    {
+      "title": "What the 4th of July Teaches Our Kids (Without Us Saying a Word)",
+      "purpose": "seasonal",
+      "season": "fourth_of_july_2026",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "target_keywords": [
+        "4th of july with kids",
+        "july 4th family traditions",
+        "teaching kids about july 4th",
+        "4th of july meaning for kids",
+        "patriotism kids family",
+        "july 4th activities meaningful"
+      ],
+      "hook": "Every year. The same blanket. The same hill. The same part where her dad burns the burgers and pretends it didn't happen. Her kids have been doing this since before they could walk — wedged in from youngest to oldest, waiting for the same fireworks, saying the same things about which ones are best. She has never given a speech about belonging. But her kids know they belong somewhere. They've had it proven to them, year after year, in the same July dark.",
+      "alreadyloved_angle": "Family rituals are not just fun. They are evidence. They say: this family has a story, and you are in it. Traditions communicate, in a language children absorb before they have words for it: your place here is not conditional. It doesn't depend on your mood or your behavior or whether you were good this week. The same blanket on the same hill for the same reason every year. This is what belonging looks like when it's not a speech. It's a ritual repeated so many times it stops feeling like something you choose and starts feeling like something you are.",
+      "timing_note": "4th of July is 12 days out. Publish window: June 25-30 for maximum SEO and social impact. Social deployment: July 1-3 for engagement peak.",
+      "seo_notes": "Article written today — see morning-factory/articles/july-4th-identity-2026-06-22.md. Ready to publish by June 25."
+    },
+    {
+      "title": "Why Your Child Acts Out When They're With You (But Behaves for Everyone Else)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin", "caption_ig"],
+      "target_keywords": [
+        "child acts out at home but good at school",
+        "child behaves for everyone else but me",
+        "why does my child misbehave with me",
+        "child good at school difficult at home",
+        "why kids act out with parents",
+        "child saves meltdowns for mom"
+      ],
+      "hook": "The teacher tells you he's a joy. The grandparents say he's an angel. And then he walks in your door and within six minutes there are tears and someone's shoe is missing and you don't even know what happened. You're standing in your own kitchen wondering: what am I doing wrong?",
+      "alreadyloved_angle": "You're not doing anything wrong. You might be doing the most right thing. Children save their hardest feelings for the safest person in their lives — the one who, in their body-level knowing, will not leave. The meltdowns you absorb are not signs of failure. They are signs that your child trusts you with the full weight of what they carry. The teacher gets the performance. You get the person. That's not a problem. That's belonging.",
+      "seo_notes": "One of the most emotionally charged parenting questions. Reliably high search volume. Parents feel personal guilt about this pattern. AlreadyLoved reframe is both counter-intuitive and immediately relieving — high share potential. Tire mom at 10pm reads this and exhales for the first time all day."
+    },
+    {
+      "title": "How to Help a Shy Child Build Confidence (Without Pushing Them)",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to help a shy child",
+        "shy child confidence",
+        "building confidence in introverted child",
+        "shy child social anxiety",
+        "how to encourage shy child to speak up",
+        "shy kid tips"
+      ],
+      "hook": "She always stayed close to her mom's leg at parties. The other kids ran off and she just — watched. Not sadly. Carefully. Like she was taking notes. And everyone had a comment: she just needs to come out of her shell. But what if the shell wasn't the problem?",
+      "alreadyloved_angle": "Shyness is often treated as a flaw to be fixed. But many shy children are not deficient in confidence — they are precise about trust. They are waiting to know if a place is safe before they enter it. The child who hangs back at the birthday party is not broken. She is calibrating. The goal isn't to push her into the center of the room. It's to give her a self so solid that she can choose when to enter. Confidence doesn't come from social success — it comes from knowing you have a place even if you don't perform. Identity-rooted children are actually more likely to venture out. Because they have something to come back to.",
+      "seo_notes": "Consistently high search volume, especially in summer (camps, family gatherings, social situations). AlreadyLoved angle is distinctive from typical advice. Good Pinterest save potential — parents save this for later. Avoids the 'push them harder' advice that most content gives."
+    },
+    {
+      "title": "She Didn't Have to Be Anything to Get a Seat at This Table",
+      "purpose": "brand_building",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "unconditional love parenting",
+        "raising secure children",
+        "secure attachment meaning",
+        "belonging family identity",
+        "family dinner belonging",
+        "identity-first parenting"
+      ],
+      "hook": "Some families have a chair at the table that is just yours. Even when you grow up and come back for holidays and that chair is technically too small now, you still sit in it. Not because anyone told you to. Because that chair is yours. It has always been yours. Nobody voted on it. Nobody earned it. It's just — the shape of where you go.",
+      "alreadyloved_angle": "The family dinner table is the clearest picture of what belonging should feel like. Not earned. Not performed. Just — there. A seat that was waiting before you were good at anything. The child who grows up with that seat in their body — who knows it at a level below words — carries it everywhere. Into the lunch table at school, into the job interview, into the hard year in their twenties when they don't know yet who they are. That seat stays. Nobody took it while you were gone. It was always yours.",
+      "seo_notes": "Brand defining. High shareable. Less about SEO, more about building the AlreadyLoved identity in organic social. Excellent for newsletter open hooks and brand story content. Sets up the personalized book CTA naturally: give them a story with their name in it before the world assigns them one."
+    }
+  ]
+}
