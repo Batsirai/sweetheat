@@ -308,3 +308,5 @@ Just one true thing about who your child is.
 What you say today becomes their inner voice tomorrow.
 
 They'll be okay. Because you told them who they are before the world got the chance.
+
+→ [link to full article]
