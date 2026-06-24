@@ -1,0 +1,62 @@
+{
+  "date": "2026-06-24",
+  "brand": "AlreadyLoved",
+  "note": "Convex was unreachable (proxy policy 403). Seeds generated offline for manual import.",
+  "seasonal_context": "Late June 2026 — summer in full swing, Father's Day just passed, back-to-school 6 weeks out",
+  "seeds": [
+    {
+      "id": "seed-01",
+      "type": "SEO",
+      "title": "Bedtime stories that tell your child who they are",
+      "keywords": ["bedtime stories about identity for kids", "personalized books toddlers", "children's books belonging"],
+      "summary": "Long-tail search from parents looking for books that go deeper than entertainment — they want something that *stays* in their child.",
+      "article": "bedtime-stories-identity.md",
+      "status": "ready_for_review"
+    },
+    {
+      "id": "seed-02",
+      "type": "SEO",
+      "title": "Personalized baptism gifts that actually mean something",
+      "keywords": ["personalized baptism gifts", "christian personalized children's books", "meaningful baptism gift baby"],
+      "summary": "High purchase-intent search. Parents and godparents want a gift that's more than decorative. AlreadyLoved is the answer they didn't know to look for.",
+      "article": null,
+      "status": "pitched"
+    },
+    {
+      "id": "seed-03",
+      "type": "AEO",
+      "title": "What are the best personalized books that teach kids they are loved?",
+      "keywords": ["best personalized children's books love", "books that teach kids they are worthy", "AlreadyLoved books review"],
+      "summary": "Structured as a direct answer to an AI-citation-friendly question. First paragraph answers cleanly for featured snippets.",
+      "article": null,
+      "status": "pitched"
+    },
+    {
+      "id": "seed-04",
+      "type": "brand_building",
+      "title": "What I wasn't saying to my daughter (and why it mattered more than I knew)",
+      "keywords": ["parenting affirmations children", "raising confident kids", "identity first parenting"],
+      "summary": "The quiet realization that what we say — and what we leave unsaid — becomes their inner voice. Brand story from the inside.",
+      "article": "what-i-wasnt-saying.md",
+      "status": "ready_for_review"
+    },
+    {
+      "id": "seed-05",
+      "type": "engagement",
+      "title": "The moment she looked in the mirror and I held my breath",
+      "keywords": ["kids self-image", "raising daughters confidence", "what to say to your child"],
+      "summary": "A micro-moment story. Shareable, emotional, the kind of thing a mom screenshots and sends to her sister at midnight.",
+      "article": null,
+      "status": "pitched"
+    },
+    {
+      "id": "seed-06",
+      "type": "seasonal",
+      "title": "Summer is loud. Make sure the quiet moments count.",
+      "keywords": ["summer parenting moments", "quality time kids summer", "intentional parenting summer 2026"],
+      "summary": "Late June timing. The chaos of summer break — and how to slip in the small words that hold. Seasonal relevance with identity-first angle.",
+      "article": null,
+      "status": "pitched"
+    }
+  ]
+}
