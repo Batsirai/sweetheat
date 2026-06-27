@@ -1,0 +1,128 @@
+{
+  "run_date": "2026-06-27",
+  "brand": "AlreadyLoved",
+  "context": "June 27, 2026 (Friday) — July 4th is 7 days away (safe publish window open NOW). Summer week 5-6 for US families — the restless phase. Back-to-school content runway starts. Father's Day passed June 21. Baptism season ongoing through September. Infrastructure note: Convex API and Slack webhook both blocked by outbound network policy (persistent). All content saved locally.",
+  "seeds": [
+    {
+      "title": "What Freedom Actually Means When You're Five",
+      "purpose": "seasonal",
+      "season": "july_4_2026",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "pin", "tweet"],
+      "target_keywords": [
+        "raising free kids",
+        "what to tell kids about freedom",
+        "july 4 with kids",
+        "independence day meaning for children",
+        "raising confident children",
+        "what freedom means parenting"
+      ],
+      "hook": "She asked me why we celebrate freedom. I started the regular explanation — history, the Declaration, all of it. And then I stopped. Because the way she said it, face tipped up in the dark waiting for the sparklers, made me realize: she already understood something about freedom that I was about to talk right over.",
+      "alreadyloved_angle": "For a child, freedom isn't political. It's existential. A child is free when they can be exactly who they are and still be yours. The research on secure attachment says it plainly: children with a secure base explore more freely. Freedom and belonging aren't opposites — freedom grows OUT of belonging. The child who doesn't feel securely loved doesn't freely explore. They perform, monitor, manage. The most powerful gift of July 4th isn't the fireworks. It's a parent who says, without condition: you are already free with me.",
+      "urgency": "JULY 4 = 7 DAYS. Safe publish now. Article written today — schedule to publish July 1-2.",
+      "seo_notes": "July 4 content with long-term evergreen value. Unique angle — no other AlreadyLoved piece on freedom/independence. Will rank for 'what to tell kids about July 4' and 'raising free kids' year-round."
+    },
+    {
+      "title": "How to Stop Yelling at Your Kids (Without Spending the Next Week Feeling Terrible About It)",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "how to stop yelling at your kids",
+        "mom yelling at kids guilt",
+        "yelling at kids effects",
+        "how to be a calmer parent",
+        "stop yelling parenting tips",
+        "I yelled at my kids"
+      ],
+      "hook": "I yelled. Not a gentle raise-my-voice yell. The kind that came out of somewhere I didn't know was that full. And then I watched her face change. And I thought: this is the part nobody talks about. Not the yelling. What happens after.",
+      "alreadyloved_angle": "The reason the guilt after yelling is so heavy is because we sense it communicates something we don't mean: that our love has limits, that our children's safety is connected to our mood. The repair is what matters — not the performance of regret, but the actual reconnection. 'I got too loud. That's on me. You didn't cause that. I love you. Let's start again.' The child doesn't need a perfect parent. They need a parent who comes back.",
+      "seo_notes": "One of the most-searched guilt-ridden parenting queries. Very high Pinterest save rate. AlreadyLoved angle focuses on repair rather than prevention — this is the reframe that makes it shareable. High evergreen, zero seasonal dependency."
+    },
+    {
+      "title": "What Is Secure Attachment? (And Whether You Have to Have Had It to Give It)",
+      "purpose": "aeo_citation",
+      "content_pillar": "belonging",
+      "format": ["blog"],
+      "target_keywords": [
+        "what is secure attachment",
+        "secure attachment parenting",
+        "how to build secure attachment",
+        "attachment styles children",
+        "can I raise securely attached child if I wasn't",
+        "secure attachment signs in children"
+      ],
+      "hook": "The research is pretty clear: the single biggest predictor of a child's long-term emotional health isn't their IQ, their genetics, their school, or their parents' income. It's whether they feel securely attached to at least one person. Which raises a quieter question: what if I wasn't?",
+      "alreadyloved_angle": "Secure attachment is not a childhood you have to have received to give. It is a pattern you can build — imperfectly, with ruptures and repairs — starting right now. The four markers of a securely attached child: they seek comfort from you when distressed. They believe you'll return. They explore freely because they trust the return address. And when things go wrong, they know the relationship survives it. You don't have to have had this growing up. You can start the chain.",
+      "seo_notes": "AEO territory — direct question, clear answer, AI-citation likely. Growing search volume. AlreadyLoved can own this keyword with the angle of 'can I give what I didn't have' — emotionally powerful and highly specific to the brand's mission."
+    },
+    {
+      "title": "Week Five of Summer. This Is the Hard Part Nobody Warned You About.",
+      "purpose": "engagement",
+      "content_pillar": "belonging",
+      "format": ["blog", "caption_ig", "tweet"],
+      "target_keywords": [
+        "summer with kids hard",
+        "mid-summer parenting",
+        "kids bored summer",
+        "surviving summer with kids",
+        "summer parenting exhaustion",
+        "kids home all summer"
+      ],
+      "hook": "The first two weeks of summer have a certain grace. Everyone is relieved. Then week three arrives and the novelty wears off and they're fighting over nothing and you've run out of patience and good ideas and it's only the second week of July. Welcome to the part nobody warned you about.",
+      "alreadyloved_angle": "The restlessness of week five isn't a problem to fix. It's a sign that they feel safe enough to not perform. Kids who feel they must stay delightful for your love stay delightful even when they're exhausted. Kids who feel secure let it all fall apart in front of you — because they know you're still there. The bored, bickering, over-it kids of week five? They're not failing summer. They're resting. In the deepest kind of safety there is.",
+      "seo_notes": "Real-time engagement bait — this is exactly how parents feel right now. Highly relatable, shareable, saves well. Validate rather than fix. Good summer evergreen piece."
+    },
+    {
+      "title": "What Your Child's Fear of the Dark Is Actually Telling You",
+      "purpose": "organic_seo",
+      "content_pillar": "belonging",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "child scared of the dark",
+        "toddler afraid of dark",
+        "fear of dark children",
+        "how to help child who is scared of dark",
+        "nighttime fears toddler",
+        "my child won't sleep alone"
+      ],
+      "hook": "She was six and absolutely certain there was something in the closet. We'd checked three times. I stood there with the light on thinking: she doesn't actually believe a monster is here. What she believes is that she is alone with it. That's the whole thing.",
+      "alreadyloved_angle": "Nighttime fear in children is almost always about one thing: the distance from you. The dark itself is just the container for the real fear — separation. What your child is checking, every time they call out, is: are you still there? Will you come? Am I alone? This isn't a sleep problem to solve with blackout curtains. It's a belonging check. And the most powerful thing you can say — the thing that works better than a nightlight — is 'I am here. You are not alone with anything.'",
+      "seo_notes": "High-volume parenting search. SEO value high because the AlreadyLoved angle is distinct — reframe from fear-management to belonging-reassurance. Evergreen year-round, strong summer relevance (sleep disruption common in summer)."
+    },
+    {
+      "title": "Personalized Gifts for Baptism: What to Give That Still Means Something in 20 Years",
+      "purpose": "organic_seo",
+      "content_pillar": "identity",
+      "format": ["blog", "pin"],
+      "target_keywords": [
+        "personalized baptism gifts",
+        "baptism gift ideas christening",
+        "meaningful baptism gifts baby",
+        "best baptism gift for boy girl",
+        "unique christening gifts",
+        "gift for godchild baptism"
+      ],
+      "hook": "You want to give something that matters. Not something that will sit in a box or end up in a donation pile by the time they're twelve. But most baptism gift lists feel like they were written by someone who has never been to a baptism — or met an actual baby.",
+      "alreadyloved_angle": "A baptism is a declaration: this child is known. Named. Belonging to something larger than themselves. The best baptism gifts carry that same declaration into the physical world — the name, the date, the story that starts before they can speak. AlreadyLoved personalized books do exactly this: they put the child's name into a story that tells them who they are before the world has a chance to tell them otherwise.",
+      "seo_notes": "High commercial intent, strong Pinterest performance, ongoing baptism season through September. SEO value high. Direct alignment with AlreadyLoved product (personalized children's books). Soft CTA natural."
+    },
+    {
+      "title": "Before Summer Ends: The One Conversation That Will Last Longer Than Any Trip",
+      "purpose": "brand_building",
+      "content_pillar": "identity",
+      "format": ["blog", "caption_ig", "pin"],
+      "target_keywords": [
+        "end of summer with kids",
+        "summer memories kids",
+        "intentional parenting summer",
+        "back to school conversation",
+        "raising kids intentionally",
+        "what to say to kids before school starts"
+      ],
+      "hook": "We are about five weeks from the first day of school. That's five weeks of easy access — dinner tables, long car rides, slow mornings before the world gets loud again. There's one conversation I want to have before it ends. It's not about grades or goals. It's the one that goes under all of that.",
+      "alreadyloved_angle": "The conversation is simple. It doesn't need a special moment. You can have it in the car on the way back from the pool. It goes like this: 'Whatever happens this school year — whatever you get right and whatever you don't, whoever likes you and whoever doesn't, whether it's easy or hard — none of that changes this. You come home to me. You are loved before the grade.' That's it. Say that enough times and it goes down deep. It becomes the voice they hear when the year gets hard.",
+      "seo_notes": "Back-to-school runway opening now. Brand-defining piece — encapsulates the entire AlreadyLoved philosophy in a single article. High save rate. Good Pinterest longevity. Links naturally to personalized books as 'start of school' gift."
+    }
+  ]
+}
